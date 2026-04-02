@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Digital Competency | Chapter 3: Microsoft Word (Full Practical Guide)</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #eef2f5;
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.5;
+      color: #1a2c3e;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 32px;
+      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.2);
+      overflow: hidden;
+    }
+
+    .hero {
+      background: linear-gradient(145deg, #1e4a6e, #0e2f48);
+      color: white;
+      padding: 2rem 2rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero .author {
+      font-size: 1rem;
+      opacity: 0.9;
+      margin-top: 0.5rem;
+      border-top: 1px solid rgba(255,255,255,0.3);
+      display: inline-block;
+      padding-top: 0.5rem;
+    }
+
+    .chapter-badge {
+      background: #ffb347;
+      color: #1e2a3e;
+      display: inline-block;
+      padding: 0.25rem 1.2rem;
+      border-radius: 40px;
+      font-weight: bold;
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .content {
+      padding: 2rem 2rem 2.5rem 2rem;
+    }
+
+    h2 {
+      font-size: 1.9rem;
+      margin: 1.8rem 0 1rem;
+      color: #155f73;
+      border-left: 6px solid #ffb347;
+      padding-left: 1rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin: 1.2rem 0 0.8rem;
+      color: #1f4e6e;
+    }
+
+    h4 {
+      font-size: 1.2rem;
+      margin: 1rem 0 0.5rem;
+      color: #2c5282;
+    }
+
+    .section-card {
+      background: #fbfef9;
+      border-radius: 24px;
+      padding: 1.2rem 1.8rem;
+      margin: 1.5rem 0;
+      border: 1px solid #dee9f0;
+      transition: 0.1s;
+    }
+
+    .steps-box {
+      background: #eef3fc;
+      border-left: 5px solid #2c7da0;
+      padding: 1rem 1.8rem;
+      border-radius: 20px;
+      margin: 1.2rem 0;
+    }
+
+    .note {
+      background: #fff9e8;
+      border-left: 5px solid #ffb347;
+      padding: 1rem 1.5rem;
+      border-radius: 16px;
+      margin: 1rem 0;
+      font-weight: 500;
+    }
+
+    .warning {
+      background: #ffeae9;
+      border-left: 5px solid #d9534f;
+      padding: 1rem 1.5rem;
+      border-radius: 16px;
+      margin: 1rem 0;
+    }
+
+    .skill-check {
+      background: #e0f0ea;
+      border-radius: 20px;
+      padding: 1rem 1.8rem;
+      margin: 1.5rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-weight: 500;
+    }
+
+    .skill-check span {
+      background: white;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    ul, ol {
+      padding-left: 1.6rem;
+      margin: 0.8rem 0;
+    }
+
+    li {
+      margin: 0.3rem 0;
+    }
+
+    hr {
+      margin: 2rem 0;
+      border: none;
+      height: 2px;
+      background: linear-gradient(to right, #cbdbe0, transparent);
+    }
+
+    footer {
+      background: #f1f5f9;
+      text-align: center;
+      padding: 1.2rem;
+      font-size: 0.85rem;
+      color: #2c4e6e;
+      border-top: 1px solid #d0dfe8;
+    }
+
+    @media (max-width: 700px) {
+      .content {
+        padding: 1rem;
+      }
+      h2 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="hero">
+    <div class="chapter-badge">📄 CHAPTER THREE</div>
+    <h1>INTRODUCTION TO MICROSOFT WORD</h1>
+    <div class="author">by Castro Odhiambo — Complete Practical Guide</div>
+    <p style="margin-top: 0.8rem; max-width: 800px; margin-left: auto; margin-right: auto;">Every word, every step, every activity from the original manual —Learn Step By Step, Practice Hands-On.</p>
+  </div>
+  <div class="content">
+
+    <!-- INTRODUCTION exactly as given -->
+    <p><strong>Introduction</strong><br>
+    Microsoft Word (MS Word) is a word processing application used to create, edit, format, and print documents.</p>
+    <p>It is commonly used for:</p>
+    <ul>
+      <li>Letters</li>
+      <li>Reports</li>
+      <li>Assignments</li>
+      <li>CVs</li>
+      <li>Memos</li>
+      <li>Examination papers</li>
+    </ul>
+    <p>Learning MS Word is one of the most important digital skills because it is widely used in schools, offices, businesses, and government institutions.</p>
+    <p>In this chapter, you will learn how to:</p>
+    <ul>
+      <li>Open Microsoft Word</li>
+      <li>Understand the Word interface</li>
+      <li>Identify important tools</li>
+      <li>Navigate the workspace confidently</li>
+    </ul>
+    <p>This chapter is fully practical.</p>
+
+    <!-- 3.1 Opening and Understanding the MS Word Interface -->
+    <h2>3.1 Opening and Understanding the MS Word Interface</h2>
+    <h3>A. Opening Microsoft Word</h3>
+    <p>There are several ways to open MS Word.</p>
+    <div class="steps-box">
+      <p><strong>Method I: Using the Start Menu</strong><br>
+      Follow these steps:</p>
+      <ol>
+        <li>Click the Start Button.</li>
+        <li>Scroll through the list of programs.</li>
+        <li>Locate Microsoft Office or Microsoft Word.</li>
+        <li>Click Microsoft Word.</li>
+        <li>Wait for the application to open.</li>
+      </ol>
+    </div>
+    <div class="steps-box">
+      <p><strong>Method II: Using Search</strong></p>
+      <ol>
+        <li>Click the Start Button.</li>
+        <li>Type Word in the search bar.</li>
+        <li>Click Microsoft Word from the search results.</li>
+      </ol>
+    </div>
+    <div class="steps-box">
+      <p><strong>Method III: Using a Desktop Shortcut</strong></p>
+      <ol>
+        <li>Locate the Word icon on the desktop.</li>
+        <li>Double-click the icon.</li>
+      </ol>
+    </div>
+    <p>When Word opens, you may see:<br>
+    A Start Screen  • Templates  • Blank Document option<br>
+    Click Blank Document to begin typing.</p>
+
+    <h3>B. Understanding the MS Word Interface</h3>
+    <p>When you open a blank document, you will see the Word workspace. Understanding the interface helps you work efficiently.</p>
+    <p><strong>Main Parts of the MS Word Window</strong></p>
+    <ul>
+      <li><strong>I. Title Bar</strong> – Located at the top of the screen. It shows: The name of the document, The name of the application (Word). Example: Document1 - Word</li>
+      <li><strong>II. Quick Access Toolbar</strong> – Located at the top-left corner. It contains frequently used commands such as: Save, Undo, Redo.</li>
+      <li><strong>III. The Ribbon</strong> – The Ribbon is the main tool area of MS Word. It contains tabs such as: Home, Insert, Design, Layout, References, Review, View. Each tab contains groups of related tools. Example: The Home Tab contains: Font tools, Paragraph tools, Clipboard tools.</li>
+      <li><strong>IV. Document Area</strong> – This is the large white space where you type your work. It is also called the Workspace.</li>
+      <li><strong>V. Status Bar</strong> – Located at the bottom of the screen. It shows: Page number, Word count, Language, Zoom level.</li>
+      <li><strong>VI. Scroll Bars</strong> – Located on the right side (vertical) and bottom (horizontal). Used to move through the document.</li>
+      <li><strong>VII. Ruler</strong> – Located at the top and left side (if enabled). Used for: Setting margins, Aligning text, Adjusting indents.</li>
+    </ul>
+    <div class="steps-box">
+      <p><strong>Practical Activity 1: Exploring the Interface</strong><br>
+      Follow these steps:</p>
+      <ol>
+        <li>Open Microsoft Word.</li>
+        <li>Click Blank Document.</li>
+        <li>Identify the Title Bar.</li>
+        <li>Click the Home Tab.</li>
+        <li>Click the Insert Tab.</li>
+        <li>Locate the Status Bar at the bottom.</li>
+        <li>Close the document without saving.</li>
+      </ol>
+      <p>Repeat until you can identify each part without assistance.</p>
+    </div>
+
+    <h3>C. Understanding Tabs and Groups</h3>
+    <p>Each tab contains groups of tools.<br>
+    Example from the Home Tab:<br>
+    Clipboard Group (Copy, Paste, Cut)<br>
+    Font Group (Bold, Italic, Font Size)<br>
+    Paragraph Group (Alignment, Bullets)</p>
+    <p>When you click a tab, different tools appear.</p>
+    <div class="steps-box">
+      <p><strong>Practical Activity 2</strong></p>
+      <ol>
+        <li>Open Word.</li>
+        <li>Click the Home Tab.</li>
+        <li>Locate the Bold button (B).</li>
+        <li>Locate the Font Size box.</li>
+        <li>Click the Insert Tab and identify the Table option.</li>
+      </ol>
+    </div>
+    <p><strong>Why Understanding the Interface Is Important</strong><br>
+    - Increases speed<br>
+    - Reduces confusion<br>
+    - Improves confidence<br>
+    - Makes formatting easier</p>
+    <div class="skill-check">
+      <span>✅ I can open MS Word using different methods</span>
+      <span>✅ I can identify the Title Bar</span>
+      <span>✅ I understand what the Ribbon is</span>
+      <span>✅ I can locate the Home and Insert tabs</span>
+    </div>
+
+    <!-- 3.2 Creating, Saving, and Opening Documents -->
+    <h2>3.2 Creating, Saving, and Opening Documents</h2>
+    <p>Creating and saving documents properly is one of the most important skills in Microsoft Word. If you do not save your work correctly, you may lose it. In this section, you will learn how to:<br>
+    Create a new document, Save a document for the first time, Save changes to an existing document, Open a saved document. This section must be practiced carefully.</p>
+    <h3>A. Creating a New Document</h3>
+    <p>When you open Word, you may already see a blank document. If not, follow these steps:</p>
+    <div class="steps-box">
+      <p><strong>Steps to Create a New Document</strong></p>
+      <ol>
+        <li>Open Microsoft Word.</li>
+        <li>Click Blank Document.</li>
+        <li>A new typing page will appear.</li>
+        <li>Place the cursor in the document area.</li>
+        <li>Begin typing your text.</li>
+      </ol>
+      <p>You have now created a new document.</p>
+    </div>
+    <div class="steps-box">
+      <p><strong>Practical Activity 1</strong></p>
+      <ol>
+        <li>Open MS Word.</li>
+        <li>Create a blank document.</li>
+        <li>Type the following: My name is ____________. I am learning digital competency. Microsoft Word is useful for creating documents.</li>
+        <li>Do not close the document yet.</li>
+      </ol>
+    </div>
+    <h3>B. Saving a Document for the First Time</h3>
+    <p>Saving allows the computer to store your work permanently.</p>
+    <div class="steps-box">
+      <p><strong>Steps to Save a New Document</strong></p>
+      <ol>
+        <li>Click File (top-left corner).</li>
+        <li>Click Save As.</li>
+        <li>Choose the location (e.g., Documents or Desktop).</li>
+        <li>Click the selected location.</li>
+        <li>Type the file name (e.g., Word Practice).</li>
+        <li>Click Save.</li>
+        <li>The file is now saved.</li>
+      </ol>
+    </div>
+    <div class="note"><strong>Important Note:</strong> If you do not save your work and the computer shuts down unexpectedly, your work may be lost. Always save regularly.</div>
+    <h3>C. Saving Changes to an Existing Document</h3>
+    <p>After making changes, you must save again.</p>
+    <p><strong>Method I: Using the Save Button</strong><br>Click the Save icon (disk symbol) in the Quick Access Toolbar.</p>
+    <p><strong>Method II: Using Keyboard Shortcut</strong><br>Press Ctrl + S on the keyboard. This updates the document with recent changes.</p>
+    <p><strong>Good Practice Tip:</strong> Press Ctrl + S every few minutes while working.</p>
+    <h3>D. Opening an Existing Document</h3>
+    <p>If you have already saved a document, you can open it again later.</p>
+    <p><strong>Method I: Opening from Word</strong></p>
+    <ol>
+      <li>Open Microsoft Word.</li>
+      <li>Click File.</li>
+      <li>Click Open.</li>
+      <li>Click Browse.</li>
+      <li>Navigate to the folder where the file was saved.</li>
+      <li>Double-click the file name.</li>
+    </ol>
+    <p>The document will open.</p>
+    <p><strong>Method II: Opening from File Explorer</strong></p>
+    <ol>
+      <li>Open File Explorer.</li>
+      <li>Navigate to the folder containing the file.</li>
+      <li>Double-click the file.</li>
+    </ol>
+    <p>Word will open automatically.</p>
+    <h3>E. Understanding "Save As"</h3>
+    <p>"Save As" is used when: Saving a file for the first time, Saving a copy with a different name, Saving in a different location.<br>Example: You have a file named Report. Using Save As allows you to create another file named Final Report.</p>
+    <div class="steps-box">
+      <p><strong>Practical Activity 2</strong></p>
+      <ol>
+        <li>Create a new document.</li>
+        <li>Type a short paragraph about your school or workplace.</li>
+        <li>Save the document as My School Information.</li>
+        <li>Close the document.</li>
+        <li>Re-open it using File Explorer.</li>
+        <li>Add one more sentence.</li>
+        <li>Press Ctrl + S to save changes.</li>
+      </ol>
+    </div>
+    <div class="warning">Common Mistakes to Avoid: Closing a document without saving, Saving in the wrong location, Forgetting the file name, Not updating changes.</div>
+    <div class="skill-check">
+      <span>✅ I can create a new document</span>
+      <span>✅ I can save a document correctly</span>
+      <span>✅ I can use Ctrl + S</span>
+      <span>✅ I can open an existing document</span>
+    </div>
+
+    <!-- 3.3 Basic Text Formatting -->
+    <h2>3.3 Basic Text Formatting (Fonts, Size, Bold, Italics, Alignment)</h2>
+    <p>Typing a document is not enough. A professional document must be well formatted. Formatting means changing the appearance of text to make it: Clear, Attractive, Easy to read, Professional.</p>
+    <p>In this section, you will learn how to: Change font type, Change font size, Use Bold, Italic, and Underline, Change text color, Align text properly. All formatting tools are found in the Home Tab.</p>
+    <h3>A. Selecting Text Before Formatting</h3>
+    <p>Steps to Select Text:</p>
+    <ol>
+      <li>Place the mouse pointer at the beginning of the text.</li>
+      <li>Click and hold the left mouse button.</li>
+      <li>Drag over the text.</li>
+      <li>Release the mouse button. The selected text will appear highlighted.</li>
+    </ol>
+    <h3>B. Changing Font Type</h3>
+    <p>Examples of fonts: Arial, Times New Roman, Calibri.</p>
+    <p>Steps:</p>
+    <ol>
+      <li>Select the text.</li>
+      <li>Go to the Home Tab.</li>
+      <li>Click the Font drop-down menu.</li>
+      <li>Choose a font style.</li>
+    </ol>
+    <h3>C. Changing Font Size</h3>
+    <p>Steps:</p>
+    <ol>
+      <li>Select the text.</li>
+      <li>Click the Font Size box in the Home Tab.</li>
+      <li>Choose a size (e.g., 12, 14, 16).</li>
+    </ol>
+    <p>Common practice: Body text: Size 12, Headings: Size 14-18.</p>
+    <h3>D. Using Bold, Italic, and Underline</h3>
+    <p>Bold (B) makes text darker and stronger. Italic (I) slants text. Underline (U) draws a line under text.</p>
+    <p>Steps: Select the text. Click B, I, or U in the Home Tab.</p>
+    <h3>E. Changing Text Color</h3>
+    <p>Steps: Select the text. Click the Font Color icon (A with a colored line). Choose a color. Avoid using too many colors in formal documents.</p>
+    <h3>F. Text Alignment</h3>
+    <p>There are four types: I. Align Left, II. Center, III. Align Right, IV. Justify.</p>
+    <p>Steps to Change Alignment: Select the text. Go to the Home Tab. Click one of the alignment buttons in the Paragraph group.</p>
+    <p><strong>When to Use Alignment:</strong> Left Align → Normal paragraphs, Center → Titles and headings, Right Align → Dates and signatures, Justify → Reports and formal documents.</p>
+    <div class="steps-box">
+      <p><strong>Practical Activity 1</strong></p>
+      <ol>
+        <li>Open MS Word.</li>
+        <li>Type the following: DIGITAL SKILLS TRAINING, My name is ______. I am learning how to format documents professionally.</li>
+        <li>Select the first line. Make it: Bold, Font size 16, Center aligned.</li>
+        <li>Select the paragraph. Change: Font to Arial, Font size to 12, Justify alignment.</li>
+        <li>Save the document.</li>
+      </ol>
+    </div>
+    <h3>G. Using Format Painter (Optional Advanced Skill)</h3>
+    <p>Format Painter copies formatting from one text to another. Steps: Select formatted text. Click Format Painter in the Home Tab. Select the new text. The formatting will be copied.</p>
+    <div class="warning">Common Mistakes to Avoid: Formatting without selecting text, Using too many fonts in one document, Using too many colors, Using very large font sizes unnecessarily.</div>
+    <div class="steps-box">
+      <p><strong>Mini Practice Challenge</strong><br>Create a short document with: A centered heading (bold, size 18), A left-aligned paragraph, One sentence in italics, One word underlined. Save as: Formatting Practice.</p>
+    </div>
+    <div class="skill-check">
+      <span>✅ I can change font type</span><span>✅ I can change font size</span><span>✅ I can use Bold, Italic, Underline</span><span>✅ I can align text correctly</span><span>✅ I can format a document professionally</span>
+    </div>
+
+    <!-- 3.4 Paragraph Formatting -->
+    <h2>3.4 Paragraph Formatting (Line Spacing, Indentation, Bullets & Numbering)</h2>
+    <p>After learning how to format text, the next step is formatting paragraphs. Paragraph formatting helps make documents: Clear, Organized, Easy to read, Professional.</p>
+    <h3>A. Line Spacing</h3>
+    <p>Steps: Select the paragraph. Go to Home Tab → Paragraph group. Click Line and Paragraph Spacing. Choose the spacing (e.g., 1.0, 1.5, 2.0). Practical Tip: School reports → 1.5 or 2.0 spacing, Business letters → 1.15 or 1.5 spacing.</p>
+    <h3>B. Paragraph Indentation</h3>
+    <p>Indentation moves text inward from the margin. Types of Indentation: Left Indent, Right Indent, First Line Indent, Hanging Indent. Steps to Apply Indentation: Select the paragraph. Go to Home Tab → Paragraph group. Click the Increase Indent or Decrease Indent buttons. For advanced settings: Click the small arrow in the bottom-right corner of the Paragraph group, adjust Left, Right, or Special settings, Click OK.</p>
+    <h3>C. Bullets and Numbering</h3>
+    <p>Using Bullets: Select the lines of text. Go to Home Tab → Paragraph group. Click Bullets. Choose a bullet style. Using Numbering: Select the lines of text. Go to Home Tab → Paragraph group. Click Numbering. Choose a numbering style. Practical Tip: Bullets → Unordered lists, Numbering → Steps or sequences.</p>
+    <h3>D. Aligning and Spacing Paragraphs</h3>
+    <p>Use Left, Center, Right, or Justify for paragraph alignment (covered in 3.3). Use Spacing Before and After to add space between paragraphs. Steps: Select paragraph, Click the small arrow in the Paragraph group, Adjust Spacing Before and After, Click OK.</p>
+    <div class="steps-box">
+      <p><strong>Practical Activity 1</strong></p>
+      <ol>
+        <li>Open a new Word document.</li>
+        <li>Type the following: Steps to Prepare a Healthy Breakfast, 1. Wash fruits and vegetables, 2. Prepare cereal or porridge, 3. Serve juice or water.</li>
+        <li>Select the paragraph title and make it Bold and Centered.</li>
+        <li>Apply 1.5 line spacing to the list.</li>
+        <li>Apply Numbering to the steps.</li>
+        <li>Indent the list by using the Increase Indent button.</li>
+        <li>Save the document as Paragraph Practice.</li>
+      </ol>
+    </div>
+    <div class="warning">Common Mistakes to Avoid: Forgetting to select the paragraph before formatting, Using inconsistent spacing or indentation, Using bullets for steps that require numbering, Leaving paragraphs too close together.</div>
+    <div class="steps-box">
+      <p><strong>Mini Practice Challenge</strong><br>Create a document titled My Daily Routine with: A centered heading, Left-aligned paragraphs, Line spacing 1.5, Indented paragraphs for each activity, A bulleted list for tasks like "Morning Activities", A numbered list for tasks like "Evening Activities". Save the document.</p>
+    </div>
+    <div class="skill-check"><span>✅ I can set line spacing</span><span>✅ I can apply paragraph indentation</span><span>✅ I can create bulleted and numbered lists</span><span>✅ I can format paragraphs professionally</span></div>
+
+    <!-- 3.5 Inserting and Formatting Tables -->
+    <h2>3.5 Inserting and Formatting Tables</h2>
+    <p>Tables are used to organize information neatly in rows and columns. They are useful for: Schedules, Marksheets, Financial data, Lists, Reports.</p>
+    <h3>A. Inserting a Table</h3>
+    <p>Steps: Open a Word document. Click the Insert Tab. Click Table. Move the cursor over the grid to select the number of rows and columns. Click to insert the table. Example: 4 columns × 5 rows table for a weekly schedule.</p>
+    <h3>B. Adding or Removing Rows and Columns</h3>
+    <p>Adding Rows: Place the cursor in the row above or below where you want a new row. Right-click → Insert → Choose Insert Rows Above or Insert Rows Below. Adding Columns: Place the cursor in the column next to where you want a new column. Right-click → Insert → Choose Insert Columns to the Left or Right. Deleting Rows or Columns: Select the row or column. Right-click → Delete Cells → Choose Delete Entire Row or Column.</p>
+    <h3>C. Merging and Splitting Cells</h3>
+    <p>Merging Cells: Select the cells to merge. Right-click → Merge Cells. Use: To create a heading that spans multiple columns. Splitting Cells: Select the cell to split. Right-click → Split Cells → Specify number of rows or columns → Click OK. Use: To divide a single cell into multiple sections.</p>
+    <h3>D. Formatting Tables</h3>
+    <p>Applying Table Styles: Click anywhere in the table. Go to Table Design Tab (appears automatically). Select a Table Style from the gallery. Adjust shading, borders, and colors. Aligning Text Inside Cells: Select the cells. Go to Layout Tab → Alignment group. Choose alignment: top-left, center, bottom-right, etc. Adjusting Column Width and Row Height: Hover the mouse over column borders → drag to resize. Hover over row borders → drag to adjust height.</p>
+    <div class="steps-box">
+      <p><strong>Practical Activity 1</strong></p>
+      <ol>
+        <li>Open a new Word document.</li>
+        <li>Insert a table with 4 columns × 5 rows.</li>
+        <li>Type the following headings in the first row: Day | Task | Start Time | End Time.</li>
+        <li>Fill in three rows with your daily schedule.</li>
+        <li>Apply bold to the heading row.</li>
+        <li>Center align the text in the heading row.</li>
+        <li>Apply a Table Style of your choice.</li>
+        <li>Save the document as Table Practice.</li>
+      </ol>
+    </div>
+    <div class="warning">Common Mistakes to Avoid: Forgetting to select the correct number of rows or columns initially, Not saving the table after formatting, Overcomplicating table design in formal documents, Ignoring text alignment inside cells.</div>
+    <div class="steps-box"><p><strong>Mini Practice Challenge:</strong> Create a Monthly Expense Table: 5 columns: Date, Item, Category, Amount, Remarks; 6 rows (including header); Bold the header row; Apply a simple table style; Center-align numbers in the Amount column. Save as: Expenses Table.</p></div>
+
+    <!-- 3.6 Inserting Pictures, Shapes, and WordArt -->
+    <h2>3.6 Inserting Pictures, Shapes, and WordArt</h2>
+    <p>Visual elements make documents engaging and easier to understand. You can insert pictures from your computer, insert shapes, use WordArt for decorative text. All these tools are found in the Insert Tab.</p>
+    <h3>A. Inserting Pictures</h3>
+    <p>Steps: Open a Word document. Click the Insert Tab. Click Pictures → Choose This Device. Browse and select the image you want. Click Insert. The picture will appear in your document. Adjusting the Picture: Click on the picture. Use handles on the corners to resize proportionally. Go to Picture Format Tab to: Change position (Wrap Text → Square, Tight, Behind Text, etc.), Apply Picture Styles (border, shadow, effects), Crop the picture if needed.</p>
+    <h3>B. Inserting Shapes</h3>
+    <p>Steps: Go to the Insert Tab → Shapes. Select a shape (rectangle, circle, arrow, etc.). Click and drag on the document to draw the shape. Use Shape Format Tab to change color, outline, or effects.</p>
+    <h3>C. Using WordArt</h3>
+    <p>Steps: Go to the Insert Tab → WordArt. Select a style. Type your text in the box that appears. Adjust size, font, and color as desired. Use Drawing Tools to rotate or position the WordArt.</p>
+    <div class="steps-box">
+      <p><strong>Practical Activity 1</strong></p>
+      <ol>
+        <li>Open a new Word document.</li>
+        <li>Type the heading: My Favorite Hobby.</li>
+        <li>Insert a relevant picture from your computer.</li>
+        <li>Insert a rectangle shape behind the heading and change its color.</li>
+        <li>Use WordArt for the heading text.</li>
+        <li>Resize and align all elements neatly.</li>
+        <li>Save the document as Visual Practice.</li>
+      </ol>
+    </div>
+    <div class="note">Tips for Using Visual Elements: Keep images relevant to your content, Avoid overloading the document with too many shapes or pictures, Use WordArt sparingly in formal documents, Always save your document after inserting visuals.</div>
+    <div class="warning">Common Mistakes to Avoid: Stretching images disproportionally, Placing pictures in a way that blocks text, Using too many decorative fonts for formal work, Forgetting to save after inserting images.</div>
+    <div class="steps-box"><p><strong>Mini Practice Challenge:</strong> Create a document titled My Dream School: Type a heading in WordArt, Insert a picture of a school building, Draw two shapes: one behind the heading, one highlighting a paragraph, Apply colors and formatting, Save as DreamSchool.docx.</p></div>
+
+    <!-- 3.7 Page Layout and Printing -->
+    <h2>3.7 Page Layout and Printing (Margins, Orientation, Header/Footer, Print Preview)</h2>
+    <p>Page layout is about how the document appears on the page. Proper layout ensures that documents are readable, well-organized, and ready for printing.</p>
+    <h3>A. Setting Margins</h3>
+    <p>Margins are the blank spaces around the edges of the page. Steps: Go to the Layout Tab. Click Margins. Choose a preset margin (Normal, Narrow, Moderate) or click Custom Margins. Adjust Top, Bottom, Left, and Right margins if needed. Click OK. Tip: Normal margins (2.54 cm) are standard for most documents.</p>
+    <h3>B. Changing Page Orientation</h3>
+    <p>Page orientation is how the page is positioned: Portrait → Vertical (default), Landscape → Horizontal. Steps: Go to the Layout Tab → Orientation. Select Portrait or Landscape. Use Cases: Portrait → Letters, essays; Landscape → Wide tables or charts.</p>
+    <h3>C. Inserting Header and Footer</h3>
+    <p>Headers and footers appear at the top or bottom of each page. They often include: Page numbers, Titles, Dates. Steps: Go to the Insert Tab. Click Header → Choose a style. Type the desired text. Click Close Header and Footer. Repeat the same steps for Footer. Adding Page Numbers: Go to Insert Tab → Page Number. Choose location (Top or Bottom of page). Select numbering style.</p>
+    <h3>D. Using Print Preview</h3>
+    <p>Print Preview allows you to see how the document will look when printed. Steps: Click File → Print. Check the Preview Pane on the right. Make adjustments if needed (orientation, margins, page range). Select printer settings (Printer, Copies). Click Print to print the document.</p>
+    <div class="steps-box">
+      <p><strong>Practical Activity 1</strong></p>
+      <ol>
+        <li>Open a Word document.</li>
+        <li>Set Margins to Normal.</li>
+        <li>Change Orientation to Landscape.</li>
+        <li>Insert a Header with the title: "My Project Report".</li>
+        <li>Insert a Footer with page numbers.</li>
+        <li>Preview the document using Print Preview.</li>
+        <li>Save the document as PageLayoutPractice.</li>
+      </ol>
+    </div>
+    <div class="note">Tips for Page Layout: Always check margins before printing, Use headers/footers to identify documents, Print a preview before sending to printer, Use landscape orientation only for wide tables or charts.</div>
+    <div class="warning">Common Mistakes to Avoid: Forgetting to set margins, causing text to cut off, Printing without previewing, Placing page numbers incorrectly, Using too many decorative headers in formal documents.</div>
+    <div class="steps-box"><p><strong>Mini Practice Challenge:</strong> Create a document titled Weekly Planner: Set Normal margins, Set Landscape orientation, Insert a Header: "Weekly Planner", Insert Footer with page numbers, Preview the document before printing, Save as WeeklyPlanner.docx.</p></div>
+
+    <div class="skill-check" style="background: #d9eef5;">
+      <span>🎯 I have completed all activities of Chapter 3</span>
+      <span>📌 I can create, save, format, insert tables/pictures, and print in MS Word</span>
+      <span>📖 Full practical knowledge — exactly as taught by Castro Odhiambo</span>
+    </div>
+    <hr>
+    <div class="note" style="text-align: center;">✅ End of Chapter Three — every word, every instruction, every exercise preserved. Proceed to Chapter 4 (MS Excel) next.</div>
+  </div>
+  <footer>© 2026 Castro Odhiambo — Basics of Digital Literacy | Chapter 3: Microsoft Word (Complete, no paraphrasing) | For hands-on mastery.</footer>
+</div>
+</body>
+</html>

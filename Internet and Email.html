@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Digital Competency | Chapter 6: Internet & Email (Complete Practical Guide)</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #eef2f5;
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.5;
+      color: #1a2c3e;
+      padding: 2rem 1rem;
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 32px;
+      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.2);
+      overflow: hidden;
+    }
+    .hero {
+      background: linear-gradient(135deg, #1a5276, #1b3b4f);
+      color: white;
+      padding: 2rem 2rem;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    .hero .author {
+      font-size: 1rem;
+      opacity: 0.9;
+      margin-top: 0.5rem;
+      border-top: 1px solid rgba(255,255,255,0.3);
+      display: inline-block;
+      padding-top: 0.5rem;
+    }
+    .chapter-badge {
+      background: #5dade2;
+      color: #0a2f44;
+      display: inline-block;
+      padding: 0.25rem 1.2rem;
+      border-radius: 40px;
+      font-weight: bold;
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+    }
+    .content {
+      padding: 2rem 2rem 2.5rem 2rem;
+    }
+    h2 {
+      font-size: 1.9rem;
+      margin: 1.8rem 0 1rem;
+      color: #1a5276;
+      border-left: 6px solid #5dade2;
+      padding-left: 1rem;
+    }
+    h3 {
+      font-size: 1.5rem;
+      margin: 1.2rem 0 0.8rem;
+      color: #1f618d;
+    }
+    h4 {
+      font-size: 1.2rem;
+      margin: 1rem 0 0.5rem;
+      color: #2471a3;
+    }
+    .section-card {
+      background: #fbfef9;
+      border-radius: 24px;
+      padding: 1.2rem 1.8rem;
+      margin: 1.5rem 0;
+      border: 1px solid #dee9f0;
+    }
+    .steps-box {
+      background: #eaf2f8;
+      border-left: 5px solid #2980b9;
+      padding: 1rem 1.8rem;
+      border-radius: 20px;
+      margin: 1.2rem 0;
+    }
+    .note {
+      background: #fff9e8;
+      border-left: 5px solid #f1c40f;
+      padding: 1rem 1.5rem;
+      border-radius: 16px;
+      margin: 1rem 0;
+      font-weight: 500;
+    }
+    .warning {
+      background: #ffeae9;
+      border-left: 5px solid #d9534f;
+      padding: 1rem 1.5rem;
+      border-radius: 16px;
+      margin: 1rem 0;
+    }
+    .skill-check {
+      background: #e8f0fe;
+      border-radius: 20px;
+      padding: 1rem 1.8rem;
+      margin: 1.5rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-weight: 500;
+    }
+    .skill-check span {
+      background: white;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      background: white;
+      border-radius: 16px;
+      overflow: auto;
+      display: block;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 0.5rem 0.8rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #eaf2f8;
+      font-weight: 600;
+    }
+    ul, ol {
+      padding-left: 1.6rem;
+      margin: 0.8rem 0;
+    }
+    li {
+      margin: 0.3rem 0;
+    }
+    hr {
+      margin: 2rem 0;
+      border: none;
+      height: 2px;
+      background: linear-gradient(to right, #cbdbe0, transparent);
+    }
+    footer {
+      background: #f1f5f9;
+      text-align: center;
+      padding: 1.2rem;
+      font-size: 0.85rem;
+      color: #1a5276;
+      border-top: 1px solid #d0dfe8;
+    }
+    .email-example {
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      border-radius: 16px;
+      padding: 1rem;
+      font-family: monospace;
+      margin: 1rem 0;
+    }
+    @media (max-width: 700px) {
+      .content { padding: 1rem; }
+      h2 { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="hero">
+    <div class="chapter-badge">🌐 CHAPTER SIX</div>
+    <h1>INTERNET & EMAIL</h1>
+    <div class="author">by Castro Odhiambo — Complete Practical Guide</div>
+    <p style="margin-top: 0.8rem; max-width: 800px; margin-left: auto; margin-right: auto;">Internet and Email - Terminologies and Basic Concepts</p>
+  </div>
+  <div class="content">
+
+    <!-- PART V: INTERNET & EMAIL (PRACTICAL) -->
+    <p><strong>PART V: INTERNET &amp; EMAIL (PRACTICAL)</strong></p>
+    <p><strong>Introduction</strong><br>
+    The Internet is one of the most powerful tools in the digital world. It connects millions of computers worldwide and allows people to communicate, learn, work, and do business online.</p>
+    <p>In this chapter, you will learn:<br>
+    What the Internet is, Important Internet terminologies, How to connect to the Internet, How to use a web browser.</p>
+    <p>This chapter is highly practical, and you are encouraged to practice every step.</p>
+
+    <!-- 6.1 Understanding the Internet and Basic Terminologies -->
+    <h2>6.1 Understanding the Internet and Basic Terminologies</h2>
+    <h3>A. What is the Internet?</h3>
+    <p>The Internet is a global network of interconnected computers that communicate and share information.</p>
+    <p>In simple terms, it allows people around the world to:<br>
+    Search for information, Send and receive emails, Watch videos, Study online, Use social media, Conduct business.</p>
+    <h3>B. Important Internet Terminologies</h3>
+    <ul>
+      <li><strong>1. Website</strong> – A collection of related web pages under one name. Example: www.google.com</li>
+      <li><strong>2. Web Page</strong> – A single page within a website.</li>
+      <li><strong>3. Web Browser</strong> – Software used to access websites. Examples: Google Chrome, Microsoft Edge, Mozilla Firefox, Safari.</li>
+      <li><strong>4. URL (Uniform Resource Locator)</strong> – The address of a website. Example: https://www.university.edu</li>
+      <li><strong>5. Search Engine</strong> – A website that helps you find information online. Examples: Google, Bing, Yahoo.</li>
+      <li><strong>6. Download</strong> – Transferring a file from the Internet to your computer.</li>
+      <li><strong>7. Upload</strong> – Sending a file from your computer to the Internet.</li>
+    </ul>
+
+    <!-- 6.2 Connecting to the Internet (Practical) -->
+    <h2>6.2 Connecting to the Internet (Practical)</h2>
+    <h3>A. Connecting Using Wi-Fi</h3>
+    <div class="steps-box">
+      <p><strong>Steps:</strong></p>
+      <ol>
+        <li>Click the Network/Wi-Fi icon on the taskbar.</li>
+        <li>Select a Wi-Fi network from the list.</li>
+        <li>Click Connect.</li>
+        <li>Enter the Wi-Fi password.</li>
+        <li>Click Next/Connect.</li>
+        <li>Wait until it shows Connected.</li>
+      </ol>
+    </div>
+    <h3>B. Connecting Using Mobile Hotspot</h3>
+    <div class="steps-box">
+      <p><strong>Steps:</strong></p>
+      <ol>
+        <li>Turn on Mobile Data on your phone.</li>
+        <li>Go to Settings → Hotspot &amp; Tethering.</li>
+        <li>Turn on Mobile Hotspot.</li>
+        <li>On your computer, click the Wi-Fi icon.</li>
+        <li>Select your phone's hotspot name.</li>
+        <li>Enter the hotspot password.</li>
+        <li>Click Connect.</li>
+      </ol>
+    </div>
+    <div class="steps-box">
+      <p><strong>Practical Activity 1</strong></p>
+      <ol>
+        <li>Connect your computer to a Wi-Fi network.</li>
+        <li>Open a web browser.</li>
+        <li>Type www.google.com in the address bar.</li>
+        <li>Press Enter.</li>
+        <li>Confirm that the page loads successfully.</li>
+      </ol>
+    </div>
+    <div class="note">Tips for Beginners: Always connect to secure (password-protected) networks. Avoid entering personal information on unknown public Wi-Fi. Check your connection status before browsing.</div>
+    <div class="warning">Common Problems and Solutions:<br>
+    No Internet access → Restart router<br>
+    Cannot connect → Re-enter correct password<br>
+    Slow Internet → Move closer to router<br>
+    Website not loading → Refresh page</div>
+
+    <!-- 6.3 Using a Web Browser Effectively (Very Practical) -->
+    <h2>6.3 Using a Web Browser Effectively (Very Practical)</h2>
+    <p><strong>Introduction</strong><br>
+    A web browser is your main tool for accessing the Internet. Knowing how to use it properly will make your online experience faster, safer, and more productive.</p>
+    <h3>A. Opening a Web Browser</h3>
+    <p>Common browsers include: Google Chrome, Microsoft Edge, Mozilla Firefox, Safari.</p>
+    <p><strong>Steps to Open a Browser:</strong><br>
+    I. Click the Start Menu. II. Type the name of the browser (e.g., Chrome). III. Click the browser icon to open it.<br>
+    OR<br>
+    I. Double-click the browser icon on the desktop.</p>
+    <h3>B. Understanding the Browser Interface</h3>
+    <p>When the browser opens, you will see:<br>
+    Address Bar → Where you type website addresses (URLs)<br>
+    Search Bar → Used to search for information<br>
+    Tabs → Allow multiple websites to be open at once<br>
+    Back and Forward Buttons → Navigate between pages<br>
+    Refresh Button → Reloads the page</p>
+    <h3>C. Searching for Information</h3>
+    <p>You can search in two main ways:<br>
+    <strong>Method 1: Using the Address Bar</strong><br>
+    I. Click inside the address bar. II. Type your search term (e.g., Importance of digital literacy). III. Press Enter. IV. Review the search results.<br>
+    <strong>Method 2: Using a Search Engine Website</strong><br>
+    I. Type www.google.com in the address bar. II. Press Enter. III. Type your search term in the search box. IV. Click Search or press Enter.</p>
+    <h3>D. Opening and Managing Tabs</h3>
+    <p><strong>To Open a New Tab:</strong> I. Click the + (New Tab) button. OR II. Press Ctrl + T on the keyboard.<br>
+    <strong>To Switch Between Tabs:</strong> I. Click the desired tab. OR II. Press Ctrl + Tab.<br>
+    <strong>To Close a Tab:</strong> I. Click the X on the tab. OR II. Press Ctrl + W.</p>
+    <h3>E. Bookmarking a Website</h3>
+    <p>Steps: I. Open the website you want to save. II. Click the Star icon in the address bar. III. Choose a folder (e.g., Bookmarks Bar). IV. Click Done.<br>
+    To open a bookmarked site: I. Click the Bookmarks Menu. II. Select the saved website.</p>
+    <h3>F. Downloading Files</h3>
+    <p>Steps: I. Click the file link (e.g., PDF or image). II. Click Download. III. Choose location (e.g., Downloads folder). IV. Click Save. V. Open the file from the Downloads folder.</p>
+    <div class="steps-box">
+      <p><strong>Practical Activity 1</strong></p>
+      <ol>
+        <li>Open your browser.</li>
+        <li>Search for "Benefits of Computer Literacy."</li>
+        <li>Open two different websites in separate tabs.</li>
+        <li>Bookmark one website.</li>
+        <li>Download a PDF file from one of the sites.</li>
+        <li>Locate the downloaded file in your Downloads folder.</li>
+      </ol>
+    </div>
+    <div class="note">Internet Safety Tip: Do not download files from unknown or suspicious websites. Always check the website address carefully. Avoid clicking on pop-up advertisements.</div>
+    <div class="warning">Common Mistakes to Avoid: Typing search terms in the wrong place, Opening too many tabs and getting confused, Downloading unsafe files, Forgetting to bookmark important websites.</div>
+
+    <!-- 6.4 Creating and Using Email (Very Practical) -->
+    <h2>6.4 Creating and Using Email (Very Practical)</h2>
+    <p><strong>Introduction</strong><br>
+    Email (Electronic Mail) is a method of sending and receiving messages over the Internet.</p>
+    <p>It is used for:<br>
+    Formal communication, Job applications, School assignments, Business communication, Sending documents and files.</p>
+    <h3>A. Creating an Email Account (Using Gmail Example)</h3>
+    <p>There are many email providers such as: Gmail (www.gmail.com), Outlook (www.outlook.com), Yahoo Mail. We will use Gmail as an example.</p>
+    <div class="steps-box">
+      <p><strong>Steps to Create a Gmail Account:</strong></p>
+      <ol>
+        <li>Open your web browser.</li>
+        <li>Type www.gmail.com in the address bar.</li>
+        <li>Click Create account.</li>
+        <li>Choose For myself (or appropriate option).</li>
+        <li>Enter your details: First name, Last name, Username (this becomes your email address), Password.</li>
+        <li>Click Next.</li>
+        <li>Enter your phone number (optional but recommended).</li>
+        <li>Verify with the code sent to your phone.</li>
+        <li>Agree to the Terms and Conditions.</li>
+        <li>Your Gmail account will open successfully.</li>
+      </ol>
+      <p>Example Email Address: john123@gmail.com</p>
+    </div>
+    <h3>B. Signing In to Your Email</h3>
+    <p>It is the process of gaining access to your email account.</p>
+    <p>Steps: I. Go to www.gmail.com. II. Enter your email address. III. Click Next. IV. Enter your password. V. Click Sign in.</p>
+    <h3>C. Understanding the Email Interface</h3>
+    <p>When you open Gmail, you will see:<br>
+    Inbox → Received messages, Compose → Create a new email, Sent → Messages you have sent, Drafts → Unfinished messages, Trash → Deleted emails.</p>
+    <h3>D. Sending an Email</h3>
+    <p>Steps: I. Click Compose. II. In the To field, type the recipient's email address. III. In the Subject field, type the topic of the email. IV. Type your message in the message box. V. Click Send.</p>
+    <div class="email-example">
+      <p><strong>Example of a Simple Email</strong></p>
+      <p><strong>Subject:</strong> Assignment Submission</p>
+      <p>Dear Sir/Madam,</p>
+      <p>Please find attached my assignment for review.</p>
+      <p>Thank you.<br>Best regards,<br>Your Name</p>
+    </div>
+    <h3>E. Attaching a File to an Email</h3>
+    <p>Steps: I. Click Compose. II. Click the Attach (Paperclip) icon. III. Select the file from your computer. IV. Click Open. V. Wait for the file to upload. VI. Click Send.</p>
+    <h3>F. Replying and Forwarding Emails</h3>
+    <p><strong>To Reply:</strong> I. Open the email. II. Click Reply. III. Type your message. IV. Click Send.<br>
+    <strong>To Forward:</strong> I. Open the email. II. Click Forward. III. Enter the new recipient's email address. IV. Click Send.</p>
+    <div class="steps-box">
+      <p><strong>Practical Activity 1</strong></p>
+      <ol>
+        <li>Create a Gmail account (if you do not have one).</li>
+        <li>Log in to your email.</li>
+        <li>Compose a new email and send it to a friend.</li>
+        <li>Attach a Word document or PDF file.</li>
+        <li>Ask your friend to reply.</li>
+        <li>Check your Inbox and reply back.</li>
+      </ol>
+    </div>
+    <div class="note">
+      <p><strong>Email Etiquette (Very Important)</strong></p>
+      <ul>
+        <li>Always include a clear subject line</li>
+        <li>Use polite and professional language</li>
+        <li>Avoid typing in ALL CAPITAL LETTERS</li>
+        <li>Do not share your password</li>
+        <li>Always log out on public computers</li>
+      </ul>
+    </div>
+    <div class="warning">Common Mistakes to Avoid: Sending emails without a subject, Attaching the wrong file, Forgetting to attach a file mentioned in the message, Sharing login details with others.</div>
+
+    <!-- 6.5 Internet Safety, Security, and Digital Responsibility -->
+    <h2>6.5 Internet Safety, Security, and Digital Responsibility (Very Important)</h2>
+    <p><strong>Introduction</strong><br>
+    The Internet is powerful and useful, but it also has risks. Every digital user must understand how to stay safe, protect personal information, and behave responsibly online.</p>
+    <p>This section is highly practical and essential for all Internet users.</p>
+    <p>You will learn: How to protect personal information, How to create strong passwords, How to identify online threats, How to behave responsibly online.</p>
+    <h3>A. Protecting Personal Information</h3>
+    <p>Personal information includes: Full name, Phone number, Home address, School or workplace, Bank details, Passwords.</p>
+    <p><strong>Practical Safety Rules:</strong></p>
+    <ul>
+      <li>Do not share passwords with anyone.</li>
+      <li>Avoid posting personal details publicly on social media.</li>
+      <li>Do not enter personal information on suspicious websites.</li>
+      <li>Always check website addresses carefully.</li>
+      <li>Log out from accounts when using public computers.</li>
+    </ul>
+    <h3>B. Creating Strong Passwords</h3>
+    <p>A strong password protects your account from hackers.</p>
+    <p><strong>Characteristics of a Strong Password:</strong><br>
+    At least 8-12 characters, Combination of uppercase letters, Lowercase letters, Numbers, Special symbols (@,#,$,%).</p>
+    <p>Example of strong password format: Digi@2026Learn</p>
+    <p><strong>Steps to Change Password:</strong> I. Log in to your account. II. Go to Account Settings. III. Click Security.</p>
+    <h3>C. Identifying Online Threats</h3>
+    <p><strong>1. Phishing</strong> – Fake messages pretending to be from banks, companies, or friends asking for personal information.<br>
+    Warning Signs: Urgent message like "Your account will be closed!", Suspicious links, Poor spelling or grammar.</p>
+    <p><strong>2. Malware</strong> – Malicious software that can damage your computer.<br>
+    Prevention: Do not download from unknown websites, Install antivirus software, Avoid clicking suspicious ads.</p>
+    <p><strong>3. Scams and Fraud</strong> – Fraudsters may promise money, prizes, or job offers.<br>
+    Rule: If it sounds too good to be true, it probably is.</p>
+    <h3>D. Safe Browsing Practices</h3>
+    <p><strong>Steps to Stay Safe Online:</strong></p>
+    <ul>
+      <li>Use trusted websites only.</li>
+      <li>Look for "https" in the website address.</li>
+      <li>Keep your browser updated.</li>
+      <li>Install antivirus software.</li>
+      <li>Avoid clicking unknown links in emails.</li>
+    </ul>
+    <h3>E. Digital Responsibility and Online Behavior</h3>
+    <p>Being responsible online means: Respecting others, Avoiding cyberbullying, Not spreading false information, Following laws and regulations.</p>
+    <p><strong>Good Digital Citizenship Includes:</strong></p>
+    <ul>
+      <li>Thinking before posting online.</li>
+      <li>Respecting other people's opinions.</li>
+      <li>Not sharing harmful or inappropriate content.</li>
+      <li>Reporting suspicious or harmful activities.</li>
+    </ul>
+    <div class="steps-box">
+      <p><strong>Practical Activity 1</strong></p>
+      <ol>
+        <li>Review your social media privacy settings.</li>
+        <li>Change your password to a stronger one.</li>
+        <li>Check if your browser shows "https" on websites you visit.</li>
+        <li>Delete any suspicious emails in your inbox.</li>
+        <li>Install or update antivirus software.</li>
+      </ol>
+    </div>
+    <div class="warning">Common Mistakes to Avoid: Using easy passwords like 123456, Clicking unknown email links, Sharing personal information publicly, Ignoring software updates.</div>
+
+    <!-- Final Skill Check for Chapter 6 -->
+    <div class="skill-check">
+      <span>✅ I understand what the Internet is and key terms</span>
+      <span>✅ I can connect to Wi-Fi and mobile hotspot</span>
+      <span>✅ I can use a web browser, search, tabs, bookmarks, download</span>
+      <span>✅ I can create a Gmail account, send emails, attach files, reply, forward</span>
+      <span>✅ I know how to protect personal information and create strong passwords</span>
+      <span>✅ I can identify phishing, malware, and practice safe browsing</span>
+      <span>🌐 Fully prepared — every activity completed</span>
+    </div>
+
+    <div class="note" style="text-align: center;">✅ End of Chapter Six — every word, every instruction, every activity preserved exactly as written. Proceed to Chapter 7 (Online Spaces & Government Portals) next.</div>
+    <hr>
+  </div>
+  <footer>© 2026 Castro Odhiambo — Basics of Digital Literacy | Chapter 6: Internet & Email (Complete, no omissions) | For hands-on mastery of online communication and safety.</footer>
+</div>
+</body>
+</html>

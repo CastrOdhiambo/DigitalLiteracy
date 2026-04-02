@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Digital Competency | Chapter 4: Microsoft Excel (Complete Step-by-Step)</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #eef2f5;
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.5;
+      color: #1a2c3e;
+      padding: 2rem 1rem;
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 32px;
+      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.2);
+      overflow: hidden;
+    }
+    .hero {
+      background: linear-gradient(135deg, #1c6e43, #0f4a2e);
+      color: white;
+      padding: 2rem 2rem;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    .hero .author {
+      font-size: 1rem;
+      opacity: 0.9;
+      margin-top: 0.5rem;
+      border-top: 1px solid rgba(255,255,255,0.3);
+      display: inline-block;
+      padding-top: 0.5rem;
+    }
+    .chapter-badge {
+      background: #ffb347;
+      color: #1e2a3e;
+      display: inline-block;
+      padding: 0.25rem 1.2rem;
+      border-radius: 40px;
+      font-weight: bold;
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+    }
+    .content {
+      padding: 2rem 2rem 2.5rem 2rem;
+    }
+    h2 {
+      font-size: 1.9rem;
+      margin: 1.8rem 0 1rem;
+      color: #1b6b43;
+      border-left: 6px solid #ffb347;
+      padding-left: 1rem;
+    }
+    h3 {
+      font-size: 1.5rem;
+      margin: 1.2rem 0 0.8rem;
+      color: #1f5e3f;
+    }
+    h4 {
+      font-size: 1.2rem;
+      margin: 1rem 0 0.5rem;
+      color: #2c5e3c;
+    }
+    .section-card {
+      background: #fbfef9;
+      border-radius: 24px;
+      padding: 1.2rem 1.8rem;
+      margin: 1.5rem 0;
+      border: 1px solid #dee9f0;
+    }
+    .steps-box {
+      background: #eef6f0;
+      border-left: 5px solid #2c7a4d;
+      padding: 1rem 1.8rem;
+      border-radius: 20px;
+      margin: 1.2rem 0;
+    }
+    .note {
+      background: #fff9e8;
+      border-left: 5px solid #ffb347;
+      padding: 1rem 1.5rem;
+      border-radius: 16px;
+      margin: 1rem 0;
+      font-weight: 500;
+    }
+    .warning {
+      background: #ffeae9;
+      border-left: 5px solid #d9534f;
+      padding: 1rem 1.5rem;
+      border-radius: 16px;
+      margin: 1rem 0;
+    }
+    .skill-check {
+      background: #e0f0ea;
+      border-radius: 20px;
+      padding: 1rem 1.8rem;
+      margin: 1.5rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-weight: 500;
+    }
+    .skill-check span {
+      background: white;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      background: white;
+      border-radius: 16px;
+      overflow: auto;
+      display: block;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 0.5rem 0.8rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #e9f3ee;
+      font-weight: 600;
+    }
+    ul, ol {
+      padding-left: 1.6rem;
+      margin: 0.8rem 0;
+    }
+    li {
+      margin: 0.3rem 0;
+    }
+    hr {
+      margin: 2rem 0;
+      border: none;
+      height: 2px;
+      background: linear-gradient(to right, #cbdbe0, transparent);
+    }
+    footer {
+      background: #f1f5f9;
+      text-align: center;
+      padding: 1.2rem;
+      font-size: 0.85rem;
+      color: #2c4e6e;
+      border-top: 1px solid #d0dfe8;
+    }
+    @media (max-width: 700px) {
+      .content { padding: 1rem; }
+      h2 { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="hero">
+    <div class="chapter-badge">📊 CHAPTER FOUR</div>
+    <h1>INTRODUCTION TO MICROSOFT EXCEL</h1>
+    <div class="author">by Castro Odhiambo — Complete Step-by-Step Guide</div>
+    <p style="margin-top: 0.8rem; max-width: 800px; margin-left: auto; margin-right: auto;">Every word, every table, every formula and activity from the original manual — Learn Every Step, Practical Hands-On.</p>
+  </div>
+  <div class="content">
+
+    <!-- PART III: SPREADSHEETS (MS EXCEL – STEP BY STEP) -->
+    <p><strong>PART III: SPREADSHEETS (MS EXCEL – STEP BY STEP)</strong></p>
+    <p><strong>CHAPTER FOUR – INTRODUCTION TO MICROSOFT EXCEL</strong></p>
+    <p><strong>Table of Contents</strong><br>
+    1. Getting Started with Excel<br>
+    2. Working with Data<br>
+    3. Formulas and Functions<br>
+    4. Formatting Your Spreadsheet<br>
+    5. Creating Charts<br>
+    6. Organizing Data<br>
+    7. Printing and Page Setup<br>
+    8. Saving and Protecting Your Work</p>
+    <p><strong>Introduction</strong><br>
+    Microsoft Excel is a powerful spreadsheet application used worldwide to:<br>
+    - Organize data in structured formats<br>
+    - Perform calculations automatically<br>
+    - Create professional charts and graphs<br>
+    - Analyze information for better decision-making<br>
+    Excel is essential in schools, businesses, finance, healthcare, and research. This practical workbook will guide you step-by-step through the fundamental skills needed to become proficient in Excel.</p>
+    <p><strong>Learning Objectives:</strong><br>
+    By the end of this chapter, you will be able to:<br>
+    - Open Excel and navigate its interface confidently<br>
+    - Enter, edit, and manage data efficiently<br>
+    - Perform calculations using formulas and functions<br>
+    - Format cells for professional appearance<br>
+    - Create and customize simple charts<br>
+    - Sort, filter, and organize data<br>
+    - Set up pages for printing<br>
+    - Save and protect your workbooks<br>
+    Important: This chapter is entirely practical. Follow each activity on your computer to build hands-on skills.</p>
+
+    <!-- 4.1 Opening and Understanding the Excel Interface -->
+    <h2>4.1 Opening and Understanding the Excel Interface</h2>
+    <h3>A. Opening Microsoft Excel</h3>
+    <p>There are three common ways to open Excel:</p>
+    <table>
+      <thead><tr><th>Method</th><th>Steps</th></tr></thead>
+      <tbody>
+        <tr><td>Start Menu</td><td>1. Click the Start button<br>2. Scroll to Microsoft Excel in the program list<br>3. Click to open</td></tr>
+        <tr><td>Search Bar</td><td>1. Click the Start button<br>2. Type Excel in the search bar<br>3. Click Microsoft Excel from the results</td></tr>
+        <tr><td>Desktop Shortcut</td><td>1. Locate the Excel icon on your desktop<br>2. Double-click the icon</td></tr>
+      </tbody>
+    </table>
+    <p><strong>When Excel Opens:</strong> You will see a start screen with options: Blank Workbook – Start fresh with a new spreadsheet, Templates – Pre-designed workbooks (budgets, calendars, invoices). Click "Blank Workbook" to begin.</p>
+    <h3>B. Understanding the Excel Interface</h3>
+    <p>The Excel window contains several key components:</p>
+    <table>
+      <thead><tr><th>Component</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td>Title Bar</td><td>Shows workbook name (e.g., Book1) and application name</td></tr>
+        <tr><td>Quick Access Toolbar</td><td>Frequently used commands: Save, Undo, Redo</td></tr>
+        <tr><td>Ribbon</td><td>Tabs containing groups of related tools</td></tr>
+        <tr><td>Formula Bar</td><td>Displays and edits cell contents</td></tr>
+        <tr><td>Worksheet Area</td><td>Grid of rows and columns for data entry</td></tr>
+        <tr><td>Row Numbers</td><td>Numbered 1, 2, 3... (up to 1,048,576 rows)</td></tr>
+        <tr><td>Column Letters</td><td>Lettered A, B, C... (up to XFD columns)</td></tr>
+        <tr><td>Cell Address</td><td>Each cell has a unique reference (e.g., A1, B2)</td></tr>
+        <tr><td>Sheet Tabs</td><td>Navigate between worksheets</td></tr>
+        <tr><td>Status Bar</td><td>Shows statistics and current mode</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Ribbon Tabs Overview</strong></p>
+    <table>
+      <thead><tr><th>Tab</th><th>Purpose</th></tr></thead>
+      <tbody>
+        <tr><td>Home</td><td>Basic formatting, clipboard, editing tools</td></tr>
+        <tr><td>Insert</td><td>Charts, tables, illustrations, headers/footers</td></tr>
+        <tr><td>Page Layout</td><td>Margins, orientation, print area, themes</td></tr>
+        <tr><td>Formulas</td><td>Function library, calculation options</td></tr>
+        <tr><td>Data</td><td>Sort, filter, data tools, connections</td></tr>
+        <tr><td>Review</td><td>Spelling, protection, comments</td></tr>
+        <tr><td>View</td><td>Zoom, window arrangements, gridlines</td></tr>
+      </tbody>
+    </table>
+    <div class="steps-box">
+      <p><strong>Practical Activity 1.1</strong><br>
+      Follow these steps on your computer:</p>
+      <ol>
+        <li>Open Microsoft Excel</li>
+        <li>Identify each part of the interface: Title Bar, Quick Access Toolbar, Ribbon (click different tabs to explore), Formula Bar, Worksheet Area, Status Bar</li>
+        <li>Create a new blank workbook (if not already open)</li>
+        <li>Click on cell A1 and type: Name</li>
+        <li>Click on cell B1 and type: Age</li>
+        <li>Save your workbook: Click File → Save As, Choose Documents folder, Name: ExcelPractice.xlsx, Click Save</li>
+      </ol>
+    </div>
+    <div class="note">Tips for Beginners: Save frequently – Use Ctrl+S every few minutes, Learn cell addresses – They're essential for formulas, Explore tabs – Hover over icons to see descriptions, Start simple – Begin with blank workbooks for practice, Use Undo – Ctrl+Z is your best friend when learning.</div>
+
+    <!-- 4.2 Entering and Editing Data in Excel -->
+    <h2>4.2 Entering and Editing Data in Excel</h2>
+    <p><strong>Introduction:</strong> Data entry is the foundation of Excel. A spreadsheet is only as useful as the data entered correctly.</p>
+    <p><strong>Learning Objectives:</strong> Enter text, numbers, and dates; Edit and modify existing data; Delete or clear cell contents; Copy, cut, and paste efficiently; Navigate quickly between cells.</p>
+    <h3>A. Types of Data in Excel</h3>
+    <table>
+      <thead><tr><th>Data Type</th><th>Examples</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td>Text</td><td>"John", "Maths", "Total"</td><td>Labels, names, descriptions</td></tr>
+        <tr><td>Numbers</td><td>50, 1000, 3.14</td><td>Values for calculations</td></tr>
+        <tr><td>Dates</td><td>12/02/2026, Jan-15</td><td>Calendar dates</td></tr>
+        <tr><td>Times</td><td>08:30 AM, 14:45</td><td>Time values</td></tr>
+      </tbody>
+    </table>
+    <h3>B. Entering Data</h3>
+    <p><strong>Basic Steps:</strong> 1. Click the desired cell (e.g., A1). 2. Type your data. 3. Press: Enter → Move down one cell, Tab → Move right one cell, Arrow keys → Move in any direction. Example: Create a simple student record: Cell A1: Type "John" → Press Tab, Cell B1: Type "15" → Press Tab, Cell C1: Type "8A" → Press Enter.</p>
+    <h3>C. Editing Existing Data</h3>
+    <p>Method 1 - Replace All: Click the cell, Type new content (overwrites existing).<br>
+    Method 2 - Edit Partially: Double-click the cell, OR click the cell then click in the Formula Bar, Make your changes, Press Enter to confirm.<br>
+    Method 3 - Keyboard Shortcut: Select cell, Press F2 (enters edit mode), Make changes, Press Enter.</p>
+    <h3>D. Deleting and Clearing Data</h3>
+    <table>
+      <thead><tr><th>Action</th><th>Method</th><th>Result</th></tr></thead>
+      <tbody>
+        <tr><td>Delete key</td><td>Select cell → Press Delete</td><td>Clears content only</td></tr>
+        <tr><td>Clear Contents</td><td>Home → Clear → Clear Contents</td><td>Clears content only</td></tr>
+        <tr><td>Clear Formats</td><td>Home → Clear → Clear Formats</td><td>Removes formatting only</td></tr>
+        <tr><td>Clear All</td><td>Home → Clear → Clear All</td><td>Removes both content and formatting</td></tr>
+      </tbody>
+    </table>
+    <h3>E. Copying, Cutting, and Pasting</h3>
+    <p>Copy and Paste: Select cell(s), Press Ctrl+C (or right-click → Copy), Select destination, Press Ctrl+V (or right-click → Paste).<br>
+    Cut and Paste (Move): Select cell(s), Press Ctrl+X (or right-click → Cut), Select destination, Press Ctrl+V.</p>
+    <p><strong>Keyboard Shortcuts Summary:</strong> Copy: Ctrl+C, Cut: Ctrl+X, Paste: Ctrl+V, Undo: Ctrl+Z, Redo: Ctrl+Y.</p>
+    <div class="steps-box">
+      <p><strong>Practical Activity 2.1</strong></p>
+      <ol>
+        <li>Open a new workbook</li>
+        <li>Enter the following data: Name: John, Age:15, Class:8A, Score:80 ; Mary,14,8B,90 ; Peter,16,8A,85</li>
+        <li>Edit Peter's score to 88</li>
+        <li>Delete Mary's class (cell C3) using Delete key</li>
+        <li>Copy John's score (cell D2) to cell D5</li>
+        <li>Save as DataPractice.xlsx</li>
+      </ol>
+    </div>
+    <div class="warning">Common Mistakes to Avoid: Typing numbers as text – Don't use quotes around numbers; Forgetting to save; Accidental overwrites – Use Undo (Ctrl+Z); Inefficient navigation; Not verifying data.</div>
+
+    <!-- 4.3 Basic Formulas and Functions -->
+    <h2>4.3 Basic Formulas and Functions (SUM, AVERAGE, MIN, MAX)</h2>
+    <p><strong>Introduction:</strong> Excel's real power lies in automatic calculations. Formulas and functions transform static data into dynamic, interactive spreadsheets.<br>
+    Key Concepts: Formula: A calculation you create (e.g., =A1+B1); Function: A predefined formula (e.g., =SUM(A1:A10)).</p>
+    <h3>A. Arithmetic Operators</h3>
+    <table><thead><tr><th>Operator</th><th>Operation</th><th>Example</th></tr></thead><tbody>
+      <tr><td>+</td><td>Addition</td><td>=A1+B1</td></tr>
+      <tr><td>-</td><td>Subtraction</td><td>=A2-B2</td></tr>
+      <tr><td>*</td><td>Multiplication</td><td>=A3*B3</td></tr>
+      <tr><td>/</td><td>Division</td><td>=A4/B4</td></tr>
+    </tbody></table>
+    <h3>B. Creating Basic Formulas</h3>
+    <p>Example 1 - Addition: =A1+B1. Example 2 - Multiplication with parentheses: =(A2+B2)*C2. Step-by-Step: Click result cell, Type =, Click first cell, Type operator, Click second cell, Press Enter.</p>
+    <h3>C. The SUM Function</h3>
+    <p>Syntax: =SUM(range). Method 1: Type =SUM(A1:A5). Method 2: AutoSum – Select cell below numbers, click Home → AutoSum, verify range, press Enter. Method 3: Type =SUM() and drag to select cells.</p>
+    <h3>D. The AVERAGE Function</h3>
+    <p>Syntax: =AVERAGE(range). Example: =AVERAGE(B2:B10).</p>
+    <h3>E. The MIN and MAX Functions</h3>
+    <p>Syntax: =MIN(range) returns smallest, =MAX(range) returns largest. Examples: =MIN(C5:C20), =MAX(D5:D20).</p>
+    <h3>F. Copying Formulas with Fill Handle</h3>
+    <p>Select cell with formula, hover over bottom-right corner until cursor becomes +, click and drag down or right. Excel automatically adjusts cell references (relative referencing).</p>
+    <div class="steps-box">
+      <p><strong>Practical Activity 3.1 – Student marks analysis</strong></p>
+      <ol>
+        <li>Open new workbook. Enter data: Student (John, Mary, Peter), Maths(80,75,90), English(90,88,85), Science(85,92,80).</li>
+        <li>Calculate Totals (Column E): In cell E2 type =SUM(B2:D2), copy down using fill handle.</li>
+        <li>Calculate Averages (Column F): In cell F2 type =AVERAGE(B2:D2), copy down.</li>
+        <li>Find Highest Maths Score: In cell B5 type =MAX(B2:B4).</li>
+        <li>Find Lowest Science Score: In cell D5 type =MIN(D2:D4).</li>
+        <li>Save as FormulasPractice.xlsx.</li>
+      </ol>
+    </div>
+    <div class="warning">Common Mistakes: Forgetting =, Wrong range, Overwriting formulas, Text in calculations (#VALUE!), Dividing by zero (#DIV/0!).</div>
+
+    <!-- 4.4 Formatting Cells -->
+    <h2>4.4 Formatting Cells (Number, Currency, Date, Font, Borders, Fill Color)</h2>
+    <p><strong>Introduction:</strong> Formatting transforms raw data into professional, readable spreadsheets.</p>
+    <h3>A. Number Formatting Options</h3>
+    <table><thead><tr><th>Format</th><th>Example</th><th>Use For</th></tr></thead><tbody>
+      <tr><td>General</td><td>1000</td><td>Default</td></tr>
+      <tr><td>Number</td><td>1,000.00</td><td>General numbers with decimals</td></tr>
+      <tr><td>Currency</td><td>$1,000.00</td><td>Monetary values</td></tr>
+      <tr><td>Percentage</td><td>85%</td><td>Percentages</td></tr>
+      <tr><td>Date</td><td>15-Mar-25</td><td>Dates</td></tr>
+    </tbody></table>
+    <h3>B. Font Formatting</h3>
+    <p>Font, Size, Bold, Italic, Underline, Font Color – all in Home → Font group.</p>
+    <h3>C. Borders</h3>
+    <p>All Borders, Outside Borders, Thick Box Border, Bottom Border, No Border.</p>
+    <h3>D. Fill Color (Background)</h3>
+    <p>Highlight important cells. Best Practices: Use light colors for readability, headers in light gray/blue, avoid dark colors.</p>
+    <h3>E. Alignment</h3>
+    <p>Horizontal: Left, Center, Right. Vertical: Top, Middle, Bottom. Merge & Center.</p>
+    <div class="steps-box">
+      <p><strong>Practical Activity 4.1 – Formatted inventory table</strong></p>
+      <ol>
+        <li>Enter data: Item(Pen, Notebook, Eraser), Quantity(10,5,8), Price per Unit(5,20,3), Total(50,100,24).</li>
+        <li>Apply Currency Format to C2:D4.</li>
+        <li>Format headers A1:D1: Bold, Fill Color light blue, Font size 12.</li>
+        <li>Add Borders: All Borders to A1:D4.</li>
+        <li>Center align quantities B2:B4 and totals D2:D4.</li>
+        <li>Save as FormattingCellsPractice.xlsx.</li>
+      </ol>
+    </div>
+    <div class="warning">Common Mistakes: Too many colors, Missing currency symbols, No borders, Wrong alignment, Inconsistent formatting.</div>
+    <div class="steps-box"><p><strong>Mini Practice Challenge – Monthly Expenses Table:</strong> Category, Amount, Date. Apply Currency format to Amount, bold headers with light fill, All Borders, center Amount, Short Date format. Save as ExpensesFormatted.xlsx.</p></div>
+
+    <!-- 4.5 Creating Simple Charts -->
+    <h2>4.5 Creating Simple Charts in Excel (Column, Bar, Line, Pie)</h2>
+    <p><strong>Introduction:</strong> Charts transform numbers into visual stories.</p>
+    <h3>A. Chart Types and Their Uses</h3>
+    <table><thead><tr><th>Chart Type</th><th>Best Used For</th><th>Example</th></tr></thead><tbody>
+      <tr><td>Column</td><td>Comparing categories</td><td>Sales by product</td></tr>
+      <tr><td>Bar</td><td>Comparing with long labels</td><td>Survey responses</td></tr>
+      <tr><td>Line</td><td>Showing trends over time</td><td>Monthly revenue</td></tr>
+      <tr><td>Pie</td><td>Showing parts of a whole</td><td>Budget categories</td></tr>
+    </tbody></table>
+    <p><strong>Column Chart:</strong> Select data (including headers), Insert → Column Chart → 2-D Column.<br>
+    <strong>Bar Chart:</strong> Insert → Bar Chart → 2-D Bar.<br>
+    <strong>Line Chart:</strong> Insert → Line Chart → 2-D Line.<br>
+    <strong>Pie Chart:</strong> Insert → Pie Chart → 2-D Pie (best with 5-7 categories).<br>
+    <strong>Chart Elements:</strong> Chart Title, Axis Titles, Data Labels, Legend, Gridlines.</p>
+    <div class="steps-box">
+      <p><strong>Practical Activity 5.1</strong></p>
+      <ol>
+        <li>Open new workbook. Enter data: Product (Pen, Notebook, Eraser, Pencil) and Sales (50,30,20,40).</li>
+        <li>Create Column Chart: Select A1:B5, Insert → Column Chart → 2-D Column, add title "Product Sales".</li>
+        <li>Create Pie Chart: Insert → Pie Chart → 2-D Pie, add Data Labels, title "Sales Distribution".</li>
+        <li>Format charts, save as ChartsPractice.xlsx.</li>
+      </ol>
+    </div>
+    <div class="warning">Common Mistakes: Wrong chart type, Missing labels, Too many categories, Ignoring data labels.</div>
+    <div class="steps-box"><p><strong>Mini Practice Challenge – Monthly Expenses Dashboard:</strong> Create Pie Chart showing expense distribution with percentages, title "Monthly Expense Breakdown"; Column Chart comparing amounts with axis titles "Category" and "Amount ($)". Save as ExpensesChart.xlsx.</p></div>
+
+    <!-- 4.6 Sorting and Filtering -->
+    <h2>4.6 Sorting and Filtering Data in Excel</h2>
+    <p><strong>Introduction:</strong> Large datasets become manageable with sorting and filtering.</p>
+    <h3>A. Basic Sorting</h3>
+    <p>Ascending: Text A→Z, Numbers smallest→largest, Dates oldest→newest. Descending: opposite. Steps: Click any cell in column, Data → Sort A to Z or Sort Z to A.</p>
+    <h3>B. Custom Multiple-Level Sorting</h3>
+    <p>Select data → Data → Sort. First Level: Sort by Class, Values, A to Z. Click Add Level. Second Level: Then by Score, Values, Largest to Smallest. OK.</p>
+    <h3>C. Filtering Data</h3>
+    <p>Apply Filter: Select any cell, Data → Filter. Dropdown arrows appear. Filter by values, Number Filters (Greater Than, etc.), Text Filters (Contains, Begins With).</p>
+    <h3>D. Clearing Filters and Sorts</h3>
+    <p>Data → Clear (in Sort & Filter group).</p>
+    <div class="steps-box">
+      <p><strong>Practical Activity 6.1</strong></p>
+      <ol>
+        <li>Enter data: Name (John,Mary,Peter), Class(8A,8B,8A), Score(80,90,85).</li>
+        <li>Sort by Score descending (Z to A).</li>
+        <li>Sort by Name A to Z.</li>
+        <li>Apply multi-level sort: Class A to Z then Score Largest to Smallest.</li>
+        <li>Apply Filter: Show only scores ≥85.</li>
+        <li>Clear filter, save as SortFilterPractice.xlsx.</li>
+      </ol>
+    </div>
+    <div class="warning">Common Mistakes: Sorting only one column (destroys relationships), Forgetting headers, Not clearing filters.</div>
+
+    <!-- 4.7 Printing and Page Setup -->
+    <h2>4.7 Printing and Page Setup in Excel</h2>
+    <h3>A. Setting the Print Area</h3>
+    <p>Select range → Page Layout → Print Area → Set Print Area.</p>
+    <h3>B. Page Orientation</h3>
+    <p>Portrait (tall), Landscape (wide tables).</p>
+    <h3>C. Margins</h3>
+    <p>Normal, Narrow, Wide, Custom Margins.</p>
+    <h3>D. Scaling</h3>
+    <p>Fit Sheet on One Page, Fit All Columns, Fit All Rows.</p>
+    <h3>E. Headers and Footers</h3>
+    <p>Insert → Header & Footer. Add page numbers, date, file name.</p>
+    <h3>F. Print Titles (Repeating Rows/Columns)</h3>
+    <p>Page Layout → Print Titles → Rows to repeat at top.</p>
+    <h3>G. Print Preview and Printing</h3>
+    <p>File → Print (Ctrl+P). Save as PDF: Microsoft Print to PDF.</p>
+    <div class="steps-box">
+      <p><strong>Practical Activity 7.1</strong></p>
+      <ol>
+        <li>Create sales table (Product,Category,Price,Quantity,Total) at least 15 rows.</li>
+        <li>Set Print Area, Landscape orientation, Narrow margins.</li>
+        <li>Add Header: "Monthly Sales Report".</li>
+        <li>Set Print Titles: Rows to repeat at top $1:$1.</li>
+        <li>Preview and save as PrintSetupPractice.xlsx.</li>
+      </ol>
+    </div>
+    <div class="warning">Common Mistakes: Printing entire worksheet, Missing headers on page 2, Cut-off columns, Not previewing.</div>
+
+    <!-- 4.8 Protecting and Saving Excel Workbooks -->
+    <h2>4.8 Protecting and Saving Excel Workbooks</h2>
+    <h3>A. Saving Workbooks</h3>
+    <p>Manual Save: File → Save As (F12), Ctrl+S. AutoSave (Office 365) with OneDrive.</p>
+    <h3>B. File Formats</h3>
+    <table><thead><tr><th>Extension</th><th>Format</th><th>Use For</th></tr></thead><tbody>
+      <tr><td>.xlsx</td><td>Excel Workbook</td><td>Standard Excel files (2007+)</td></tr>
+      <tr><td>.xls</td><td>Excel 97-2003</td><td>Compatibility</td></tr>
+      <tr><td>.xlsm</td><td>Macro-enabled</td><td>Files with VBA code</td></tr>
+      <tr><td>.csv</td><td>Comma Separated</td><td>Data exchange</td></tr>
+      <tr><td>.pdf</td><td>PDF Document</td><td>Sharing (non-editable)</td></tr>
+    </tbody></table>
+    <h3>C. Protecting with Passwords</h3>
+    <p>File → Info → Protect Workbook → Encrypt with Password. Password to modify: File → Save As → Tools → General Options.</p>
+    <h3>D. Protecting Worksheets</h3>
+    <p>Review → Protect Sheet. Enter password, choose allowed actions.</p>
+    <h3>E. Locking Specific Cells</h3>
+    <p>Select editable cells → Right-click → Format Cells → Protection → Uncheck Locked → Protect Sheet.</p>
+    <h3>F. Mark as Final</h3>
+    <p>File → Info → Protect Workbook → Mark as Final (read-only).</p>
+    <h3>G. Creating Backups</h3>
+    <p>File → Save As → Tools → General Options → Always create backup.</p>
+    <div class="steps-box">
+      <p><strong>Practical Activity 8.1</strong></p>
+      <ol>
+        <li>Create Employee table (Employee,Department,Salary).</li>
+        <li>Save as EmployeeData.xlsx.</li>
+        <li>Protect with password: Excel123 (File → Info → Encrypt).</li>
+        <li>Save as CSV: EmployeeData.csv.</li>
+        <li>Lock specific cells: Unlock Salary column, Protect sheet with password protect123.</li>
+        <li>Test protection, unprotect.</li>
+      </ol>
+    </div>
+    <div class="warning">Common Mistakes: Forgetting passwords (cannot recover), Locking everything, Skipping backups, Wrong format.</div>
+    <div class="steps-box"><p><strong>Mini Practice Challenge – Complete Protection Exercise:</strong> Create inventory table (Product, Price, Quantity, In Stock). Save as Inventory.xlsx, password to open: inv2026. Lock all cells except Quantity, protect sheet with update123. Save as Inventory.csv, mark as Final one copy, enable backup option.</p></div>
+
+    <!-- Summary Checklist and Additional Resources -->
+    <h2>Summary Checklist</h2>
+    <div class="skill-check">
+      <span>✅ Open Excel and identify interface components</span>
+      <span>✅ Enter and edit data efficiently</span>
+      <span>✅ Use basic formulas (SUM, AVERAGE, MIN, MAX)</span>
+      <span>✅ Format cells with numbers, fonts, borders, colors</span>
+      <span>✅ Create column, bar, line, and pie charts</span>
+      <span>✅ Sort and filter data</span>
+      <span>✅ Set up pages for printing</span>
+      <span>✅ Save in different formats and protect workbooks</span>
+    </div>
+    <h3>Additional Resources – Keyboard Shortcuts Summary</h3>
+    <table>
+      <thead><tr><th>Shortcut</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td>Ctrl+N</td><td>New workbook</td></tr>
+        <tr><td>Ctrl+O</td><td>Open workbook</td></tr>
+        <tr><td>Ctrl+S</td><td>Save</td></tr>
+        <tr><td>F12</td><td>Save As</td></tr>
+        <tr><td>Ctrl+P</td><td>Print</td></tr>
+        <tr><td>Ctrl+Z</td><td>Undo</td></tr>
+        <tr><td>Ctrl+Y</td><td>Redo</td></tr>
+        <tr><td>Ctrl+C</td><td>Copy</td></tr>
+        <tr><td>Ctrl+X</td><td>Cut</td></tr>
+        <tr><td>Ctrl+V</td><td>Paste</td></tr>
+        <tr><td>F2</td><td>Edit cell</td></tr>
+        <tr><td>Ctrl+Arrow</td><td>Jump to edge of data</tr>
+        <tr><td>Ctrl+Home</td><td>Go to A1</td></tr>
+        <tr><td>Ctrl+End</td><td>Go to last cell</td></tr>
+      </tbody>
+    </table>
+    <div class="note" style="text-align: center;"> End Of Chapter Four</div>
+    <hr>
+  </div>
+  <footer>© 2026 Castro Odhiambo — Basics of Digital Literacy | Chapter 4: Microsoft Excel  | For hands-on mastery.</footer>
+</div>
+</body>
+</html>
