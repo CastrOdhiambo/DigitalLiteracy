@@ -1,321 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Digital Competency | World-Class Dashboard for Digital Literacy</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #f0f7fc;
-      color: #1a2c3e;
-      line-height: 1.4;
-    }
-
-    /* scroll reveal animation */
-    @keyframes fadeUp {
-      0% { opacity: 0; transform: translateY(30px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    .animate-on-scroll {
-      animation: fadeUp 0.6s ease-out forwards;
-      opacity: 0;
-    }
-
-    /* modern glass morphism */
-    .glass-card {
-      background: rgba(255, 255, 255, 0.96);
-      backdrop-filter: blur(2px);
-      border-radius: 2rem;
-      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0,0,0,0.02);
-      transition: all 0.25s ease;
-    }
-
-    .glass-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 30px 45px -15px rgba(0, 0, 0, 0.2);
-    }
-
-    .hero-section {
-      background: linear-gradient(125deg, #0b2b3d 0%, #154e6b 55%, #1f6e8c 100%);
-      border-radius: 0 0 3rem 3rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-section::before {
-      content: "";
-      position: absolute;
-      top: -30%;
-      right: -10%;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .grid-dashboard {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      margin: 2rem 0;
-    }
-
-    .module-card {
-      background: white;
-      border-radius: 2rem;
-      padding: 1.8rem 1.5rem;
-      transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-      border: 1px solid #e9f0f5;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.02);
-      text-decoration: none;
-      display: block;
-      color: inherit;
-    }
-
-    .module-card:hover {
-      border-color: #ffb347;
-      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.12);
-    }
-
-    .card-icon {
-      font-size: 2.8rem;
-      margin-bottom: 1rem;
-    }
-
-    .card-title {
-      font-size: 1.6rem;
-      font-weight: 700;
-      letter-spacing: -0.3px;
-      margin-bottom: 0.5rem;
-    }
-
-    .card-desc {
-      color: #4a627a;
-      font-size: 0.9rem;
-      line-height: 1.4;
-    }
-
-    .badge-new {
-      background: #ffb74d;
-      color: #1e2a3e;
-      font-size: 0.7rem;
-      font-weight: 700;
-      padding: 0.2rem 0.8rem;
-      border-radius: 30px;
-      display: inline-block;
-      margin-top: 0.8rem;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      border-top: 1px solid #e2edf2;
-      padding-top: 2rem;
-      margin-top: 2rem;
-    }
-
-    @media (max-width: 700px) {
-      .hero-section h1 { font-size: 2rem; }
-      .grid-dashboard { gap: 1.2rem; }
-      .module-card { padding: 1.2rem; }
-    }
-  </style>
-</head>
-<body>
-
-<div class="hero-section" style="padding: 2.5rem 2rem 3rem 2rem; color: white;">
-  <div class="container" style="max-width: 1300px; margin: 0 auto;">
-    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-      <div>
-        <div style="background: rgba(255,255,255,0.2); display: inline-block; padding: 0.2rem 1rem; border-radius: 40px; font-size: 0.75rem; font-weight: 600; backdrop-filter: blur(4px); margin-bottom: 1rem;">
-          <i class="fas fa-graduation-cap"></i> COMPLETE DIGITAL LITERACY SUITE
-        </div>
-        <h1 style="font-size: 3rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 0.5rem;">BASICS OF DIGITAL LITERACY</h1>
-        <p style="font-size: 1.2rem; opacity: 0.92; max-width: 650px;">Master computers, internet, government portals, and productivity tools — one chapter at a time. World‑class training for cybercafés, students, and professionals.</p>
-      </div>
-      <div style="background: rgba(255,255,255,0.15); border-radius: 60px; padding: 0.5rem 1.2rem; backdrop-filter: blur(8px);">
-        <i class="fas fa-user-check"></i> by Castro Odhiambo
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="container" style="max-width: 1300px; margin: 0 auto; padding: 2rem 1.5rem 3rem 1.5rem;">
-  
-  <!-- STATS / QUICK INFO -->
-  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; background: white; border-radius: 2rem; padding: 1rem 2rem; margin-bottom: 2.5rem; border: 1px solid #e0edf5; box-shadow: 0 4px 12px rgba(0,0,0,0.02);">
-    <div><i class="fas fa-book-open" style="color:#ffb74d;"></i> <strong>9 complete modules</strong> | step‑by‑step</div>
-    <div><i class="fas fa-download"></i> <strong>Printables & templates</strong> included</div>
-    <div><i class="fas fa-globe"></i> Kenyan government portals & cybercafé ready</div>
-  </div>
-
-  <!-- DASHBOARD GRID with EXACT SPELLINGS from image -->
-  <div class="grid-dashboard">
-    
-    <!-- Introduction -->
-    <a href="#" class="module-card" data-module="introduction">
-      <div class="card-icon"><i class="fas fa-chalkboard-user" style="color:#1f6e8c;"></i></div>
-      <div class="card-title">Introduction</div>
-      <div class="card-desc">Start your digital journey: what is digital literacy, why it matters, and how to navigate this course.</div>
-      <span class="badge-new">Start here →</span>
-    </a>
-
-    <!-- index (main dashboard) we are already on it, but we keep link as current -->
-    <a href="#" class="module-card" data-module="index">
-      <div class="card-icon"><i class="fas fa-chart-line" style="color:#2c5f2d;"></i></div>
-      <div class="card-title">Home</div>
-      <div class="card-desc">Master dashboard – central hub to access all chapters, resources, and progress tracking.</div>
-      <span class="badge-new">dashboard</span>
-    </a>
-
-    <!-- File Management -->
-    <a href="#" class="module-card" data-module="file management">
-      <div class="card-icon"><i class="fas fa-folder-open" style="color:#e67e22;"></i></div>
-      <div class="card-title">File Management</div>
-      <div class="card-desc">Create, rename, move, copy, delete files & folders. USB flash drive skills and search techniques.</div>
-      <span class="badge-new">chapter 2</span>
-    </a>
-
-    <!-- Excel -->
-    <a href="#" class="module-card" data-module="excel.html">
-      <div class="card-icon"><i class="fas fa-table" style="color:#27ae60;"></i></div>
-      <div class="card-title">Excel</div>
-      <div class="card-desc">Spreadsheets, formulas (SUM, AVERAGE), charts, formatting, sorting, printing & protection.</div>
-      <span class="badge-new">chapter 4</span>
-    </a>
-
-    <!-- Word -->
-    <a href="#" class="module-card" data-module="word">
-      <div class="card-icon"><i class="fas fa-file-word" style="color:#2980b9;"></i></div>
-      <div class="card-title">Word</div>
-      <div class="card-desc">Create professional documents: formatting, tables, images, headers, footers, and print preview.</div>
-      <span class="badge-new">chapter 3</span>
-    </a>
-
-    <!-- Powerpoint -->
-    <a href="#" class="module-card" data-module="powerpoint">
-      <div class="card-icon"><i class="fas fa-chalkboard" style="color:#d35400;"></i></div>
-      <div class="card-title">Powerpoint</div>
-      <div class="card-desc">Design stunning presentations with themes, transitions, animations, and speaker notes.</div>
-      <span class="badge-new">chapter 5</span>
-    </a>
-
-    <!-- Internet and Email -->
-    <a href="#" class="module-card" data-module="internet-email">
-      <div class="card-icon"><i class="fas fa-globe" style="color:#1abc9c;"></i></div>
-      <div class="card-title">Internet and Email</div>
-      <div class="card-desc">Web browsing, search engines, Gmail, attachments, safety, phishing, strong passwords.</div>
-      <span class="badge-new">chapter 6</span>
-    </a>
-
-    <!-- Online navigation -->
-    <a href="#" class="module-card" data-module="online-navigation">
-      <div class="card-icon"><i class="fas fa-passport" style="color:#8e44ad;"></i></div>
-      <div class="card-title">Online navigation</div>
-      <div class="card-desc">e-Citizen, KRA iTax, HELB, KUCCPS, NTSA, passport applications, and government portals.</div>
-      <span class="badge-new">chapter 7</span>
-    </a>
-
-    <!-- Downloads and Tempelates (spelling exactly as in image) -->
-    <a href="#" class="module-card" data-module="downloads-templates">
-      <div class="card-icon"><i class="fas fa-download" style="color:#f39c12;"></i></div>
-      <div class="card-title">Downloads and Tempelates</div>
-      <div class="card-desc">Printable checklists, CV templates, budget sheets, shortcut cards, PayBill numbers, and safety posters.</div>
-      <span class="badge-new">printables</span>
-    </a>
-  </div>
-
-  <!-- world class resources section -->
-  <div style="background: linear-gradient(110deg, #fef9e8 0%, #ffffff 100%); border-radius: 2rem; padding: 2rem; margin: 2rem 0; border: 1px solid #ffe2b5;">
-    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem;">
-      <div>
-      </div>
-      <div style="background: white; padding: 0.5rem 1.5rem; border-radius: 60px; box-shadow: 0 6px 12px rgba(0,0,0,0.05);">
-        <i class="fas fa-check-circle" style="color:#2c5f2d;"></i> 100% free & printable
-      </div>
-    </div>
-  </div>
-
-  <!-- FOOTER / QUICK LINKS -->
-  <div class="footer-links">
-    <div><i class="far fa-copyright"></i> 2026 Castro Odhiambo — Basics of Digital Literacy</div>
-    <div style="display: flex; gap: 1.5rem;">
-      <span><i class="fas fa-print"></i> Ready to print</span>
-      <span><i class="fas fa-chalkboard-user"></i> Cybercafé friendly</span>
-      <span><i class="fas fa-mobile-alt"></i> Responsive design</span>
-    </div>
-  </div>
-</div>
-
-<!-- JavaScript to handle linking with exact spelling mapping (as saved in image) -->
-<script>
-  // Mapping of module identifiers to actual HTML files (case-sensitive as required)
-  const fileMap = {
-    'introduction': 'introduction.html',           // Chapter 1 (getting comfortable)
-    'index': 'index.html',                         // current dashboard (self)
-    'file-management': 'file-management.html',     // Chapter 2: File Management
-    'excel': 'excel.html',                         // Chapter 4: Excel
-    'word': 'word.html',                           // Chapter 3: Word
-    'powerpoint': 'powerpoint.html',               // Chapter 5: PowerPoint
-    'internet-email': 'internet-email.html',       // Chapter 6: Internet & Email
-    'online-navigation': 'online-navigation.html', // Chapter 7: Online Spaces & Portals
-    'downloads-templates': 'downloads-templates.html' // Downloads and Tempelates
-  };
-
-  // Alternative: if you have saved files with different naming, adjust accordingly.
-  // The dashboard uses exact spelling from your image: "Downloads and Tempelates", "Online navigation", "Powerpoint", "File Management", "index", "Excel", "Word", "Internet and Email", "Introduction".
-  
-  const cards = document.querySelectorAll('.module-card');
-  cards.forEach(card => {
-    card.addEventListener('click', (e) => {
-      e.preventDefault();
-      const moduleKey = card.getAttribute('data-module');
-      if (moduleKey && fileMap[moduleKey]) {
-        // if the target is index, just reload or stay
-        if (moduleKey === 'index') {
-          window.location.href = 'index.html';
-        } else {
-          window.location.href = fileMap[moduleKey];
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Literacy Ecosystem | Castro Odhiambo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;700;900&display=swap');
+        
+        :root {
+            --bg: #030303;
+            --primary: #ffffff;
+            --accent: #FF3B3F; /* Digital Neon Red */
+            --card: rgba(10, 10, 10, 0.85);
+            --border: rgba(255, 255, 255, 0.05);
         }
-      } else {
-        // Fallback for development: show alert + optional demo redirect for missing files
-        alert(`✨ Module "${card.querySelector('.card-title')?.innerText}" is ready. Save the corresponding HTML file as ${fileMap[moduleKey] || '[filename]'} to activate.`);
-      }
-    });
-  });
 
-  // add scroll animation observer
-  const animatedElements = document.querySelectorAll('.module-card, .glass-card, .hero-section, .footer-links, .grid-dashboard > *');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.animation = 'fadeUp 0.6s ease-out forwards';
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-  animatedElements.forEach(el => {
-    el.style.opacity = '0';
-    observer.observe(el);
-  });
-  // also manual set for initial hero
-  document.querySelectorAll('.hero-section, .container > div:first-child').forEach(el => el.style.opacity = '1');
-</script>
+        body {
+            font-family: 'Unbounded', sans-serif;
+            background-color: var(--bg);
+            color: #ffffff;
+            overflow-x: hidden;
+            letter-spacing: -0.05rem;
+        }
 
-<!-- Additional inline note: world-class completeness -->
+        /* PARALLAX GRAPHIC BACKGROUND */
+        #blueprint-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 200%;
+            z-index: -2;
+            opacity: 0.15;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                radial-gradient(circle at 50% 50%, rgba(255, 59, 63, 0.2) 0%, transparent 60%);
+            background-size: 80px 80px, 80px 80px;
+            pointer-events: none;
+            will-change: transform;
+        }
+
+        /* BLOB ELEMENTS FOR EXTRA AESTHETIC */
+        .blob {
+            position: fixed;
+            width: 800px;
+            height: 800px;
+            border-radius: 50%;
+            filter: blur(150px);
+            opacity: 0.4;
+            z-index: -3;
+        }
+
+        .blob-red { background: #FF3B3F; top: -10%; right: -10%; }
+        .blob-purple { background: #8B5CF6; bottom: -10%; left: -10%; }
+
+        /* REFINED CARD DESIGN */
+        .card-nexus {
+            background: var(--card);
+            backdrop-filter: blur(25px);
+            border: 1px solid var(--border);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .card-nexus:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            transform: translateY(-8px) scale(1.02);
+        }
+
+        /* CUSTOM HOVER INTERACTIONS */
+        .card-nexus:hover i {
+            color: var(--accent) !important;
+            transform: scale(1.1);
+        }
+
+        .card-nexus:hover h3 {
+            color: white !important;
+        }
+
+    </style>
+</head>
+<body class="p-6 md:p-16">
+
+    <div id="blueprint-bg"></div>
+    <div class="blob blob-red"></div>
+    <div class="blob blob-purple"></div>
+
+    <div class="max-w-7xl mx-auto">
+        
+        <header class="flex flex-col md:flex-row justify-between items-end gap-6 mb-24">
+            <div>
+                <span class="inline-block px-4 py-1.5 rounded-full border border-white/10 text-[10px] font-bold tracking-[0.4em] uppercase mb-5 bg-white/5">
+                    Official Digital Framework
+                </span>
+                <h1 class="text-6xl md:text-8xl font-extrabold tracking-tighter leading-none mb-8">
+                    Digital <span class="text-gray-400">Literacy.</span>
+                </h1>
+                <p class="text-gray-500 text-lg max-w-lg font-light leading-relaxed">
+                    Designed and architected by <span class="text-white font-bold">Castro Odhiambo</span>. A universal system for mastering the essential tools of the modern digital landscape.
+                </p>
+            </div>
+            <div class="text-right hidden md:block border border-white/5 p-4 rounded-xl bg-white/5">
+                <p class="text-xs text-gray-700 font-bold uppercase tracking-widest mb-1">Status</p>
+                <p class="text-sm"><i class="fas fa-circle text-emerald-500 text-[8px] mr-2"></i> Live Ecosystem</p>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+
+            <a href="Introduction.html" class="md:col-span-2 md:row-span-2 card-nexus p-12 rounded-[2.5rem] flex flex-col group">
+                <div class="flex-1">
+                    <div class="w-16 h-16 rounded-3xl bg-[#FF3B3F]/10 border border-[#FF3B3F]/20 flex items-center justify-center text-[#FF3B3F] mb-10 group-hover:bg-[#FF3B3F] group-hover:text-white transition-all">
+                        <i class="fas fa-compass text-3xl"></i>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-extrabold tracking-tighter leading-none mb-6">Gateway 01:<br>Introduction</h2>
+                    <p class="text-gray-500 text-lg max-w-sm">Lay the essential foundation. Understand the digital matrix and your place within it.</p>
+                </div>
+                <div class="mt-20 flex justify-end">
+                    <div class="w-16 h-16 rounded-full bg-white text-black flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </a>
+
+            <a href="Word.html" class="card-nexus p-8 rounded-[2rem] flex flex-col group">
+                <i class="fas fa-file-word text-2xl mb-4 text-blue-400"></i>
+                <h3 class="text-xl font-bold">Word</h3>
+                <p class="text-gray-600 text-sm mt-2 flex-1">Document structure and typography.</p>
+                <i class="fas fa-chevron-right mt-4 ml-auto opacity-0 group-hover:opacity-100 transition-opacity text-[#FF3B3F]"></i>
+            </a>
+
+            <a href="Excel.html" class="card-nexus p-8 rounded-[2rem] flex flex-col group">
+                <i class="fas fa-file-excel text-2xl mb-4 text-emerald-400"></i>
+                <h3 class="text-xl font-bold">Excel</h3>
+                <p class="text-gray-600 text-sm mt-2 flex-1">Quantitative logic and mastery.</p>
+                <i class="fas fa-chevron-right mt-4 ml-auto opacity-0 group-hover:opacity-100 transition-opacity text-[#FF3B3F]"></i>
+            </a>
+
+            <a href="Powerpoint.html" class="card-nexus p-8 rounded-[2rem] flex flex-col group">
+                <i class="fas fa-display text-2xl mb-4 text-[#FF3B3F]"></i>
+                <h3 class="text-xl font-bold">PowerPoint</h3>
+                <p class="text-gray-600 text-sm mt-2 flex-1">Impactful storytelling & delivery.</p>
+                <i class="fas fa-chevron-right mt-4 ml-auto opacity-0 group-hover:opacity-100 transition-opacity text-[#FF3B3F]"></i>
+            </a>
+
+            <a href="File Management.html" class="card-nexus md:col-span-2 p-8 rounded-[2rem] flex items-center justify-between group">
+                <div class="flex gap-6 items-center">
+                    <div class="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center text-gray-500 border border-white/10 group-hover:border-[#FF3B3F]">
+                        <i class="fas fa-folder-tree text-2xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold">File Management System</h4>
+                        <p class="text-gray-600 text-sm">Organization and digital hierarchy.</p>
+                    </div>
+                </div>
+                <div class="px-6 py-2.5 rounded-full bg-white text-black font-bold text-xs group-hover:bg-[#FF3B3F] group-hover:text-white transition-all">ENTER</div>
+            </a>
+
+            <a href="Internet and Email.html" class="card-nexus md:col-span-4 p-10 rounded-[2.5rem] flex flex-col md:flex-row md:items-center justify-between group">
+                <div class="flex gap-8 items-center">
+                    <div class="w-20 h-20 bg-purple-500/10 rounded-3xl flex items-center justify-center text-purple-400 border border-purple-500/20">
+                        <i class="fas fa-globe text-3xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-bold">Universal Communication Protocol</h4>
+                        <p class="text-gray-600 mt-1 max-w-lg">Internet, Email Mastery & Advanced Online Navigation.</p>
+                    </div>
+                </div>
+                <div class="mt-8 md:mt-0 px-10 py-4 rounded-full bg-white text-black font-bold text-sm tracking-wide group-hover:scale-105 group-hover:bg-purple-400 group-hover:text-white transition-all">
+                    START PROTOCOL
+                </div>
+            </a>
+
+        </div>
+
+        <footer class="mt-40 pb-12 flex flex-col md:flex-row justify-between items-center opacity-30 text-[10px] tracking-[0.4em] uppercase font-bold text-gray-500">
+            <p>© 2026 DIGITAL LITERACY PROTOCOL — V1.1</p>
+            <p>ARCHITECTED BY CASTRO ODHIAMBO</p>
+        </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener("scroll", function() {
+            const blueprint = document.getElementById('blueprint-bg');
+            const offset = window.pageYOffset;
+            
+            // Subtle movement in the opposite direction
+            blueprint.style.transform = 'translateY(' + (-offset * 0.4) + 'px)';
+        });
+    </script>
 </body>
 </html>
