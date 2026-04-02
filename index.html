@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Digital Competency | World-Class Dashboard for Digital Literacy</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <title>Basics Of Digital Literacy |  Castro Odhiambo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
@@ -15,169 +15,227 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: #f0f7fc;
+      background: #f5f9ff;
       color: #1a2c3e;
       line-height: 1.4;
+      scroll-behavior: smooth;
     }
 
-    @keyframes fadeUp {
-      0% { opacity: 0; transform: translateY(30px); }
-      100% { opacity: 1; transform: translateY(0); }
+    /* custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #e2edf2;
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #ffb74d;
+      border-radius: 10px;
     }
 
-    @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-8px); }
-      100% { transform: translateY(0px); }
-    }
-
+    /* hero section with animated gradient */
     .hero-section {
-      background: linear-gradient(125deg, #0b2b3d 0%, #154e6b 55%, #1f6e8c 100%);
-      border-radius: 0 0 3rem 3rem;
+      background: radial-gradient(ellipse at 30% 40%, #0a2f44, #051e2c);
       position: relative;
       overflow: hidden;
-      padding: 2.5rem 2rem 3rem 2rem;
+      padding: 3rem 2rem 4rem 2rem;
       color: white;
     }
 
     .hero-section::before {
-      content: "";
+      content: '';
       position: absolute;
-      top: -30%;
-      right: -10%;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+      top: -20%;
+      left: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(255,180,70,0.2) 0%, rgba(255,180,70,0) 70%);
       border-radius: 50%;
       pointer-events: none;
+      animation: floatGlow 12s infinite alternate;
     }
 
     .hero-section::after {
-      content: "";
+      content: '';
       position: absolute;
-      bottom: -20%;
-      left: -5%;
-      width: 300px;
-      height: 300px;
-      background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 70%);
+      bottom: -15%;
+      right: -5%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(31,110,140,0.3) 0%, rgba(31,110,140,0) 70%);
       border-radius: 50%;
       pointer-events: none;
+      animation: floatGlow2 10s infinite alternate;
+    }
+
+    @keyframes floatGlow {
+      0% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+      100% { transform: translate(40px, 30px) scale(1.2); opacity: 0.7; }
+    }
+    @keyframes floatGlow2 {
+      0% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+      100% { transform: translate(-30px, -20px) scale(1.3); opacity: 0.6; }
     }
 
     .container {
       max-width: 1300px;
       margin: 0 auto;
+      position: relative;
+      z-index: 2;
     }
 
-    .grid-dashboard {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    /* floating tech icons */
+    .tech-icons {
+      position: absolute;
+      bottom: 20px;
+      right: 30px;
+      font-size: 2rem;
+      opacity: 0.15;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* stats row */
+    .stats-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 2rem;
-      margin: 2rem 0;
+      margin-top: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .stat-badge {
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(8px);
+      border-radius: 80px;
+      padding: 0.5rem 1.2rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    /* dashboard grid — modern glassmorphism */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
     }
 
     .module-card {
-      background: white;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(0px);
       border-radius: 2rem;
-      padding: 1.8rem 1.5rem;
-      transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-      border: 1px solid #e9f0f5;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+      padding: 1.8rem 1.6rem;
+      transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      box-shadow: 0 15px 35px -12px rgba(0, 0, 0, 0.08);
       text-decoration: none;
       display: block;
-      color: inherit;
-      cursor: pointer;
+      color: #1a2c3e;
       position: relative;
       overflow: hidden;
+      cursor: pointer;
     }
 
-    .module-card::before {
-      content: "";
+    .module-card::after {
+      content: '';
       position: absolute;
-      top: 0;
+      bottom: 0;
       left: 0;
       width: 100%;
-      height: 4px;
-      background: linear-gradient(90deg, #ffb74d, #ff8c00);
+      height: 5px;
+      background: linear-gradient(90deg, #ffb74d, #ff8c42, #ffb74d);
       transform: scaleX(0);
+      transform-origin: left;
       transition: transform 0.3s ease;
     }
 
-    .module-card:hover::before {
+    .module-card:hover::after {
       transform: scaleX(1);
     }
 
     .module-card:hover {
-      transform: translateY(-8px);
-      border-color: #ffb74d;
-      box-shadow: 0 25px 35px -12px rgba(0,0,0,0.15);
+      transform: translateY(-10px) scale(1.01);
+      box-shadow: 0 30px 45px -15px rgba(0, 0, 0, 0.2);
+      border-color: #ffd89a;
     }
 
     .card-icon {
-      font-size: 2.8rem;
+      font-size: 2.6rem;
       margin-bottom: 1rem;
+      display: inline-block;
+      transition: transform 0.2s;
+    }
+    .module-card:hover .card-icon {
+      transform: scale(1.05);
     }
 
     .card-title {
-      font-size: 1.6rem;
-      font-weight: 700;
+      font-size: 1.55rem;
+      font-weight: 800;
       letter-spacing: -0.3px;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.6rem;
+      background: linear-gradient(135deg, #1f5e6e, #0e4b5e);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
     }
 
     .card-desc {
       color: #4a627a;
-      font-size: 0.9rem;
-      line-height: 1.4;
+      font-size: 0.88rem;
+      line-height: 1.45;
+      margin-bottom: 1rem;
     }
 
-    .badge {
-      background: #ffb74d;
-      color: #1e2a3e;
+    .chapter-badge-light {
+      display: inline-block;
+      background: #fef3e2;
+      padding: 0.2rem 0.9rem;
+      border-radius: 30px;
       font-size: 0.7rem;
       font-weight: 700;
-      padding: 0.2rem 0.8rem;
-      border-radius: 30px;
-      display: inline-block;
-      margin-top: 0.8rem;
+      color: #c46b0f;
+      letter-spacing: 0.3px;
     }
 
-    .stats-bar {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 1rem;
-      background: white;
+    /* decorative floating shapes */
+    .shape-bg {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+      opacity: 0.3;
+    }
+
+    /* footer */
+    .footer-modern {
+      background: #ffffffdd;
+      backdrop-filter: blur(8px);
       border-radius: 2rem;
-      padding: 1rem 2rem;
-      margin-bottom: 2.5rem;
-      border: 1px solid #e0edf5;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-    }
-
-    .resource-box {
-      background: linear-gradient(110deg, #fef9e8 0%, #ffffff 100%);
-      border-radius: 2rem;
-      padding: 2rem;
-      margin: 2rem 0;
-      border: 1px solid #ffe2b5;
-    }
-
-    .footer-links {
+      margin-top: 2rem;
+      padding: 1.5rem 2rem;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       gap: 1rem;
-      border-top: 1px solid #e2edf2;
-      padding-top: 2rem;
-      margin-top: 2rem;
+      border: 1px solid rgba(0,0,0,0.05);
+      box-shadow: 0 -5px 20px rgba(0,0,0,0.02);
     }
 
     @media (max-width: 700px) {
-      .hero-section h1 { font-size: 2rem; }
-      .grid-dashboard { gap: 1.2rem; }
-      .module-card { padding: 1.2rem; }
+      .hero-section { padding: 2rem 1rem; }
+      .dashboard-grid { gap: 1.2rem; }
+      .card-title { font-size: 1.3rem; }
     }
   </style>
 </head>
@@ -185,132 +243,165 @@
 
 <div class="hero-section">
   <div class="container">
-    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;">
       <div>
-        <div style="background: rgba(255,255,255,0.2); display: inline-block; padding: 0.2rem 1rem; border-radius: 40px; font-size: 0.75rem; font-weight: 600; backdrop-filter: blur(4px); margin-bottom: 1rem;">
-          <i class="fas fa-graduation-cap"></i> COMPLETE DIGITAL LITERACY SUITE
+        <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 1rem;">
+          <span style="background: #ffb74d; color: #1e2a3e; padding: 0.2rem 1rem; border-radius: 40px; font-weight: 700; font-size: 0.75rem;">
+            <i class="fas fa-star"></i> MASTER SERIES
+          </span>
+          <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); padding: 0.2rem 1rem; border-radius: 40px; font-size: 0.75rem;">
+            <i class="fas fa-globe-africa"></i> Kenyan Cybercafé Edition
+          </span>
         </div>
-        <h1 style="font-size: 3rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 0.5rem;">Basics Of Digital Literacy.</h1>
-        <p style="font-size: 1.2rem; opacity: 0.92; max-width: 650px;">Master computers, internet, government portals, and productivity tools — one chapter at a time. World‑class training for cybercafés, students, and professionals.</p>
+        <h1 style="font-size: 3.5rem; font-weight: 800; letter-spacing: -1.5px; line-height: 1.2;">Basics Of<br>Digital Literacy</h1>
+        <p style="font-size: 1.2rem; max-width: 580px; margin-top: 1rem; opacity: 0.92;">By Castro Odhiambo — Complete step‑by‑step training. From turning on a computer to mastering government portals and professional tools.</p>
       </div>
-      <div style="background: rgba(255,255,255,0.15); border-radius: 60px; padding: 0.5rem 1.2rem; backdrop-filter: blur(8px);">
-        <i class="fas fa-user-check"></i> by Castro Odhiambo
+      <div style="background: rgba(255,255,255,0.12); backdrop-filter: blur(12px); border-radius: 70px; padding: 0.8rem 1.5rem; text-align: center; border: 1px solid rgba(255,255,255,0.2);">
+        <i class="fas fa-certificate" style="color: #ffb74d;"></i>
+        <div style="font-weight: 700;">9 Comprehensive Modules</div>
+        <div style="font-size: 0.7rem; opacity: 0.8;">Ready to print & practice</div>
       </div>
     </div>
+
+    <div class="stats-row">
+      <div class="stat-badge"><i class="fas fa-check-circle"></i> 100% practical</div>
+      <div class="stat-badge"><i class="fas fa-file-alt"></i> No paraphrasing</div>
+      <div class="stat-badge"><i class="fas fa-download"></i> Free templates</div>
+      <div class="stat-badge"><i class="fas fa-passport"></i> e-Citizen + HELB + KRA</div>
+    </div>
+  </div>
+  <div class="tech-icons">
+    <i class="fas fa-laptop-code"></i> <i class="fas fa-database"></i> <i class="fas fa-cloud-upload-alt"></i>
   </div>
 </div>
 
-<div class="container" style="padding: 2rem 1.5rem 3rem 1.5rem;">
+<div class="container" style="padding: 0.5rem 1.5rem 3rem 1.5rem;">
   
-  <!-- STATS BAR -->
-  <div class="stats-bar">
-    <div><i class="fas fa-book-open" style="color:#ffb74d;"></i> <strong>9 complete modules</strong> | step‑by‑step</div>
-    <div><i class="fas fa-download"></i> <strong>Printables & templates</strong> included</div>
-    <div><i class="fas fa-globe"></i> Kenyan government portals & cybercafé ready</div>
-  </div>
-
-  <!-- DASHBOARD GRID - EXACT SPELLINGS FROM YOUR IMAGE -->
-  <div class="grid-dashboard">
+  <!-- Dashboard grid — exact spellings from image: Introduction, index, File Management, Excel, Word, Powerpoint, Internet and Email, Online navigation, Downloads and Tempelates -->
+  <div class="dashboard-grid">
     
     <!-- Introduction -->
     <a href="Introduction.html" class="module-card">
-      <div class="card-icon"><i class="fas fa-chalkboard-user" style="color:#1f6e8c;"></i></div>
+      <div class="card-icon"><i class="fas fa-chalkboard-user" style="color:#2c7da0;"></i></div>
       <div class="card-title">Introduction</div>
-      <div class="card-desc">Getting comfortable with a computer: turning on/off, mouse, keyboard, desktop environment, opening/closing programs.</div>
-      <span class="badge">Start here →</span>
+      <div class="card-desc">Turning on/off, mouse & keyboard mastery, desktop environment, creating folders, opening/closing programs — your first digital steps.</div>
+      <span class="chapter-badge-light"><i class="far fa-file-alt"></i> Chapter 1 • 4 sections</span>
     </a>
 
-    <!-- index -->
+    <!-- index (dashboard) -->
     <a href="index.html" class="module-card">
-      <div class="card-icon"><i class="fas fa-chart-line" style="color:#2c5f2d;"></i></div>
+      <div class="card-icon"><i class="fas fa-chart-simple" style="color:#2c5f2d;"></i></div>
       <div class="card-title">index</div>
-      <div class="card-desc">Master dashboard – central hub to access all chapters, resources, and progress tracking.</div>
-      <span class="badge">dashboard</span>
+      <div class="card-desc">Central command center — navigate all modules, track progress, and access every resource from one smart dashboard.</div>
+      <span class="chapter-badge-light"><i class="fas fa-home"></i> Home hub</span>
     </a>
 
     <!-- File Management -->
     <a href="File Management.html" class="module-card">
-      <div class="card-icon"><i class="fas fa-folder-open" style="color:#e67e22;"></i></div>
+      <div class="card-icon"><i class="fas fa-folder-tree" style="color:#e67e22;"></i></div>
       <div class="card-title">File Management</div>
-      <div class="card-desc">Create, rename, move, copy, delete files & folders. USB flash drive skills and search techniques.</div>
-      <span class="badge">Chapter 2 →</span>
+      <div class="card-desc">Create, rename, copy, move, delete. Master USB flash drives, search & organize like a professional.</div>
+      <span class="chapter-badge-light"><i class="far fa-save"></i> Chapter 2 • 5 skills</span>
     </a>
 
     <!-- Excel -->
     <a href="Excel.html" class="module-card">
       <div class="card-icon"><i class="fas fa-table" style="color:#27ae60;"></i></div>
       <div class="card-title">Excel</div>
-      <div class="card-desc">Spreadsheets, formulas (SUM, AVERAGE), charts, formatting, sorting, printing & protection.</div>
-      <span class="badge">Chapter 4 →</span>
+      <div class="card-desc">Formulas (SUM, AVERAGE, MIN, MAX), stunning charts, data sorting, filtering, and cell formatting.</div>
+      <span class="chapter-badge-light"><i class="fas fa-calculator"></i> Chapter 4 • Spreadsheets</span>
     </a>
 
     <!-- Word -->
     <a href="Word.html" class="module-card">
       <div class="card-icon"><i class="fas fa-file-word" style="color:#2980b9;"></i></div>
       <div class="card-title">Word</div>
-      <div class="card-desc">Create professional documents: formatting, tables, images, headers, footers, and print preview.</div>
-      <span class="badge">Chapter 3 →</span>
+      <div class="card-desc">Professional documents: fonts, tables, images, headers/footers, margins, printing — complete word processing.</div>
+      <span class="chapter-badge-light"><i class="fas fa-print"></i> Chapter 3 • Typing & design</span>
     </a>
 
     <!-- Powerpoint -->
     <a href="Powerpoint.html" class="module-card">
       <div class="card-icon"><i class="fas fa-chalkboard" style="color:#d35400;"></i></div>
       <div class="card-title">Powerpoint</div>
-      <div class="card-desc">Design stunning presentations with themes, transitions, animations, and speaker notes.</div>
-      <span class="badge">Chapter 5 →</span>
+      <div class="card-desc">Presentations that impress: themes, transitions, animations, slide layouts, and presenter view.</div>
+      <span class="chapter-badge-light"><i class="fas fa-play"></i> Chapter 5 • Slideshows</span>
     </a>
 
     <!-- Internet and Email -->
     <a href="Internet and Email.html" class="module-card">
       <div class="card-icon"><i class="fas fa-globe" style="color:#1abc9c;"></i></div>
       <div class="card-title">Internet and Email</div>
-      <div class="card-desc">Web browsing, search engines, Gmail, attachments, safety, phishing, strong passwords.</div>
-      <span class="badge">Chapter 6 →</span>
+      <div class="card-desc">Web browsing, search engines, Gmail creation, attachments, email etiquette, strong passwords, and online safety.</div>
+      <span class="chapter-badge-light"><i class="fas fa-envelope"></i> Chapter 6 • Communication</span>
     </a>
 
     <!-- Online navigation -->
     <a href="Online navigation.html" class="module-card">
       <div class="card-icon"><i class="fas fa-passport" style="color:#8e44ad;"></i></div>
       <div class="card-title">Online navigation</div>
-      <div class="card-desc">e-Citizen, KRA iTax, HELB, KUCCPS, NTSA, passport applications, and government portals.</div>
-      <span class="badge">Chapter 7 →</span>
+      <div class="card-desc">e-Citizen, KRA iTax, HELB loans, KUCCPS, NTSA, passport applications — real Kenyan government portals.</div>
+      <span class="chapter-badge-light"><i class="fas fa-landmark"></i> Chapter 7 • Civic digital</span>
     </a>
 
-    <!-- Downloads and Tempelates (exact spelling from image) -->
+    <!-- Downloads and Tempelates (exact spelling as in image) -->
     <a href="Downloads and Tempelates.html" class="module-card">
       <div class="card-icon"><i class="fas fa-download" style="color:#f39c12;"></i></div>
       <div class="card-title">Downloads and Tempelates</div>
-      <div class="card-desc">Printable checklists, CV templates, budget sheets, shortcut cards, PayBill numbers, and safety posters.</div>
-      <span class="badge">printables →</span>
+      <div class="card-desc">CV templates, budget sheets, passport checklist, HELB checklist, shortcut cards, PayBill numbers & safety posters.</div>
+      <span class="chapter-badge-light"><i class="fas fa-print"></i> Printables • Ready to use</span>
     </a>
   </div>
 
-  <!-- RESOURCE BOX -->
-  <div class="resource-box">
-    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem;">
+  <!-- Featured resource callout - attractive & helpful (replaces "why this dashboard") -->
+  <div style="background: linear-gradient(115deg, #ffffff 0%, #fefaf0 100%); border-radius: 2rem; padding: 1.8rem 2rem; margin: 2rem 0 1rem 0; border: 1px solid #ffe6c2; box-shadow: 0 15px 30px -12px rgba(0,0,0,0.08); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.5rem;">
+    <div style="display: flex; align-items: center; gap: 1rem;">
+      <div style="background: #ffb74d30; border-radius: 60px; padding: 0.8rem;"><i class="fas fa-gem" style="font-size: 2rem; color: #ffb74d;"></i></div>
       <div>
-        <h3 style="font-size: 1.6rem; font-weight: 700;"><i class="fas fa-star-of-life" style="color:#ffb74d;"></i> Why this dashboard?</h3>
-        <p style="max-width: 600px;">Every chapter is fully written — no paraphrasing. Step‑by‑step practical activities, skill checks, and real‑world scenarios tailored for Kenyan cybercafés, schools, and self‑learners.</p>
+        <h3 style="font-weight: 800; font-size: 1.3rem;">🎯 Cybercafé & Classroom Ready</h3>
+        <p style="color: #3e5a6b;">Each chapter includes printable checklists, skill checks, and real‑world tasks. Zero fluff — just practical digital competence.</p>
       </div>
-      <div style="background: white; padding: 0.5rem 1.5rem; border-radius: 60px; box-shadow: 0 6px 12px rgba(0,0,0,0.05);">
-        <i class="fas fa-check-circle" style="color:#2c5f2d;"></i> 100% free & printable
-      </div>
+    </div>
+    <div style="display: flex; gap: 0.8rem;">
+      <span style="background: white; padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600; box-shadow: 0 2px 6px rgba(0,0,0,0.05);"><i class="fas-regular fa-circle-check"></i> 400+ steps</span>
+      <span style="background: white; padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600;"><i class="fas fa-users"></i> 40+ activities</span>
     </div>
   </div>
 
-  <!-- FOOTER -->
-  <div class="footer-links">
-    <div><i class="far fa-copyright"></i> 2026 Castro Odhiambo — Basics of Digital Literacy</div>
+  <!-- quick preview cards (extra magic) - shows key features -->
+  <div style="display: flex; flex-wrap: wrap; gap: 1.2rem; justify-content: space-between; margin: 2rem 0 1rem;">
+    <div style="background: #ffffffcc; backdrop-filter: blur(2px); border-radius: 1.5rem; padding: 0.8rem 1.2rem; flex: 1; min-width: 150px; border: 1px solid #eef2f5;">
+      <i class="fas fa-keyboard" style="color: #ffb74d;"></i> <strong>Keyboard shortcuts</strong><br>Windows, Word, Excel
+    </div>
+    <div style="background: #ffffffcc; backdrop-filter: blur(2px); border-radius: 1.5rem; padding: 0.8rem 1.2rem; flex: 1; min-width: 150px; border: 1px solid #eef2f5;">
+      <i class="fas fa-shield-alt" style="color: #ffb74d;"></i> <strong>Internet safety</strong><br>Phishing, strong passwords
+    </div>
+    <div style="background: #ffffffcc; backdrop-filter: blur(2px); border-radius: 1.5rem; padding: 0.8rem 1.2rem; flex: 1; min-width: 150px; border: 1px solid #eef2f5;">
+      <i class="fas fa-file-pdf" style="color: #ffb74d;"></i> <strong>PDF tools & compression</strong><br>ILovePDF, TinyPNG
+    </div>
+  </div>
+
+  <div class="footer-modern">
+    <div><i class="far fa-copyright"></i> 2026 Castro Odhiambo — Basics Of Digital Literacy</div>
     <div style="display: flex; gap: 1.5rem;">
-      <span><i class="fas fa-print"></i> Ready to print</span>
-      <span><i class="fas fa-chalkboard-user"></i> Cybercafé friendly</span>
+      <span><i class="fas fa-print"></i> All modules printable</span>
+      <span><i class="fas fa-chalkboard-user"></i> Cybercafé trusted</span>
       <span><i class="fas fa-mobile-alt"></i> Responsive design</span>
     </div>
   </div>
 </div>
 
+<!-- subtle background shape (decorative) -->
+<div class="shape-bg">
+  <svg width="100%" height="100%" viewBox="0 0 1000 800" xmlns="http://www.w3.org/2000/svg" style="position: absolute; bottom:0; left:0; opacity:0.2;">
+    <circle cx="150" cy="650" r="140" fill="#ffb74d" fill-opacity="0.1" />
+    <circle cx="850" cy="400" r="200" fill="#2c7da0" fill-opacity="0.07" />
+    <path d="M0 600 L200 550 L400 650 L600 500 L800 600 L1000 450 L1000 800 L0 800 Z" fill="#154e6b" fill-opacity="0.03" />
+  </svg>
+</div>
+
 <script>
-  // Animate cards on scroll
+  // smooth hover + animation on cards
   const cards = document.querySelectorAll('.module-card');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -320,14 +411,17 @@
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.1, rootMargin: '0px 0px -20px 0px' });
   
   cards.forEach(card => {
     card.style.opacity = '0';
-    card.style.transform = 'translateY(20px)';
-    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    card.style.transform = 'translateY(25px)';
+    card.style.transition = 'opacity 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.5s ease';
     observer.observe(card);
   });
+
+  // Optional: if you want to show a friendly console reminder
+  console.log('🌟 Basics Of Digital Literacy — Dashboard ready. All modules linked with exact spelling as per image.');
 </script>
 
 </body>
