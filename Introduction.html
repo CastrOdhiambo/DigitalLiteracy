@@ -3,460 +3,1209 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Digital Competency | Chapter 1: Getting Comfortable with a Computer (Complete Guide)</title>
+  <title>Chapter 1: Getting Comfortable with a Computer | Digital Literacy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root {
+      --navy:    #0b2233;
+      --blue:    #1a4b6e;
+      --mid:     #2471a3;
+      --sky:     #5dade2;
+      --gold:    #f5a623;
+      --amber:   #ffd27a;
+      --white:   #ffffff;
+      --off:     #f4f8fb;
+      --text:    #1a2c3e;
+      --muted:   #5a7080;
+      --border:  #ddeaf4;
+      --green:   #2c7a4d;
+      --lgreen:  #e8f5e9;
+      --red:     #c0392b;
+      --lred:    #fdecea;
+      --lyellow: #fff9e8;
+      --radius:  1.4rem;
     }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
     body {
-      background: #f0f4f8;
-      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-      line-height: 1.5;
-      color: #1a2c3e;
-      padding: 2rem 1rem;
+      font-family:'DM Sans',sans-serif;
+      background: var(--off);
+      color: var(--text);
+      line-height: 1.7;
     }
-    .container {
-      max-width: 1300px;
-      margin: 0 auto;
-      background: white;
-      border-radius: 32px;
-      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.2);
-      overflow: hidden;
+
+    /* ── PROGRESS BAR ── */
+    #pbar {
+      position:fixed; top:0; left:0; height:3px; z-index:999;
+      background:linear-gradient(to right,var(--gold),var(--sky));
+      width:0%; transition:width 0.1s linear;
     }
+
+    /* ── TOP NAV ── */
+    .topbar {
+      position:sticky; top:0; z-index:200;
+      background:rgba(11,34,51,0.97); backdrop-filter:blur(14px);
+      display:flex; align-items:center; justify-content:space-between;
+      padding:0.7rem 2.5rem;
+      border-bottom:1px solid rgba(255,255,255,0.07);
+    }
+    .topbar-brand { font-family:'Fraunces',serif; font-size:1rem; font-weight:700; color:var(--amber); }
+    .topbar-brand span { color:#fff; font-weight:300; }
+    .topbar-right { display:flex; align-items:center; gap:1rem; }
+    .topbar-chapter { font-size:0.75rem; color:rgba(255,255,255,0.5); letter-spacing:0.08em; text-transform:uppercase; }
+    .home-btn {
+      background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.15);
+      color:#fff; padding:0.35rem 1rem; border-radius:30px;
+      font-size:0.78rem; text-decoration:none; transition:all 0.2s;
+    }
+    .home-btn:hover { background:var(--gold); color:var(--navy); border-color:var(--gold); }
+
+    /* ── HERO ── */
     .hero {
-      background: linear-gradient(135deg, #1a4b6e, #0e2f48);
-      color: white;
-      padding: 2rem 2rem;
-      text-align: center;
+      background:linear-gradient(130deg,#0b2233 0%,#1a4b6e 60%,#2471a3 100%);
+      padding:5rem 2rem 4rem; position:relative; overflow:hidden;
+    }
+    .hero::before {
+      content:''; position:absolute; inset:0;
+      background-image:radial-gradient(rgba(255,255,255,0.05) 1px,transparent 1px);
+      background-size:28px 28px; pointer-events:none;
+    }
+    .hero::after {
+      content:''; position:absolute;
+      width:500px; height:500px; border-radius:50%;
+      background:radial-gradient(circle,rgba(245,166,35,0.12) 0%,transparent 70%);
+      top:-150px; right:-100px; pointer-events:none;
+    }
+    .hero-inner { max-width:1200px; margin:0 auto; position:relative; z-index:1; }
+    .hero-badge {
+      display:inline-flex; align-items:center; gap:0.5rem;
+      background:rgba(245,166,35,0.18); border:1px solid rgba(245,166,35,0.4);
+      color:var(--amber); padding:0.3rem 1rem; border-radius:40px;
+      font-size:0.72rem; letter-spacing:0.15em; text-transform:uppercase; font-weight:600;
+      margin-bottom:1.5rem; animation:fadeUp 0.6s ease both;
     }
     .hero h1 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
+      font-family:'Fraunces',serif;
+      font-size:clamp(2.2rem,5vw,4rem);
+      font-weight:900; color:#fff; line-height:1.08; letter-spacing:-1px;
+      margin-bottom:1rem; animation:fadeUp 0.6s 0.1s ease both;
     }
-    .hero .author {
-      font-size: 1rem;
-      opacity: 0.9;
-      margin-top: 0.5rem;
-      border-top: 1px solid rgba(255,255,255,0.3);
-      display: inline-block;
-      padding-top: 0.5rem;
+    .hero h1 em { font-style:italic; color:var(--amber); }
+    .hero-sub {
+      font-size:1.05rem; color:rgba(255,255,255,0.7); max-width:620px;
+      line-height:1.8; margin-bottom:2rem; animation:fadeUp 0.6s 0.2s ease both;
     }
-    .chapter-badge {
-      background: #ffb74d;
-      color: #1e2a3e;
-      display: inline-block;
-      padding: 0.25rem 1.2rem;
-      border-radius: 40px;
-      font-weight: bold;
-      font-size: 0.8rem;
-      margin-bottom: 1rem;
+
+    /* HERO META ROW */
+    .hero-meta {
+      display:flex; flex-wrap:wrap; gap:1rem; align-items:center;
+      animation:fadeUp 0.6s 0.3s ease both;
     }
-    .content {
-      padding: 2rem 2rem 2.5rem 2rem;
+    .meta-pill {
+      display:flex; align-items:center; gap:0.5rem;
+      background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.15);
+      color:rgba(255,255,255,0.8); padding:0.3rem 1rem; border-radius:30px; font-size:0.78rem;
     }
-    h2 {
-      font-size: 1.9rem;
-      margin: 1.8rem 0 1rem;
-      color: #1a4b6e;
-      border-left: 6px solid #ffb74d;
-      padding-left: 1rem;
+    .meta-pill i { color:var(--amber); }
+    .hero-btn {
+      background:var(--gold); color:var(--navy);
+      padding:0.8rem 2rem; border-radius:40px; font-size:0.88rem; font-weight:600;
+      text-decoration:none; display:inline-flex; align-items:center; gap:0.5rem;
+      transition:all 0.2s; border:none; cursor:pointer;
     }
-    h3 {
-      font-size: 1.5rem;
-      margin: 1.2rem 0 0.8rem;
-      color: #1f618d;
+    .hero-btn:hover { background:var(--amber); transform:translateY(-2px); }
+
+    /* ── TOC ── */
+    .toc-wrap { background:var(--white); border-bottom:1px solid var(--border); }
+    .toc-inner { max-width:1200px; margin:0 auto; padding:1.5rem 2rem; }
+    .toc-title { font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--muted); margin-bottom:1rem; font-weight:600; }
+    .toc-grid { display:flex; flex-wrap:wrap; gap:0.6rem; }
+    .toc-link {
+      display:flex; align-items:center; gap:0.5rem;
+      background:var(--off); border:1px solid var(--border);
+      color:var(--blue); padding:0.4rem 1rem; border-radius:30px;
+      font-size:0.82rem; font-weight:500; text-decoration:none;
+      transition:all 0.2s;
     }
-    h4 {
-      font-size: 1.2rem;
-      margin: 1rem 0 0.5rem;
-      color: #2471a3;
+    .toc-link:hover { background:var(--blue); color:#fff; border-color:var(--blue); }
+    .toc-link .toc-num { font-weight:700; color:var(--gold); }
+
+    /* ── MAIN LAYOUT ── */
+    .page-wrap { max-width:1200px; margin:0 auto; padding:3rem 2rem 5rem; }
+
+    /* ── SECTION HEADINGS ── */
+    .chapter-section { margin-bottom:4rem; }
+    .section-heading {
+      display:flex; align-items:center; gap:1rem;
+      margin-bottom:1.8rem; padding-bottom:1rem;
+      border-bottom:2px solid var(--border);
     }
-    .section-card {
-      background: #fbfef9;
-      border-radius: 24px;
-      padding: 1.2rem 1.8rem;
-      margin: 1.5rem 0;
-      border: 1px solid #dee9f0;
+    .section-num {
+      background:linear-gradient(135deg,var(--navy),var(--blue));
+      color:var(--amber); font-family:'Fraunces',serif;
+      font-size:1rem; font-weight:900; width:48px; height:48px;
+      border-radius:12px; display:flex; align-items:center; justify-content:center;
+      flex-shrink:0;
     }
-    .steps-box {
-      background: #eaf2f8;
-      border-left: 5px solid #2980b9;
-      padding: 1rem 1.8rem;
-      border-radius: 20px;
-      margin: 1.2rem 0;
+    .section-heading h2 {
+      font-family:'Fraunces',serif; font-size:1.8rem; font-weight:700;
+      color:var(--navy); line-height:1.15;
     }
-    .note {
-      background: #fff9e8;
-      border-left: 5px solid #ffb74d;
-      padding: 1rem 1.5rem;
-      border-radius: 16px;
-      margin: 1rem 0;
-      font-weight: 500;
+    .section-heading p { font-size:0.88rem; color:var(--muted); margin-top:0.2rem; }
+
+    /* ── SUBSECTION ── */
+    .subsection { margin-bottom:2.5rem; }
+    .subsection-title {
+      font-family:'Fraunces',serif; font-size:1.2rem; font-weight:700;
+      color:var(--blue); margin-bottom:1rem;
+      display:flex; align-items:center; gap:0.6rem;
     }
-    .warning {
-      background: #ffeae9;
-      border-left: 5px solid #d9534f;
-      padding: 1rem 1.5rem;
-      border-radius: 16px;
-      margin: 1rem 0;
+    .subsection-title .tag {
+      background:var(--blue); color:#fff; font-size:0.65rem;
+      padding:0.15rem 0.6rem; border-radius:4px; font-family:'DM Sans',sans-serif;
+      font-weight:600; letter-spacing:0.08em; text-transform:uppercase;
     }
-    .skill-check {
-      background: #e8f0fe;
-      border-radius: 20px;
-      padding: 1rem 1.8rem;
-      margin: 1.5rem 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      font-weight: 500;
+    p { color:var(--muted); line-height:1.8; margin-bottom:0.8rem; }
+    p strong { color:var(--text); }
+
+    /* ── CARDS ── */
+    .card {
+      background:var(--white); border:1px solid var(--border);
+      border-radius:var(--radius); padding:1.6rem 1.8rem; margin:1.2rem 0;
     }
-    .skill-check span {
-      background: white;
-      padding: 0.3rem 1rem;
-      border-radius: 30px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    .card-blue  { border-left:5px solid var(--blue); background:#eaf3fb; }
+    .card-green { border-left:5px solid var(--green); background:var(--lgreen); }
+    .card-gold  { border-left:5px solid var(--gold); background:var(--lyellow); }
+    .card-red   { border-left:5px solid var(--red); background:var(--lred); }
+    .card-navy  { background:linear-gradient(120deg,var(--navy) 0%,#1a4b6e 100%); color:#fff; border:none; }
+    .card-navy p { color:rgba(255,255,255,0.7); }
+    .card-navy strong { color:#fff; }
+
+    .card-label {
+      font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase;
+      font-weight:700; margin-bottom:0.8rem; display:flex; align-items:center; gap:0.5rem;
     }
-    ul, ol {
-      padding-left: 1.6rem;
-      margin: 0.8rem 0;
+    .card-blue  .card-label { color:var(--blue); }
+    .card-green .card-label { color:var(--green); }
+    .card-gold  .card-label { color:#b37800; }
+    .card-red   .card-label { color:var(--red); }
+    .card-navy  .card-label { color:var(--amber); }
+
+    /* ── STEPS ── */
+    .steps { display:flex; flex-direction:column; gap:0.8rem; margin:0.5rem 0; }
+    .step {
+      display:flex; gap:1rem; align-items:flex-start;
+      background:rgba(255,255,255,0.6); border-radius:0.8rem; padding:0.8rem 1rem;
+      border:1px solid rgba(255,255,255,0.8);
     }
-    li {
-      margin: 0.3rem 0;
+    .step-num {
+      background:var(--blue); color:#fff; width:26px; height:26px;
+      border-radius:50%; display:flex; align-items:center; justify-content:center;
+      font-size:0.75rem; font-weight:700; flex-shrink:0; margin-top:0.1rem;
     }
-    hr {
-      margin: 2rem 0;
-      border: none;
-      height: 2px;
-      background: linear-gradient(to right, #cbdbe0, transparent);
+    .card-navy .step { background:rgba(255,255,255,0.07); border-color:rgba(255,255,255,0.1); }
+    .card-navy .step-num { background:var(--gold); color:var(--navy); }
+    .card-navy .step p { color:rgba(255,255,255,0.8); margin:0; }
+    .step p { margin:0; color:var(--text); line-height:1.6; font-size:0.9rem; }
+    .step strong { color:var(--navy); }
+
+    /* ── GRID CARDS ── */
+    .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; margin:1.2rem 0; }
+    .grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; margin:1.2rem 0; }
+    @media(max-width:700px){ .grid-2,.grid-3 { grid-template-columns:1fr; } }
+
+    /* ── KEY CONCEPTS ── */
+    .concept-card {
+      background:var(--white); border:1px solid var(--border);
+      border-radius:var(--radius); padding:1.4rem 1.5rem;
+      transition:all 0.2s;
     }
+    .concept-card:hover { border-color:var(--blue); box-shadow:0 8px 20px rgba(0,0,0,0.06); }
+    .concept-icon { font-size:1.8rem; margin-bottom:0.8rem; }
+    .concept-card h4 { font-weight:700; color:var(--navy); font-size:0.95rem; margin-bottom:0.4rem; }
+    .concept-card p { font-size:0.83rem; color:var(--muted); margin:0; line-height:1.6; }
+
+    /* ── TABLE ── */
+    .styled-table { width:100%; border-collapse:collapse; margin:1.2rem 0; font-size:0.88rem; }
+    .styled-table thead { background:var(--navy); color:#fff; }
+    .styled-table th { padding:0.8rem 1.2rem; text-align:left; font-weight:600; font-size:0.78rem; letter-spacing:0.05em; text-transform:uppercase; }
+    .styled-table td { padding:0.75rem 1.2rem; border-bottom:1px solid var(--border); color:var(--muted); }
+    .styled-table tbody tr:hover { background:#f0f7fc; }
+    .styled-table td:first-child { font-weight:600; color:var(--navy); }
+    .key-badge { background:var(--off); border:1px solid var(--border); padding:0.15rem 0.5rem; border-radius:4px; font-family:monospace; font-size:0.85rem; color:var(--navy); }
+
+    /* ── MOUSE DIAGRAM ── */
+    .mouse-diagram {
+      display:flex; gap:1.5rem; flex-wrap:wrap; margin:1.2rem 0; align-items:flex-start;
+    }
+    .mouse-visual {
+      background:linear-gradient(135deg,#e8f3fb,#d0e8f5);
+      border:2px solid var(--sky); border-radius:1.5rem;
+      padding:1.5rem 2rem; text-align:center; flex-shrink:0; min-width:180px;
+    }
+    .mouse-visual .mouse-svg { font-size:4rem; }
+    .mouse-visual p { font-size:0.75rem; color:var(--blue); margin:0.5rem 0 0; font-weight:600; }
+    .mouse-actions { flex:1; min-width:240px; }
+    .action-row {
+      display:flex; gap:1rem; align-items:flex-start;
+      padding:0.7rem 1rem; border-radius:0.8rem; margin-bottom:0.6rem;
+      background:var(--white); border:1px solid var(--border);
+    }
+    .action-icon { font-size:1.2rem; flex-shrink:0; width:32px; text-align:center; }
+    .action-row strong { display:block; font-size:0.88rem; color:var(--navy); }
+    .action-row span { font-size:0.8rem; color:var(--muted); }
+
+    /* ── DESKTOP DIAGRAM ── */
+    .desktop-diagram {
+      background:linear-gradient(135deg,#1a3a5c,#0d2136);
+      border-radius:1.2rem; padding:1.5rem; margin:1.2rem 0; position:relative;
+    }
+    .d-screen {
+      background:#1e3a56; border-radius:0.8rem; min-height:220px; position:relative; overflow:hidden;
+    }
+    .d-wallpaper {
+      position:absolute; inset:0;
+      background:linear-gradient(135deg,#0d2b45 0%,#1a4a6e 100%);
+      display:flex; align-items:flex-start; justify-content:flex-start;
+      flex-wrap:wrap; gap:1rem; padding:1rem;
+    }
+    .d-icon { text-align:center; width:65px; cursor:pointer; }
+    .d-icon .ico { font-size:1.8rem; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3)); }
+    .d-icon span { display:block; color:rgba(255,255,255,0.9); font-size:0.65rem; margin-top:0.3rem; text-shadow:0 1px 3px rgba(0,0,0,0.5); }
+    .d-taskbar {
+      background:rgba(0,0,0,0.7); padding:0.4rem 1rem;
+      display:flex; align-items:center; justify-content:space-between;
+      border-radius:0 0 0.8rem 0.8rem;
+    }
+    .d-start { background:var(--blue); color:#fff; padding:0.2rem 0.8rem; border-radius:4px; font-size:0.7rem; font-weight:700; }
+    .d-taskbar-icons { display:flex; gap:0.5rem; font-size:0.75rem; color:rgba(255,255,255,0.7); }
+    .d-clock { color:rgba(255,255,255,0.8); font-size:0.68rem; text-align:right; line-height:1.4; }
+    .d-label {
+      position:absolute; background:var(--gold); color:var(--navy);
+      font-size:0.65rem; font-weight:700; padding:0.15rem 0.6rem; border-radius:30px;
+      white-space:nowrap;
+    }
+
+    /* ── PRACTICE BOX ── */
+    .practice-box {
+      background:linear-gradient(120deg,var(--navy) 0%,#1a4b6e 100%);
+      border-radius:var(--radius); padding:1.8rem; margin:1.5rem 0; color:#fff;
+    }
+    .practice-header {
+      display:flex; align-items:center; gap:0.8rem; margin-bottom:1.2rem;
+    }
+    .practice-icon {
+      width:44px; height:44px; background:rgba(245,166,35,0.2);
+      border-radius:10px; display:flex; align-items:center; justify-content:center;
+      font-size:1.2rem;
+    }
+    .practice-header h4 { font-family:'Fraunces',serif; color:#fff; font-size:1.1rem; }
+    .practice-header p { color:rgba(255,255,255,0.6); font-size:0.8rem; margin:0; }
+    .practice-steps { display:flex; flex-direction:column; gap:0.7rem; }
+    .ps {
+      display:flex; gap:0.8rem; align-items:flex-start;
+      background:rgba(255,255,255,0.07); border-radius:0.7rem; padding:0.7rem 1rem;
+    }
+    .ps-n {
+      background:var(--gold); color:var(--navy); width:22px; height:22px;
+      border-radius:50%; display:flex; align-items:center; justify-content:center;
+      font-size:0.7rem; font-weight:800; flex-shrink:0; margin-top:0.15rem;
+    }
+    .ps p { color:rgba(255,255,255,0.85); margin:0; font-size:0.88rem; line-height:1.5; }
+
+    /* ── CHECKLIST ── */
+    .checklist {
+      background:var(--lgreen); border:1px solid #a8d5b5;
+      border-radius:var(--radius); padding:1.4rem 1.6rem; margin:1.5rem 0;
+    }
+    .checklist-title { font-weight:700; color:var(--green); font-size:0.85rem; margin-bottom:1rem; display:flex; align-items:center; gap:0.5rem; text-transform:uppercase; letter-spacing:0.1em; }
+    .check-item {
+      display:flex; align-items:center; gap:0.8rem;
+      padding:0.5rem 0; border-bottom:1px solid rgba(44,122,77,0.1); font-size:0.88rem;
+    }
+    .check-item:last-child { border:none; }
+    .check-item i { color:var(--green); }
+    .check-item span { color:var(--text); }
+
+    /* ── NOTE / WARNING / TIP ── */
+    .callout { display:flex; gap:1rem; align-items:flex-start; border-radius:var(--radius); padding:1.2rem 1.5rem; margin:1.2rem 0; }
+    .callout-icon { font-size:1.3rem; flex-shrink:0; margin-top:0.1rem; }
+    .callout-body strong { display:block; margin-bottom:0.3rem; font-size:0.9rem; }
+    .callout-body p,.callout-body ul { font-size:0.86rem; margin:0; }
+    .callout-body ul { padding-left:1.2rem; }
+    .callout-body li { margin:0.25rem 0; }
+    .callout.note    { background:var(--lyellow); border:1px solid #f0c040; }
+    .callout.note    .callout-icon { color:#b37800; }
+    .callout.note    strong { color:#7a5200; }
+    .callout.warning { background:var(--lred); border:1px solid #e8b4b0; }
+    .callout.warning .callout-icon { color:var(--red); }
+    .callout.warning strong { color:var(--red); }
+    .callout.tip     { background:#eaf3fb; border:1px solid #a8d0ee; }
+    .callout.tip     .callout-icon { color:var(--blue); }
+    .callout.tip     strong { color:var(--blue); }
+
+    /* ── KEYBOARD LAYOUT ── */
+    .keyboard-visual {
+      background:#1e2d3d; border-radius:1rem; padding:1.2rem 1.5rem; margin:1.2rem 0;
+      display:flex; flex-direction:column; gap:0.4rem;
+    }
+    .kb-row { display:flex; gap:0.3rem; flex-wrap:wrap; }
+    .key {
+      background:#2c3e50; color:#ecf0f1; border-radius:5px;
+      padding:0.35rem 0.5rem; font-size:0.65rem; font-weight:600;
+      border-bottom:2px solid #1a2530; min-width:32px; text-align:center;
+      font-family:monospace; cursor:default;
+    }
+    .key.wide { min-width:56px; }
+    .key.wider { min-width:80px; }
+    .key.widest { min-width:180px; }
+    .key.highlight { background:var(--gold); color:var(--navy); }
+    .key.blue { background:var(--blue); color:#fff; }
+
+    /* ── SHORTCUT TABLE ── */
+    .shortcut-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:0.8rem; margin:1.2rem 0; }
+    .shortcut-item {
+      background:var(--white); border:1px solid var(--border); border-radius:1rem;
+      padding:0.9rem 1.2rem; display:flex; align-items:center; gap:1rem;
+    }
+    .shortcut-keys { display:flex; gap:0.2rem; flex-shrink:0; }
+    .shortcut-key { background:var(--navy); color:var(--amber); padding:0.2rem 0.5rem; border-radius:4px; font-family:monospace; font-size:0.78rem; font-weight:700; }
+    .shortcut-plus { color:var(--muted); font-size:0.75rem; }
+    .shortcut-item strong { display:block; font-size:0.85rem; color:var(--navy); }
+    .shortcut-item span { font-size:0.78rem; color:var(--muted); }
+
+    /* ── WINDOW ANATOMY ── */
+    .window-mock {
+      border:2px solid var(--border); border-radius:0.8rem; overflow:hidden;
+      margin:1.2rem 0; box-shadow:0 8px 24px rgba(0,0,0,0.08);
+    }
+    .win-titlebar {
+      background:var(--navy); padding:0.6rem 1rem;
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .win-title { color:#fff; font-size:0.82rem; font-weight:600; }
+    .win-controls { display:flex; gap:0.4rem; }
+    .win-btn {
+      width:14px; height:14px; border-radius:50%;
+      display:flex; align-items:center; justify-content:center; font-size:0.55rem; color:#fff; font-weight:700;
+    }
+    .win-btn.min { background:#f5a623; }
+    .win-btn.max { background:#27ae60; }
+    .win-btn.cls { background:#e74c3c; }
+    .win-body { background:var(--white); padding:2rem; min-height:120px; }
+    .win-body p { font-size:0.85rem; color:var(--muted); }
+
+    /* ── CHAPTER SUMMARY ── */
+    .chapter-summary {
+      background:linear-gradient(120deg,var(--navy) 0%,#1056a0 100%);
+      border-radius:2rem; padding:2.5rem; margin:3rem 0; color:#fff;
+    }
+    .summary-title { font-family:'Fraunces',serif; font-size:1.6rem; font-weight:700; margin-bottom:0.5rem; }
+    .summary-sub   { color:rgba(255,255,255,0.6); font-size:0.88rem; margin-bottom:2rem; }
+    .summary-grid  { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem; }
+    .summary-item {
+      background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12);
+      border-radius:1rem; padding:1.2rem; display:flex; gap:0.8rem; align-items:flex-start;
+    }
+    .summary-item i { color:var(--amber); font-size:1.1rem; margin-top:0.1rem; }
+    .summary-item strong { display:block; font-size:0.88rem; color:#fff; }
+    .summary-item span   { font-size:0.78rem; color:rgba(255,255,255,0.55); }
+    .summary-quote { margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,0.1); text-align:center; }
+    .summary-quote p { font-family:'Fraunces',serif; font-style:italic; font-size:1.1rem; color:var(--amber); }
+
+    /* ── NEXT CHAPTER ── */
+    .next-chapter {
+      background:var(--white); border:2px solid var(--border);
+      border-radius:var(--radius); padding:1.8rem; margin:2rem 0;
+      display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;
+    }
+    .next-label { font-size:0.7rem; text-transform:uppercase; letter-spacing:0.15em; color:var(--muted); margin-bottom:0.3rem; }
+    .next-title { font-family:'Fraunces',serif; font-size:1.2rem; font-weight:700; color:var(--navy); }
+    .next-desc  { font-size:0.85rem; color:var(--muted); margin-top:0.3rem; }
+    .next-btn {
+      background:var(--navy); color:#fff; padding:0.9rem 2rem; border-radius:40px;
+      font-size:0.88rem; font-weight:600; text-decoration:none; white-space:nowrap;
+      display:inline-flex; align-items:center; gap:0.5rem; transition:all 0.2s;
+    }
+    .next-btn:hover { background:var(--gold); color:var(--navy); }
+    .back-home {
+      display:inline-flex; align-items:center; gap:0.5rem;
+      color:var(--blue); text-decoration:none; font-size:0.85rem; margin-bottom:2rem;
+    }
+    .back-home:hover { color:var(--gold); }
+
+    /* ── FOOTER ── */
     footer {
-      background: #f1f5f9;
-      text-align: center;
-      padding: 1.2rem;
-      font-size: 0.85rem;
-      color: #1a4b6e;
-      border-top: 1px solid #d0dfe8;
+      background:var(--navy); color:rgba(255,255,255,0.5);
+      text-align:center; padding:1.8rem 2rem; font-size:0.82rem;
     }
-    .tick-box {
-      background: #d5f5e3;
-      border-radius: 12px;
-      padding: 0.8rem;
-      margin: 1rem 0;
-      font-family: monospace;
-    }
-    @media (max-width: 700px) {
-      .content { padding: 1rem; }
-      h2 { font-size: 1.6rem; }
-    }
+    footer span { color:var(--amber); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+    .reveal { opacity:0; transform:translateY(20px); transition:opacity 0.55s ease,transform 0.55s ease; }
+    .reveal.visible { opacity:1; transform:translateY(0); }
   </style>
 </head>
 <body>
-<div class="container">
-  <div class="hero">
-    <div class="chapter-badge">💻 CHAPTER ONE</div>
-    <h1>GETTING COMFORTABLE WITH A COMPUTER</h1>
-    <div class="author">by Castro Odhiambo — Complete Practical Guide</div>
-    <p style="margin-top: 0.8rem; max-width: 800px; margin-left: auto; margin-right: auto;">Get Started With Your Digital Ability From Here .</p>
+
+<div id="pbar"></div>
+
+<!-- NAV -->
+<nav class="topbar">
+  <div class="topbar-brand">Digital<span>Literacy</span></div>
+  <div class="topbar-right">
+    <span class="topbar-chapter"><i class="fas fa-book-open"></i> &nbsp;Chapter 1 of 7</span>
+    <a href="index.html" class="home-btn"><i class="fas fa-home"></i> Home</a>
   </div>
-  <div class="content">
+</nav>
 
-    <!-- 1.1 Turning a Computer On and Off Properly -->
-    <h2>1.1 Turning a Computer On and Off Properly</h2>
-    <p><strong>Introduction</strong><br>Before learning any computer skill, you must first know how to properly start and shut down a computer. Many beginners damage computers by switching them off incorrectly. Learning the correct procedure protects the system and your files.</p>
-
-    <h3>A. Turning On a Desktop Computer</h3>
-    <p>A desktop computer has separate parts: monitor, system unit (CPU box), keyboard, and mouse. Follow these steps:</p>
-    <div class="steps-box">
-      <ol>
-        <li>Ensure the computer is connected to a power source.</li>
-        <li>Switch on the wall socket or power extension.</li>
-        <li>Press the power button on the System Unit (CPU box).</li>
-        <li>Press the power button on the Monitor.</li>
-        <li>Wait for the computer to load the Operating System (e.g., Windows).</li>
-        <li>If required, enter your password and press Enter. The desktop screen will appear when the computer is ready for use.</li>
-      </ol>
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge"><i class="fas fa-desktop"></i>&nbsp; Chapter One · Digital Literacy</div>
+    <h1>Getting <em>Comfortable</em><br>with a Computer</h1>
+    <p class="hero-sub">The foundation of everything digital starts right here. Learn how to start and stop a computer safely, hold a mouse correctly, type on a keyboard, understand the desktop, and open programs — one step at a time.</p>
+    <div class="hero-meta">
+      <div class="meta-pill"><i class="fas fa-list-check"></i> 4 Core Sections</div>
+      <div class="meta-pill"><i class="fas fa-pen-to-square"></i> 5 Hands-On Activities</div>
+      <div class="meta-pill"><i class="fas fa-user-graduate"></i> No Experience Needed</div>
+      <div class="meta-pill"><i class="fas fa-clock"></i> ~90 Minutes</div>
     </div>
-
-    <h3>B. Turning On a Laptop</h3>
-    <p>A laptop is portable and has everything built into one device. Steps:</p>
-    <div class="steps-box">
-      <ol>
-        <li>Ensure the laptop battery is charged or connect it to power.</li>
-        <li>Press the power button.</li>
-        <li>Wait for the system to boot.</li>
-        <li>Enter your password if required.</li>
-      </ol>
-    </div>
-
-    <h3>C. Shutting Down a Computer Properly (Very Important)</h3>
-    <p>Never switch off the power directly from the socket unless the computer is completely off.</p>
-    <div class="steps-box">
-      <p><strong>Correct Shutdown Procedure (Windows):</strong></p>
-      <ol>
-        <li>Click the Start Button (bottom-left corner).</li>
-        <li>Click Power.</li>
-        <li>Select Shut Down.</li>
-        <li>Wait until the screen goes completely black.</li>
-        <li>Switch off the monitor (desktop users).</li>
-        <li>Switch off the wall socket.</li>
-      </ol>
-    </div>
-
-    <div class="note">
-      <strong>Why Proper Shutdown Is Important</strong><br>
-      Prevents file corruption, hardware damage, and data loss. Always shut down properly.
-    </div>
-    <div class="warning">
-      <strong>Common Mistakes to Avoid</strong><br>
-      - Switching off from the wall socket while the computer is still running<br>
-      - Forcing shutdown by holding the power button (only as last resort)<br>
-      - Closing laptop lid without proper shutdown (may cause issues)
-    </div>
-
-    <div class="steps-box">
-      <p><strong>Practice Activity 1</strong></p>
-      <ol>
-        <li>Turn on a computer correctly.</li>
-        <li>Log in to the system.</li>
-        <li>Shut it down properly without assistance.</li>
-      </ol>
-    </div>
-    <div class="tick-box">
-      Tick when complete:<br>
-      ✓ I can start a computer properly<br>
-      ✓ I can shut down a computer correctly
-    </div>
-
-    <!-- 1.2 Using the Mouse and Keyboard Correctly -->
-    <h2>1.2 Using the Mouse and Keyboard Correctly</h2>
-    <p><strong>Introduction</strong><br>The mouse and keyboard are the primary input devices used to communicate with a computer. Mastering them improves speed and confidence.</p>
-
-    <h3>A. Using the Mouse</h3>
-    <p>The mouse controls the pointer on the screen.</p>
-    <p><strong>Main Mouse Actions</strong></p>
-    <div class="steps-box">
-      <ul>
-        <li><strong>Pointing</strong> - Moving the mouse to position the pointer.</li>
-        <li><strong>Clicking</strong> - Pressing the left button once.</li>
-        <li><strong>Double-clicking</strong> - Pressing the left button twice quickly.</li>
-        <li><strong>Right-clicking</strong> - Pressing the right mouse button once.</li>
-        <li><strong>Dragging</strong> - Holding the left button while moving the mouse.</li>
-        <li><strong>Scrolling</strong> - Using the scroll wheel to move up or down a page.</li>
-      </ul>
-    </div>
-    <div class="steps-box">
-      <p><strong>Practical Exercise 2</strong></p>
-      <ol>
-        <li>Move the pointer to the Recycle Bin icon.</li>
-        <li>Double-click to open it.</li>
-        <li>Close the window by clicking the X button.</li>
-        <li>Right-click on the desktop.</li>
-        <li>Click anywhere else to remove the menu.</li>
-      </ol>
-    </div>
-
-    <h3>B. Using the Keyboard</h3>
-    <p><strong>Main Sections of the Keyboard</strong></p>
-    <ul>
-      <li>Typing keys (letters A-Z, numbers 0-9)</li>
-      <li>Function keys (F1-F12)</li>
-      <li>Navigation keys (Arrow keys, Home, End, Page Up, Page Down)</li>
-      <li>Numeric keypad (on the right side)</li>
-    </ul>
-    <p><strong>Important Keyboard Keys and Their Uses</strong></p>
-    <ul>
-      <li><strong>Enter</strong> - Confirms a command or moves to a new line</li>
-      <li><strong>Spacebar</strong> - Inserts a space between words</li>
-      <li><strong>Backspace</strong> - Deletes characters to the left of the cursor</li>
-      <li><strong>Delete</strong> - Deletes characters to the right of the cursor</li>
-      <li><strong>Shift</strong> - Types capital letters or symbols above numbers</li>
-      <li><strong>Caps Lock</strong> - Locks capital letters on</li>
-      <li><strong>Tab</strong> - Moves cursor to the next tab stop or field</li>
-      <li><strong>Ctrl</strong> - Used with other keys for shortcuts (e.g., Ctrl+C for Copy)</li>
-      <li><strong>Alt</strong> - Used with other keys for menu shortcuts</li>
-      <li><strong>Windows Key</strong> - Opens the Start Menu</li>
-    </ul>
-    <p><strong>Basic Typing Practice</strong><br>Type the following sentences without looking at your hands (if possible):<br>
-    "The quick brown fox jumps over the lazy dog."<br>
-    "My name is __________. I am learning to type."</p>
-    <p><strong>Beginner Typing Tips</strong></p>
-    <ul>
-      <li>Keep your wrists straight and relaxed</li>
-      <li>Use all fingers, not just your index fingers</li>
-      <li>Look at the screen, not at your hands</li>
-      <li>Practice regularly for 10-15 minutes daily</li>
-    </ul>
-    <div class="steps-box">
-      <p><strong>Practice Activity 3</strong></p>
-      <ol>
-        <li>Open Notepad (Start Menu → Type "Notepad" → Click Notepad).</li>
-        <li>Type your full name.</li>
-        <li>Type today's date.</li>
-        <li>Type the alphabet from A to Z.</li>
-        <li>Type numbers from 1 to 20.</li>
-        <li>Save the file as TypingPractice.txt on the Desktop.</li>
-      </ol>
-    </div>
-
-    <!-- 1.3 Understanding the Desktop Environment -->
-    <h2>1.3 Understanding the Desktop Environment</h2>
-    <p><strong>Introduction</strong><br>After turning on the computer and logging in, the first screen you see is called the Desktop. The desktop is your main working area. It contains tools that help you open programs, manage files, and control the computer. Think of the desktop as a digital office table where you arrange your work.</p>
-
-    <h3>A. Main Parts of the Desktop</h3>
-    <p><strong>I. Icons</strong><br>Icons are small pictures that represent programs, files, or folders.<br>Examples: This PC, Recycle Bin, Microsoft Word, Web Browser<br>To open an icon, double-click it.</p>
-    <p><strong>II. Taskbar</strong><br>The taskbar is located at the bottom of the screen.<br>It contains: The Start Button, Open programs, Time and date, Notification area.<br>The taskbar helps you switch between open programs.</p>
-    <p><strong>III. Start Button</strong><br>The Start Button is found at the bottom-left corner of the screen.<br>It allows you to: Open programs, Access settings, Shut down the computer, Search for files.</p>
-    <p><strong>IV. Desktop Background</strong><br>This is the image or color behind the icons. It can be changed according to user preference.</p>
-
-    <div class="steps-box">
-      <p><strong>Practical Activity 4: Exploring the Desktop</strong><br>Follow these steps:</p>
-      <ol>
-        <li>Identify the Start Button.</li>
-        <li>Identify at least three icons on the desktop.</li>
-        <li>Click the time and date on the taskbar.</li>
-        <li>Open and close one desktop icon.</li>
-      </ol>
-      <p>Repeat until comfortable.</p>
-    </div>
-
-    <h3>Creating a New Folder on the Desktop</h3>
-    <p>Folders help you organize files.</p>
-    <div class="steps-box">
-      <p><strong>Steps:</strong></p>
-      <ol>
-        <li>Right-click on an empty space on the desktop.</li>
-        <li>Select New.</li>
-        <li>Click Folder.</li>
-        <li>Type your name as the folder name.</li>
-        <li>Press Enter.</li>
-      </ol>
-      <p>You have now created a folder successfully.</p>
-    </div>
-
-    <h3>Renaming a Folder</h3>
-    <div class="steps-box">
-      <ol>
-        <li>Right-click the folder.</li>
-        <li>Select Rename.</li>
-        <li>Type a new name.</li>
-        <li>Press Enter.</li>
-      </ol>
-    </div>
-
-    <div class="warning">
-      <strong>Common Mistakes to Avoid</strong><br>
-      - Deleting important icons accidentally<br>
-      - Saving all files directly on the desktop without organizing them<br>
-      - Double-clicking too slowly (it may not open)
-    </div>
-
-    <div class="skill-check">
-      <span>✅ I can identify parts of the desktop</span>
-      <span>✅ I can create a folder</span>
-      <span>✅ I can rename a folder</span>
-    </div>
-
-    <!-- 1.4 Opening and Closing Programs -->
-    <h2>1.4 Opening and Closing Programs</h2>
-    <p><strong>Introduction</strong><br>Programs (also called applications) are software used to perform specific tasks such as typing documents, browsing the internet, or creating spreadsheets.</p>
-    <p>Examples: Microsoft Word, Microsoft Excel, Microsoft PowerPoint, Google Chrome</p>
-
-    <h3>A. Opening a Program Using the Start Menu</h3>
-    <div class="steps-box">
-      <p>Follow these steps:</p>
-      <ol>
-        <li>Click the Start Button.</li>
-        <li>Scroll through the list of programs.</li>
-        <li>Click the program you want to open (e.g., Microsoft Word).</li>
-        <li>Wait for the program window to appear.</li>
-      </ol>
-    </div>
-
-    <h3>B. Opening a Program Using Search</h3>
-    <div class="steps-box">
-      <ol>
-        <li>Click the Start Button.</li>
-        <li>Type the name of the program (e.g., Word).</li>
-        <li>Click the program from the search results.</li>
-      </ol>
-    </div>
-
-    <h3>C. Opening a Program from a Desktop Shortcut</h3>
-    <div class="steps-box">
-      <ol>
-        <li>Locate the program icon on the desktop.</li>
-        <li>Double-click the icon.</li>
-        <li>The program will open.</li>
-      </ol>
-    </div>
-
-    <h3>D. Understanding the Program Window</h3>
-    <p>When a program opens, you will see:</p>
-    <ul>
-      <li><strong>Title Bar</strong> - Displays the name of the program</li>
-      <li><strong>Minimize Button</strong> - Sends the window to the taskbar</li>
-      <li><strong>Maximize Button</strong> - Expands the window to fill the screen</li>
-      <li><strong>Close Button (X)</strong> - Closes the program</li>
-    </ul>
-
-    <h3>E. Closing a Program Properly</h3>
-    <p>Always save your work before closing.</p>
-    <p><strong>Method 1: Using the Close Button</strong><br>Click the X at the top-right corner. If prompted, click Save before exiting.</p>
-    <p><strong>Method 2: Using File Menu</strong><br>Click File. Select Exit.</p>
-    <p><strong>Method 3: Using Keyboard Shortcut</strong><br>Press Alt + F4 on the keyboard. (This closes the active window.)</p>
-
-    <div class="steps-box">
-      <p><strong>Practical Activity 5</strong></p>
-      <ol>
-        <li>Open Microsoft Word.</li>
-        <li>Type your name.</li>
-        <li>Save the document.</li>
-        <li>Close the program properly.</li>
-        <li>Re-open it using a different method.</li>
-      </ol>
-    </div>
-
-    <div class="steps-box">
-      <p><strong>Mini Project - Practice Session</strong></p>
-      <ol>
-        <li>Open Word.</li>
-        <li>Minimize it.</li>
-        <li>Open Excel.</li>
-        <li>Switch between the two programs using the taskbar.</li>
-        <li>Close both programs correctly.</li>
-      </ol>
-    </div>
-
-    <div class="skill-check">
-      <span>✅ I can open a program in three different ways</span>
-      <span>✅ I can minimize and maximize windows</span>
-      <span>✅ I can close a program safely</span>
-    </div>
-
-    <!-- End of Chapter Summary -->
-    <hr>
-    <div class="note" style="text-align: center; background: #e8f5e9;">
-      <strong>🎯 Chapter 1 Summary – Core Skills Mastered</strong><br>
-      ✅ Turn on and shut down a computer properly<br>
-      ✅ Use mouse and keyboard with confidence<br>
-      ✅ Identify desktop components: icons, taskbar, Start button<br>
-      ✅ Create and rename folders<br>
-      ✅ Open and close programs using multiple methods<br>
-      <br>
-      <strong>"Mastering these basics is the foundation of digital confidence."</strong>
-    </div>
-
-    <div class="skill-check" style="background: #e8f0fe;">
-      <span>📘 Chapter 1 Complete</span>
-      <span>✅ Ready for Chapter 2: File and Folder Management</span>
-    </div>
-
-    <div class="note" style="text-align: center;">✅ End of Chapter One — every word, every instruction, every activity preserved exactly as written. Proceed to Chapter 2 next.</div>
-    <hr>
   </div>
-  <footer>© 2026 Castro Odhiambo — Basics of Digital Literacy | Chapter 1: Getting Comfortable with a Computer.| For hands-on mastery of computer basics.</footer>
 </div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="toc-wrap">
+  <div class="toc-inner">
+    <div class="toc-title"><i class="fas fa-list"></i>&nbsp; In This Chapter</div>
+    <div class="toc-grid">
+      <a href="#s1" class="toc-link"><span class="toc-num">1.1</span> Turning a Computer On & Off</a>
+      <a href="#s2" class="toc-link"><span class="toc-num">1.2</span> Using the Mouse & Keyboard</a>
+      <a href="#s3" class="toc-link"><span class="toc-num">1.3</span> Understanding the Desktop</a>
+      <a href="#s4" class="toc-link"><span class="toc-num">1.4</span> Opening & Closing Programs</a>
+      <a href="#summary" class="toc-link"><span class="toc-num">✓</span> Chapter Summary</a>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="page-wrap">
+  <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Back to All Modules</a>
+
+  <!-- ══════════════════════════════════════
+       SECTION 1.1 — TURNING ON & OFF
+  ══════════════════════════════════════ -->
+  <div class="chapter-section reveal" id="s1">
+    <div class="section-heading">
+      <div class="section-num">1.1</div>
+      <div>
+        <h2>Turning a Computer On and Off Properly</h2>
+        <p>The very first skill — and one of the most important</p>
+      </div>
+    </div>
+
+    <p>Before learning any other computer skill, you must first know how to properly <strong>start and shut down a computer</strong>. Many beginners damage computers by switching them off incorrectly. Learning the correct procedure protects the system and your files, and it also makes you look confident and professional at a cybercafé or workplace.</p>
+
+    <!-- Types of computers -->
+    <div class="grid-2" style="margin:1.5rem 0;">
+      <div class="concept-card">
+        <div class="concept-icon">🖥️</div>
+        <h4>Desktop Computer</h4>
+        <p>Has separate parts: a <strong>monitor</strong> (screen), a <strong>system unit</strong> (CPU box), a <strong>keyboard</strong>, and a <strong>mouse</strong>. Usually found in offices, schools, and cybercafés.</p>
+      </div>
+      <div class="concept-card">
+        <div class="concept-icon">💻</div>
+        <h4>Laptop Computer</h4>
+        <p>A portable computer with everything built into <strong>one device</strong> — the screen, keyboard, touchpad (mouse), and battery are all together. You can carry it anywhere.</p>
+      </div>
+    </div>
+
+    <!-- TURNING ON DESKTOP -->
+    <div class="subsection">
+      <div class="subsection-title"><span class="tag">A</span> Turning On a Desktop Computer</div>
+      <p>Follow these steps carefully, in this exact order:</p>
+      <div class="card card-blue">
+        <div class="card-label"><i class="fas fa-play-circle"></i> Step-by-Step: Starting a Desktop</div>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><p>Ensure the computer is connected to a <strong>power source</strong> (wall socket or extension cord).</p></div>
+          <div class="step"><div class="step-num">2</div><p>Switch <strong>on the wall socket</strong> or power extension.</p></div>
+          <div class="step"><div class="step-num">3</div><p>Press the <strong>power button on the System Unit</strong> (the large box, usually on the front).</p></div>
+          <div class="step"><div class="step-num">4</div><p>Press the <strong>power button on the Monitor</strong> (the screen, usually at the bottom or side).</p></div>
+          <div class="step"><div class="step-num">5</div><p>Wait for the computer to load the <strong>Operating System</strong> (e.g., Windows). This may take 30–60 seconds.</p></div>
+          <div class="step"><div class="step-num">6</div><p>If a <strong>password screen</strong> appears, type your password and press <span class="key-badge">Enter</span>. The desktop will appear when the computer is ready.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TURNING ON LAPTOP -->
+    <div class="subsection">
+      <div class="subsection-title"><span class="tag">B</span> Turning On a Laptop</div>
+      <p>A laptop is simpler because everything is in one unit:</p>
+      <div class="card card-blue">
+        <div class="card-label"><i class="fas fa-play-circle"></i> Step-by-Step: Starting a Laptop</div>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><p>Ensure the <strong>battery is charged</strong>, or plug in the charger cable before starting.</p></div>
+          <div class="step"><div class="step-num">2</div><p>Open the laptop lid (if it is closed).</p></div>
+          <div class="step"><div class="step-num">3</div><p>Press the <strong>power button</strong> (usually at the top-right of the keyboard area or on the side).</p></div>
+          <div class="step"><div class="step-num">4</div><p>Wait for the system to <strong>boot up</strong> (start). Enter your password if required.</p></div>
+        </div>
+      </div>
+      <div class="callout tip">
+        <span class="callout-icon"><i class="fas fa-lightbulb"></i></span>
+        <div class="callout-body"><strong>Tip: Check the Battery First</strong><p>Always check that a laptop has enough battery charge before starting. A laptop that dies mid-task can corrupt your files. Aim to keep the battery above 20%.</p></div>
+      </div>
+    </div>
+
+    <!-- SHUTTING DOWN -->
+    <div class="subsection">
+      <div class="subsection-title"><span class="tag">C</span> Shutting Down a Computer Properly — Very Important!</div>
+      <p><strong>Never</strong> switch off the power directly from the socket while the computer is still running. This is one of the most common mistakes beginners make — and it can damage your files and the computer itself.</p>
+
+      <div class="card card-navy">
+        <div class="card-label"><i class="fas fa-power-off"></i> Correct Shutdown Procedure (Windows)</div>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><p><strong>Save any open files</strong> before you begin to shut down.</p></div>
+          <div class="step"><div class="step-num">2</div><p>Click the <strong>Start Button</strong> at the bottom-left corner of the screen (looks like a Windows logo).</p></div>
+          <div class="step"><div class="step-num">3</div><p>Click the <strong>Power</strong> icon (a circle with a line at the top).</p></div>
+          <div class="step"><div class="step-num">4</div><p>Select <strong>Shut Down</strong> from the menu.</p></div>
+          <div class="step"><div class="step-num">5</div><p>Wait until the screen goes <strong>completely black</strong> — do not touch anything during this time.</p></div>
+          <div class="step"><div class="step-num">6</div><p>(Desktop only) Switch off the <strong>monitor</strong>, then switch off the <strong>wall socket</strong>.</p></div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="callout note">
+          <span class="callout-icon"><i class="fas fa-circle-info"></i></span>
+          <div class="callout-body">
+            <strong>Why Proper Shutdown Matters</strong>
+            <ul>
+              <li>Prevents file corruption and data loss</li>
+              <li>Allows Windows to save settings properly</li>
+              <li>Protects the hard drive from damage</li>
+              <li>Keeps the computer healthy for longer</li>
+            </ul>
+          </div>
+        </div>
+        <div class="callout warning">
+          <span class="callout-icon"><i class="fas fa-triangle-exclamation"></i></span>
+          <div class="callout-body">
+            <strong>Common Mistakes to Avoid</strong>
+            <ul>
+              <li>Switching off from the wall while the computer is running</li>
+              <li>Holding the power button to force shutdown (only as a last resort)</li>
+              <li>Closing the laptop lid without shutting down first</li>
+              <li>Pulling out the power cable of a laptop without saving work</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Also: Restart, Sleep, Hibernate -->
+      <div class="card card-gold" style="margin-top:1rem;">
+        <div class="card-label"><i class="fas fa-moon"></i> Other Power Options You Should Know</div>
+        <div class="grid-3" style="margin-top:0.5rem;">
+          <div style="padding:0.8rem; background:rgba(255,255,255,0.7); border-radius:0.8rem;">
+            <strong style="color:var(--navy);">🔄 Restart</strong>
+            <p style="font-size:0.82rem; margin-top:0.3rem;">Shuts down and starts again. Use when a program freezes or after installing updates.</p>
+          </div>
+          <div style="padding:0.8rem; background:rgba(255,255,255,0.7); border-radius:0.8rem;">
+            <strong style="color:var(--navy);">💤 Sleep</strong>
+            <p style="font-size:0.82rem; margin-top:0.3rem;">Saves your work to memory and uses very little power. Wakes up quickly. Good for short breaks.</p>
+          </div>
+          <div style="padding:0.8rem; background:rgba(255,255,255,0.7); border-radius:0.8rem;">
+            <strong style="color:var(--navy);">🏔️ Hibernate</strong>
+            <p style="font-size:0.82rem; margin-top:0.3rem;">Saves everything to the hard drive and turns off completely. Takes longer to wake up. Good for overnight.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRACTICE 1 -->
+    <div class="practice-box">
+      <div class="practice-header">
+        <div class="practice-icon">✏️</div>
+        <div>
+          <h4>Practice Activity 1 — Power On & Off</h4>
+          <p>Do this with a real computer. Repeat until you are confident.</p>
+        </div>
+      </div>
+      <div class="practice-steps">
+        <div class="ps"><div class="ps-n">1</div><p>Turn on a computer correctly following the steps above.</p></div>
+        <div class="ps"><div class="ps-n">2</div><p>Log in to the system (enter password if required).</p></div>
+        <div class="ps"><div class="ps-n">3</div><p>Shut down the computer properly — without assistance — using the Start → Power → Shut Down method.</p></div>
+        <div class="ps"><div class="ps-n">4</div><p>Try it a second time, this time using keyboard shortcut: press <span style="background:var(--gold);color:var(--navy);padding:0.1rem 0.4rem;border-radius:3px;font-size:0.8rem;font-weight:700;">Win + X</span>, then choose Shut Down.</p></div>
+      </div>
+    </div>
+    <div class="checklist">
+      <div class="checklist-title"><i class="fas fa-clipboard-check"></i> Skill Checkpoint — Section 1.1</div>
+      <div class="check-item"><i class="fas fa-check-circle"></i><span>I can start a desktop computer correctly</span></div>
+      <div class="check-item"><i class="fas fa-check-circle"></i><span>I can start a laptop correctly</span></div>
+      <div class="check-item"><i class="fas fa-check-circle"></i><span>I can shut down a computer using the Start menu</span></div>
+      <div class="check-item"><i class="fas fa-check-circle"></i><span>I understand the difference between Shut Down, Restart, Sleep, and Hibernate</span></div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SECTION 1.2 — MOUSE & KEYBOARD
+  ══════════════════════════════════════ -->
+  <div class="chapter-section reveal" id="s2">
+    <div class="section-heading">
+      <div class="section-num">1.2</div>
+      <div>
+        <h2>Using the Mouse and Keyboard Correctly</h2>
+        <p>Your two main tools for communicating with a computer</p>
+      </div>
+    </div>
+
+    <p>The mouse and keyboard are the <strong>primary input devices</strong> used to communicate with a computer. Mastering them improves your speed and confidence enormously. Most people only learn to use one or two fingers — this chapter will help you use them properly.</p>
+
+    <!-- MOUSE -->
+    <div class="subsection">
+      <div class="subsection-title"><span class="tag">A</span> Using the Mouse</div>
+      <p>The mouse controls the <strong>pointer</strong> (the small arrow) on the screen. When you move the mouse on the desk, the pointer moves on the screen in the same direction.</p>
+
+      <div class="mouse-diagram">
+        <div class="mouse-visual">
+          <div class="mouse-svg">🖱️</div>
+          <p>Standard Mouse</p>
+          <div style="margin-top:0.8rem; display:flex; flex-direction:column; gap:0.3rem; text-align:left;">
+            <div style="font-size:0.65rem; color:var(--blue);"><strong style="color:#c62828;">Left button</strong> — main click</div>
+            <div style="font-size:0.65rem; color:var(--blue);"><strong style="color:#2c5f2d;">Scroll wheel</strong> — scroll up/down</div>
+            <div style="font-size:0.65rem; color:var(--blue);"><strong style="color:#1565c0;">Right button</strong> — options menu</div>
+          </div>
+        </div>
+        <div class="mouse-actions">
+          <div class="action-row"><div class="action-icon">👆</div><div><strong>Pointing</strong><span>Move the mouse to position the pointer over an item on screen — without clicking.</span></div></div>
+          <div class="action-row"><div class="action-icon">🖱️</div><div><strong>Clicking (Left Click)</strong><span>Press the LEFT mouse button once. Used to select items, click buttons, and follow links.</span></div></div>
+          <div class="action-row"><div class="action-icon">⚡</div><div><strong>Double-Clicking</strong><span>Press the LEFT button <em>twice quickly</em>. Used to open files, folders, and programs.</span></div></div>
+          <div class="action-row"><div class="action-icon">📋</div><div><strong>Right-Clicking</strong><span>Press the RIGHT button once. Opens a menu with extra options (like copy, paste, rename).</span></div></div>
+          <div class="action-row"><div class="action-icon">✋</div><div><strong>Dragging</strong><span>Hold the LEFT button while moving the mouse. Used to move files and resize windows.</span></div></div>
+          <div class="action-row"><div class="action-icon">🔄</div><div><strong>Scrolling</strong><span>Roll the scroll wheel up or down to move up or down a page — without moving the pointer.</span></div></div>
+        </div>
+      </div>
+
+      <div class="callout tip">
+        <span class="callout-icon"><i class="fas fa-lightbulb"></i></span>
+        <div class="callout-body"><strong>Holding the Mouse Correctly</strong><p>Place your hand gently on the mouse — don't grip it tightly. Your index finger rests on the left button, your middle finger on the scroll wheel or right button. Keep your wrist relaxed on the desk.</p></div>
+      </div>
+
+      <!-- Mouse Practice -->
+      <div class="practice-box">
+        <div class="practice-header">
+          <div class="practice-icon">🖱️</div>
+          <div><h4>Practice Activity 2 — Mouse Skills</h4><p>Open any computer and practice these actions one by one.</p></div>
+        </div>
+        <div class="practice-steps">
+          <div class="ps"><div class="ps-n">1</div><p>Move the mouse pointer slowly around the screen. Watch how the pointer follows your hand.</p></div>
+          <div class="ps"><div class="ps-n">2</div><p>Move the pointer to the <strong>Recycle Bin</strong> icon on the desktop and double-click to open it.</p></div>
+          <div class="ps"><div class="ps-n">3</div><p>Close the Recycle Bin window by clicking the <strong>X button</strong> at the top-right corner.</p></div>
+          <div class="ps"><div class="ps-n">4</div><p>Right-click on an empty space on the desktop. A menu will appear — look at the options, then click anywhere else to close it.</p></div>
+          <div class="ps"><div class="ps-n">5</div><p>Open a browser, go to a web page, and practice scrolling up and down using the scroll wheel.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KEYBOARD -->
+    <div class="subsection">
+      <div class="subsection-title"><span class="tag">B</span> Using the Keyboard</div>
+      <p>The keyboard is used to <strong>type text, numbers, and commands</strong>. A standard keyboard has about 104 keys, divided into sections. Learning where each key is and what it does will make you much faster.</p>
+
+      <!-- Keyboard Sections -->
+      <div class="grid-2">
+        <div class="card card-blue">
+          <div class="card-label"><i class="fas fa-keyboard"></i> Main Sections of the Keyboard</div>
+          <div style="display:flex; flex-direction:column; gap:0.6rem;">
+            <div style="display:flex; gap:0.8rem; align-items:flex-start;">
+              <span style="font-size:1rem; width:24px; text-align:center; flex-shrink:0;">🔤</span>
+              <div><strong style="font-size:0.88rem;">Typing Keys</strong><p style="font-size:0.8rem; margin:0;">Letters A–Z and numbers 0–9. The main area used for writing documents and emails.</p></div>
+            </div>
+            <div style="display:flex; gap:0.8rem; align-items:flex-start;">
+              <span style="font-size:1rem; width:24px; text-align:center; flex-shrink:0;">⚙️</span>
+              <div><strong style="font-size:0.88rem;">Function Keys (F1–F12)</strong><p style="font-size:0.8rem; margin:0;">The top row. Each has a special purpose depending on the program you are using.</p></div>
+            </div>
+            <div style="display:flex; gap:0.8rem; align-items:flex-start;">
+              <span style="font-size:1rem; width:24px; text-align:center; flex-shrink:0;">🧭</span>
+              <div><strong style="font-size:0.88rem;">Navigation Keys</strong><p style="font-size:0.8rem; margin:0;">Arrow keys (↑↓←→), Home, End, Page Up, Page Down. Used to move around a document.</p></div>
+            </div>
+            <div style="display:flex; gap:0.8rem; align-items:flex-start;">
+              <span style="font-size:1rem; width:24px; text-align:center; flex-shrink:0;">🔢</span>
+              <div><strong style="font-size:0.88rem;">Numeric Keypad</strong><p style="font-size:0.8rem; margin:0;">On the right side of full-size keyboards. Used for entering numbers quickly, like a calculator.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="card card-gold">
+          <div class="card-label"><i class="fas fa-star"></i> Typing Tips for Beginners</div>
+          <div style="display:flex; flex-direction:column; gap:0.6rem;">
+            <div style="display:flex; gap:0.8rem; align-items:flex-start;"><span style="color:var(--green); font-size:1rem;">✓</span><span style="font-size:0.85rem;">Keep your <strong>wrists straight and relaxed</strong> on the desk — do not bend them up or down.</span></div>
+            <div style="display:flex; gap:0.8rem; align-items:flex-start;"><span style="color:var(--green); font-size:1rem;">✓</span><span style="font-size:0.85rem;">Try to use <strong>all fingers</strong>, not just your index fingers. It will feel slow at first but gets much faster.</span></div>
+            <div style="display:flex; gap:0.8rem; align-items:flex-start;"><span style="color:var(--green); font-size:1rem;">✓</span><span style="font-size:0.85rem;"><strong>Look at the screen</strong>, not at your hands, as much as possible.</span></div>
+            <div style="display:flex; gap:0.8rem; align-items:flex-start;"><span style="color:var(--green); font-size:1rem;">✓</span><span style="font-size:0.85rem;">Practice for <strong>10–15 minutes every day</strong>. Consistency beats long sessions.</span></div>
+            <div style="display:flex; gap:0.8rem; align-items:flex-start;"><span style="color:var(--green); font-size:1rem;">✓</span><span style="font-size:0.85rem;">Use a typing practice sentence: <em>"The quick brown fox jumps over the lazy dog"</em> — it contains every letter of the alphabet!</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Key Reference Table -->
+      <div class="card" style="margin-top:1.5rem; overflow-x:auto;">
+        <div class="card-label" style="color:var(--navy);"><i class="fas fa-table"></i> Important Keys and Their Uses</div>
+        <table class="styled-table">
+          <thead>
+            <tr><th>Key</th><th>What It Does</th><th>When to Use It</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="key-badge">Enter</span></td><td>Confirms a command or moves to a new line</td><td>After typing a command or finishing a paragraph</td></tr>
+            <tr><td><span class="key-badge">Spacebar</span></td><td>Inserts a space between words</td><td>Between every word you type</td></tr>
+            <tr><td><span class="key-badge">Backspace</span></td><td>Deletes the character to the <em>left</em> of the cursor</td><td>Correcting a mistake just made</td></tr>
+            <tr><td><span class="key-badge">Delete</span></td><td>Deletes the character to the <em>right</em> of the cursor</td><td>Removing text ahead of the cursor</td></tr>
+            <tr><td><span class="key-badge">Shift</span></td><td>Types capital letters or the symbols above numbers</td><td>Starting a sentence, typing !, @, #, etc.</td></tr>
+            <tr><td><span class="key-badge">Caps Lock</span></td><td>Locks all letters in CAPITAL mode (toggle)</td><td>Typing a heading in all capitals</td></tr>
+            <tr><td><span class="key-badge">Tab</span></td><td>Moves cursor to the next tab stop or field</td><td>Indenting text or moving between form fields</td></tr>
+            <tr><td><span class="key-badge">Ctrl</span></td><td>Used with other keys for shortcuts</td><td>Ctrl+C (Copy), Ctrl+V (Paste), Ctrl+S (Save)</td></tr>
+            <tr><td><span class="key-badge">Alt</span></td><td>Used with other keys for menu shortcuts</td><td>Alt+F4 closes the current window</td></tr>
+            <tr><td><span class="key-badge">Win</span></td><td>Opens the Start Menu</td><td>Searching for programs or accessing settings</td></tr>
+            <tr><td><span class="key-badge">Esc</span></td><td>Cancels or exits the current action</td><td>Closing a menu or cancelling a dialog box</td></tr>
+            <tr><td><span class="key-badge">PrtSc</span></td><td>Takes a screenshot of the full screen</td><td>Capturing what is on your screen as an image</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Keyboard Shortcuts -->
+      <div style="margin-top:1.5rem;">
+        <div class="subsection-title" style="font-size:1rem;">Essential Keyboard Shortcuts — Work Faster!</div>
+        <p style="font-size:0.88rem;">Keyboard shortcuts are combinations of keys that perform actions without using the mouse. Learning these will make you significantly faster and more productive.</p>
+        <div class="shortcut-grid">
+          <div class="shortcut-item"><div class="shortcut-keys"><span class="shortcut-key">Ctrl</span><span class="shortcut-plus">+</span><span class="shortcut-key">C</span></div><div><strong>Copy</strong><span>Copies selected text or file</span></div></div>
+          <div class="shortcut-item"><div class="shortcut-keys"><span class="shortcut-key">Ctrl</span><span class="shortcut-plus">+</span><span class="shortcut-key">V</span></div><div><strong>Paste</strong><span>Pastes the copied content</span></div></div>
+          <div class="shortcut-item"><div class="shortcut-keys"><span class="shortcut-key">Ctrl</span><span class="shortcut-plus">+</span><span class="shortcut-key">X</span></div><div><strong>Cut</strong><span>Removes and copies selected content</span></div></div>
+          <div class="shortcut-item"><div class="shortcut-keys"><span class="shortcut-key">Ctrl</span><span class="shortcut-plus">+</span><span class="shortcut-key">Z</span></div><div><strong>Undo</strong><span>Reverses the last action</span></div></div>
+          <div class="shortcut-item"><div class="shortcut-keys"><span class="shortcut-key">Ctrl</span><span class="shortcut-plus">+</span><span class="shortcut-key">S</span></div><div><strong>Save</strong><span>Saves the current file</span></div></div>
+          <div class="shortcut-item"><div class="shortcut-keys"><span class="shortcut-key">Ctrl</span><span class="shortcut-plus">+</span><span class="shortcut-key">A</span></div><div><strong>Select All</strong><span>Selects everything in the document</span></div></div>
+          <div class="shortcut-item"><div class="shortcut-keys"><span class="shortcut-key">Ctrl</span><span class="shortcut-plus">+</span><span class="shortcut-key">P</span></div><div><strong>Print</strong><span>Opens the print dialog</span></div></div>
+          <div class="shortcut-item"><div class="shortcut-keys"><span class="shortcut-key">Alt</span><span class="shortcut-plus">+</span><span class="shortcut-key">F4</span></div><div><strong>Close Window</strong><span>Closes the active program</span></div></div>
+          <div class="shortcut-item"><div class="shortcut-keys"><span class="shortcut-key">Win</span><span class="shortcut-plus">+</span><span class="shortcut-key">D</span></div><div><strong>Show Desktop</strong><span>Minimizes all open windows</span></div></div>
+          <div class="shortcut-item"><div class="shortcut-keys"><span class="shortcut-key">Win</span><span class="shortcut-plus">+</span><span class="shortcut-key">L</span></div><div><strong>Lock Screen</strong><span>Locks the computer immediately</span></div></div>
+          <div class="shortcut-item"><div class="shortcut-keys"><span class="shortcut-key">Ctrl</span><span class="shortcut-plus">+</span><span class="shortcut-key">F</span></div><div><strong>Find</strong><span>Search for a word in a document</span></div></div>
+          <div class="shortcut-item"><div class="shortcut-keys"><span class="shortcut-key">F5</span></div><div><strong>Refresh</strong><span>Refreshes the current page or window</span></div></div>
+        </div>
+      </div>
+
+      <!-- Typing Practice -->
+      <div class="practice-box">
+        <div class="practice-header">
+          <div class="practice-icon">⌨️</div>
+          <div><h4>Practice Activity 3 — Keyboard & Typing</h4><p>Open Notepad (Start → search "Notepad") and complete these tasks:</p></div>
+        </div>
+        <div class="practice-steps">
+          <div class="ps"><div class="ps-n">1</div><p>Open <strong>Notepad</strong>: Click Start → type "Notepad" → press Enter.</p></div>
+          <div class="ps"><div class="ps-n">2</div><p>Type your <strong>full name</strong>, then press Enter to go to the next line.</p></div>
+          <div class="ps"><div class="ps-n">3</div><p>Type <strong>today's date</strong> (e.g., 4th April 2026).</p></div>
+          <div class="ps"><div class="ps-n">4</div><p>Type the alphabet from <strong>A to Z</strong>, using Shift for capital letters.</p></div>
+          <div class="ps"><div class="ps-n">5</div><p>Type this practice sentence: <em>"The quick brown fox jumps over the lazy dog."</em></p></div>
+          <div class="ps"><div class="ps-n">6</div><p>Practice the shortcut: press <span style="background:var(--gold);color:var(--navy);padding:0.1rem 0.4rem;border-radius:3px;font-size:0.78rem;font-weight:700;">Ctrl + A</span> to select all text, then <span style="background:var(--gold);color:var(--navy);padding:0.1rem 0.4rem;border-radius:3px;font-size:0.78rem;font-weight:700;">Ctrl + C</span> to copy.</p></div>
+          <div class="ps"><div class="ps-n">7</div><p>Save the file: press <span style="background:var(--gold);color:var(--navy);padding:0.1rem 0.4rem;border-radius:3px;font-size:0.78rem;font-weight:700;">Ctrl + S</span> → name the file <strong>TypingPractice</strong> → click Save.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="checklist">
+      <div class="checklist-title"><i class="fas fa-clipboard-check"></i> Skill Checkpoint — Section 1.2</div>
+      <div class="check-item"><i class="fas fa-check-circle"></i><span>I can use all six mouse actions: point, click, double-click, right-click, drag, scroll</span></div>
+      <div class="check-item"><i class="fas fa-check-circle"></i><span>I know the main sections of the keyboard</span></div>
+      <div class="check-item"><i class="fas fa-check-circle"></i><span>I can identify and use at least 10 important keys</span></div>
+      <div class="check-item"><i class="fas fa-check-circle"></i><span>I can use Ctrl+C, Ctrl+V, Ctrl+S, and Ctrl+Z shortcuts</span></div>
+      <div class="check-item"><i class="fas fa-check-circle"></i><span>I have typed a practice sentence in Notepad and saved the file</span></div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SECTION 1.3 — THE DESKTOP
+  ══════════════════════════════════════ -->
+  <div class="chapter-section reveal" id="s3">
+    <div class="section-heading">
+      <div class="section-num">1.3</div>
+      <div>
+        <h2>Understanding the Desktop Environment</h2>
+        <p>Your digital workspace — everything starts here</p>
+      </div>
+    </div>
+
+    <p>After turning on the computer and logging in, the first screen you see is called the <strong>Desktop</strong>. Think of the desktop as your <strong>digital office table</strong> — it is where you arrange your work, open programs, and access files. Everything you do on a computer starts from here.</p>
+
+    <!-- Desktop diagram -->
+    <div style="margin:1.5rem 0;">
+      <div class="card-label" style="color:var(--navy); margin-bottom:0.8rem;"><i class="fas fa-desktop"></i> What the Windows Desktop Looks Like</div>
+      <div class="desktop-diagram">
+        <div class="d-screen">
+          <div class="d-wallpaper">
+            <div class="d-icon"><div class="ico">💻</div><span>This PC</span></div>
+            <div class="d-icon"><div class="ico">🗑️</div><span>Recycle Bin</span></div>
+            <div class="d-icon"><div class="ico">📁</div><span>My Documents</span></div>
+            <div class="d-icon"><div class="ico">🌐</div><span>Chrome</span></div>
+            <div class="d-icon"><div class="ico">📄</div><span>Word 2019</span></div>
+            <div class="d-icon"><div class="ico">📊</div><span>Excel 2019</span></div>
+          </div>
+          <div class="d-taskbar">
+            <div class="d-start">⊞ Start</div>
+            <div class="d-taskbar-icons">
+              <span>🌐</span><span>📁</span><span>📄</span><span>📊</span>
+            </div>
+            <div class="d-clock">3:45 PM<br>04/04/2026</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Desktop Parts -->
+    <div class="grid-2" style="margin-top:1rem;">
+      <div class="concept-card">
+        <div class="concept-icon">🖼️</div>
+        <h4>Icons</h4>
+        <p>Small pictures that represent programs, files, or folders. Examples: This PC, Recycle Bin, Microsoft Word. <strong>Double-click</strong> to open. <strong>Right-click</strong> for options.</p>
+      </div>
+      <div class="concept-card">
+        <div class="concept-icon">📌</div>
+        <h4>Taskbar</h4>
+        <p>The bar at the <strong>bottom of the screen</strong>. Contains the Start Button, pinned programs, open programs, the clock, and notification area. Used to switch between open programs.</p>
+      </div>
+      <div class="concept-card">
+        <div class="concept-icon">🪟</div>
+        <h4>Start Button</h4>
+        <p>Found at the <strong>bottom-left</strong> corner. Click it to open programs, search for files, access Settings, and shut down the computer. Press the <span class="key-badge">Win</span> key as a shortcut.</p>
+      </div>
+      <div class="concept-card">
+        <div class="concept-icon">🖼️</div>
+        <h4>Desktop Background (Wallpaper)</h4>
+        <p>The image or colour behind the icons. You can <strong>right-click → Personalize</strong> to change the wallpaper to a photo or colour you prefer.</p>
+      </div>
+      <div class="concept-card">
+        <div class="concept-icon">🔔</div>
+        <h4>Notification Area (System Tray)</h4>
+        <p>At the <strong>bottom-right</strong> of the taskbar. Shows the time, date, Wi-Fi status, battery level (on laptops), and notification icons from programs running in the background.</p>
+      </div>
+      <div class="concept-card">
+        <div class="concept-icon">🔍</div>
+        <h4>Search Bar</h4>
+        <p>Next to the Start Button. <strong>Click and type</strong> to search for programs, files, settings, or even websites — it is the fastest way to find anything on your computer.</p>
+      </div>
+    </div>
+
+    <!-- Creating Folders -->
+    <div class="subsection" style="margin-top:2rem;">
+      <div class="subsection-title"><span class="tag">B</span> Creating and Managing Folders on the Desktop</div>
+      <p>Folders help you <strong>organise your files</strong> — just like physical folders in a filing cabinet. Always put related files in the same folder so you can find them easily later.</p>
+
+      <div class="grid-2">
+        <div class="card card-blue">
+          <div class="card-label"><i class="fas fa-folder-plus"></i> Create a New Folder</div>
+          <div class="steps">
+            <div class="step"><div class="step-num">1</div><p>Right-click on an <strong>empty space</strong> on the desktop (not on an icon).</p></div>
+            <div class="step"><div class="step-num">2</div><p>Move the mouse to <strong>New</strong> in the menu.</p></div>
+            <div class="step"><div class="step-num">3</div><p>Click <strong>Folder</strong> from the submenu.</p></div>
+            <div class="step"><div class="step-num">4</div><p>A new folder appears. <strong>Type a name</strong> for it (e.g., "My Work").</p></div>
+            <div class="step"><div class="step-num">5</div><p>Press <span class="key-badge">Enter</span> to confirm.</p></div>
+          </div>
+        </div>
+        <div class="card card-blue">
+          <div class="card-label"><i class="fas fa-pen"></i> Rename a Folder</div>
+          <div class="steps">
+            <div class="step"><div class="step-num">1</div><p><strong>Right-click</strong> on the folder you want to rename.</p></div>
+            <div class="step"><div class="step-num">2</div><p>Click <strong>Rename</strong> from the menu.</p></div>
+            <div class="step"><div class="step-num">3</div><p>The name becomes highlighted — type the <strong>new name</strong>.</p></div>
+            <div class="step"><div class="step-num">4</div><p>Press <span class="key-badge">Enter</span> to save the new name.</p></div>
+          </div>
+          <div class="callout tip" style="margin-top:1rem;">
+            <span class="callout-icon"><i class="fas fa-lightbulb"></i></span>
+            <div class="callout-body"><strong>Quick rename shortcut:</strong><p>Click once to select a folder, then press <span class="key-badge">F2</span> to rename it immediately.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout warning" style="margin-top:1rem;">
+        <span class="callout-icon"><i class="fas fa-triangle-exclamation"></i></span>
+        <div class="callout-body">
+          <strong>Common Desktop Mistakes to Avoid</strong>
+          <ul>
+            <li>Accidentally deleting important icons (right-click → Undo or check the Recycle Bin to restore)</li>
+            <li>Saving ALL files directly on the desktop without organising them into folders</li>
+            <li>Double-clicking too slowly — it may open a rename instead of opening the file. Try again slightly faster.</li>
+            <li>Having too many icons on the desktop — it slows down the computer and makes things hard to find</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Practice 4 -->
+    <div class="practice-box">
+      <div class="practice-header">
+        <div class="practice-icon">🖥️</div>
+        <div><h4>Practice Activity 4 — Exploring the Desktop</h4><p>Complete each step in order. Repeat until comfortable.</p></div>
+      </div>
+      <div class="practice-steps">
+        <div class="ps"><div class="ps-n">1</div><p>Identify the <strong>Start Button</strong> on the taskbar and click it to open the Start Menu.</p></div>
+        <div class="ps"><div class="ps-n">2</div><p>Find and identify at least <strong>three icons</strong> on the desktop. Write their names on paper.</p></div>
+        <div class="ps"><div class="ps-n">3</div><p>Click the <strong>time and date</strong> at the bottom-right corner of the taskbar — a calendar will appear.</p></div>
+        <div class="ps"><div class="ps-n">4</div><p>Double-click one desktop icon to open it, then close it using the <strong>X button</strong>.</p></div>
+        <div class="ps"><div class="ps-n">5</div><p>Create a new folder on the desktop and name it <strong>Castro Practice</strong>.</p></div>
+        <div class="ps"><div class="ps-n">6</div><p>Rename the folder to <strong>Digital Literacy Work</strong>.</p></div>
+      </div>
+    </div>
+
+    <div class="checklist">
+      <div class="checklist-title"><i class="fas fa-clipboard-check"></i> Skill Checkpoint — Section 1.3</div>
+      <div class="check-item"><i class="fas fa-check-circle"></i><span>I can identify all main parts of the Windows desktop</span></div>
+      <div class="check-item"><i class="fas fa-check-circle"></i><span>I can find and use the Start Button, Taskbar, and Notification Area</span></div>
+      <div class="check-item"><i class="fas fa-check-circle"></i><span>I can create a new folder on the desktop</span></div>
+      <div class="check-item"><i class="fas fa-check-circle"></i><span>I can rename a folder using right-click and using the F2 shortcut</span></div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SECTION 1.4 — OPENING & CLOSING PROGRAMS
+  ══════════════════════════════════════ -->
+  <div class="chapter-section reveal" id="s4">
+    <div class="section-heading">
+      <div class="section-num">1.4</div>
+      <div>
+        <h2>Opening and Closing Programs</h2>
+        <p>Programs are the tools you use to get work done</p>
+      </div>
+    </div>
+
+    <p><strong>Programs</strong> (also called <strong>applications</strong> or <strong>apps</strong>) are software used to perform specific tasks — like typing documents, browsing the internet, listening to music, or creating spreadsheets. Every task you do on a computer uses a program.</p>
+
+    <div class="grid-3">
+      <div class="concept-card" style="text-align:center;">
+        <div class="concept-icon">📄</div>
+        <h4>Microsoft Word</h4>
+        <p>For writing documents, letters, and CVs</p>
+      </div>
+      <div class="concept-card" style="text-align:center;">
+        <div class="concept-icon">📊</div>
+        <h4>Microsoft Excel</h4>
+        <p>For spreadsheets, calculations, and budgets</p>
+      </div>
+      <div class="concept-card" style="text-align:center;">
+        <div class="concept-icon">📽️</div>
+        <h4>PowerPoint</h4>
+        <p>For creating presentations and slide shows</p>
+      </div>
+      <div class="concept-card" style="text-align:center;">
+        <div class="concept-icon">🌐</div>
+        <h4>Google Chrome</h4>
+        <p>For browsing the internet and websites</p>
+      </div>
+      <div class="concept-card" style="text-align:center;">
+        <div class="concept-icon">📝</div>
+        <h4>Notepad</h4>
+        <p>Simple text editor — great for quick notes</p>
+      </div>
+      <div class="concept-card" style="text-align:center;">
+        <div class="concept-icon">📁</div>
+        <h4>File Explorer</h4>
+        <p>For browsing and managing files and folders</p>
+      </div>
+    </div>
+
+    <!-- 3 ways to open -->
+    <div class="subsection" style="margin-top:2rem;">
+      <div class="subsection-title"><span class="tag">A</span> Three Ways to Open a Program</div>
+
+      <div class="grid-3">
+        <div class="card card-blue">
+          <div class="card-label"><i class="fas fa-th-large"></i> Method 1: Start Menu</div>
+          <div class="steps">
+            <div class="step"><div class="step-num">1</div><p>Click the <strong>Start Button</strong>.</p></div>
+            <div class="step"><div class="step-num">2</div><p>Scroll through the list of installed programs.</p></div>
+            <div class="step"><div class="step-num">3</div><p>Click the program you want (e.g., <strong>Microsoft Word</strong>).</p></div>
+            <div class="step"><div class="step-num">4</div><p>Wait for the program window to appear.</p></div>
+          </div>
+        </div>
+        <div class="card card-blue">
+          <div class="card-label"><i class="fas fa-search"></i> Method 2: Search</div>
+          <div class="steps">
+            <div class="step"><div class="step-num">1</div><p>Click the <strong>Search bar</strong> next to Start (or press <span class="key-badge">Win</span> key).</p></div>
+            <div class="step"><div class="step-num">2</div><p><strong>Type the name</strong> of the program (e.g., "Excel").</p></div>
+            <div class="step"><div class="step-num">3</div><p>Click the program in the search results.</p></div>
+          </div>
+          <div style="margin-top:0.8rem; background:rgba(26,75,110,0.08); border-radius:0.6rem; padding:0.6rem 0.8rem; font-size:0.78rem; color:var(--blue);">
+            ⚡ <strong>Fastest method</strong> — just type and press Enter!
+          </div>
+        </div>
+        <div class="card card-blue">
+          <div class="card-label"><i class="fas fa-desktop"></i> Method 3: Desktop Shortcut</div>
+          <div class="steps">
+            <div class="step"><div class="step-num">1</div><p>Find the <strong>program icon</strong> on the desktop.</p></div>
+            <div class="step"><div class="step-num">2</div><p><strong>Double-click</strong> the icon.</p></div>
+            <div class="step"><div class="step-num">3</div><p>The program will open.</p></div>
+          </div>
+          <div style="margin-top:0.8rem; background:rgba(26,75,110,0.08); border-radius:0.6rem; padding:0.6rem 0.8rem; font-size:0.78rem; color:var(--blue);">
+            💡 Right-click any program in the Start Menu → Pin to desktop to add a shortcut.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Program Window anatomy -->
+    <div class="subsection" style="margin-top:1.5rem;">
+      <div class="subsection-title"><span class="tag">B</span> Understanding a Program Window</div>
+      <p>When any program opens, you will see a <strong>window</strong>. Every window has the same controls at the top-right corner — learning these saves you a lot of confusion.</p>
+
+      <div class="window-mock">
+        <div class="win-titlebar">
+          <div class="win-title">📄 Document1 — Microsoft Word</div>
+          <div style="display:flex; gap:0.5rem; align-items:center;">
+            <span style="color:rgba(255,255,255,0.5); font-size:0.7rem; margin-right:0.5rem;">← Title Bar</span>
+            <div class="win-controls">
+              <div class="win-btn min">—</div>
+              <div class="win-btn max">□</div>
+              <div class="win-btn cls">✕</div>
+            </div>
+          </div>
+        </div>
+        <div class="win-body">
+          <p>This is the content area of the program. Everything you create or view appears here.</p>
+          <div style="display:flex; gap:2rem; margin-top:1.5rem; flex-wrap:wrap;">
+            <div style="text-align:center;"><div style="font-size:1.5rem;">—</div><div style="font-size:0.75rem; color:var(--muted); margin-top:0.3rem;"><strong>Minimize</strong><br>Hides window to taskbar</div></div>
+            <div style="text-align:center;"><div style="font-size:1.5rem;">□</div><div style="font-size:0.75rem; color:var(--muted); margin-top:0.3rem;"><strong>Maximize/Restore</strong><br>Full screen or smaller</div></div>
+            <div style="text-align:center;"><div style="font-size:1.5rem; color:var(--red);">✕</div><div style="font-size:0.75rem; color:var(--muted); margin-top:0.3rem;"><strong>Close</strong><br>Closes the program</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Closing programs -->
+    <div class="subsection">
+      <div class="subsection-title"><span class="tag">C</span> Closing a Program — Always Save First!</div>
+      <p>Before closing any program, always <strong>save your work</strong> first. If you forget, Windows will usually ask "Do you want to save?" — always click <strong>Save</strong>.</p>
+
+      <div class="grid-3">
+        <div class="card card-blue">
+          <div class="card-label"><i class="fas fa-times-circle"></i> Method 1: Close Button</div>
+          <p style="font-size:0.88rem;">Click the <strong>X</strong> at the top-right corner of the window. If prompted, click <strong>Save</strong> before the window closes.</p>
+        </div>
+        <div class="card card-blue">
+          <div class="card-label"><i class="fas fa-file"></i> Method 2: File Menu</div>
+          <div class="steps">
+            <div class="step"><div class="step-num">1</div><p>Click <strong>File</strong> at the top-left of the program.</p></div>
+            <div class="step"><div class="step-num">2</div><p>Click <strong>Exit</strong> or <strong>Close</strong>.</p></div>
+          </div>
+        </div>
+        <div class="card card-blue">
+          <div class="card-label"><i class="fas fa-keyboard"></i> Method 3: Keyboard Shortcut</div>
+          <p style="font-size:0.88rem;">Press <span class="key-badge">Alt</span> + <span class="key-badge">F4</span> to close the active window immediately. Save first!</p>
+        </div>
+      </div>
+
+      <div class="callout note" style="margin-top:1rem;">
+        <span class="callout-icon"><i class="fas fa-circle-info"></i></span>
+        <div class="callout-body"><strong>Working with Multiple Programs</strong><p>You can have <strong>several programs open at the same time</strong> — they will all appear in the Taskbar at the bottom. Click any program in the Taskbar to switch to it. This is called <strong>multitasking</strong>. For example, you can have Word, Excel, and a browser all open at once.</p></div>
+      </div>
+    </div>
+
+    <!-- Practice 5 -->
+    <div class="practice-box">
+      <div class="practice-header">
+        <div class="practice-icon">🖥️</div>
+        <div><h4>Practice Activity 5 — Programs Mini Project</h4><p>Put everything together — open, use, switch, and close programs.</p></div>
+      </div>
+      <div class="practice-steps">
+        <div class="ps"><div class="ps-n">1</div><p>Open <strong>Microsoft Word</strong> using the Search bar method (type "Word" in Start).</p></div>
+        <div class="ps"><div class="ps-n">2</div><p>Type your name and today's date in the document.</p></div>
+        <div class="ps"><div class="ps-n">3</div><p><strong>Minimize</strong> Word by clicking the — button (it goes to the Taskbar).</p></div>
+        <div class="ps"><div class="ps-n">4</div><p>Open <strong>Microsoft Excel</strong> using a different method (desktop shortcut or Start Menu).</p></div>
+        <div class="ps"><div class="ps-n">5</div><p>Switch back to Word by <strong>clicking Word in the Taskbar</strong> at the bottom.</p></div>
+        <div class="ps"><div class="ps-n">6</div><p>Save your Word document using <span style="background:var(--gold);color:var(--navy);padding:0.1rem 0.4rem;border-radius:3px;font-size:0.78rem;font-weight:700;">Ctrl + S</span>. Name it <strong>MyFirstDocument</strong> and save it in the <em>Digital Literacy Work</em> folder you created earlier.</p></div>
+        <div class="ps"><div class="ps-n">7</div><p>Close <strong>both programs</strong> correctly — Word first (save when asked), then Excel.</p></div>
+      </div>
+    </div>
+
+    <div class="checklist">
+      <div class="checklist-title"><i class="fas fa-clipboard-check"></i> Skill Checkpoint — Section 1.4</div>
+      <div class="check-item"><i class="fas fa-check-circle"></i><span>I can open a program using all three methods: Start Menu, Search, and Desktop shortcut</span></div>
+      <div class="check-item"><i class="fas fa-check-circle"></i><span>I understand the Title Bar, Minimize, Maximize, and Close buttons</span></div>
+      <div class="check-item"><i class="fas fa-check-circle"></i><span>I can minimize a program and restore it from the Taskbar</span></div>
+      <div class="check-item"><i class="fas fa-check-circle"></i><span>I can switch between two open programs using the Taskbar</span></div>
+      <div class="check-item"><i class="fas fa-check-circle"></i><span>I can close a program safely using all three methods</span></div>
+      <div class="check-item"><i class="fas fa-check-circle"></i><span>I always save my work before closing a program</span></div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       CHAPTER SUMMARY
+  ══════════════════════════════════════ -->
+  <div class="chapter-summary reveal" id="summary">
+    <div class="summary-title">🎯 Chapter 1 Complete — Core Skills Mastered</div>
+    <div class="summary-sub">Everything you have learned in this chapter. Tick each one when you are confident you can do it independently.</div>
+    <div class="summary-grid">
+      <div class="summary-item"><i class="fas fa-check-circle"></i><div><strong>Start & Shut Down</strong><span>Turn on and properly shut down a desktop and laptop computer</span></div></div>
+      <div class="summary-item"><i class="fas fa-check-circle"></i><div><strong>Mouse Mastery</strong><span>Point, click, double-click, right-click, drag, and scroll with confidence</span></div></div>
+      <div class="summary-item"><i class="fas fa-check-circle"></i><div><strong>Keyboard Skills</strong><span>Use important keys, type text, and apply 12 keyboard shortcuts</span></div></div>
+      <div class="summary-item"><i class="fas fa-check-circle"></i><div><strong>Desktop Navigation</strong><span>Identify icons, taskbar, Start button, notification area, and search bar</span></div></div>
+      <div class="summary-item"><i class="fas fa-check-circle"></i><div><strong>Folder Management</strong><span>Create, rename, and organise folders on the desktop</span></div></div>
+      <div class="summary-item"><i class="fas fa-check-circle"></i><div><strong>Program Control</strong><span>Open, minimize, maximize, switch between, and close programs using multiple methods</span></div></div>
+    </div>
+    <div class="summary-quote">
+      <p>"Mastering these basics is the foundation of all digital confidence. Every expert was once a beginner."</p>
+      <div style="color:rgba(255,255,255,0.5); font-size:0.8rem; margin-top:0.5rem;">— Castro Odhiambo, Basics of Digital Literacy</div>
+    </div>
+  </div>
+
+  <!-- NEXT CHAPTER -->
+  <div class="next-chapter reveal">
+    <div>
+      <div class="next-label">Up Next</div>
+      <div class="next-title">Chapter 2 — File and Folder Management</div>
+      <div class="next-desc">Learn to create, copy, move, rename, and delete files. Master USB flash drives, the Recycle Bin, and Windows File Explorer.</div>
+    </div>
+    <a href="File_Management.html" class="next-btn">Chapter 2 <i class="fas fa-arrow-right"></i></a>
+  </div>
+
+  <!-- ALL MODULES -->
+  <div style="text-align:center; margin-top:1rem;">
+    <a href="index.html" class="back-home"><i class="fas fa-th-large"></i> View All Modules on the Dashboard</a>
+  </div>
+
+</div><!-- end page-wrap -->
+
+<footer>
+  © 2026 <span>Castro Odhiambo</span> — Basics of Digital Literacy &nbsp;|&nbsp; Chapter 1: Getting Comfortable with a Computer
+</footer>
+
+<script>
+  // Progress bar
+  window.addEventListener('scroll', () => {
+    const s = window.scrollY;
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('pbar').style.width = (s / h * 100) + '%';
+  });
+
+  // Reveal on scroll
+  const revEls = document.querySelectorAll('.reveal');
+  const ro = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        ro.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.06 });
+  revEls.forEach(el => ro.observe(el));
+
+  // Smooth active TOC highlighting
+  const sections = document.querySelectorAll('[id^="s"], #summary');
+  const tocLinks = document.querySelectorAll('.toc-link');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(l => l.style.background = '');
+        const active = document.querySelector(`.toc-link[href="#${entry.target.id}"]`);
+        if (active) { active.style.background = 'var(--navy)'; active.style.color = '#fff'; active.style.borderColor = 'var(--navy)'; }
+      }
+    });
+  }, { threshold: 0.3 });
+  sections.forEach(s => observer.observe(s));
+</script>
 </body>
 </html>
