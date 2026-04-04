@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Digital Competency | Chapter 2: File and Folder Management (Complete Guide)</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f0f4f8;
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.5;
+      color: #1a2c3e;
+      padding: 2rem 1rem;
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 32px;
+      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.2);
+      overflow: hidden;
+    }
+    .hero {
+      background: linear-gradient(135deg, #2c5f2d, #1e3a1e);
+      color: white;
+      padding: 2rem 2rem;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    .hero .author {
+      font-size: 1rem;
+      opacity: 0.9;
+      margin-top: 0.5rem;
+      border-top: 1px solid rgba(255,255,255,0.3);
+      display: inline-block;
+      padding-top: 0.5rem;
+    }
+    .chapter-badge {
+      background: #ffb74d;
+      color: #1e2a3e;
+      display: inline-block;
+      padding: 0.25rem 1.2rem;
+      border-radius: 40px;
+      font-weight: bold;
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+    }
+    .content {
+      padding: 2rem 2rem 2.5rem 2rem;
+    }
+    h2 {
+      font-size: 1.9rem;
+      margin: 1.8rem 0 1rem;
+      color: #2c5f2d;
+      border-left: 6px solid #ffb74d;
+      padding-left: 1rem;
+    }
+    h3 {
+      font-size: 1.5rem;
+      margin: 1.2rem 0 0.8rem;
+      color: #2d6a2f;
+    }
+    h4 {
+      font-size: 1.2rem;
+      margin: 1rem 0 0.5rem;
+      color: #3a7b3c;
+    }
+    .section-card {
+      background: #fbfef9;
+      border-radius: 24px;
+      padding: 1.2rem 1.8rem;
+      margin: 1.5rem 0;
+      border: 1px solid #dee9f0;
+    }
+    .steps-box {
+      background: #eef6ec;
+      border-left: 5px solid #4caf50;
+      padding: 1rem 1.8rem;
+      border-radius: 20px;
+      margin: 1.2rem 0;
+    }
+    .note {
+      background: #fff9e8;
+      border-left: 5px solid #ffb74d;
+      padding: 1rem 1.5rem;
+      border-radius: 16px;
+      margin: 1rem 0;
+      font-weight: 500;
+    }
+    .warning {
+      background: #ffeae9;
+      border-left: 5px solid #d9534f;
+      padding: 1rem 1.5rem;
+      border-radius: 16px;
+      margin: 1rem 0;
+    }
+    .skill-check {
+      background: #e8f5e9;
+      border-radius: 20px;
+      padding: 1rem 1.8rem;
+      margin: 1.5rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-weight: 500;
+    }
+    .skill-check span {
+      background: white;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      background: white;
+      border-radius: 16px;
+      overflow: auto;
+      display: block;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 0.5rem 0.8rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #eaf5ea;
+      font-weight: 600;
+    }
+    ul, ol {
+      padding-left: 1.6rem;
+      margin: 0.8rem 0;
+    }
+    li {
+      margin: 0.3rem 0;
+    }
+    hr {
+      margin: 2rem 0;
+      border: none;
+      height: 2px;
+      background: linear-gradient(to right, #cbdbe0, transparent);
+    }
+    footer {
+      background: #f1f5f9;
+      text-align: center;
+      padding: 1.2rem;
+      font-size: 0.85rem;
+      color: #2c5f2d;
+      border-top: 1px solid #d0dfe8;
+    }
+    .file-ext {
+      background: #e8f0fe;
+      padding: 0.5rem;
+      border-radius: 12px;
+      font-family: monospace;
+      margin: 0.5rem 0;
+    }
+    @media (max-width: 700px) {
+      .content { padding: 1rem; }
+      h2 { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="hero">
+    <div class="chapter-badge">📁 CHAPTER TWO</div>
+    <h1>FILE AND FOLDER MANAGEMENT</h1>
+    <div class="author">by Castro Odhiambo — Complete Practical Guide</div>
+    <p style="margin-top: 0.8rem; max-width: 800px; margin-left: auto; margin-right: auto;">Learn the Basic File management properties</p>
+  </div>
+  <div class="content">
+
+    <!-- CHAPTER TWO: FILE AND FOLDER MANAGEMENT -->
+    <p><strong>CHAPTER TWO</strong></p>
+    <h2>FILE AND FOLDER MANAGEMENT</h2>
+    <p><strong>Introduction</strong><br>
+    When using a computer, you create many documents such as letters, reports, spreadsheets, pictures, and presentations. These documents are called files. To avoid confusion and loss of work, files must be properly organized. Computers use folders to store and arrange files neatly.</p>
+    <p>Think of it like this:<br>
+    A file is like a single paper document. A folder is like a file cover or envelope that holds many papers.</p>
+    <p>Good file management helps you:<br>
+    Find your work quickly, Avoid losing important documents, Keep your computer organized, Work more professionally.</p>
+    <p>In this chapter, you will learn how to create, organize, move, rename, and delete files and folders.</p>
+
+    <!-- 2.1 Understanding Files and Folders -->
+    <h2>2.1 Understanding Files and Folders</h2>
+    <h3>A. What is a File?</h3>
+    <p>A file is a saved piece of work stored on a computer.</p>
+    <p>Examples of files:<br>
+    A Word document, An Excel spreadsheet, A PowerPoint presentation, A picture, A PDF document.</p>
+    <p>Every file has:<br>
+    I. A File Name, II. A File Type (Extension), III. A Storage Location</p>
+    <div class="steps-box">
+      <p><strong>Example of a File Name</strong><br>
+      My_CV.docx<br>
+      My_CV → File name &nbsp;&nbsp;&nbsp; .docx → File extension (shows it is a Word document)</p>
+    </div>
+    <div class="file-ext">
+      <strong>Common File Extensions:</strong><br>
+      1. .docx → Microsoft Word<br>
+      2. .xlsx → Microsoft Excel<br>
+      3. .pptx → Microsoft PowerPoint<br>
+      4. .pdf → PDF Document<br>
+      5. .jpg / .png → Image file<br>
+      Understanding file extensions helps you know which program opens the file.
+    </div>
+    <h3>B. What is a Folder?</h3>
+    <p>A folder is a container used to store files. Folders help you group related documents together.</p>
+    <p>Example:<br>
+    School Work folder contains: English Essay, Mathematics Assignment, Science Report.<br>
+    Folders can also contain other folders. These are called subfolders.</p>
+    <h3>C. Opening File Explorer</h3>
+    <p>File Explorer allows you to view and manage files and folders.</p>
+    <p><strong>Method 1:</strong> I. Click the Start Button. II. Click File Explorer.</p>
+    <p><strong>Method 2:</strong> I. Press Windows Key + E on the keyboard. File Explorer will open.</p>
+    <h3>D. Understanding File Explorer Window</h3>
+    <p>When File Explorer opens, you will see:<br>
+    I. Navigation Pane (Left side - shows folders and drives)<br>
+    II. Main Window (Displays files and folders)<br>
+    III. Address Bar (Shows current location)<br>
+    IV. Search Bar (Used to search for files)</p>
+    <div class="steps-box">
+      <p><strong>Practical Activity 1</strong></p>
+      <ol>
+        <li>Open File Explorer.</li>
+        <li>Click on Documents.</li>
+        <li>Identify at least three files in that location.</li>
+        <li>Close File Explorer.</li>
+      </ol>
+      <p>Repeat until confident.</p>
+    </div>
+    <div class="note">
+      <strong>Why File Organization Is Important</strong><br>
+      1. Saves time, 2. Prevents confusion, 3. Makes work professional, 4. Protects important information.
+    </div>
+    <div class="skill-check">
+      <span>✅ I understand what a file is</span>
+      <span>✅ I understand what a folder is</span>
+      <span>✅ I can open File Explorer</span>
+    </div>
+
+    <!-- 2.2 Creating Files and Folders -->
+    <h2>2.2 Creating Files and Folders</h2>
+    <p><strong>Introduction</strong><br>
+    Creating folders and files is an important skill in digital competency. Before saving any work, you must know where and how to create a proper storage location.</p>
+    <p>In this section, you will learn how to: Create a new folder, Create a file, Save files in the correct location.</p>
+    <h3>A. Creating a New Folder</h3>
+    <p>Folders help you organize related documents.</p>
+    <p><strong>Method 1: Creating a Folder on the Desktop</strong><br>
+    Follow these steps:</p>
+    <ol>
+      <li>Go to the Desktop screen.</li>
+      <li>Right-click on an empty space.</li>
+      <li>Select New.</li>
+      <li>Click Folder.</li>
+      <li>Type the folder name (e.g., Digital Skills).</li>
+      <li>Press Enter. The new folder will appear on the desktop.</li>
+    </ol>
+    <p><strong>Method 2: Creating a Folder Inside Documents</strong></p>
+    <ol>
+      <li>Open File Explorer.</li>
+      <li>Click Documents.</li>
+      <li>Right-click on an empty space.</li>
+      <li>Select New.</li>
+      <li>Click Folder.</li>
+      <li>Type a name (e.g., School Work).</li>
+      <li>Press Enter.</li>
+    </ol>
+    <h3>B. Creating a File (Example Using MS Word)</h3>
+    <p>To create a file, you must open a program first.</p>
+    <div class="steps-box">
+      <p><strong>Steps:</strong></p>
+      <ol>
+        <li>Open Microsoft Word.</li>
+        <li>Click Blank Document.</li>
+        <li>Type a short paragraph.</li>
+        <li>Click File.</li>
+        <li>Select Save As.</li>
+        <li>Choose the location (e.g., Desktop or Documents).</li>
+        <li>Type the file name (e.g., Practice Document).</li>
+        <li>Click Save.</li>
+      </ol>
+      <p>You have now created a file.</p>
+    </div>
+    <h3>C. Important File Naming Rules</h3>
+    <div class="note">
+      <p>When naming files:</p>
+      <ul>
+        <li>Use clear and meaningful names</li>
+        <li>Avoid very long names</li>
+        <li>Avoid special symbols such as /\:*?"&lt;&gt;|</li>
+        <li>Use underscores (_) instead of spaces if necessary</li>
+      </ul>
+      <p>Example of good file name:<br>
+      ✓ Term_One_Report &nbsp;&nbsp;&nbsp; ✗ Document12345</p>
+    </div>
+    <div class="steps-box">
+      <p><strong>Practical Activity 2</strong></p>
+      <ol>
+        <li>Create a folder called My Assignments.</li>
+        <li>Inside it, create another folder called Computer Studies.</li>
+        <li>Open Word and type your full name.</li>
+        <li>Save the file inside the Computer Studies folder.</li>
+      </ol>
+    </div>
+    <div class="skill-check">
+      <span>✅ I can create a folder</span>
+      <span>✅ I can create a file</span>
+      <span>✅ I can save a file in the correct location</span>
+    </div>
+
+    <!-- 2.3 Renaming, Copying, Moving and Deleting Files -->
+    <h2>2.3 Renaming, Copying, Moving and Deleting Files</h2>
+    <p>1. Rename them, 2. Move them to another location, 3. Copy them, 4. Delete them. These are basic but essential digital skills.</p>
+    <h3>A. Renaming a File or Folder</h3>
+    <p>Renaming helps correct mistakes or improve organization.</p>
+    <div class="steps-box">
+      <p><strong>Steps:</strong></p>
+      <ol>
+        <li>Locate the file or folder.</li>
+        <li>Right-click on it.</li>
+        <li>Select Rename.</li>
+        <li>Type the new name.</li>
+        <li>Press Enter.</li>
+      </ol>
+    </div>
+    <h3>B. Copying a File</h3>
+    <p>Copying creates a duplicate of the file.</p>
+    <p><strong>Method 1: Using Right-Click</strong><br>
+    I. Right-click the file. II. Select Copy. III. Open the destination folder. IV. Right-click inside the folder. V. Select Paste. A duplicate file will appear.</p>
+    <p><strong>Method 2: Using Keyboard Shortcuts</strong><br>
+    I. Click the file once. II. Press Ctrl + C (Copy). III. Open the destination folder. IV. Press Ctrl + V (Paste).</p>
+    <h3>C. Moving a File</h3>
+    <p>Moving transfers the file to a new location without creating a copy.</p>
+    <div class="steps-box">
+      <p><strong>Steps:</strong></p>
+      <ol>
+        <li>Right-click the file.</li>
+        <li>Select Cut.</li>
+        <li>Open the new location.</li>
+        <li>Right-click inside the folder.</li>
+        <li>Select Paste.</li>
+      </ol>
+      <p>OR</p>
+      <ol>
+        <li>Click and hold the file.</li>
+        <li>Drag it to the new folder.</li>
+        <li>Release the mouse button.</li>
+      </ol>
+    </div>
+    <h3>D. Deleting a File</h3>
+    <p>Deleting removes unwanted files.</p>
+    <div class="steps-box">
+      <p><strong>Steps:</strong></p>
+      <ol>
+        <li>Click the file once.</li>
+        <li>Press Delete on the keyboard.</li>
+      </ol>
+      <p>OR</p>
+      <ol>
+        <li>Right-click the file.</li>
+        <li>Select Delete.</li>
+      </ol>
+      <p>The file moves to the Recycle Bin.</p>
+    </div>
+    <h3>E. Restoring a Deleted File</h3>
+    <p>If you delete a file by mistake:</p>
+    <ol>
+      <li>Open Recycle Bin.</li>
+      <li>Right-click the file.</li>
+      <li>Select Restore.</li>
+    </ol>
+    <p>The file will return to its original location.</p>
+    <div class="steps-box">
+      <p><strong>Practical Activity 3</strong></p>
+      <ol>
+        <li>Create a file called Test File.</li>
+        <li>Rename it to Final Test File.</li>
+        <li>Copy it to another folder.</li>
+        <li>Delete the original file.</li>
+        <li>Restore it from Recycle Bin.</li>
+      </ol>
+    </div>
+    <div class="warning">Common Mistakes to Avoid: Deleting important files accidentally, Forgetting where files are saved.</div>
+    <div class="skill-check">
+      <span>✅ I can rename a file</span>
+      <span>✅ I can copy a file</span>
+      <span>✅ I can move a file</span>
+      <span>✅ I can delete and restore a file</span>
+    </div>
+
+    <!-- 2.4 Using External Storage Devices (Flash Disk Practice) -->
+    <h2>2.4 Using External Storage Devices (Flash Disk Practice)</h2>
+    <p><strong>Introduction</strong><br>
+    External storage devices are used to store, transfer, and back up files. The most common external storage device is a USB Flash Disk.</p>
+    <p>Other examples include: External Hard Drive, Memory Card, External SSD.</p>
+    <p>In this section, you will learn how to: Insert a flash disk safely, Open it, Copy files to it, Remove it properly.</p>
+    <h3>A. Inserting a Flash Disk</h3>
+    <p>Follow these steps:</p>
+    <ol>
+      <li>Locate a USB port on the computer.</li>
+      <li>Insert the flash disk carefully into the USB port.</li>
+      <li>Wait a few seconds for the computer to detect it.</li>
+      <li>A notification may appear on the screen.</li>
+    </ol>
+    <h3>B. Opening the Flash Disk</h3>
+    <p><strong>Method 1: Using Notification</strong><br>I. Click the notification that appears. II. Select Open Folder to View Files.</p>
+    <p><strong>Method 2: Using File Explorer</strong><br>I. Open File Explorer. II. Click This PC. III. Double-click the flash disk drive.</p>
+    <h3>C. Copying Files to a Flash Disk</h3>
+    <div class="steps-box">
+      <ol>
+        <li>Locate the file you want to copy.</li>
+        <li>Right-click the file.</li>
+        <li>Select Copy.</li>
+        <li>Open the flash disk.</li>
+        <li>Right-click inside the flash disk window.</li>
+        <li>Select Paste.</li>
+      </ol>
+      <p>The file will be copied into the flash disk.</p>
+    </div>
+    <h3>D. Copying Files From a Flash Disk to the Computer</h3>
+    <ol>
+      <li>Open the flash disk.</li>
+      <li>Right-click the file.</li>
+      <li>Select Copy.</li>
+      <li>Open the desired folder on the computer.</li>
+      <li>Right-click and select Paste.</li>
+    </ol>
+    <h3>E. Safely Removing a Flash Disk (Very Important)</h3>
+    <p>Never remove a flash disk without safely ejecting it.</p>
+    <div class="steps-box">
+      <p><strong>Steps:</strong></p>
+      <ol>
+        <li>Locate the USB icon in the taskbar (bottom-right corner).</li>
+        <li>Click the USB icon.</li>
+        <li>Select Eject USB Drive.</li>
+        <li>Wait for the message: "Safe to Remove Hardware."</li>
+        <li>Remove the flash disk carefully.</li>
+      </ol>
+    </div>
+    <div class="note">Why Safe Removal Is Important: Prevents file corruption, Protects stored data, Avoids damage to the flash disk.</div>
+    <div class="steps-box">
+      <p><strong>Practical Activity 4</strong></p>
+      <ol>
+        <li>Insert a flash disk.</li>
+        <li>Create a new folder inside it called Backup Files.</li>
+        <li>Copy one document into the folder.</li>
+        <li>Safely eject the flash disk.</li>
+      </ol>
+    </div>
+    <div class="skill-check">
+      <span>✅ I can insert a flash disk</span>
+      <span>✅ I can copy files to a flash disk</span>
+      <span>✅ I can eject it safely</span>
+    </div>
+
+    <!-- 2.5 Searching and Organizing Files Efficiently -->
+    <h2>2.5 Searching and Organizing Files Efficiently</h2>
+    <p><strong>Introduction</strong><br>
+    As you continue using a computer, you may store many files. Finding a specific file quickly is an important digital skill. In this section, you will learn how to: Search for files, Sort files, Organize files properly.</p>
+    <h3>A. Searching for a File</h3>
+    <p><strong>Method 1: Using File Explorer Search</strong><br>
+    I. Open File Explorer. II. Navigate to the location (e.g., Documents). III. Click inside the Search Bar (top-right corner). IV. Type the file name or part of the name. V. Press Enter. The computer will display matching results.</p>
+    <p><strong>Method 2: Using Start Menu Search</strong><br>
+    I. Click the Start Button. II. Type the file name. III. Select the file from the results.</p>
+    <h3>B. Sorting Files</h3>
+    <p>Sorting helps arrange files in order.</p>
+    <div class="steps-box">
+      <p><strong>Steps:</strong></p>
+      <ol>
+        <li>Open a folder.</li>
+        <li>Right-click inside the folder.</li>
+        <li>Select Sort by.</li>
+        <li>Choose one of the following: Name, Date Modified, Type, Size.</li>
+      </ol>
+    </div>
+    <h3>C. Organizing Files Properly</h3>
+    <p>Follow these good practices:</p>
+    <ul>
+      <li>Create folders for different categories (e.g., School, Work, Personal).</li>
+      <li>Use clear file names.</li>
+      <li>Avoid saving everything on the Desktop.</li>
+      <li>Delete unnecessary files regularly.</li>
+      <li>Back up important documents in a flash disk or cloud storage.</li>
+    </ul>
+    <div class="steps-box">
+      <p><strong>Practical Activity 5</strong></p>
+      <ol>
+        <li>Create three folders named: School, Work, Personal Projects.</li>
+        <li>Move related files into each folder.</li>
+        <li>Use the search bar to find one specific file.</li>
+        <li>Sort the files by date.</li>
+      </ol>
+    </div>
+    <div class="warning">Common Mistakes to Avoid: Saving files without checking the location, Using unclear file names, Forgetting to back up important work, Keeping too many files on the desktop.</div>
+
+    <!-- Final Skill Check for Chapter Two -->
+    <div class="skill-check" style="background: #e8f5e9;">
+      <span>✅ I can create and manage folders</span>
+      <span>✅ I can copy and move files</span>
+      <span>✅ I can use a flash disk properly</span>
+      <span>✅ I can search for files</span>
+      <span>✅ I can organize files professionally</span>
+    </div>
+
+    <div class="note" style="text-align: center;">✅ End of Chapter Two. Proceed to Chapter 3 (Microsoft Word) next.</div>
+    <hr>
+  </div>
+  <footer>© 2026 Castro Odhiambo — Basics of Digital Literacy | Chapter 2: File and Folder Management | For hands-on mastery of digital organization.</footer>
+</div>
+</body>
+</html>
