@@ -1,462 +1,570 @@
+Perfect — let’s build a **complete, advanced educational page** for **Chapter One: Getting Comfortable with a Computer** from *Basics of Digital Literacy* by Castro Odhiambo. I’ll give you a polished HTML/CSS/JS design that feels like a digital textbook, with structured notes, interactive activities, and a professional layout.
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Digital Competency | Chapter 1: Getting Comfortable with a Computer (Complete Guide)</title>
+  <title>Chapter One – Getting Comfortable with a Computer</title>
   <style>
-    * {
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
+      background: #f9fafc;
+      color: #333;
+      line-height: 1.7;
     }
-    body {
-      background: #f0f4f8;
-      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-      line-height: 1.5;
-      color: #1a2c3e;
-      padding: 2rem 1rem;
+    header {
+      background: #1e3d59;
+      color: #fff;
+      padding: 30px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+    header p {
+      margin: 5px 0 0;
+      font-style: italic;
+    }
+    nav {
+      background: #16324f;
+      padding: 12px;
+      text-align: center;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
     }
     .container {
-      max-width: 1300px;
-      margin: 0 auto;
-      background: white;
-      border-radius: 32px;
-      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.2);
-      overflow: hidden;
-    }
-    .hero {
-      background: linear-gradient(135deg, #1a4b6e, #0e2f48);
-      color: white;
-      padding: 2rem 2rem;
-      text-align: center;
-    }
-    .hero h1 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-    }
-    .hero .author {
-      font-size: 1rem;
-      opacity: 0.9;
-      margin-top: 0.5rem;
-      border-top: 1px solid rgba(255,255,255,0.3);
-      display: inline-block;
-      padding-top: 0.5rem;
-    }
-    .chapter-badge {
-      background: #ffb74d;
-      color: #1e2a3e;
-      display: inline-block;
-      padding: 0.25rem 1.2rem;
-      border-radius: 40px;
-      font-weight: bold;
-      font-size: 0.8rem;
-      margin-bottom: 1rem;
-    }
-    .content {
-      padding: 2rem 2rem 2.5rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
     }
     h2 {
-      font-size: 1.9rem;
-      margin: 1.8rem 0 1rem;
-      color: #1a4b6e;
-      border-left: 6px solid #ffb74d;
-      padding-left: 1rem;
+      color: #1e3d59;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 5px;
+      margin-top: 40px;
     }
-    h3 {
-      font-size: 1.5rem;
-      margin: 1.2rem 0 0.8rem;
-      color: #1f618d;
+    .note-box {
+      background: #fff;
+      border-left: 6px solid #3498db;
+      padding: 20px;
+      margin: 20px 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
-    h4 {
-      font-size: 1.2rem;
-      margin: 1rem 0 0.5rem;
-      color: #2471a3;
+    .highlight {
+      background: #eaf6ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 10px;
     }
-    .section-card {
-      background: #fbfef9;
-      border-radius: 24px;
-      padding: 1.2rem 1.8rem;
-      margin: 1.5rem 0;
-      border: 1px solid #dee9f0;
-    }
-    .steps-box {
-      background: #eaf2f8;
-      border-left: 5px solid #2980b9;
-      padding: 1rem 1.8rem;
-      border-radius: 20px;
-      margin: 1.2rem 0;
-    }
-    .note {
-      background: #fff9e8;
-      border-left: 5px solid #ffb74d;
-      padding: 1rem 1.5rem;
-      border-radius: 16px;
-      margin: 1rem 0;
-      font-weight: 500;
-    }
-    .warning {
-      background: #ffeae9;
-      border-left: 5px solid #d9534f;
-      padding: 1rem 1.5rem;
-      border-radius: 16px;
-      margin: 1rem 0;
-    }
-    .skill-check {
-      background: #e8f0fe;
-      border-radius: 20px;
-      padding: 1rem 1.8rem;
-      margin: 1.5rem 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      font-weight: 500;
-    }
-    .skill-check span {
-      background: white;
-      padding: 0.3rem 1rem;
-      border-radius: 30px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    }
-    ul, ol {
-      padding-left: 1.6rem;
-      margin: 0.8rem 0;
-    }
-    li {
-      margin: 0.3rem 0;
-    }
-    hr {
-      margin: 2rem 0;
-      border: none;
-      height: 2px;
-      background: linear-gradient(to right, #cbdbe0, transparent);
+    .activity {
+      background: #fef9e7;
+      border-left: 6px solid #f1c40f;
+      padding: 15px;
+      margin: 20px 0;
     }
     footer {
-      background: #f1f5f9;
+      background: #1e3d59;
+      color: #fff;
       text-align: center;
-      padding: 1.2rem;
-      font-size: 0.85rem;
-      color: #1a4b6e;
-      border-top: 1px solid #d0dfe8;
+      padding: 20px;
+      margin-top: 40px;
     }
-    .tick-box {
-      background: #d5f5e3;
-      border-radius: 12px;
-      padding: 0.8rem;
-      margin: 1rem 0;
-      font-family: monospace;
+    .quiz {
+      background: #fff;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin-top: 30px;
     }
-    @media (max-width: 700px) {
-      .content { padding: 1rem; }
-      h2 { font-size: 1.6rem; }
+    .quiz h3 {
+      margin-top: 0;
+    }
+    .quiz button {
+      background: #3498db;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      margin: 5px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .quiz button:hover {
+      background: #2980b9;
+    }
+    .result {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    .summary {
+      background: #ecf0f1;
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 30px;
     }
   </style>
 </head>
 <body>
-<div class="container">
-  <div class="hero">
-    <div class="chapter-badge">💻 CHAPTER ONE</div>
-    <h1>GETTING COMFORTABLE WITH A COMPUTER</h1>
-    <div class="author">by Castro Odhiambo — Complete Practical Guide</div>
-    <p style="margin-top: 0.8rem; max-width: 800px; margin-left: auto; margin-right: auto;">Get Started With Your Digital Ability From Here .</p>
-  </div>
-  <div class="content">
+  <header>
+    <h1>💻 Chapter One</h1>
+    <p>Getting Comfortable with a Computer</p>
+    <p><em>by Castro Odhiambo — Complete Practical Guide</em></p>
+    <p>Get Started With Your Digital Ability From Here</p>
+  </header>
 
-    <!-- 1.1 Turning a Computer On and Off Properly -->
-    <h2>1.1 Turning a Computer On and Off Properly</h2>
-    <p><strong>Introduction</strong><br>Before learning any computer skill, you must first know how to properly start and shut down a computer. Many beginners damage computers by switching them off incorrectly. Learning the correct procedure protects the system and your files.</p>
+  <nav>
+    <a href="#turning">Turning On/Off</a>
+    <a href="#mouse">Mouse & Keyboard</a>
+    <a href="#desktop">Desktop Environment</a>
+    <a href="#programs">Programs</a>
+    <a href="#summary">Summary</a>
+  </nav>
 
-    <h3>A. Turning On a Desktop Computer</h3>
-    <p>A desktop computer has separate parts: monitor, system unit (CPU box), keyboard, and mouse. Follow these steps:</p>
-    <div class="steps-box">
-      <ol>
+  <div class="container">
+    <!-- Section 1.1 -->
+    <section id="turning">
+      <h2>1.1 Turning a Computer On and Off Properly</h2>
+      <div class="note-box">
+        <p><strong>Introduction:</strong> Before learning any computer skill, you must first know how to properly start and shut down a computer. Many beginners damage computers by switching them off incorrectly. Learning the correct procedure protects the system and your files.</p>
+      </div>
+      <div class="highlight"><strong>A. Turning On a Desktop Computer</strong></div>
+      <ul>
         <li>Ensure the computer is connected to a power source.</li>
         <li>Switch on the wall socket or power extension.</li>
         <li>Press the power button on the System Unit (CPU box).</li>
         <li>Press the power button on the Monitor.</li>
         <li>Wait for the computer to load the Operating System (e.g., Windows).</li>
-        <li>If required, enter your password and press Enter. The desktop screen will appear when the computer is ready for use.</li>
-      </ol>
-    </div>
-
-    <h3>B. Turning On a Laptop</h3>
-    <p>A laptop is portable and has everything built into one device. Steps:</p>
-    <div class="steps-box">
-      <ol>
+        <li>Enter your password if required.</li>
+      </ul>
+      <div class="highlight"><strong>B. Turning On a Laptop</strong></div>
+      <ul>
         <li>Ensure the laptop battery is charged or connect it to power.</li>
         <li>Press the power button.</li>
         <li>Wait for the system to boot.</li>
         <li>Enter your password if required.</li>
-      </ol>
-    </div>
-
-    <h3>C. Shutting Down a Computer Properly (Very Important)</h3>
-    <p>Never switch off the power directly from the socket unless the computer is completely off.</p>
-    <div class="steps-box">
-      <p><strong>Correct Shutdown Procedure (Windows):</strong></p>
-      <ol>
-        <li>Click the Start Button (bottom-left corner).</li>
-        <li>Click Power.</li>
-        <li>Select Shut Down.</li>
+      </ul>
+      <div class="highlight"><strong>C. Shutting Down Properly</strong></div>
+      <p>Correct Shutdown Procedure (Windows):</p>
+      <ul>
+        <li>Click the Start Button → Power → Shut Down.</li>
         <li>Wait until the screen goes completely black.</li>
         <li>Switch off the monitor (desktop users).</li>
         <li>Switch off the wall socket.</li>
-      </ol>
-    </div>
-
-    <div class="note">
-      <strong>Why Proper Shutdown Is Important</strong><br>
-      Prevents file corruption, hardware damage, and data loss. Always shut down properly.
-    </div>
-    <div class="warning">
-      <strong>Common Mistakes to Avoid</strong><br>
-      - Switching off from the wall socket while the computer is still running<br>
-      - Forcing shutdown by holding the power button (only as last resort)<br>
-      - Closing laptop lid without proper shutdown (may cause issues)
-    </div>
-
-    <div class="steps-box">
-      <p><strong>Practice Activity 1</strong></p>
-      <ol>
-        <li>Turn on a computer correctly.</li>
-        <li>Log in to the system.</li>
-        <li>Shut it down properly without assistance.</li>
-      </ol>
-    </div>
-    <div class="tick-box">
-      Tick when complete:<br>
-      ✓ I can start a computer properly<br>
-      ✓ I can shut down a computer correctly
-    </div>
-
-    <!-- 1.2 Using the Mouse and Keyboard Correctly -->
-    <h2>1.2 Using the Mouse and Keyboard Correctly</h2>
-    <p><strong>Introduction</strong><br>The mouse and keyboard are the primary input devices used to communicate with a computer. Mastering them improves speed and confidence.</p>
-
-    <h3>A. Using the Mouse</h3>
-    <p>The mouse controls the pointer on the screen.</p>
-    <p><strong>Main Mouse Actions</strong></p>
-    <div class="steps-box">
-      <ul>
-        <li><strong>Pointing</strong> - Moving the mouse to position the pointer.</li>
-        <li><strong>Clicking</strong> - Pressing the left button once.</li>
-        <li><strong>Double-clicking</strong> - Pressing the left button twice quickly.</li>
-        <li><strong>Right-clicking</strong> - Pressing the right mouse button once.</li>
-        <li><strong>Dragging</strong> - Holding the left button while moving the mouse.</li>
-        <li><strong>Scrolling</strong> - Using the scroll wheel to move up or down a page.</li>
       </ul>
-    </div>
-    <div class="steps-box">
-      <p><strong>Practical Exercise 2</strong></p>
-      <ol>
-        <li>Move the pointer to the Recycle Bin icon.</li>
-        <li>Double-click to open it.</li>
-        <li>Close the window by clicking the X button.</li>
-        <li>Right-click on the desktop.</li>
-        <li>Click anywhere else to remove the menu.</li>
-      </ol>
-    </div>
+      <div class="activity">
+        <strong>Practice Activity 1:</strong><br>
+        ✓ I can start a computer properly<br>
+        ✓ I can shut down a computer correctly
+      </div>
+    </section>
 
-    <h3>B. Using the Keyboard</h3>
-    <p><strong>Main Sections of the Keyboard</strong></p>
-    <ul>
-      <li>Typing keys (letters A-Z, numbers 0-9)</li>
-      <li>Function keys (F1-F12)</li>
-      <li>Navigation keys (Arrow keys, Home, End, Page Up, Page Down)</li>
-      <li>Numeric keypad (on the right side)</li>
-    </ul>
-    <p><strong>Important Keyboard Keys and Their Uses</strong></p>
-    <ul>
-      <li><strong>Enter</strong> - Confirms a command or moves to a new line</li>
-      <li><strong>Spacebar</strong> - Inserts a space between words</li>
-      <li><strong>Backspace</strong> - Deletes characters to the left of the cursor</li>
-      <li><strong>Delete</strong> - Deletes characters to the right of the cursor</li>
-      <li><strong>Shift</strong> - Types capital letters or symbols above numbers</li>
-      <li><strong>Caps Lock</strong> - Locks capital letters on</li>
-      <li><strong>Tab</strong> - Moves cursor to the next tab stop or field</li>
-      <li><strong>Ctrl</strong> - Used with other keys for shortcuts (e.g., Ctrl+C for Copy)</li>
-      <li><strong>Alt</strong> - Used with other keys for menu shortcuts</li>
-      <li><strong>Windows Key</strong> - Opens the Start Menu</li>
-    </ul>
-    <p><strong>Basic Typing Practice</strong><br>Type the following sentences without looking at your hands (if possible):<br>
-    "The quick brown fox jumps over the lazy dog."<br>
-    "My name is __________. I am learning to type."</p>
-    <p><strong>Beginner Typing Tips</strong></p>
-    <ul>
-      <li>Keep your wrists straight and relaxed</li>
-      <li>Use all fingers, not just your index fingers</li>
-      <li>Look at the screen, not at your hands</li>
-      <li>Practice regularly for 10-15 minutes daily</li>
-    </ul>
-    <div class="steps-box">
-      <p><strong>Practice Activity 3</strong></p>
-      <ol>
-        <li>Open Notepad (Start Menu → Type "Notepad" → Click Notepad).</li>
-        <li>Type your full name.</li>
-        <li>Type today's date.</li>
-        <li>Type the alphabet from A to Z.</li>
-        <li>Type numbers from 1 to 20.</li>
-        <li>Save the file as TypingPractice.txt on the Desktop.</li>
-      </ol>
-    </div>
+    <!-- Section 1.2 -->
+    <section id="mouse">
+      <h2>1.2 Using the Mouse and Keyboard Correctly</h2>
+      <div class="note-box">
+        <p><strong>Introduction:</strong> The mouse and keyboard are the primary input devices used to communicate with a computer. Mastering them improves speed and confidence.</p>
+      </div>
+      <div class="highlight"><strong>A. Using the Mouse</strong></div>
+      <ul>
+        <li>Pointing – Move the pointer.</li>
+        <li>Clicking – Left button once.</li>
+        <li>Double-clicking – Left button twice quickly.</li>
+        <li>Right-clicking – Right button once.</li>
+        <li>Dragging – Hold left button while moving.</li>
+        <li>Scrolling – Use scroll wheel.</li>
+      </ul>
+      <div class="activity">
+        <strong>Practical Exercise 2:</strong><br>
+        - Move pointer to Recycle Bin<br>
+        - Double-click to open<br>
+        - Close window<br>
+        - Right-click desktop<br>
+        - Click elsewhere to remove menu
+      </div>
+      <div class="highlight"><strong>B. Using the Keyboard</strong></div>
+      <ul>
+        <li>Typing keys (letters, numbers)</li>
+        <li>Function keys (F1–F12)</li>
+        <li>Navigation keys (arrows, Home, End)</li>
+        <li>Numeric keypad</li>
+      </ul>
+      <p><strong>Important Keys:</strong> Enter, Spacebar, Backspace, Delete, Shift, Caps Lock, Tab, Ctrl, Alt, Windows Key.</p>
+      <div class="activity">
+        <strong>Practice Activity 3:</strong><br>
+        - Open Notepad<br>
+        - Type your name, date, alphabet, numbers 1–20<br>
+        - Save as TypingPractice.txt
+      </div>
+    </section>
 
-    <!-- 1.3 Understanding the Desktop Environment -->
-    <h2>1.3 Understanding the Desktop Environment</h2>
-    <p><strong>Introduction</strong><br>After turning on the computer and logging in, the first screen you see is called the Desktop. The desktop is your main working area. It contains tools that help you open programs, manage files, and control the computer. Think of the desktop as a digital office table where you arrange your work.</p>
+    <!-- Section 1.3 -->
+    <section id="desktop">
+      <h2>1.3 Understanding the Desktop Environment</h2>
+      <div class="note-box">
+        <p><strong>Introduction:</strong> The desktop is your main working area. Think of it as a digital office table where you arrange your work.</p>
+      </div>
+      <ul>
+        <li><strong>Icons:</strong> Represent programs/files.</li>
+        <li><strong>Taskbar:</strong> Bottom of screen, shows Start, open programs, time/date.</li>
+        <li><strong>Start Button:</strong> Bottom-left, opens programs/settings.</li>
+        <li><strong>Background:</strong> Image/color behind icons.</li>
+      </ul>
+      <div class="activity">
+        <strong>Practical Activity 4:</strong><br>
+        - Identify Start Button<br>
+        - Identify three icons<br>
+        - Click time/date<br>
+        - Open and close one icon
+      </div>
+    </section>
 
-    <h3>A. Main Parts of the Desktop</h3>
-    <p><strong>I. Icons</strong><br>Icons are small pictures that represent programs, files, or folders.<br>Examples: This PC, Recycle Bin, Microsoft Word, Web Browser<br>To open an icon, double-click it.</p>
-    <p><strong>II. Taskbar</strong><br>The taskbar is located at the bottom of the screen.<br>It contains: The Start Button, Open programs, Time and date, Notification area.<br>The taskbar helps you switch between open programs.</p>
-    <p><strong>III. Start Button</strong><br>The Start Button is found at the bottom-left corner of the screen.<br>It allows you to: Open programs, Access settings, Shut down the computer, Search for files.</p>
-    <p><strong>IV. Desktop Background</strong><br>This is the image or color behind the icons. It can be changed according to user preference.</p>
+    <!-- Section 1.4 -->
+    <section id="programs">
+      <Here’s the **advanced, complete HTML/CSS/JS page** for **Chapter One: Getting Comfortable with a Computer** — designed like a digital textbook with structured notes, activities, and interactive elements.  
 
-    <div class="steps-box">
-      <p><strong>Practical Activity 4: Exploring the Desktop</strong><br>Follow these steps:</p>
-      <ol>
-        <li>Identify the Start Button.</li>
-        <li>Identify at least three icons on the desktop.</li>
-        <li>Click the time and date on the taskbar.</li>
-        <li>Open and close one desktop icon.</li>
-      </ol>
-      <p>Repeat until comfortable.</p>
-    </div>
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter One – Getting Comfortable with a Computer</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9fafc;
+      color: #333;
+      line-height: 1.7;
+    }
+    header {
+      background: #1e3d59;
+      color: #fff;
+      padding: 30px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+    header p {
+      margin: 5px 0 0;
+      font-style: italic;
+    }
+    nav {
+      background: #16324f;
+      padding: 12px;
+      text-align: center;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+    h2 {
+      color: #1e3d59;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 5px;
+      margin-top: 40px;
+    }
+    .note-box {
+      background: #fff;
+      border-left: 6px solid #3498db;
+      padding: 20px;
+      margin: 20px 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .highlight {
+      background: #eaf6ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    .activity {
+      background: #fef9e7;
+      border-left: 6px solid #f1c40f;
+      padding: 15px;
+      margin: 20px 0;
+    }
+    footer {
+      background: #1e3d59;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+    .quiz {
+      background: #fff;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin-top: 30px;
+    }
+    .quiz h3 {
+      margin-top: 0;
+    }
+    .quiz button {
+      background: #3498db;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      margin: 5px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .quiz button:hover {
+      background: #2980b9;
+    }
+    .result {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    .summary {
+      background: #ecf0f1;
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>💻 CHAPTER ONE</h1>
+    <p>Getting Comfortable with a Computer</p>
+    <p><em>by Castro Odhiambo — Complete Practical Guide</em></p>
+    <p>Get Started With Your Digital Ability From Here</p>
+  </header>
 
-    <h3>Creating a New Folder on the Desktop</h3>
-    <p>Folders help you organize files.</p>
-    <div class="steps-box">
-      <p><strong>Steps:</strong></p>
-      <ol>
-        <li>Right-click on an empty space on the desktop.</li>
-        <li>Select New.</li>
-        <li>Click Folder.</li>
-        <li>Type your name as the folder name.</li>
-        <li>Press Enter.</li>
-      </ol>
-      <p>You have now created a folder successfully.</p>
-    </div>
+  <nav>
+    <a href="#turning">Turning On/Off</a>
+    <a href="#mouse">Mouse & Keyboard</a>
+    <a href="#desktop">Desktop Environment</a>
+    <a href="#programs">Programs</a>
+    <a href="#summary">Summary</a>
+  </nav>
 
-    <h3>Renaming a Folder</h3>
-    <div class="steps-box">
-      <ol>
-        <li>Right-click the folder.</li>
-        <li>Select Rename.</li>
-        <li>Type a new name.</li>
-        <li>Press Enter.</li>
-      </ol>
-    </div>
+  <div class="container">
+    <!-- Section 1.1 -->
+    <section id="turning">
+      <h2>1.1 Turning a Computer On and Off Properly</h2>
+      <div class="note-box">
+        <p><strong>Introduction:</strong> Before learning any computer skill, you must first know how to properly start and shut down a computer. Many beginners damage computers by switching them off incorrectly. Learning the correct procedure protects the system and your files.</p>
+      </div>
+      <div class="highlight"><strong>A. Turning On a Desktop Computer</strong></div>
+      <ul>
+        <li>Ensure the computer is connected to a power source.</li>
+        <li>Switch on the wall socket or power extension.</li>
+        <li>Press the power button on the System Unit (CPU box).</li>
+        <li>Press the power button on the Monitor.</li>
+        <li>Wait for the computer to load the Operating System (e.g., Windows).</li>
+        <li>Enter your password if required.</li>
+      </ul>
+      <div class="highlight"><strong>B. Turning On a Laptop</strong></div>
+      <ul>
+        <li>Ensure the laptop battery is charged or connect it to power.</li>
+        <li>Press the power button.</li>
+        <li>Wait for the system to boot.</li>
+        <li>Enter your password if required.</li>
+      </ul>
+      <div class="highlight"><strong>C. Shutting Down Properly</strong></div>
+      <ul>
+        <li>Click the Start Button → Power → Shut Down.</li>
+        <li>Wait until the screen goes completely black.</li>
+        <li>Switch off the monitor (desktop users).</li>
+        <li>Switch off the wall socket.</li>
+      </ul>
+      <div class="activity">
+        <strong>Practice Activity 1:</strong><br>
+        ✓ I can start a computer properly<br>
+        ✓ I can shut down a computer correctly
+      </div>
+    </section>
 
-    <div class="warning">
-      <strong>Common Mistakes to Avoid</strong><br>
-      - Deleting important icons accidentally<br>
-      - Saving all files directly on the desktop without organizing them<br>
-      - Double-clicking too slowly (it may not open)
-    </div>
+    <!-- Section 1.2 -->
+    <section id="mouse">
+      <h2>1.2 Using the Mouse and Keyboard Correctly</h2>
+      <div class="note-box">
+        <p><strong>Introduction:</strong> The mouse and keyboard are the primary input devices used to communicate with a computer. Mastering them improves speed and confidence.</p>
+      </div>
+      <div class="highlight"><strong>A. Using the Mouse</strong></div>
+      <ul>
+        <li>Pointing – Move the pointer.</li>
+        <li>Clicking – Left button once.</li>
+        <li>Double-clicking – Left button twice quickly.</li>
+        <li>Right-clicking – Right button once.</li>
+        <li>Dragging – Hold left button while moving.</li>
+        <li>Scrolling – Use scroll wheel.</li>
+      </ul>
+      <div class="activity">
+        <strong>Practical Exercise 2:</strong><br>
+        - Move pointer to Recycle Bin<br>
+        - Double-click to open<br>
+        - Close window<br>
+        - Right-click desktop<br>
+        - Click elsewhere to remove menu
+      </div>
+      <div class="highlight"><strong>B. Using the Keyboard</strong></div>
+      <ul>
+        <li>Typing keys (letters, numbers)</li>
+        <li>Function keys (F1–F12)</li>
+        <li>Navigation keys (arrows, Home, End)</li>
+        <li>Numeric keypad</li>
+      </ul>
+      <p><strong>Important Keys:</strong> Enter, Spacebar, Backspace, Delete, Shift, Caps Lock, Tab, Ctrl, Alt, Windows Key.</p>
+      <div class="activity">
+        <strong>Practice Activity 3:</strong><br>
+        - Open Notepad<br>
+        - Type your name, date, alphabet, numbers 1–20<br>
+        - Save as TypingPractice.txt
+      </div>
+    </section>
 
-    <div class="skill-check">
-      <span>✅ I can identify parts of the desktop</span>
-      <span>✅ I can create a folder</span>
-      <span>✅ I can rename a folder</span>
-    </div>
+    <!-- Section 1.3 -->
+    <section id="desktop">
+      <h2>1.3 Understanding the Desktop Environment</h2>
+      <div class="note-box">
+        <p><strong>Introduction:</strong> The desktop is your main working area. Think of it as a digital office table where you arrange your work.</p>
+      </div>
+      <ul>
+        <li><strong>Icons:</strong> Represent programs/files.</li>
+        <li><strong>Taskbar:</strong> Bottom of screen, shows Start, open programs, time/date.</li>
+        <li><strong>Start Button:</strong> Bottom-left, opens programs/settings.</li>
+        <li><strong>Background:</strong> Image/color behind icons.</li>
+      </ul>
+      <div class="activity">
+        <strong>Practical Activity 4:</strong><br>
+        - Identify Start Button<br>
+        - Identify three icons<br>
+        - Click time/date<br>
+        - Open and close one icon
+      </div>
+    </section>
 
-    <!-- 1.4 Opening and Closing Programs -->
-    <h2>1.4 Opening and Closing Programs</h2>
-    <p><strong>Introduction</strong><br>Programs (also called applications) are software used to perform specific tasks such as typing documents, browsing the internet, or creating spreadsheets.</p>
-    <p>Examples: Microsoft Word, Microsoft Excel, Microsoft PowerPoint, Google Chrome</p>
+    <!-- Section 1.4 -->
+    <section id="programs">
+      <h2>1.4 Opening and Closing Programs</h2>
+      <div class="note-box">
+        <p><strong>Introduction:</strong> Programs (applications) are software    <!-- Section 1.4 -->
+    <section id="programs">
+      <h2>1.4 Opening and Closing Programs</h2>
+      <div class="note-box">
+        <p><strong>Introduction:</strong> Programs (applications) are software used to perform specific tasks such as typing documents, browsing the internet, or creating spreadsheets.</p>
+      </div>
+      <p><strong>Examples:</strong> Microsoft Word, Microsoft Excel, Microsoft PowerPoint, Google Chrome</p>
 
-    <h3>A. Opening a Program Using the Start Menu</h3>
-    <div class="steps-box">
-      <p>Follow these steps:</p>
-      <ol>
+      <div class="highlight"><strong>A. Opening a Program Using the Start Menu</strong></div>
+      <ul>
         <li>Click the Start Button.</li>
         <li>Scroll through the list of programs.</li>
-        <li>Click the program you want to open (e.g., Microsoft Word).</li>
-        <li>Wait for the program window to appear.</li>
-      </ol>
-    </div>
+        <li>Click the program you want to open.</li>
+      </ul>
 
-    <h3>B. Opening a Program Using Search</h3>
-    <div class="steps-box">
-      <ol>
+      <div class="highlight"><strong>B. Opening a Program Using Search</strong></div>
+      <ul>
         <li>Click the Start Button.</li>
-        <li>Type the name of the program (e.g., Word).</li>
+        <li>Type the name of the program.</li>
         <li>Click the program from the search results.</li>
-      </ol>
-    </div>
+      </ul>
 
-    <h3>C. Opening a Program from a Desktop Shortcut</h3>
-    <div class="steps-box">
-      <ol>
+      <div class="highlight"><strong>C. Opening a Program from a Desktop Shortcut</strong></div>
+      <ul>
         <li>Locate the program icon on the desktop.</li>
         <li>Double-click the icon.</li>
-        <li>The program will open.</li>
-      </ol>
-    </div>
+      </ul>
 
-    <h3>D. Understanding the Program Window</h3>
-    <p>When a program opens, you will see:</p>
-    <ul>
-      <li><strong>Title Bar</strong> - Displays the name of the program</li>
-      <li><strong>Minimize Button</strong> - Sends the window to the taskbar</li>
-      <li><strong>Maximize Button</strong> - Expands the window to fill the screen</li>
-      <li><strong>Close Button (X)</strong> - Closes the program</li>
-    </ul>
+      <div class="highlight"><strong>D. Understanding the Program Window</strong></div>
+      <ul>
+        <li><strong>Title Bar:</strong> Displays the name of the program.</li>
+        <li><strong>Minimize:</strong> Sends the window to the taskbar.</li>
+        <li><strong>Maximize:</strong> Expands the window to fill the screen.</li>
+        <li><strong>Close (X):</strong> Closes the program.</li>
+      </ul>
 
-    <h3>E. Closing a Program Properly</h3>
-    <p>Always save your work before closing.</p>
-    <p><strong>Method 1: Using the Close Button</strong><br>Click the X at the top-right corner. If prompted, click Save before exiting.</p>
-    <p><strong>Method 2: Using File Menu</strong><br>Click File. Select Exit.</p>
-    <p><strong>Method 3: Using Keyboard Shortcut</strong><br>Press Alt + F4 on the keyboard. (This closes the active window.)</p>
+      <div class="highlight"><strong>E. Closing a Program Properly</strong></div>
+      <ul>
+        <li>Method 1: Click the X at the top-right corner.</li>
+        <li>Method 2: File → Exit.</li>
+        <li>Method 3: Keyboard shortcut Alt + F4.</li>
+      </ul>
 
-    <div class="steps-box">
-      <p><strong>Practical Activity 5</strong></p>
-      <ol>
-        <li>Open Microsoft Word.</li>
-        <li>Type your name.</li>
-        <li>Save the document.</li>
-        <li>Close the program properly.</li>
-        <li>Re-open it using a different method.</li>
-      </ol>
-    </div>
+      <div class="activity">
+        <strong>Practical Activity 5:</strong><br>
+        - Open Microsoft Word<br>
+        - Type your name<br>
+        - Save the document<br>
+        - Close the program properly<br>
+        - Re-open it using a different method<br><br>
+        <strong>Mini Project:</strong><br>
+        - Open Word and minimize it<br>
+        - Open Excel<br>
+        - Switch between them using the taskbar<br>
+        - Close both programs correctly
+      </div>
+    </section>
 
-    <div class="steps-box">
-      <p><strong>Mini Project - Practice Session</strong></p>
-      <ol>
-        <li>Open Word.</li>
-        <li>Minimize it.</li>
-        <li>Open Excel.</li>
-        <li>Switch between the two programs using the taskbar.</li>
-        <li>Close both programs correctly.</li>
-      </ol>
-    </div>
+    <!-- Summary -->
+    <section id="summary">
+      <h2>🎯 Chapter 1 Summary – Core Skills Mastered</h2>
+      <div class="summary">
+        <ul>
+          <li>✅ Turn on and shut down a computer properly</li>
+          <li>✅ Use mouse and keyboard with confidence</li>
+          <li>✅ Identify desktop components: icons, taskbar, Start button</li>
+          <li>✅ Create and rename folders</li>
+          <li>✅ Open and close programs using multiple methods</li>
+        </ul>
+        <p><strong>"Mastering these basics is the foundation of digital confidence."</strong></p>
+        <p>📘 Chapter 1 Complete<br>
+        ✅ Ready for Chapter 2: File and Folder Management</p>
+      </div>
+    </section>
 
-    <div class="skill-check">
-      <span>✅ I can open a program in three different ways</span>
-      <span>✅ I can minimize and maximize windows</span>
-      <span>✅ I can close a program safely</span>
-    </div>
-
-    <!-- End of Chapter Summary -->
-    <hr>
-    <div class="note" style="text-align: center; background: #e8f5e9;">
-      <strong>🎯 Chapter 1 Summary – Core Skills Mastered</strong><br>
-      ✅ Turn on and shut down a computer properly<br>
-      ✅ Use mouse and keyboard with confidence<br>
-      ✅ Identify desktop components: icons, taskbar, Start button<br>
-      ✅ Create and rename folders<br>
-      ✅ Open and close programs using multiple methods<br>
-      <br>
-      <strong>"Mastering these basics is the foundation of digital confidence."</strong>
-    </div>
-
-    <div class="skill-check" style="background: #e8f0fe;">
-      <span>📘 Chapter 1 Complete</span>
-      <span>✅ Ready for Chapter 2: File and Folder Management</span>
-    </div>
-
-    <div class="note" style="text-align: center;">✅ End of Chapter One — every word, every instruction, every activity preserved exactly as written. Proceed to Chapter 2 next.</div>
-    <hr>
+    <!-- Interactive Quiz -->
+    <section class="quiz">
+      <h3>Quick Quiz</h3>
+      <p>Which keyboard shortcut closes the active program window?</p>
+      <button onclick="checkAnswer('ctrlc')">Ctrl + C</button>
+      <button onclick="checkAnswer('altf4')">Alt + F4</button>
+      <button onclick="checkAnswer('shift')">Shift</button>
+      <button onclick="checkAnswer('esc')">Esc</button>
+      <div id="quizResult" class="result"></div>
+    </section>
   </div>
-  <footer>© 2026 Castro Odhiambo — Basics of Digital Literacy | Chapter 1: Getting Comfortable with a Computer.| For hands-on mastery of computer basics.</footer>
-</div>
+
+  <footer>
+    <p>&copy; 2026 Basics of Digital Literacy | Chapter One Notes</p>
+  </footer>
+
+  <script>
+    function checkAnswer(answer) {
+      const result = document.getElementById('quizResult');
+      if(answer === 'altf4') {
+        result.textContent = "Correct! Alt + F4 closes the active window.";
+        result.style.color = "green";
+      } else {
+        result.textContent = "Not quite. Try again!";
+        result.style.color = "red";
+      }
+    }
+  </script>
 </body>
 </html>
