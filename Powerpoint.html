@@ -3,353 +3,717 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Digital Competency | Chapter 5: Microsoft PowerPoint (Complete Hands-On)</title>
+  <title>Chapter 5: Microsoft PowerPoint – Complete Guide | Digital Literacy – Castro Odhiambo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root {
+      --purple:    #4a2c6d;
+      --violet:    #6b3fa0;
+      --lavender:  #9b7bc9;
+      --gold:      #f5a623;
+      --amber:     #ffd27a;
+      --white:     #ffffff;
+      --offwhite:  #f9f6fc;
+      --text:      #2d1b4e;
+      --muted:     #6b5b7e;
+      --border:    #e0d4f0;
+      --red:       #c0392b;
+      --green:     #2b7a4b;
+      --blue:      #1a4b6e;
+      --radius:    1.2rem;
     }
-    body {
-      background: #eef2f5;
-      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-      line-height: 1.5;
-      color: #1a2c3e;
-      padding: 2rem 1rem;
-    }
-    .container {
-      max-width: 1300px;
-      margin: 0 auto;
-      background: white;
-      border-radius: 32px;
-      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.2);
-      overflow: hidden;
-    }
-    .hero {
-      background: linear-gradient(135deg, #b85c1a, #8b3c0c);
-      color: white;
-      padding: 2rem 2rem;
-      text-align: center;
-    }
-    .hero h1 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-    }
-    .hero .author {
-      font-size: 1rem;
-      opacity: 0.9;
-      margin-top: 0.5rem;
-      border-top: 1px solid rgba(255,255,255,0.3);
-      display: inline-block;
-      padding-top: 0.5rem;
-    }
-    .chapter-badge {
-      background: #ffd966;
-      color: #5a2e0a;
-      display: inline-block;
-      padding: 0.25rem 1.2rem;
-      border-radius: 40px;
-      font-weight: bold;
-      font-size: 0.8rem;
-      margin-bottom: 1rem;
-    }
-    .content {
-      padding: 2rem 2rem 2.5rem 2rem;
-    }
-    h2 {
-      font-size: 1.9rem;
-      margin: 1.8rem 0 1rem;
-      color: #b85c1a;
-      border-left: 6px solid #ffb347;
-      padding-left: 1rem;
-    }
-    h3 {
-      font-size: 1.5rem;
-      margin: 1.2rem 0 0.8rem;
-      color: #a04e14;
-    }
-    h4 {
-      font-size: 1.2rem;
-      margin: 1rem 0 0.5rem;
-      color: #8b3c0c;
-    }
-    .section-card {
-      background: #fbfef9;
-      border-radius: 24px;
-      padding: 1.2rem 1.8rem;
-      margin: 1.5rem 0;
-      border: 1px solid #dee9f0;
-    }
-    .steps-box {
-      background: #fef4e8;
-      border-left: 5px solid #e67e22;
-      padding: 1rem 1.8rem;
-      border-radius: 20px;
-      margin: 1.2rem 0;
-    }
-    .note {
-      background: #fff9e8;
-      border-left: 5px solid #ffb347;
-      padding: 1rem 1.5rem;
-      border-radius: 16px;
-      margin: 1rem 0;
-      font-weight: 500;
-    }
-    .warning {
-      background: #ffeae9;
-      border-left: 5px solid #d9534f;
-      padding: 1rem 1.5rem;
-      border-radius: 16px;
-      margin: 1rem 0;
-    }
-    .skill-check {
-      background: #fef0e4;
-      border-radius: 20px;
-      padding: 1rem 1.8rem;
-      margin: 1.5rem 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      font-weight: 500;
-    }
-    .skill-check span {
-      background: white;
-      padding: 0.3rem 1rem;
-      border-radius: 30px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1rem 0;
-      background: white;
-      border-radius: 16px;
-      overflow: auto;
-      display: block;
-    }
-    th, td {
-      border: 1px solid #ccc;
-      padding: 0.5rem 0.8rem;
-      text-align: left;
-      vertical-align: top;
-    }
-    th {
-      background: #f7e9dd;
-      font-weight: 600;
-    }
-    ul, ol {
-      padding-left: 1.6rem;
-      margin: 0.8rem 0;
-    }
-    li {
-      margin: 0.3rem 0;
-    }
-    hr {
-      margin: 2rem 0;
-      border: none;
-      height: 2px;
-      background: linear-gradient(to right, #cbdbe0, transparent);
-    }
-    footer {
-      background: #f1f5f9;
-      text-align: center;
-      padding: 1.2rem;
-      font-size: 0.85rem;
-      color: #5e3a1a;
-      border-top: 1px solid #d0dfe8;
-    }
-    @media (max-width: 700px) {
-      .content { padding: 1rem; }
-      h2 { font-size: 1.6rem; }
-    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'DM Sans',sans-serif;background:var(--offwhite);color:var(--text);line-height:1.75;overflow-x:hidden;}
+
+    #pbar{position:fixed;top:0;left:0;height:3px;z-index:999;background:linear-gradient(to right,var(--violet),var(--gold));width:0%;transition:width .1s linear;}
+
+    .topbar{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(74,44,109,.97);backdrop-filter:blur(14px);display:flex;align-items:center;justify-content:space-between;padding:.75rem 2.5rem;border-bottom:1px solid rgba(255,255,255,.07);}
+    .topbar-brand{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:700;color:var(--gold);text-decoration:none;}
+    .topbar-brand span{color:#fff;font-weight:300;}
+    .topbar-right{display:flex;align-items:center;gap:1rem;}
+    .topbar-right a{color:rgba(255,255,255,.55);text-decoration:none;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;transition:color .2s;}
+    .topbar-right a:hover{color:var(--gold);}
+    .nav-btn{background:var(--gold);color:#4a2c6d !important;padding:.4rem 1.1rem;border-radius:40px;font-size:.78rem;font-weight:600;}
+    .nav-btn:hover{background:var(--amber);}
+    @media(max-width:680px){.topbar{padding:.7rem 1rem;}.topbar-right a:not(.nav-btn){display:none;}}
+
+    .hero{background:linear-gradient(130deg,#4a2c6d 0%,#6b3fa0 55%,#9b7bc9 100%);padding:8rem 2rem 4.5rem;position:relative;overflow:hidden;text-align:center;}
+    .hero::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(245,166,35,.1) 0%,transparent 70%);top:-180px;right:-80px;pointer-events:none;}
+    .hero::after{content:'';position:absolute;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(155,123,201,.12) 0%,transparent 70%);bottom:-60px;left:-50px;pointer-events:none;}
+    .hero-dots{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px);background-size:30px 30px;}
+    .hero-inner{position:relative;z-index:1;max-width:860px;margin:0 auto;}
+    .chapter-eyebrow{display:inline-flex;align-items:center;gap:.5rem;background:rgba(245,166,35,.15);border:1px solid rgba(245,166,35,.4);color:var(--gold);padding:.3rem 1.2rem;border-radius:40px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;margin-bottom:1.5rem;animation:fadeUp .6s ease both;}
+    .hero h1{font-family:'Fraunces',serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-.5px;margin-bottom:1.2rem;animation:fadeUp .6s .1s ease both;}
+    .hero h1 em{font-style:italic;color:var(--gold);}
+    .hero-sub{font-size:1.05rem;color:rgba(255,255,255,.72);max-width:640px;margin:0 auto 2rem;line-height:1.8;animation:fadeUp .6s .2s ease both;}
+    .hero-meta{display:flex;justify-content:center;flex-wrap:wrap;gap:1.5rem;margin-bottom:2rem;animation:fadeUp .6s .3s ease both;}
+    .hero-meta-item{display:flex;align-items:center;gap:.5rem;color:rgba(255,255,255,.65);font-size:.82rem;}
+    .hero-meta-item i{color:var(--gold);}
+    .toc-pills{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;margin-top:2rem;animation:fadeUp .6s .4s ease both;}
+    .toc-pill{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.8);padding:.35rem 1rem;border-radius:40px;font-size:.78rem;text-decoration:none;transition:all .2s;}
+    .toc-pill:hover{background:rgba(245,166,35,.25);border-color:var(--gold);color:var(--gold);}
+
+    .page-wrap{max-width:1080px;margin:0 auto;padding:3rem 1.5rem 5rem;display:grid;grid-template-columns:230px 1fr;gap:3rem;align-items:start;}
+    @media(max-width:860px){.page-wrap{grid-template-columns:1fr;}.sidebar{display:none;}}
+
+    .sidebar{position:sticky;top:5rem;}
+    .sidebar-box{background:var(--white);border:1px solid var(--border);border-radius:1.2rem;padding:1.3rem;margin-bottom:1rem;}
+    .sidebar-box h4{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem;font-weight:600;}
+    .sb-link{display:flex;align-items:center;gap:.55rem;padding:.45rem .55rem;border-radius:.55rem;text-decoration:none;color:var(--muted);font-size:.8rem;transition:all .18s;margin-bottom:.15rem;}
+    .sb-link:hover,.sb-link.active{background:rgba(107,63,160,.08);color:var(--violet);}
+    .sb-link i{color:var(--violet);font-size:.78rem;width:15px;}
+    .sb-num{display:inline-flex;width:18px;height:18px;border-radius:50%;background:var(--offwhite);color:var(--muted);font-size:.6rem;font-weight:700;align-items:center;justify-content:center;flex-shrink:0;}
+    .sidebar-nav-btns{display:flex;flex-direction:column;gap:.6rem;}
+    .sb-nav-btn{display:flex;align-items:center;gap:.5rem;padding:.6rem .9rem;border-radius:.7rem;text-decoration:none;font-size:.8rem;font-weight:600;transition:all .2s;}
+    .sb-nav-btn.prev{background:var(--offwhite);color:var(--muted);border:1px solid var(--border);}
+    .sb-nav-btn.next{background:var(--violet);color:#fff;}
+    .sb-nav-btn.prev:hover{background:var(--border);}
+    .sb-nav-btn.next:hover{background:var(--purple);}
+
+    .content{min-width:0;}
+
+    .intro-card{background:var(--white);border:1px solid var(--border);border-radius:1.4rem;padding:2rem;margin-bottom:2.5rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;}
+    .intro-card p{color:var(--muted);font-size:.95rem;line-height:1.8;margin-bottom:.8rem;}
+    .uses-grid{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem;}
+    .use-chip{display:flex;align-items:center;gap:.4rem;background:rgba(107,63,160,.08);border:1px solid rgba(107,63,160,.2);color:var(--violet);padding:.3rem .8rem;border-radius:30px;font-size:.78rem;}
+    .use-chip i{font-size:.72rem;}
+    .intro-panel{background:linear-gradient(135deg,var(--purple),var(--violet));color:#fff;border-radius:1.2rem;padding:1.5rem;text-align:center;min-width:180px;}
+    .intro-panel .big-icon{font-size:2.8rem;margin-bottom:.6rem;}
+    .intro-panel strong{display:block;font-size:1rem;margin-bottom:.4rem;}
+    .intro-panel p{font-size:.78rem;opacity:.8;color:#fff;}
+    @media(max-width:600px){.intro-card{grid-template-columns:1fr;}.intro-panel{display:none;}}
+
+    .section-heading{display:flex;align-items:center;gap:1rem;margin:2.5rem 0 1.2rem;}
+    .sec-icon{width:50px;height:50px;border-radius:12px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.3rem;background:linear-gradient(135deg,var(--violet),var(--purple));color:#fff;}
+    .section-heading h2{font-family:'Fraunces',serif;font-size:clamp(1.35rem,3vw,1.85rem);font-weight:700;color:var(--purple);line-height:1.15;}
+    .sec-badge{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600;}
+
+    .content-card{background:var(--white);border:1px solid var(--border);border-radius:1.3rem;padding:1.8rem;margin-bottom:1.4rem;}
+    .content-card h3{font-family:'Fraunces',serif;font-size:1.12rem;font-weight:700;color:var(--violet);margin-bottom:.8rem;display:flex;align-items:center;gap:.6rem;}
+    .content-card h3 i{color:var(--gold);}
+    .content-card h4{font-size:.94rem;font-weight:600;color:var(--text);margin:1rem 0 .4rem;}
+    .content-card p{color:var(--muted);font-size:.92rem;line-height:1.75;margin-bottom:.7rem;}
+    .content-card ul,.content-card ol{padding-left:1.4rem;color:var(--muted);font-size:.92rem;}
+    .content-card li{margin:.35rem 0;line-height:1.6;}
+
+    .method-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0;}
+    @media(max-width:580px){.method-grid{grid-template-columns:1fr;}}
+    .method-card{background:var(--offwhite);border:1px solid var(--border);border-radius:1rem;padding:1.2rem;}
+    .method-label{display:inline-flex;align-items:center;gap:.4rem;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--violet);margin-bottom:.8rem;background:rgba(107,63,160,.1);padding:.2rem .7rem;border-radius:20px;}
+
+    .steps-box{background:rgba(107,63,160,.05);border-left:4px solid var(--violet);border-radius:0 1rem 1rem 0;padding:1.2rem 1.5rem;margin:1rem 0;}
+    .steps-title{display:flex;align-items:center;gap:.5rem;font-weight:700;color:var(--violet);font-size:.88rem;margin-bottom:.8rem;}
+    .steps-list{list-style:none;padding:0;counter-reset:step;}
+    .steps-list li{display:flex;gap:.9rem;align-items:flex-start;padding:.5rem 0;border-bottom:1px solid rgba(107,63,160,.08);font-size:.88rem;color:var(--muted);}
+    .steps-list li:last-child{border-bottom:none;}
+    .step-num{display:inline-flex;width:22px;height:22px;border-radius:50%;background:var(--violet);color:#fff;font-size:.65rem;font-weight:700;align-items:center;justify-content:center;flex-shrink:0;margin-top:.18rem;}
+
+    .callout{border-radius:1rem;padding:1.1rem 1.4rem;margin:1rem 0;display:flex;gap:.9rem;align-items:flex-start;}
+    .callout-icon{width:36px;height:36px;border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1rem;}
+    .callout-body strong{display:block;font-size:.88rem;margin-bottom:.3rem;}
+    .callout-body p,.callout-body ul{font-size:.86rem;color:var(--muted);line-height:1.65;}
+    .callout-body ul{padding-left:1.2rem;}
+    .callout.note{background:#fff9e8;border:1px solid #ffe4a0;}
+    .callout.note .callout-icon{background:#fff3cd;color:#d68c00;}
+    .callout.warning{background:#fff0f0;border:1px solid #f5c0c0;}
+    .callout.warning .callout-icon{background:#fde0e0;color:var(--red);}
+    .callout.tip{background:#e8f5e9;border:1px solid #b8ddb8;}
+    .callout.tip .callout-icon{background:#c8e6c9;color:var(--green);}
+    .callout.important{background:#e8f0fe;border:1px solid #b0c8f8;}
+    .callout.important .callout-icon{background:#d0e4ff;color:var(--blue);}
+
+    .key{background:var(--white);border:1px solid var(--border);border-bottom:3px solid var(--border);border-radius:5px;padding:.2rem .5rem;font-size:.75rem;font-weight:700;color:var(--text);font-family:monospace;}
+    .shortcut-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin:1rem 0;}
+    @media(max-width:540px){.shortcut-grid{grid-template-columns:1fr;}}
+    .shortcut-card{display:flex;align-items:center;gap:.8rem;background:var(--offwhite);border:1px solid var(--border);border-radius:.8rem;padding:.8rem 1rem;}
+
+    /* Slide Preview */
+    .slide-preview{background:linear-gradient(145deg,#f0ebf8,#e6ddf5);border-radius:1rem;padding:1.5rem;margin:1rem 0;position:relative;}
+    .slide-mini{background:var(--white);border-radius:0.8rem;box-shadow:0 8px 20px rgba(0,0,0,.1);overflow:hidden;max-width:300px;margin:0 auto;}
+    .slide-title-bar{background:var(--purple);color:#fff;padding:.5rem 1rem;font-size:.7rem;font-weight:600;}
+    .slide-content{background:var(--white);padding:1.2rem;min-height:120px;}
+    .slide-content h4{color:var(--purple);margin-bottom:.5rem;}
+    .slide-content p{font-size:.75rem;color:var(--muted);}
+
+    .transition-demo{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin:1rem 0;}
+    .transition-badge{background:var(--white);border:1px solid var(--border);border-radius:2rem;padding:.4rem 1rem;font-size:.75rem;color:var(--violet);}
+
+    .animation-demo{display:flex;gap:1rem;flex-wrap:wrap;margin:1rem 0;}
+    .anim-item{background:linear-gradient(135deg,var(--violet),var(--purple));color:#fff;padding:.6rem 1.2rem;border-radius:2rem;font-size:.75rem;font-weight:600;}
+
+    .practice-box{background:linear-gradient(135deg,rgba(107,63,160,.04),rgba(74,44,109,.02));border:2px dashed rgba(107,63,160,.3);border-radius:1.2rem;padding:1.5rem;margin:1.2rem 0;}
+    .practice-title{display:flex;align-items:center;gap:.6rem;font-weight:700;color:var(--violet);font-size:.95rem;margin-bottom:1rem;}
+    .practice-title .pnum{background:var(--violet);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0;}
+    .practice-steps{list-style:none;padding:0;}
+    .practice-steps li{display:flex;gap:.8rem;align-items:flex-start;padding:.45rem 0;border-bottom:1px solid rgba(107,63,160,.08);font-size:.88rem;color:var(--muted);}
+    .practice-steps li i{color:var(--violet);margin-top:.2rem;flex-shrink:0;}
+
+    .skill-check{background:linear-gradient(135deg,#f3edfc,#f0eaf9);border:1px solid #d4c4e8;border-radius:1.2rem;padding:1.3rem 1.5rem;margin:1.5rem 0;}
+    .skill-check h4{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem;font-weight:600;}
+    .skill-items{display:flex;flex-wrap:wrap;gap:.5rem;}
+    .skill-item-pill{display:flex;align-items:center;gap:.4rem;background:var(--white);border:1px solid #d4c4e8;color:var(--violet);padding:.3rem .9rem;border-radius:30px;font-size:.82rem;font-weight:500;}
+
+    .chapter-summary{background:linear-gradient(130deg,var(--purple) 0%,var(--violet) 100%);border-radius:1.4rem;padding:2.5rem;margin:2.5rem 0;color:#fff;position:relative;overflow:hidden;}
+    .chapter-summary::before{content:'';position:absolute;width:250px;height:250px;border-radius:50%;background:rgba(255,255,255,.04);top:-80px;right:-60px;}
+    .chapter-summary h2{font-family:'Fraunces',serif;font-size:1.6rem;font-weight:700;margin-bottom:1rem;}
+    .summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;}
+    @media(max-width:500px){.summary-grid{grid-template-columns:1fr;}}
+    .summary-item{display:flex;align-items:center;gap:.7rem;background:rgba(255,255,255,.08);border-radius:.8rem;padding:.75rem 1rem;font-size:.88rem;}
+    .summary-item i{color:var(--gold);flex-shrink:0;}
+
+    .chapter-nav{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2.5rem;}
+    @media(max-width:480px){.chapter-nav{grid-template-columns:1fr;}}
+    .chapter-nav a{display:flex;align-items:center;gap:1rem;padding:1.2rem 1.5rem;border-radius:1.1rem;text-decoration:none;transition:all .22s;border:1px solid var(--border);}
+    .chapter-nav a.prev{background:var(--white);}
+    .chapter-nav a.next{background:linear-gradient(135deg,var(--violet),var(--purple));flex-direction:row-reverse;}
+    .chapter-nav a.prev:hover{border-color:var(--violet);transform:translateY(-2px);}
+    .chapter-nav a.next:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(107,63,160,.3);}
+    .nav-icon{width:42px;height:42px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.1rem;}
+    .chapter-nav a.prev .nav-icon{background:var(--offwhite);color:var(--muted);}
+    .chapter-nav a.next .nav-icon{background:rgba(255,255,255,.15);color:#fff;}
+    .nav-text{flex:1;}
+    .nav-label{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;font-weight:600;}
+    .nav-title{font-size:.9rem;font-weight:700;margin-top:.1rem;}
+    .chapter-nav a.prev .nav-label{color:var(--muted);}
+    .chapter-nav a.prev .nav-title{color:var(--text);}
+    .chapter-nav a.next .nav-label{color:rgba(255,255,255,.65);}
+    .chapter-nav a.next .nav-title{color:#fff;}
+
+    .site-footer{background:var(--purple);color:rgba(255,255,255,.5);text-align:center;padding:2rem;font-size:.82rem;border-top:3px solid var(--gold);}
+    .site-footer span{color:var(--gold);}
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+    .reveal{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease;}
+    .reveal.visible{opacity:1;transform:translateY(0);}
   </style>
 </head>
 <body>
-<div class="container">
-  <div class="hero">
-    <div class="chapter-badge">🎭 CHAPTER FIVE</div>
-    <h1>INTRODUCTION TO MICROSOFT POWERPOINT</h1>
-    <div class="author">by Castro Odhiambo — Complete Hands-On Guide</div>
-    <p style="margin-top: 0.8rem; max-width: 800px; margin-left: auto; margin-right: auto;">Every word, every instruction, every activity from the original manual — fully written, fully prepared, no paraphrasing.</p>
+
+<div id="pbar"></div>
+
+<nav class="topbar">
+  <a href="index.html" class="topbar-brand">Digital<span>Literacy</span></a>
+  <div class="topbar-right">
+    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+    <a href="Excel.html">← Ch.4</a>
+    <a href="Internet.html">Ch.6 →</a>
+    <a href="index.html#modules" class="nav-btn">All Chapters</a>
   </div>
-  <div class="content">
+</nav>
 
-    <!-- PART IV: PRESENTATIONS -->
-    <p><strong>PART IV: PRESENTATIONS (MS POWERPOINT – HANDS ON)</strong></p>
-    <p><strong>CHAPTER FIVE – INTRODUCTION TO MICROSOFT POWERPOINT</strong></p>
-    <p><strong>Introduction</strong><br>
-    Microsoft PowerPoint is used to create visual presentations for:<br>
-    Lessons and lectures, Business meetings, Projects and reports.<br>
-    PowerPoint allows you to combine text, images, charts, animations, and transitions to deliver effective presentations.</p>
-    <p>In this chapter, you will learn how to:<br>
-    Open PowerPoint and understand its interface, Create and format slides, Insert images, shapes, charts, and text boxes, Apply transitions and animations, Prepare a presentation for slideshow mode and printing.</p>
-    <p>This chapter is mostly practical.</p>
-
-    <!-- 5.1 Opening PowerPoint and Understanding the Interface -->
-    <h2>5.1 Opening PowerPoint and Understanding the Interface</h2>
-    <h3>A. Opening Microsoft PowerPoint</h3>
-    <p>There are multiple ways to open PowerPoint:</p>
-    <div class="steps-box">
-      <p><strong>Method I: Using Start Menu</strong><br>1. Click the Start Button. 2. Scroll and locate Microsoft PowerPoint. 3. Click to open.</p>
-      <p><strong>Method II: Using Search</strong><br>1. Click Start. 2. Type PowerPoint in the search bar. 3. Click Microsoft PowerPoint from the results.</p>
-      <p><strong>Method III: Desktop Shortcut</strong><br>1. Locate the PowerPoint icon on the desktop. 2. Double-click it.</p>
+<section class="hero">
+  <div class="hero-dots"></div>
+  <div class="hero-inner">
+    <div class="chapter-eyebrow"><i class="fas fa-chalkboard"></i>&nbsp; Chapter 5 · Microsoft PowerPoint</div>
+    <h1>Create <em>Powerful</em><br>Presentations with PowerPoint</h1>
+    <p class="hero-sub">Microsoft PowerPoint is the world's leading presentation software — used in boardrooms, classrooms, conferences, and churches across Kenya. Learn to create professional slides that captivate any audience.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item"><i class="fas fa-list-check"></i> 8 Core Sections</div>
+      <div class="hero-meta-item"><i class="fas fa-flask"></i> 9 Practical Activities</div>
+      <div class="hero-meta-item"><i class="fas fa-film"></i> Transitions &amp; Animations</div>
+      <div class="hero-meta-item"><i class="fas fa-clock"></i> ~90 minutes</div>
     </div>
-    <p>When PowerPoint opens, you may see: Blank Presentation → Start from scratch, Templates → Pre-designed slides. Click Blank Presentation to start.</p>
-    <h3>B. Understanding the PowerPoint Interface</h3>
-    <p>The PowerPoint workspace consists of:</p>
-    <ul>
-      <li><strong>I. Title Bar</strong> – Shows the presentation name and application.</li>
-      <li><strong>II. Quick Access Toolbar</strong> – Contains frequently used commands like Save, Undo, Redo.</li>
-      <li><strong>III. Ribbon</strong> – Contains Tabs with groups of tools: Home (text formatting, slides), Insert (images, shapes, charts, text boxes), Design (slide themes and backgrounds), Transitions (slide transition effects), Animations (animate objects), Slide Show (present slides), Review (spell check, comments), View (different views of slides).</li>
-      <li><strong>IV. Slides Pane</strong> – Displays small previews of all slides on the left. You can select and reorder slides here.</li>
-      <li><strong>V. Slide Workspace</strong> – The main area where you edit and design each slide.</li>
-      <li><strong>VI. Notes Pane</strong> – Located below the slide workspace. Add speaker notes for your presentation.</li>
-      <li><strong>VII. Status Bar</strong> – Shows slide number, theme, and view options.</li>
-    </ul>
-    <div class="steps-box">
-      <p><strong>Practical Activity 1</strong></p>
-      <ol>
-        <li>Open Microsoft PowerPoint.</li>
-        <li>Identify the Title Bar, Ribbon, Slides Pane, Slide Workspace, Notes Pane, and Status Bar.</li>
-        <li>Open a Blank Presentation.</li>
-        <li>In the first slide (Title Slide), type: Title: My First Presentation. Subtitle: Your Name.</li>
-        <li>Save the presentation as FirstPresentation.pptx.</li>
-      </ol>
+    <div class="toc-pills">
+      <a href="#s1" class="toc-pill">5.1 The Interface</a>
+      <a href="#s2" class="toc-pill">5.2 Creating Slides</a>
+      <a href="#s3" class="toc-pill">5.3 Text &amp; Formatting</a>
+      <a href="#s4" class="toc-pill">5.4 Images &amp; Media</a>
+      <a href="#s5" class="toc-pill">5.5 Transitions</a>
+      <a href="#s6" class="toc-pill">5.6 Animations</a>
+      <a href="#s7" class="toc-pill">5.7 Slide Show &amp; Print</a>
+      <a href="#s8" class="toc-pill">5.8 Complete Project</a>
     </div>
-    <div class="note">Tips for Beginners: Always save your presentation after making changes, Explore the Ribbon to familiarize yourself with tools, Start with a blank presentation for practice, Add speaker notes to remember key points during presentation.</div>
-
-    <!-- 5.2 Creating and Formatting Slides -->
-    <h2>5.2 Creating and Formatting Slides</h2>
-    <p><strong>Introduction:</strong> Creating and formatting slides allows you to structure your presentation clearly and make it visually appealing.</p>
-    <h3>A. Adding New Slides</h3>
-    <p>Steps: Open your presentation. Go to Home Tab → Slides group → New Slide. Choose a slide layout (Title Slide, Title and Content, Two Content, etc.). The new slide appears in the Slides Pane. Tip: Use layouts that match your content for clarity.</p>
-    <h3>B. Choosing and Changing Slide Layouts</h3>
-    <p>Steps: Select the slide in the Slides Pane. Go to Home Tab → Slides group → Layout. Click a layout (e.g., Title and Content, Comparison, Blank).</p>
-    <h3>C. Formatting Text</h3>
-    <p>Steps: Select the text on the slide. Go to Home Tab → Font group: Change Font Type (e.g., Arial, Calibri), Change Font Size, Apply Bold, Italic, Underline, Change Font Color. Use Paragraph group for alignment: Left, Center, Right, Bulleted or numbered lists.</p>
-    <h3>D. Rearranging Slides</h3>
-    <p>Steps: In the Slides Pane, click the slide you want to move. Drag it to the new position. Release the mouse to place it.</p>
-    <h3>E. Applying Design Themes</h3>
-    <p>Steps: Go to Design Tab. Select a theme from the gallery. Click to apply to all slides. Tip: Themes automatically adjust fonts, colors, and backgrounds.</p>
-    <div class="steps-box">
-      <p><strong>Practical Activity 1</strong></p>
-      <ol>
-        <li>Open your FirstPresentation.pptx.</li>
-        <li>Add three new slides using Title and Content layout.</li>
-        <li>Format each slide: Change the font type to Calibri, Make titles Bold, Center-align main text.</li>
-        <li>Rearrange slides so the new slides follow the title slide.</li>
-        <li>Apply a Design Theme of your choice.</li>
-        <li>Save the presentation.</li>
-      </ol>
-    </div>
-    <div class="note">Tips for Beginners: Use layouts for consistency and clarity, Keep text concise—avoid overcrowding slides, Apply a theme for professional look, Rearrange slides to ensure logical flow.</div>
-    <div class="warning">Common Mistakes to Avoid: Overloading slides with too much text, Using inconsistent fonts and sizes, Forgetting to rearrange slides for proper flow, Ignoring slide layout options.</div>
-    <div class="steps-box">
-      <p><strong>Mini Practice Challenge</strong><br>Create a small 3-slide presentation:<br>Slide 1: Title Slide → "My Favorite Hobby"<br>Slide 2: Title and Content → Describe the hobby in 3-4 points<br>Slide 3: Title and Content → Add a short conclusion<br>Format text, apply a theme, and rearrange if needed.</p>
-    </div>
-
-    <!-- 5.3 Inserting Images, Shapes, and Charts -->
-    <h2>5.3 Inserting Images, Shapes, and Charts</h2>
-    <p><strong>Introduction:</strong> Adding images, shapes, and charts makes your presentation more visual and easier to understand. Visuals help convey information effectively.</p>
-    <h3>A. Inserting Images</h3>
-    <p>Steps: Select the slide where you want the image. Go to Insert Tab → Images group → Pictures. Choose This Device to insert from your computer, or Online Pictures. Browse and select the image → Click Insert. Resize and move the image as needed by dragging corners. Tip: Hold Shift while resizing to keep proportions.</p>
-    <h3>B. Inserting Shapes</h3>
-    <p>Steps: Select the slide. Go to Insert Tab → Illustrations group → Shapes. Click the shape you want (Rectangle, Circle, Arrow, etc.). Click and drag on the slide to draw the shape. Format shape: Fill Color → Change inside color, Outline Color → Change border color, Effects → Add shadow or 3D effect.</p>
-    <h3>C. Inserting Charts</h3>
-    <p>Steps: Select the slide. Go to Insert Tab → Illustrations group → Chart. Choose a chart type (Column, Line, Pie, etc.) → Click OK. A datasheet opens → Enter data. Close the datasheet → The chart updates automatically. Resize or move the chart on the slide.</p>
-    <h3>D. Formatting Visual Elements</h3>
-    <p>Images: Add borders, effects, or crop unwanted parts. Shapes: Adjust size, fill, outline, and effects. Charts: Add titles, data labels, and change colors using the Chart Tools tab.</p>
-    <div class="steps-box">
-      <p><strong>Practical Activity 1</strong></p>
-      <ol>
-        <li>Open HobbyPresentation.pptx.</li>
-        <li>On Slide 2, insert a picture related to your hobby.</li>
-        <li>Add a Rectangle shape around the picture with a fill color.</li>
-        <li>Insert a Pie Chart showing time spent on different activities (Hobby, School, Sleep, Other).</li>
-        <li>Format the chart with data labels and colors.</li>
-        <li>Save the presentation.</li>
-      </ol>
-    </div>
-    <div class="note">Tips for Beginners: Always resize images from corners to maintain proportions, Use shapes to highlight important points, Keep charts simple and readable, Combine visuals with text for clarity.</div>
-    <div class="warning">Common Mistakes to Avoid: Overcrowding slides with too many images or shapes, Stretching images causing distortion, Using too many colors in charts, Forgetting to label charts or shapes.</div>
-    <div class="steps-box">
-      <p><strong>Mini Practice Challenge</strong><br>Create a Slide about Your Favorite Fruit:<br>Insert an image of the fruit, Add two shapes to highlight benefits or facts, Insert a Pie Chart showing favorite fruits in your class, Format visuals neatly, Save as FruitPresentation.pptx.</p>
-    </div>
-
-    <!-- 5.4 Adding Transitions and Animations -->
-    <h2>5.4 Adding Transitions and Animations</h2>
-    <p><strong>Introduction:</strong> Transitions and animations make your slides visually appealing and help guide your audience's attention.<br>
-    - Transition → The effect that occurs when moving from one slide to another<br>
-    - Animation → The effect applied to objects (text, images, shapes) on a slide</p>
-    <h3>A. Adding Slide Transitions</h3>
-    <p>Steps: Select the slide in the Slides Pane. Go to Transitions Tab. Click a transition effect (e.g., Fade, Push, Wipe). Use Effect Options to change direction or style (if available). Adjust Duration to control speed of transition. Click Apply To All if you want the same transition for all slides. Tip: Keep transitions simple for professional presentations.</p>
-    <h3>B. Adding Animations to Objects</h3>
-    <p>Steps: Select the object on the slide. Go to Animations Tab. Click a desired animation (Entrance, Emphasis, Exit, or Motion Path). Adjust Effect Options to change direction, sequence, or style. Use Animation Pane to view, reorder, or fine-tune animations.</p>
-    <h3>C. Adjusting Timing and Triggers</h3>
-    <p>Steps: Select the animated object. Go to Animations Tab → Timing group. Choose Start: On Click (animates when you click), With Previous (animates with previous animation), After Previous (animates after previous animation finishes). Set Duration → How long the animation lasts. Set Delay → How long before the animation starts.</p>
-    <h3>D. Previewing Transitions and Animations</h3>
-    <p>Go to Slide Show Tab → From Beginning or From Current Slide. Observe transitions between slides and animations on objects. Adjust as needed using the Transitions and Animations Tabs.</p>
-    <div class="steps-box">
-      <p><strong>Practical Activity 1</strong></p>
-      <ol>
-        <li>Open HobbyPresentation.pptx.</li>
-        <li>Apply the Fade transition to all slides with duration 2 seconds.</li>
-        <li>On Slide 2, animate the image of your hobby to Appear with Start: On Click.</li>
-        <li>Animate the text boxes to Fly In from Left with Start: After Previous.</li>
-        <li>Use the Animation Pane to reorder and adjust timing.</li>
-        <li>Preview the slideshow from the current slide.</li>
-        <li>Save the presentation.</li>
-      </ol>
-    </div>
-    <div class="note">Tips for Beginners: Use subtle transitions for professional presentations, Avoid overusing animations—too many can distract, Preview slides often to check the flow, Adjust timing so animations are smooth and readable.</div>
-    <div class="warning">Common Mistakes to Avoid: Applying too many flashy transitions, Animating every object on every slide, Using inconsistent animation styles, Forgetting to preview and adjust timing.</div>
-    <div class="steps-box">
-      <p><strong>Mini Practice Challenge</strong><br>Create a Slide about Your Favorite Sport:<br>Insert a picture of the sport, Add two text boxes describing it, Apply Fade transition to the slide, Animate the picture to Zoom, Animate the text boxes to Fly In, Adjust timing for smooth presentation, Save as SportPresentation.pptx.</p>
-    </div>
-
-    <!-- 5.5 Preparing and Delivering a Slide Show -->
-    <h2>5.5 Preparing and Delivering a Slide Show</h2>
-    <p><strong>Introduction:</strong> After creating slides, transitions, and animations, you need to prepare and deliver your presentation professionally. This includes running the slideshow, printing slides if needed, and sharing your work with others.</p>
-    <h3>A. Slide Show Mode</h3>
-    <p>Steps: Open your presentation. Go to Slide Show Tab → Start Slide Show. Choose: From Beginning → Starts from the first slide, From Current Slide → Starts from the slide you are on. Navigate slides during presentation: Next Slide: Click mouse, press Right Arrow, Down Arrow, or Page Down. Previous Slide: Press Left Arrow, Up Arrow, or Page Up. Go to Slide: Press Number + Enter to jump to a specific slide.</p>
-    <h3>B. Using Presenter View</h3>
-    <p>Presenter View allows you to see notes and upcoming slides while the audience sees only the current slide. Steps: Go to Slide Show Tab → Monitors group → Use Presenter View. Connect to a second monitor or projector. The main screen shows current slide and notes; the audience sees only slides.</p>
-    <h3>C. Printing Slides and Handouts</h3>
-    <p>Steps: Go to File → Print. Choose Printer. Select Print Layout: Full Page Slides → One slide per page, Handouts → Multiple slides per page, Notes Pages → Slide plus speaker notes. Adjust Orientation, Color, and Copies as needed. Click Print.</p>
-    <h3>D. Sharing Presentations</h3>
-    <p>Steps: Go to File → Share. Options include: Email → Send as attachment, Save to Cloud (OneDrive) → Share link, Export → PDF or Video → Convert presentation for easier sharing. Tip: Exporting to PDF ensures formatting remains intact.</p>
-    <div class="steps-box">
-      <p><strong>Practical Activity 1</strong></p>
-      <ol>
-        <li>Open HobbyPresentation.pptx.</li>
-        <li>Run the Slide Show from the beginning.</li>
-        <li>Navigate through all slides using keyboard arrows.</li>
-        <li>Enable Presenter View and view your notes.</li>
-        <li>Print the slides as Handouts with 2 slides per page.</li>
-        <li>Share the presentation by exporting it as PDF.</li>
-        <li>Save your work.</li>
-      </ol>
-    </div>
-    <div class="note">Tips for Beginners: Practice navigating slides before the actual presentation, Use Presenter View to remember key points, Print handouts for audience reference, Save in multiple formats for backup and sharing.</div>
-    <div class="warning">Common Mistakes to Avoid: Not rehearsing the slide show, Overloading slides with text and animations, Forgetting to check slide numbers and order, Ignoring file format when sharing.</div>
-    <div class="steps-box">
-      <p><strong>Mini Practice Challenge</strong><br>Create a Slide Show on Your Favorite Animal:<br>Include 3 slides: Title, Facts, Conclusion, Add images and animations, Run the slide show from beginning, Use Presenter View to check notes, Print handouts with 2 slides per page, Export as PDF, Save as AnimalPresentation.pptx.</p>
-    </div>
-
-    <!-- Final Skill Check for Chapter 5 -->
-    <div class="skill-check" style="background: #fef0e4;">
-      <span>✅ I can open PowerPoint and identify interface components</span>
-      <span>✅ I can create and format slides with layouts and themes</span>
-      <span>✅ I can insert images, shapes, and charts</span>
-      <span>✅ I can apply transitions and animations with proper timing</span>
-      <span>✅ I can run a slideshow, use Presenter View, print handouts, and share as PDF</span>
-      <span>🎯 Fully prepared — every activity completed</span>
-    </div>
-
-    <div class="note" style="text-align: center;">✅ End of Chapter Five. Proceed to Chapter 6 (Internet & Email) next.</div>
-    <hr>
   </div>
-  <footer>© 2026 Castro Odhiambo — Basics of Digital Literacy | Chapter 5: Microsoft PowerPoint  |For hands-on mastery of presentations.</footer>
+</section>
+
+<div class="page-wrap">
+
+  <aside class="sidebar">
+    <div class="sidebar-box">
+      <h4>Sections</h4>
+      <a href="#s1" class="sb-link"><span class="sb-num">1</span><i class="fas fa-desktop"></i> The Interface</a>
+      <a href="#s2" class="sb-link"><span class="sb-num">2</span><i class="fas fa-plus-square"></i> Creating Slides</a>
+      <a href="#s3" class="sb-link"><span class="sb-num">3</span><i class="fas fa-font"></i> Text &amp; Formatting</a>
+      <a href="#s4" class="sb-link"><span class="sb-num">4</span><i class="fas fa-image"></i> Images &amp; Media</a>
+      <a href="#s5" class="sb-link"><span class="sb-num">5</span><i class="fas fa-arrows-spin"></i> Transitions</a>
+      <a href="#s6" class="sb-link"><span class="sb-num">6</span><i class="fas fa-magic"></i> Animations</a>
+      <a href="#s7" class="sb-link"><span class="sb-num">7</span><i class="fas fa-tv"></i> Slide Show &amp; Print</a>
+      <a href="#s8" class="sb-link"><span class="sb-num">8</span><i class="fas fa-project-diagram"></i> Complete Project</a>
+    </div>
+    <div class="sidebar-box">
+      <h4>Navigation</h4>
+      <div class="sidebar-nav-btns">
+        <a href="Excel.html" class="sb-nav-btn prev"><i class="fas fa-arrow-left"></i> Chapter 4</a>
+        <a href="Internet.html" class="sb-nav-btn next">Chapter 6 <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+    <div class="sidebar-box">
+      <h4>Shortcuts</h4>
+      <a class="sb-link"><i class="fas fa-keyboard"></i> Ctrl+M → New Slide</a>
+      <a class="sb-link"><i class="fas fa-keyboard"></i> F5 → Start Show</a>
+      <a class="sb-link"><i class="fas fa-keyboard"></i> Esc → End Show</a>
+      <a class="sb-link"><i class="fas fa-keyboard"></i> Ctrl+S → Save</a>
+      <a class="sb-link"><i class="fas fa-keyboard"></i> B → Black Screen</a>
+      <a class="sb-link"><i class="fas fa-keyboard"></i> W → White Screen</a>
+    </div>
+  </aside>
+
+  <main class="content">
+
+    <div class="intro-card reveal">
+      <div>
+        <p>Microsoft PowerPoint is presentation software that allows you to create slide shows with text, images, charts, and animations. It is used in schools for student presentations, in businesses for proposals and reports, and in churches for worship lyrics. A well-designed PowerPoint presentation communicates your message clearly and professionally.</p>
+        <p>In this chapter, you will learn everything from creating your first slide to delivering a complete presentation with transitions, animations, and professional design.</p>
+        <div class="uses-grid">
+          <span class="use-chip"><i class="fas fa-chalkboard-user"></i> Class Presentations</span>
+          <span class="use-chip"><i class="fas fa-briefcase"></i> Business Proposals</span>
+          <span class="use-chip"><i class="fas fa-church"></i> Church Lyrics</span>
+          <span class="use-chip"><i class="fas fa-chart-line"></i> Reports</span>
+          <span class="use-chip"><i class="fas fa-graduation-cap"></i> Training</span>
+          <span class="use-chip"><i class="fas fa-users"></i> Meetings</span>
+        </div>
+      </div>
+      <div class="intro-panel">
+        <div class="big-icon">📽️</div>
+        <strong>PowerPoint</strong>
+        <p>Create impactful presentations</p>
+      </div>
+    </div>
+
+    <!-- SECTION 5.1 -->
+    <div id="s1" class="section-heading reveal">
+      <div class="sec-icon"><i class="fas fa-desktop"></i></div>
+      <div><div class="sec-badge">Section 5.1</div><h2>Opening PowerPoint &amp; Understanding the Interface</h2></div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-play-circle"></i> Opening Microsoft PowerPoint</h3>
+      <div class="method-grid">
+        <div class="method-card"><div class="method-label"><i class="fas fa-windows"></i> Start Menu</div><ol><li>Click Start Button</li><li>Find <strong>Microsoft PowerPoint</strong></li><li>Click to open</li></ol></div>
+        <div class="method-card"><div class="method-label"><i class="fas fa-search"></i> Search</div><ol><li>Type <strong>PowerPoint</strong> in search bar</li><li>Click <strong>Microsoft PowerPoint</strong></li></ol></div>
+        <div class="method-card"><div class="method-label"><i class="fas fa-desktop"></i> Desktop Shortcut</div><ol><li>Double-click the PowerPoint icon</li></ol></div>
+        <div class="method-card"><div class="method-label"><i class="fas fa-folder-open"></i> From File</div><ol><li>Double-click any <strong>.pptx file</strong></li></ol></div>
+      </div>
+      <div class="callout tip"><div class="callout-icon"><i class="fas fa-lightbulb"></i></div><div class="callout-body"><strong>Start Screen</strong><p>Click <strong>Blank Presentation</strong> to begin a new presentation.</p></div></div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-th-large"></i> The PowerPoint Interface</h3>
+      <p>PowerPoint has a unique layout designed for creating slide-based presentations.</p>
+      
+      <div class="slide-preview">
+        <div class="slide-mini">
+          <div class="slide-title-bar">Slide 1 · Title Slide</div>
+          <div class="slide-content">
+            <h4>My Presentation</h4>
+            <p>Subtitle goes here</p>
+          </div>
+        </div>
+      </div>
+
+      <h4>Key Interface Elements</h4>
+      <table class="excel-table" style="margin-top:.5rem;">
+        <thead><tr><th>Element</th><th>Location</th><th>What It Does</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Slide Pane</strong></td><td>Centre</td><td>Where you design each slide — add text, images, shapes</td></tr>
+          <tr><td><strong>Slides Tab / Outline Tab</strong></td><td>Left side</td><td>Shows thumbnails of all slides. Click to jump between slides</td></tr>
+          <tr><td><strong>Notes Pane</strong></td><td>Bottom</td><td>Add speaker notes — only you see them during presentation</td></tr>
+          <tr><td><strong>Ribbon</strong></td><td>Top</td><td>Tabs: Home, Insert, Design, Transitions, Animations, Slide Show</td></tr>
+          <tr><td><strong>Status Bar</strong></td><td>Bottom</td><td>Shows slide number, theme, zoom, and view buttons</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="practice-box reveal">
+      <div class="practice-title"><span class="pnum">1</span> Explore the Interface</div>
+      <ol class="practice-steps">
+        <li><i class="fas fa-play-circle"></i> Open PowerPoint → Blank Presentation</li>
+        <li><i class="fas fa-eye"></i> Identify: Slide Pane, Slides Tab, Notes Pane, Ribbon</li>
+        <li><i class="fas fa-mouse-pointer"></i> Click each tab: Home, Insert, Design, Transitions, Animations</li>
+        <li><i class="fas fa-times"></i> Close without saving</li>
+      </ol>
+    </div>
+
+    <div class="skill-check reveal"><h4>Skill Check — Section 5.1</h4><div class="skill-items"><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can open PowerPoint</span><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can identify all interface parts</span></div></div>
+
+    <!-- SECTION 5.2 -->
+    <div id="s2" class="section-heading reveal">
+      <div class="sec-icon"><i class="fas fa-plus-square"></i></div>
+      <div><div class="sec-badge">Section 5.2</div><h2>Creating and Managing Slides</h2></div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-layer-group"></i> Slide Layouts</h3>
+      <p>PowerPoint provides pre-designed slide layouts for different content types. Choose the right layout for each slide.</p>
+      <table class="excel-table">
+        <thead><tr><th>Layout</th><th>Best Used For</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Title Slide</strong></td><td>First slide — presentation title and subtitle</tr>
+          <tr><td><strong>Title and Content</strong></td><td>Most common — heading plus bullet points, images, or table</td></tr>
+          <tr><td><strong>Section Header</strong></td><td>Separate different parts of your presentation</td></tr>
+          <tr><td><strong>Two Content</strong></td><td>Compare two items side by side (text + image, or two images)</td></tr>
+          <tr><td><strong>Blank</strong></td><td>Complete freedom — design from scratch</td></tr>
+        </tbody>
+       </table>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-plus"></i> Adding New Slides</h3>
+      <div class="method-grid">
+        <div class="method-card"><div class="method-label"><i class="fas fa-keyboard"></i> Shortcut</div><p>Press <span class="key">Ctrl</span>+<span class="key">M</span> to insert a new slide immediately</p></div>
+        <div class="method-card"><div class="method-label"><i class="fas fa-mouse-pointer"></i> Ribbon</div><p>Home Tab → New Slide button → Choose layout</p></div>
+        <div class="method-card"><div class="method-label"><i class="fas fa-copy"></i> Duplicate Slide</div><p>Right-click a slide thumbnail → Duplicate Slide</p></div>
+      </div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-arrows-up-down"></i> Reordering, Deleting, and Hiding Slides</h3>
+      <ul>
+        <li><strong>Reorder:</strong> Drag slide thumbnail up or down in the Slides Pane</li>
+        <li><strong>Delete:</strong> Right-click slide thumbnail → Delete Slide</li>
+        <li><strong>Hide:</strong> Right-click → Hide Slide (slide won't show during presentation but remains in file)</li>
+        <li><strong>Reset:</strong> If you mess up formatting, right-click slide → Reset Slide</li>
+      </ul>
+    </div>
+
+    <div class="practice-box reveal">
+      <div class="practice-title"><span class="pnum">2</span> Create a Multi-Slide Presentation</div>
+      <ol class="practice-steps">
+        <li><i class="fas fa-file-powerpoint"></i> Open new blank presentation</li>
+        <li><i class="fas fa-heading"></i> Slide 1: Title Slide → Title: "My Hobbies", Subtitle: "By [Your Name]"</li>
+        <li><i class="fas fa-plus"></i> Press Ctrl+M → Slide 2: Title and Content → Title: "My Favourite Sport"</li>
+        <li><i class="fas fa-plus"></i> Press Ctrl+M → Slide 3: Two Content → Title: "My Favourite Foods"</li>
+        <li><i class="fas fa-arrow-up"></i> Reorder: Move Slide 3 to become Slide 2</li>
+        <li><i class="fas fa-save"></i> Save as <strong>My_Hobbies</strong></li>
+      </ol>
+    </div>
+
+    <div class="skill-check reveal"><h4>Skill Check — Section 5.2</h4><div class="skill-items"><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can add new slides with Ctrl+M</span><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can reorder and delete slides</span></div></div>
+
+    <!-- SECTION 5.3 -->
+    <div id="s3" class="section-heading reveal">
+      <div class="sec-icon"><i class="fas fa-font"></i></div>
+      <div><div class="sec-badge">Section 5.3</div><h2>Adding and Formatting Text</h2></div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-mouse-pointer"></i> Working with Text Boxes and Placeholders</h3>
+      <p>Each slide layout has placeholders — click inside to start typing. You can also add independent text boxes anywhere on the slide.</p>
+      <div class="steps-box"><div class="steps-title">Add a Text Box</div><ol class="steps-list"><li><span class="step-num">1</span> Insert Tab → Text Box</li><li><span class="step-num">2</span> Click and drag on the slide to draw the box</li><li><span class="step-num">3</span> Start typing</li></ol></div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-bold"></i> Formatting Text — Same as Word</h3>
+      <p>Text formatting in PowerPoint works exactly like Microsoft Word:</p>
+      <div class="shortcut-grid">
+        <div class="shortcut-card"><div class="keys"><span class="key">Ctrl</span>+<span class="key">B</span></div><div>Bold</div></div>
+        <div class="shortcut-card"><div class="keys"><span class="key">Ctrl</span>+<span class="key">I</span></div><div>Italic</div></div>
+        <div class="shortcut-card"><div class="keys"><span class="key">Ctrl</span>+<span class="key">U</span></div><div>Underline</div></div>
+        <div class="shortcut-card"><div class="keys"><span class="key">Ctrl</span>+<span class="key">L/E/R</span></div><div>Left/Centre/Right Align</div></div>
+      </div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-list-ul"></i> Bullet Points — Essential for Presentations</h3>
+      <p>Audiences remember bullet points, not paragraphs. Keep text concise — use short phrases, not complete sentences.</p>
+      <div class="callout important"><div class="callout-icon"><i class="fas fa-star"></i></div><div class="callout-body"><strong>Golden Rule of PowerPoint</strong><p>Never put full paragraphs on slides. Use 5-7 bullet points maximum per slide. The audience should listen to you, not read your slides.</p></div></div>
+    </div>
+
+    <div class="practice-box reveal">
+      <div class="practice-title"><span class="pnum">3</span> Add and Format Text</div>
+      <ol class="practice-steps">
+        <li><i class="fas fa-file-powerpoint"></i> Open My_Hobbies</li>
+        <li><i class="fas fa-list-ul"></i> On Slide 2, add 4 bullet points about your favourite sport</li>
+        <li><i class="fas fa-bold"></i> Bold the sport name in each bullet point</li>
+        <li><i class="fas fa-plus"></i> On Slide 3, add a text box below the title with your favourite food quote</li>
+        <li><i class="fas fa-save"></i> Save</li>
+      </ol>
+    </div>
+
+    <div class="skill-check reveal"><h4>Skill Check — Section 5.3</h4><div class="skill-items"><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can add and format text</span><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I use bullet points correctly</span></div></div>
+
+    <!-- SECTION 5.4 -->
+    <div id="s4" class="section-heading reveal">
+      <div class="sec-icon"><i class="fas fa-image"></i></div>
+      <div><div class="sec-badge">Section 5.4</div><h2>Inserting Images, Shapes, and SmartArt</h2></div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-image"></i> Inserting Pictures</h3>
+      <div class="steps-box"><div class="steps-title">Add an Image</div><ol class="steps-list"><li><span class="step-num">1</span> Insert Tab → Pictures → This Device</li><li><span class="step-num">2</span> Browse to find your image</li><li><span class="step-num">3</span> Click Insert</li><li><span class="step-num">4</span> Resize using corner handles, drag to reposition</li></ol></div>
+      <div class="callout tip"><div class="callout-icon"><i class="fas fa-lightbulb"></i></div><div class="callout-body"><strong>Picture Tools</strong><p>When you select an image, the Picture Format tab appears — use it to crop, add borders, adjust brightness, or apply artistic effects.</p></div></div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-shapes"></i> Inserting Shapes and Icons</h3>
+      <p>Shapes add visual interest to presentations — arrows, rectangles, circles, banners, and callouts.</p>
+      <div class="steps-box"><div class="steps-title">Add a Shape</div><ol class="steps-list"><li><span class="step-num">1</span> Insert Tab → Shapes</li><li><span class="step-num">2</span> Choose a shape (e.g., Rounded Rectangle)</li><li><span class="step-num">3</span> Click and drag on the slide</li><li><span class="step-num">4</span> Use Shape Format tab to change fill colour, outline, and effects</li><li><span class="step-num">5</span> Right-click → Add Text to type inside the shape</li></ol></div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-chart-pie"></i> SmartArt — Professional Diagrams in One Click</h3>
+      <p>SmartArt creates professional diagrams: process flows, hierarchies, cycles, matrices, and lists. Perfect for showing steps, organisation charts, or relationships.</p>
+      <div class="steps-box"><div class="steps-title">Insert SmartArt</div><ol class="steps-list"><li><span class="step-num">1</span> Insert Tab → SmartArt</li><li><span class="step-num">2</span> Choose a category (Process, Cycle, Hierarchy)</li><li><span class="step-num">3</span> Select a layout → OK</li><li><span class="step-num">4</span> Type your text in the text pane</li></ol></div>
+    </div>
+
+    <div class="practice-box reveal">
+      <div class="practice-title"><span class="pnum">4</span> Add Visual Elements</div>
+      <ol class="practice-steps">
+        <li><i class="fas fa-image"></i> Insert a relevant image on Slide 2 (your sport)</li>
+        <li><i class="fas fa-shapes"></i> Add a star shape on Slide 1 behind your name</li>
+        <li><i class="fas fa-chart-pie"></i> On Slide 3, insert a SmartArt Process diagram showing "Steps to Cook My Favourite Meal"</li>
+        <li><i class="fas fa-save"></i> Save</li>
+      </ol>
+    </div>
+
+    <div class="skill-check reveal"><h4>Skill Check — Section 5.4</h4><div class="skill-items"><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can insert and resize images</span><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can add shapes and SmartArt</span></div></div>
+
+    <!-- SECTION 5.5 -->
+    <div id="s5" class="section-heading reveal">
+      <div class="sec-icon"><i class="fas fa-arrows-spin"></i></div>
+      <div><div class="sec-badge">Section 5.5</div><h2>Slide Transitions — Movement Between Slides</h2></div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-film"></i> What Are Transitions?</h3>
+      <p>Transitions are animations that play when you move from one slide to the next during a presentation. They add professional polish — but use them sparingly.</p>
+      
+      <div class="transition-demo">
+        <span class="transition-badge"><i class="fas fa-arrow-right"></i> Fade</span>
+        <span class="transition-badge"><i class="fas fa-arrow-right"></i> Push</span>
+        <span class="transition-badge"><i class="fas fa-arrow-right"></i> Wipe</span>
+        <span class="transition-badge"><i class="fas fa-arrow-right"></i> Morph</span>
+        <span class="transition-badge"><i class="fas fa-arrow-right"></i> Zoom</span>
+      </div>
+
+      <div class="steps-box"><div class="steps-title">Apply a Transition</div><ol class="steps-list"><li><span class="step-num">1</span> Select the slide you want to apply the transition to</li><li><span class="step-num">2</span> Go to <strong>Transitions Tab</strong></li><li><span class="step-num">3</span> Choose a transition from the gallery</li><li><span class="step-num">4</span> Click <strong>Preview</strong> to see it</li><li><span class="step-num">5</span> To apply to ALL slides, click <strong>Apply to All</strong></li></ol></div>
+
+      <div class="callout warning"><div class="callout-icon"><i class="fas fa-exclamation-triangle"></i></div><div class="callout-body"><strong>Transition Tips</strong><ul><li>Use the SAME transition throughout — consistency looks professional</li><li>Avoid distracting transitions (e.g., random, vortex, glitter)</li><li><strong>Fade</strong> and <strong>Push</strong> are the most professional choices</li><li>Set Duration to 0.5–1.0 seconds — not too fast, not too slow</li></ul></div></div>
+
+      <h4>Transition Timing Settings</h4>
+      <ul>
+        <li><strong>Duration:</strong> How long the transition takes (shorter = faster)</li>
+        <li><strong>Advance Slide:</strong> On Mouse Click (manual) OR After (automatic timing)</li>
+        <li><strong>Apply to All:</strong> Use the same transition and timing for every slide</li>
+      </ul>
+    </div>
+
+    <div class="practice-box reveal">
+      <div class="practice-title"><span class="pnum">5</span> Add Transitions</div>
+      <ol class="practice-steps">
+        <li><i class="fas fa-file-powerpoint"></i> Open My_Hobbies</li>
+        <li><i class="fas fa-arrows-spin"></i> Apply the <strong>Fade</strong> transition to Slide 2</li>
+        <li><i class="fas fa-copy"></i> Click <strong>Apply to All</strong> so all slides use Fade</li>
+        <li><i class="fas fa-clock"></i> Set Duration to <strong>0.75 seconds</strong></li>
+        <li><i class="fas fa-eye"></i> Click Preview to see the effect</li>
+        <li><i class="fas fa-save"></i> Save</li>
+      </ol>
+    </div>
+
+    <div class="skill-check reveal"><h4>Skill Check — Section 5.5</h4><div class="skill-items"><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can apply transitions to slides</span><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can set transition duration</span><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I use Apply to All for consistency</span></div></div>
+
+    <!-- SECTION 5.6 -->
+    <div id="s6" class="section-heading reveal">
+      <div class="sec-icon"><i class="fas fa-magic"></i></div>
+      <div><div class="sec-badge">Section 5.6</div><h2>Animations — Movement Within a Slide</h2></div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-play"></i> What Are Animations?</h3>
+      <p>Animations control how elements appear, move, or disappear on a single slide. Use animations to reveal bullet points one by one — keeping the audience focused on you, not reading ahead.</p>
+
+      <div class="animation-demo">
+        <span class="anim-item">Appear</span>
+        <span class="anim-item">Fade In</span>
+        <span class="anim-item">Fly In</span>
+        <span class="anim-item">Zoom</span>
+        <span class="anim-item">Wipe</span>
+      </div>
+
+      <div class="steps-box"><div class="steps-title">Apply an Animation</div><ol class="steps-list"><li><span class="step-num">1</span> Select the text box or image you want to animate</li><li><span class="step-num">2</span> Go to <strong>Animations Tab</strong></li><li><span class="step-num">3</span> Choose an animation from the gallery</li><li><span class="step-num">4</span> Use <strong>Effect Options</strong> to customise direction (e.g., Fly In From Left)</li><li><span class="step-num">5</span> Click <strong>Preview</strong> to see it</li></ol></div>
+
+      <h4>Animation Types</h4>
+      <table class="excel-table">
+        <thead><tr><th>Type</th><th>Description</th><th>Best Used For</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Entrance</strong></td><td>Element appears on screen</td><td>Most common — revealing bullet points</td></tr>
+          <tr><td><strong>Emphasis</strong></td><td>Element changes colour/size</td><td>Highlighting a key point</td></tr>
+          <tr><td><strong>Exit</strong></td><td>Element disappears</td><td>Removing items from screen</td></tr>
+          <tr><td><strong>Motion Paths</strong></td><td>Element moves along a path</td><td>Showing movement or direction</td></tr>
+        </tbody>
+       </table>
+
+      <div class="callout important"><div class="callout-icon"><i class="fas fa-star"></i></div><div class="callout-body"><strong>Animation Order — Start Settings</strong><ul><li><strong>On Click:</strong> Animation plays when you click the mouse (best for bullet points)</li><li><strong>With Previous:</strong> Plays at the same time as previous animation</li><li><strong>After Previous:</strong> Plays automatically after previous animation finishes</li></ul></div></div>
+
+      <h4>Animation Pane — Manage Multiple Animations</h4>
+      <p>Click <strong>Animation Pane</strong> on the Animations tab to see a list of all animations on the current slide. You can reorder, delete, or change timing from here.</p>
+    </div>
+
+    <div class="practice-box reveal">
+      <div class="practice-title"><span class="pnum">6</span> Add Animations to Bullet Points</div>
+      <ol class="practice-steps">
+        <li><i class="fas fa-file-powerpoint"></i> Open My_Hobbies</li>
+        <li><i class="fas fa-list-ul"></i> On Slide 2, select all bullet points (the entire text box)</li>
+        <li><i class="fas fa-magic"></i> Apply <strong>Fade In</strong> animation</li>
+        <li><i class="fas fa-arrow-down"></i> Open Animation Pane — notice each bullet has its own animation</li>
+        <li><i class="fas fa-mouse-pointer"></i> Change Start to <strong>On Click</strong> for each bullet</li>
+        <li><i class="fas fa-play"></i> Click Preview — each bullet appears when you click</li>
+        <li><i class="fas fa-save"></i> Save</li>
+      </ol>
+    </div>
+
+    <div class="skill-check reveal"><h4>Skill Check — Section 5.6</h4><div class="skill-items"><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can add entrance animations</span><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can set On Click timing for bullet points</span><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can use the Animation Pane</span></div></div>
+
+    <!-- SECTION 5.7 -->
+    <div id="s7" class="section-heading reveal">
+      <div class="sec-icon"><i class="fas fa-tv"></i></div>
+      <div><div class="sec-badge">Section 5.7</div><h2>Presenting and Printing Slides</h2></div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-play-circle"></i> Starting a Slide Show</h3>
+      <div class="method-grid">
+        <div class="method-card"><div class="method-label"><i class="fas fa-keyboard"></i> From Beginning</div><p>Press <span class="key">F5</span> to start from Slide 1</p></div>
+        <div class="method-card"><div class="method-label"><i class="fas fa-mouse-pointer"></i> From Current Slide</div><p>Press <span class="key">Shift</span>+<span class="key">F5</span> or click the Slide Show icon on status bar</p></div>
+      </div>
+
+      <h3><i class="fas fa-arrow-right"></i> Presentation Controls During Show</h3>
+      <table class="excel-table">
+        <thead><tr><th>Key / Action</th><th>What It Does</th></tr></thead>
+        <tbody>
+          <tr><td><strong>→ or ↓ or N</strong></td><td>Next slide / next animation</td></tr>
+          <tr><td><strong>← or ↑ or P</strong></td><td>Previous slide</td></tr>
+          <tr><td><strong>B</strong></td><td>Black screen (B for Black) — press again to resume</td></tr>
+          <tr><td><strong>W</strong></td><td>White screen — press again to resume</td></tr>
+          <tr><td><strong>Esc</strong></td><td>End slide show</td></tr>
+          <tr><td><strong>Right-click</strong></td><td>Open shortcut menu with Go to Slide, Pointer Options</td></tr>
+        </tbody>
+       </table>
+
+      <h3><i class="fas fa-highlighter"></i> Using the Pen / Highlighter During Presentation</h3>
+      <div class="steps-box"><div class="steps-title">Annotate on Slides</div><ol class="steps-list"><li><span class="step-num">1</span> Right-click during slide show</li><li><span class="step-num">2</span> Pointer Options → Pen or Highlighter</li><li><span class="step-num">3</span> Draw on the screen</li><li><span class="step-num">4</span> Press <strong>E</strong> to erase all annotations</li><li><span class="step-num">5</span> Press Esc to stop drawing</li></ol></div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-print"></i> Printing PowerPoint Slides</h3>
+      <div class="steps-box"><div class="steps-title">Print Options</div><ol class="steps-list"><li><span class="step-num">1</span> Press <span class="key">Ctrl</span>+<span class="key">P</span> or File → Print</li><li><span class="step-num">2</span> Under Settings, choose what to print:</li></ol></div>
+      <table class="excel-table">
+        <thead><tr><th>Print Layout</th><th>What It Prints</th><th>Best Used For</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Full Page Slides</strong></td><td>One slide per page</td><td>Handouts for review</td></tr>
+          <tr><td><strong>Notes Pages</strong></td><td>Slide + speaker notes below</td><td>Your own reference during presentation</td></tr>
+          <tr><td><strong>Outline</strong></td><td>Only text from slides</td><td>Quick content review</td></tr>
+          <tr><td><strong>Handouts (3 slides per page)</strong></td><td>3 slides with lines for notes</td><td>Audience handouts — most common</td></tr>
+          <tr><td><strong>Handouts (6 or 9 slides)</strong></td><td>Compact layout</td><td>Saving paper</td></tr>
+        </tbody>
+       </table>
+      <div class="callout tip"><div class="callout-icon"><i class="fas fa-lightbulb"></i></div><div class="callout-body"><strong>Save as PDF for Sharing</strong><p>File → Save As → choose PDF (*.pdf) → Save. This preserves formatting for email or WhatsApp sharing.</p></div></div>
+    </div>
+
+    <div class="practice-box reveal">
+      <div class="practice-title"><span class="pnum">7</span> Run Your Slide Show</div>
+      <ol class="practice-steps">
+        <li><i class="fas fa-play"></i> Press F5 to start your My_Hobbies presentation from the beginning</li>
+        <li><i class="fas fa-mouse-pointer"></i> Click through slides — watch the animations work</li>
+        <li><i class="fas fa-highlighter"></i> Right-click → Pointer Options → Highlighter, highlight one word</li>
+        <li><i class="fas fa-undo"></i> Press E to erase highlights</li>
+        <li><i class="fas fa-times"></i> Press Esc to end the show</li>
+        <li><i class="fas fa-print"></i> File → Print → Handouts (3 slides per page) → Print Preview</li>
+        <li><i class="fas fa-save"></i> Save as PDF: File → Save As → PDF</li>
+      </ol>
+    </div>
+
+    <div class="skill-check reveal"><h4>Skill Check — Section 5.7</h4><div class="skill-items"><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can start a slide show with F5</span><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can navigate during a presentation</span><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can print handouts</span><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can save as PDF</span></div></div>
+
+    <!-- SECTION 5.8 -->
+    <div id="s8" class="section-heading reveal">
+      <div class="sec-icon"><i class="fas fa-project-diagram"></i></div>
+      <div><div class="sec-badge">Section 5.8 — Real-World Project</div><h2>Complete Presentation: "Digital Literacy in Kenya"</h2></div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-tasks"></i> Final Project — Build a Complete 6-Slide Presentation</h3>
+      <p>This project combines everything you have learned: slide creation, text formatting, images, transitions, animations, and professional design.</p>
+      
+      <div class="steps-box"><div class="steps-title">Slide 1 — Title Slide</div>
+      <ul><li>Title: "Digital Literacy in Kenya"</li><li>Subtitle: "Empowering Citizens Through Technology"</li><li>Your name and date</li><li>Add a relevant background image or shape</li></ul></div>
+
+      <div class="steps-box"><div class="steps-title">Slide 2 — What is Digital Literacy?</div>
+      <ul><li>Title: "What is Digital Literacy?"</li><li>Definition: "The ability to use computers, the internet, and software effectively."</li><li>Bullet points: "Accessing information", "Communicating online", "Using productivity tools", "Staying safe online"</li><li>Add an icon or image representing technology</li></ul></div>
+
+      <div class="steps-box"><div class="steps-title">Slide 3 — Benefits of Digital Skills</div>
+      <ul><li>Title: "Why Digital Skills Matter"</li><li>Use a SmartArt Process diagram showing: Education → Employment → Business → Community Development</li><li>Or use 4 bullet points with icons</li></ul></div>
+
+      <div class="steps-box"><div class="steps-title">Slide 4 — Common Digital Tools</div>
+      <ul><li>Title: "Essential Software"</li><li>Two Content layout: Left side list Microsoft Word, Excel, PowerPoint, Internet. Right side add an image of computer/software icons</li></ul></div>
+
+      <div class="steps-box"><div class="steps-title">Slide 5 — Challenges in Kenya</div>
+      <ul><li>Title: "Overcoming Digital Barriers"</li><li>Bullet points: "Affordable devices", "Internet access", "Digital training centres", "Power supply reliability"</li><li>Add a callout shape with a solution for each challenge</li></ul></div>
+
+      <div class="steps-box"><div class="steps-title">Slide 6 — Conclusion / Thank You</div>
+      <ul><li>Title: "Thank You"</li><li>Quote: "Digital literacy is the key to Kenya's future."</li><li>Contact information placeholder</li><li>Add a simple shape or image</li></ul></div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-paint-brush"></i> Apply Professional Design</h3>
+      <div class="steps-box"><div class="steps-title">Design Theme</div><ol class="steps-list"><li><span class="step-num">1</span> Design Tab → choose a professional theme (e.g., "Ion", "Gallery", "Facet")</li><li><span class="step-num">2</span> Apply the same transition (Fade) to all slides</li><li><span class="step-num">3</span> Add Fade In animation to all bullet points (On Click)</li><li><span class="step-num">4</span> Ensure consistent fonts (Calibri or Arial throughout)</li></ol></div>
+    </div>
+
+    <div class="practice-box reveal">
+      <div class="practice-title"><span class="pnum">8</span> Build Your Complete Presentation</div>
+      <ol class="practice-steps">
+        <li><i class="fas fa-file-powerpoint"></i> Open new blank presentation</li>
+        <li><i class="fas fa-layer-group"></i> Create all 6 slides following the structure above</li>
+        <li><i class="fas fa-paint-brush"></i> Apply a consistent design theme</li>
+        <li><i class="fas fa-image"></i> Add at least 3 images (from your computer or online search within PowerPoint)</li>
+        <li><i class="fas fa-arrows-spin"></i> Apply the same transition to all slides</li>
+        <li><i class="fas fa-magic"></i> Add entrance animations to bullet points (On Click)</li>
+        <li><i class="fas fa-check"></i> Check spelling: Review Tab → Spelling</li>
+        <li><i class="fas fa-play"></i> Press F5 and practise delivering the presentation</li>
+        <li><i class="fas fa-save"></i> Save as <strong>Digital_Literacy_Kenya</strong></li>
+        <li><i class="fas fa-file-pdf"></i> Also save as PDF for sharing</li>
+      </ol>
+    </div>
+
+    <div class="skill-check reveal"><h4>Skill Check — Section 5.8</h4><div class="skill-items"><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can create a complete multi-slide presentation</span><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I use design themes consistently</span><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I add transitions and animations professionally</span><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can deliver a slide show</span></div></div>
+
+    <!-- CHAPTER SUMMARY -->
+    <div class="chapter-summary reveal">
+      <h2>🎯 Chapter 5 Summary — PowerPoint Skills Mastered</h2>
+      <div class="summary-grid">
+        <div class="summary-item"><i class="fas fa-check-circle"></i> I understand the PowerPoint interface</div>
+        <div class="summary-item"><i class="fas fa-check-circle"></i> I create and manage multiple slides</div>
+        <div class="summary-item"><i class="fas fa-check-circle"></i> I format text and use bullet points correctly</div>
+        <div class="summary-item"><i class="fas fa-check-circle"></i> I insert images, shapes, and SmartArt</div>
+        <div class="summary-item"><i class="fas fa-check-circle"></i> I apply professional slide transitions</div>
+        <div class="summary-item"><i class="fas fa-check-circle"></i> I add entrance animations to bullet points</div>
+        <div class="summary-item"><i class="fas fa-check-circle"></i> I start and navigate a slide show (F5)</div>
+        <div class="summary-item"><i class="fas fa-check-circle"></i> I use the pen/highlighter during presentations</div>
+        <div class="summary-item"><i class="fas fa-check-circle"></i> I print handouts and save as PDF</div>
+        <div class="summary-item"><i class="fas fa-check-circle"></i> I built a complete 6-slide presentation</div>
+      </div>
+      <p style="margin-top:1.5rem;opacity:.85;font-style:italic;">"A great presentation doesn't just share information — it tells a story. PowerPoint gives you the canvas; your confidence makes the masterpiece."<br><strong>— Castro Odhiambo</strong></p>
+    </div>
+
+    <div class="chapter-nav reveal">
+      <a href="Excel.html" class="prev"><div class="nav-icon"><i class="fas fa-arrow-left"></i></div><div class="nav-text"><div class="nav-label">Previous Chapter</div><div class="nav-title">Chapter 4 — Microsoft Excel</div></div></a>
+      <a href="Internet.html" class="next"><div class="nav-icon"><i class="fas fa-arrow-right"></i></div><div class="nav-text"><div class="nav-label">Next Chapter</div><div class="nav-title">Chapter 6 — Internet &amp; Email</div></div></a>
+    </div>
+
+  </main>
 </div>
+
+<footer class="site-footer">
+  <p>© 2026 <span>Castro Odhiambo</span> — Basics of Digital Literacy &nbsp;·&nbsp; Chapter 5: Microsoft PowerPoint — Complete Guide</p>
+  <p style="margin-top:.4rem;font-size:.76rem;">Create stunning presentations with confidence · <a href="index.html" style="color:var(--gold);text-decoration:none;">← Back to Home</a></p>
+</footer>
+
+<script>
+  window.addEventListener('scroll',()=>{const s=window.scrollY,h=document.documentElement.scrollHeight-window.innerHeight;document.getElementById('pbar').style.width=(s/h*100)+'%';});
+  const els=document.querySelectorAll('.reveal');const obs=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*55);obs.unobserve(e.target);}});},{threshold:.07});els.forEach(el=>obs.observe(el));
+  const sections=document.querySelectorAll('[id^="s"]');const sbLinks=document.querySelectorAll('.sb-link');window.addEventListener('scroll',()=>{let cur='';sections.forEach(s=>{if(window.scrollY>=s.offsetTop-130)cur=s.id;});sbLinks.forEach(l=>{l.classList.remove('active');if(l.getAttribute('href')==='#'+cur)l.classList.add('active');});});
+</script>
 </body>
 </html>
