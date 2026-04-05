@@ -8,743 +8,1531 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     :root {
-      --ocean:     #0e5b6e;
-      --teal:      #1a7f8a;
-      --cyan:      #4fb3bf;
-      --gold:      #f5a623;
-      --amber:     #ffd27a;
-      --white:     #ffffff;
-      --offwhite:  #f0f7f8;
-      --text:      #1a4a52;
-      --muted:     #5a7a82;
-      --border:    #c8e0e4;
-      --red:       #c0392b;
-      --green:     #2b7a4b;
-      --blue:      #1a4b6e;
-      --radius:    1.2rem;
+      --ocean:    #0a4f60;
+      --teal:     #1a8090;
+      --cyan:     #3fb3c2;
+      --gold:     #f5a623;
+      --amber:    #ffd27a;
+      --white:    #ffffff;
+      --offwhite: #f0f7f8;
+      --text:     #1a3e46;
+      --muted:    #527880;
+      --border:   #c0dce2;
+      --red:      #c0392b;
+      --green:    #1e7a4a;
+      --blue:     #1a4b6e;
+      --orange:   #d45c1a;
+      --radius:   1.2rem;
     }
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
     html{scroll-behavior:smooth;}
     body{font-family:'DM Sans',sans-serif;background:var(--offwhite);color:var(--text);line-height:1.75;overflow-x:hidden;}
 
+    /* ── PROGRESS BAR ── */
     #pbar{position:fixed;top:0;left:0;height:3px;z-index:999;background:linear-gradient(to right,var(--teal),var(--gold));width:0%;transition:width .1s linear;}
 
-    .topbar{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(14,91,110,.97);backdrop-filter:blur(14px);display:flex;align-items:center;justify-content:space-between;padding:.75rem 2.5rem;border-bottom:1px solid rgba(255,255,255,.07);}
-    .topbar-brand{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:700;color:var(--gold);text-decoration:none;}
+    /* ── TOP NAV ── */
+    .topbar{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(10,79,96,.97);backdrop-filter:blur(14px);display:flex;align-items:center;justify-content:space-between;padding:.75rem 2.5rem;border-bottom:1px solid rgba(255,255,255,.07);}
+    .topbar-brand{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:700;color:var(--amber);text-decoration:none;}
     .topbar-brand span{color:#fff;font-weight:300;}
     .topbar-right{display:flex;align-items:center;gap:1rem;}
     .topbar-right a{color:rgba(255,255,255,.55);text-decoration:none;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;transition:color .2s;}
-    .topbar-right a:hover{color:var(--gold);}
-    .nav-btn{background:var(--gold);color:#0e5b6e !important;padding:.4rem 1.1rem;border-radius:40px;font-size:.78rem;font-weight:600;}
-    .nav-btn:hover{background:var(--amber);}
+    .topbar-right a:hover{color:var(--amber);}
+    .nav-btn{background:var(--gold);color:#0a4f60 !important;padding:.4rem 1.1rem;border-radius:40px;font-size:.78rem;font-weight:600 !important;}
+    .nav-btn:hover{background:var(--amber) !important;}
     @media(max-width:680px){.topbar{padding:.7rem 1rem;}.topbar-right a:not(.nav-btn){display:none;}}
 
-    .hero{background:linear-gradient(130deg,#0e5b6e 0%,#1a7f8a 55%,#4fb3bf 100%);padding:8rem 2rem 4.5rem;position:relative;overflow:hidden;text-align:center;}
-    .hero::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(245,166,35,.1) 0%,transparent 70%);top:-180px;right:-80px;pointer-events:none;}
-    .hero::after{content:'';position:absolute;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(79,179,191,.12) 0%,transparent 70%);bottom:-60px;left:-50px;pointer-events:none;}
-    .hero-dots{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px);background-size:30px 30px;}
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+    .reveal{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease;}
+    .reveal.visible{opacity:1;transform:translateY(0);}
+
+    /* ── HERO ── */
+    .hero{background:linear-gradient(130deg,#071e26 0%,#0a4f60 45%,#1a8090 80%,#3fb3c2 100%);padding:8.5rem 2rem 5rem;position:relative;overflow:hidden;text-align:center;}
+    .hero::before{content:'';position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(245,166,35,.1) 0%,transparent 70%);top:-200px;right:-120px;pointer-events:none;}
+    .hero::after{content:'';position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(63,179,194,.14) 0%,transparent 70%);bottom:-80px;left:-60px;pointer-events:none;}
+    .hero-grid{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.04) 1px,transparent 1px);background-size:30px 30px;}
     .hero-inner{position:relative;z-index:1;max-width:860px;margin:0 auto;}
-    .chapter-eyebrow{display:inline-flex;align-items:center;gap:.5rem;background:rgba(245,166,35,.15);border:1px solid rgba(245,166,35,.4);color:var(--gold);padding:.3rem 1.2rem;border-radius:40px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;margin-bottom:1.5rem;animation:fadeUp .6s ease both;}
-    .hero h1{font-family:'Fraunces',serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-.5px;margin-bottom:1.2rem;animation:fadeUp .6s .1s ease both;}
-    .hero h1 em{font-style:italic;color:var(--gold);}
-    .hero-sub{font-size:1.05rem;color:rgba(255,255,255,.72);max-width:640px;margin:0 auto 2rem;line-height:1.8;animation:fadeUp .6s .2s ease both;}
+    .chapter-eyebrow{display:inline-flex;align-items:center;gap:.5rem;background:rgba(245,166,35,.15);border:1px solid rgba(245,166,35,.4);color:var(--amber);padding:.3rem 1.2rem;border-radius:40px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;margin-bottom:1.5rem;animation:fadeUp .6s ease both;}
+    .hero h1{font-family:'Fraunces',serif;font-size:clamp(2.3rem,5vw,4.2rem);font-weight:900;color:#fff;line-height:1.08;letter-spacing:-.5px;margin-bottom:1.2rem;animation:fadeUp .6s .1s ease both;}
+    .hero h1 em{font-style:italic;color:var(--amber);}
+    .hero-sub{font-size:1.05rem;color:rgba(255,255,255,.72);max-width:640px;margin:0 auto 2rem;line-height:1.82;animation:fadeUp .6s .2s ease both;}
     .hero-meta{display:flex;justify-content:center;flex-wrap:wrap;gap:1.5rem;margin-bottom:2rem;animation:fadeUp .6s .3s ease both;}
     .hero-meta-item{display:flex;align-items:center;gap:.5rem;color:rgba(255,255,255,.65);font-size:.82rem;}
-    .hero-meta-item i{color:var(--gold);}
+    .hero-meta-item i{color:var(--amber);}
     .toc-pills{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;margin-top:2rem;animation:fadeUp .6s .4s ease both;}
     .toc-pill{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.8);padding:.35rem 1rem;border-radius:40px;font-size:.78rem;text-decoration:none;transition:all .2s;}
-    .toc-pill:hover{background:rgba(245,166,35,.25);border-color:var(--gold);color:var(--gold);}
+    .toc-pill:hover{background:rgba(245,166,35,.25);border-color:var(--amber);color:var(--amber);}
 
-    .page-wrap{max-width:1080px;margin:0 auto;padding:3rem 1.5rem 5rem;display:grid;grid-template-columns:230px 1fr;gap:3rem;align-items:start;}
-    @media(max-width:860px){.page-wrap{grid-template-columns:1fr;}.sidebar{display:none;}}
+    /* ── LAYOUT ── */
+    .page-wrap{max-width:1100px;margin:0 auto;padding:3rem 1.5rem 5rem;display:grid;grid-template-columns:240px 1fr;gap:3rem;align-items:start;}
+    @media(max-width:880px){.page-wrap{grid-template-columns:1fr;}.sidebar{display:none;}}
 
+    /* ── SIDEBAR ── */
     .sidebar{position:sticky;top:5rem;}
-    .sidebar-box{background:var(--white);border:1px solid var(--border);border-radius:1.2rem;padding:1.3rem;margin-bottom:1rem;}
-    .sidebar-box h4{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem;font-weight:600;}
-    .sb-link{display:flex;align-items:center;gap:.55rem;padding:.45rem .55rem;border-radius:.55rem;text-decoration:none;color:var(--muted);font-size:.8rem;transition:all .18s;margin-bottom:.15rem;}
-    .sb-link:hover,.sb-link.active{background:rgba(31,127,138,.08);color:var(--teal);}
-    .sb-link i{color:var(--teal);font-size:.78rem;width:15px;}
-    .sb-num{display:inline-flex;width:18px;height:18px;border-radius:50%;background:var(--offwhite);color:var(--muted);font-size:.6rem;font-weight:700;align-items:center;justify-content:center;flex-shrink:0;}
+    .sidebar-box{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.3rem;margin-bottom:1rem;}
+    .sidebar-box h4{font-size:.67rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:.9rem;font-weight:700;}
+    .sb-link{display:flex;align-items:center;gap:.55rem;padding:.45rem .55rem;border-radius:.55rem;text-decoration:none;color:var(--muted);font-size:.8rem;transition:all .18s;margin-bottom:.12rem;}
+    .sb-link:hover,.sb-link.active{background:rgba(26,128,144,.09);color:var(--teal);}
+    .sb-link i{color:var(--teal);font-size:.78rem;width:16px;}
+    .sb-num{display:inline-flex;width:19px;height:19px;border-radius:50%;background:var(--offwhite);color:var(--muted);font-size:.6rem;font-weight:700;align-items:center;justify-content:center;flex-shrink:0;}
     .sidebar-nav-btns{display:flex;flex-direction:column;gap:.6rem;}
     .sb-nav-btn{display:flex;align-items:center;gap:.5rem;padding:.6rem .9rem;border-radius:.7rem;text-decoration:none;font-size:.8rem;font-weight:600;transition:all .2s;}
     .sb-nav-btn.prev{background:var(--offwhite);color:var(--muted);border:1px solid var(--border);}
     .sb-nav-btn.next{background:var(--teal);color:#fff;}
     .sb-nav-btn.prev:hover{background:var(--border);}
     .sb-nav-btn.next:hover{background:var(--ocean);}
+    .progress-tracker{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.3rem;margin-bottom:1rem;}
+    .progress-tracker h4{font-size:.67rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;font-weight:700;}
+    .prog-row{display:flex;align-items:center;gap:.6rem;margin-bottom:.6rem;}
+    .prog-dot{width:10px;height:10px;border-radius:50%;background:var(--border);flex-shrink:0;}
+    .prog-dot.done{background:var(--teal);}
+    .prog-label{font-size:.75rem;color:var(--muted);}
+    .prog-bar-outer{background:var(--border);border-radius:20px;height:5px;margin-top:.3rem;}
+    .prog-bar-fill{background:linear-gradient(to right,var(--teal),var(--cyan));height:5px;border-radius:20px;transition:width .8s ease;}
 
+    /* ── CONTENT ── */
     .content{min-width:0;}
 
     .intro-card{background:var(--white);border:1px solid var(--border);border-radius:1.4rem;padding:2rem;margin-bottom:2.5rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;}
-    .intro-card p{color:var(--muted);font-size:.95rem;line-height:1.8;margin-bottom:.8rem;}
-    .uses-grid{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem;}
-    .use-chip{display:flex;align-items:center;gap:.4rem;background:rgba(31,127,138,.08);border:1px solid rgba(31,127,138,.2);color:var(--teal);padding:.3rem .8rem;border-radius:30px;font-size:.78rem;}
-    .use-chip i{font-size:.72rem;}
-    .intro-panel{background:linear-gradient(135deg,var(--ocean),var(--teal));color:#fff;border-radius:1.2rem;padding:1.5rem;text-align:center;min-width:180px;}
+    .intro-card p{color:var(--muted);font-size:.95rem;line-height:1.82;margin-bottom:.8rem;}
+    .intro-card p:last-child{margin-bottom:0;}
+    .intro-panel{background:linear-gradient(135deg,var(--ocean),var(--teal));color:#fff;border-radius:1.2rem;padding:1.6rem;text-align:center;min-width:185px;}
     .intro-panel .big-icon{font-size:2.8rem;margin-bottom:.6rem;}
     .intro-panel strong{display:block;font-size:1rem;margin-bottom:.4rem;}
-    .intro-panel p{font-size:.78rem;opacity:.8;color:#fff;}
+    .intro-panel p{font-size:.78rem;opacity:.8;color:#fff;line-height:1.5;}
+    .uses-grid{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem;}
+    .use-chip{display:flex;align-items:center;gap:.4rem;background:rgba(26,128,144,.08);border:1px solid rgba(26,128,144,.2);color:var(--teal);padding:.3rem .8rem;border-radius:30px;font-size:.78rem;}
     @media(max-width:600px){.intro-card{grid-template-columns:1fr;}.intro-panel{display:none;}}
 
-    .section-heading{display:flex;align-items:center;gap:1rem;margin:2.5rem 0 1.2rem;}
-    .sec-icon{width:50px;height:50px;border-radius:12px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.3rem;background:linear-gradient(135deg,var(--teal),var(--ocean));color:#fff;}
-    .section-heading h2{font-family:'Fraunces',serif;font-size:clamp(1.35rem,3vw,1.85rem);font-weight:700;color:var(--ocean);line-height:1.15;}
+    /* ── SECTION HEADING ── */
+    .section-heading{display:flex;align-items:center;gap:1rem;margin:2.8rem 0 1.2rem;}
+    .sec-icon{width:52px;height:52px;border-radius:13px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.3rem;background:linear-gradient(135deg,var(--teal),var(--ocean));color:#fff;box-shadow:0 4px 14px rgba(26,128,144,.3);}
+    .section-heading h2{font-family:'Fraunces',serif;font-size:clamp(1.35rem,3vw,1.9rem);font-weight:700;color:var(--ocean);line-height:1.15;}
     .sec-badge{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600;}
 
-    .content-card{background:var(--white);border:1px solid var(--border);border-radius:1.3rem;padding:1.8rem;margin-bottom:1.4rem;}
+    /* ── CONTENT CARD ── */
+    .content-card{background:var(--white);border:1px solid var(--border);border-radius:1.3rem;padding:1.8rem;margin-bottom:1.4rem;transition:box-shadow .2s;}
+    .content-card:hover{box-shadow:0 4px 20px rgba(26,128,144,.08);}
     .content-card h3{font-family:'Fraunces',serif;font-size:1.12rem;font-weight:700;color:var(--teal);margin-bottom:.8rem;display:flex;align-items:center;gap:.6rem;}
-    .content-card h3 i{color:var(--gold);}
-    .content-card h4{font-size:.94rem;font-weight:600;color:var(--text);margin:1rem 0 .4rem;}
-    .content-card p{color:var(--muted);font-size:.92rem;line-height:1.75;margin-bottom:.7rem;}
+    .content-card h3 i{color:var(--gold);font-size:.95rem;}
+    .content-card h4{font-size:.94rem;font-weight:600;color:var(--text);margin:1.1rem 0 .5rem;}
+    .content-card p{color:var(--muted);font-size:.92rem;line-height:1.78;margin-bottom:.7rem;}
+    .content-card p:last-child{margin-bottom:0;}
     .content-card ul,.content-card ol{padding-left:1.4rem;color:var(--muted);font-size:.92rem;}
-    .content-card li{margin:.35rem 0;line-height:1.6;}
+    .content-card li{margin:.38rem 0;line-height:1.6;}
+    .content-card strong{color:var(--text);}
 
+    /* ── METHOD GRID ── */
     .method-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0;}
-    @media(max-width:580px){.method-grid{grid-template-columns:1fr;}}
+    @media(max-width:560px){.method-grid{grid-template-columns:1fr;}}
     .method-card{background:var(--offwhite);border:1px solid var(--border);border-radius:1rem;padding:1.2rem;}
-    .method-label{display:inline-flex;align-items:center;gap:.4rem;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--teal);margin-bottom:.8rem;background:rgba(31,127,138,.1);padding:.2rem .7rem;border-radius:20px;}
+    .method-label{display:inline-flex;align-items:center;gap:.4rem;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--teal);margin-bottom:.8rem;background:rgba(26,128,144,.1);padding:.2rem .7rem;border-radius:20px;}
+    .method-card p{font-size:.86rem;color:var(--muted);}
+    .method-card ul{padding-left:1.2rem;font-size:.85rem;color:var(--muted);}
+    .method-card li{margin:.28rem 0;}
 
-    .steps-box{background:rgba(31,127,138,.05);border-left:4px solid var(--teal);border-radius:0 1rem 1rem 0;padding:1.2rem 1.5rem;margin:1rem 0;}
+    /* ── STEPS BOX ── */
+    .steps-box{background:rgba(26,128,144,.05);border-left:4px solid var(--teal);border-radius:0 1rem 1rem 0;padding:1.2rem 1.5rem;margin:1rem 0;}
     .steps-title{display:flex;align-items:center;gap:.5rem;font-weight:700;color:var(--teal);font-size:.88rem;margin-bottom:.8rem;}
-    .steps-list{list-style:none;padding:0;counter-reset:step;}
-    .steps-list li{display:flex;gap:.9rem;align-items:flex-start;padding:.5rem 0;border-bottom:1px solid rgba(31,127,138,.08);font-size:.88rem;color:var(--muted);}
+    .steps-title i{color:var(--gold);}
+    .steps-list{list-style:none;padding:0;}
+    .steps-list li{display:flex;gap:.9rem;align-items:flex-start;padding:.5rem 0;border-bottom:1px solid rgba(26,128,144,.08);font-size:.88rem;color:var(--muted);}
     .steps-list li:last-child{border-bottom:none;}
-    .step-num{display:inline-flex;width:22px;height:22px;border-radius:50%;background:var(--teal);color:#fff;font-size:.65rem;font-weight:700;align-items:center;justify-content:center;flex-shrink:0;margin-top:.18rem;}
+    .step-num{display:inline-flex;width:23px;height:23px;border-radius:50%;background:var(--teal);color:#fff;font-size:.64rem;font-weight:700;align-items:center;justify-content:center;flex-shrink:0;margin-top:.18rem;}
 
+    /* ── CALLOUTS ── */
     .callout{border-radius:1rem;padding:1.1rem 1.4rem;margin:1rem 0;display:flex;gap:.9rem;align-items:flex-start;}
-    .callout-icon{width:36px;height:36px;border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1rem;}
+    .callout-icon{width:37px;height:37px;border-radius:9px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1rem;}
     .callout-body strong{display:block;font-size:.88rem;margin-bottom:.3rem;}
     .callout-body p,.callout-body ul{font-size:.86rem;color:var(--muted);line-height:1.65;}
     .callout-body ul{padding-left:1.2rem;}
+    .callout-body li{margin:.25rem 0;}
     .callout.note{background:#fff9e8;border:1px solid #ffe4a0;}
     .callout.note .callout-icon{background:#fff3cd;color:#d68c00;}
+    .callout.note strong{color:#8a5700;}
     .callout.warning{background:#fff0f0;border:1px solid #f5c0c0;}
     .callout.warning .callout-icon{background:#fde0e0;color:var(--red);}
+    .callout.warning strong{color:var(--red);}
     .callout.tip{background:#e8f5e9;border:1px solid #b8ddb8;}
     .callout.tip .callout-icon{background:#c8e6c9;color:var(--green);}
+    .callout.tip strong{color:var(--green);}
     .callout.important{background:#e8f0fe;border:1px solid #b0c8f8;}
     .callout.important .callout-icon{background:#d0e4ff;color:var(--blue);}
+    .callout.important strong{color:var(--blue);}
     .callout.security{background:#fff0e8;border:1px solid #f5c8b0;}
-    .callout.security .callout-icon{background:#ffe0d0;color:#d45c1a;}
+    .callout.security .callout-icon{background:#ffe0d0;color:var(--orange);}
+    .callout.security strong{color:var(--orange);}
+    .callout.kenya{background:#e8faf0;border:1px solid #a0d8b8;}
+    .callout.kenya .callout-icon{background:#c0edd0;color:var(--green);}
+    .callout.kenya strong{color:var(--green);}
 
-    .key{background:var(--white);border:1px solid var(--border);border-bottom:3px solid var(--border);border-radius:5px;padding:.2rem .5rem;font-size:.75rem;font-weight:700;color:var(--text);font-family:monospace;}
+    /* ── KEYBOARD KEYS ── */
+    .key{background:var(--white);border:1px solid var(--border);border-bottom:3px solid var(--border);border-radius:5px;padding:.2rem .5rem;font-size:.75rem;font-weight:700;color:var(--text);font-family:monospace;white-space:nowrap;}
     .shortcut-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin:1rem 0;}
     @media(max-width:540px){.shortcut-grid{grid-template-columns:1fr;}}
     .shortcut-card{display:flex;align-items:center;gap:.8rem;background:var(--offwhite);border:1px solid var(--border);border-radius:.8rem;padding:.8rem 1rem;}
+    .keys{display:flex;gap:.25rem;flex-shrink:0;}
+    .shortcut-desc{font-size:.82rem;color:var(--muted);}
+    .shortcut-desc strong{color:var(--text);}
 
-    /* Browser Preview */
-    .browser-preview{background:#2c2c2c;border-radius:12px;overflow:hidden;margin:1rem 0;}
-    .browser-bar{background:#3c3c3c;padding:.5rem .8rem;display:flex;gap:.5rem;align-items:center;}
-    .browser-dot{width:12px;height:12px;border-radius:50%;background:#ff5f57;}
+    /* ── TABLE ── */
+    .data-table{width:100%;border-collapse:collapse;margin:1rem 0;border-radius:1rem;overflow:hidden;}
+    .data-table th{background:linear-gradient(90deg,var(--ocean),var(--teal));color:#fff;padding:.7rem 1rem;text-align:left;font-size:.82rem;font-weight:600;}
+    .data-table td{padding:.6rem 1rem;font-size:.84rem;border-bottom:1px solid var(--border);color:var(--muted);}
+    .data-table tr:last-child td{border-bottom:none;}
+    .data-table tr:nth-child(even) td{background:#f5fafb;}
+    .data-table strong{color:var(--text);}
+
+    /* ── BROWSER MOCKUP ── */
+    .browser-preview{background:#1e1e1e;border-radius:14px;overflow:hidden;margin:1.2rem 0;box-shadow:0 6px 24px rgba(0,0,0,.2);}
+    .browser-bar{background:#2d2d2d;padding:.55rem .9rem;display:flex;gap:.45rem;align-items:center;}
+    .browser-dot{width:12px;height:12px;border-radius:50%;}
+    .browser-dot:nth-child(1){background:#ff5f57;}
     .browser-dot:nth-child(2){background:#febc2e;}
     .browser-dot:nth-child(3){background:#28c840;}
-    .browser-url{background:#fff;border-radius:20px;padding:.2rem .8rem;font-size:.7rem;color:#333;flex:1;margin-left:.5rem;}
-    .browser-content{background:var(--white);padding:1rem;min-height:120px;}
-    .browser-content h4{color:var(--teal);margin-bottom:.3rem;}
-    .browser-content p{font-size:.75rem;color:#666;}
+    .browser-url{background:#fff;border-radius:20px;padding:.25rem 1rem;font-size:.72rem;color:#333;flex:1;margin-left:.6rem;display:flex;align-items:center;gap:.4rem;}
+    .browser-url .lock{color:#2b7a2b;font-size:.72rem;}
+    .browser-content{background:#fff;padding:1.2rem 1.5rem;min-height:110px;}
+    .browser-content h4{color:var(--teal);margin-bottom:.4rem;font-size:.92rem;}
+    .browser-content p{font-size:.78rem;color:#666;margin:.3rem 0;}
+    .browser-tabs{background:#252525;display:flex;gap:.3rem;padding:.4rem .9rem 0;}
+    .b-tab{background:#3a3a3a;border-radius:8px 8px 0 0;padding:.3rem .8rem;font-size:.7rem;color:rgba(255,255,255,.5);}
+    .b-tab.active{background:#fff;color:#333;}
 
-    /* Email Preview */
-    .email-preview{background:var(--white);border:1px solid var(--border);border-radius:1rem;overflow:hidden;margin:1rem 0;}
-    .email-header{background:#f0f0f0;padding:.5rem 1rem;border-bottom:1px solid var(--border);display:flex;gap:.5rem;flex-wrap:wrap;}
-    .email-field{font-size:.7rem;color:#555;}
-    .email-field strong{color:var(--text);}
-    .email-body{background:var(--white);padding:1rem;}
-    .email-body p{font-size:.8rem;color:#444;margin-bottom:.5rem;}
+    /* ── SEARCH TECHNIQUES ── */
+    .search-demo{background:var(--offwhite);border:1px solid var(--border);border-radius:1rem;padding:1.2rem;margin:.6rem 0;}
+    .search-query{font-family:monospace;font-size:.88rem;background:var(--white);border:1px solid var(--border);border-radius:.5rem;padding:.4rem .8rem;color:var(--ocean);font-weight:600;display:inline-block;margin-bottom:.5rem;}
+    .search-result-title{font-size:.88rem;color:#1a73e8;font-weight:600;}
+    .search-result-url{font-size:.75rem;color:#137333;margin:.15rem 0;}
+    .search-result-snippet{font-size:.78rem;color:#666;}
 
-    .isp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.5rem;margin:1rem 0;}
-    .isp-item{background:var(--offwhite);border:1px solid var(--border);border-radius:.8rem;padding:.5rem;text-align:center;font-size:.8rem;color:var(--teal);font-weight:600;}
+    /* ── EMAIL ANATOMY ── */
+    .email-anatomy{background:var(--white);border:1px solid var(--border);border-radius:1rem;overflow:hidden;margin:1.2rem 0;box-shadow:0 2px 12px rgba(26,128,144,.06);}
+    .email-chrome{background:#f1f3f4;padding:.5rem .9rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+    .email-chrome span{font-size:.72rem;color:#444;font-weight:600;}
+    .email-chrome-dots{display:flex;gap:.4rem;}
+    .email-chrome-dot{width:10px;height:10px;border-radius:50%;background:#ddd;}
+    .email-field-row{display:flex;align-items:flex-start;gap:1rem;padding:.6rem 1rem;border-bottom:1px solid #f0f0f0;}
+    .email-label{font-size:.72rem;font-weight:700;color:var(--muted);width:60px;flex-shrink:0;padding-top:.1rem;}
+    .email-value{font-size:.82rem;color:var(--text);flex:1;}
+    .email-body-area{padding:1rem;font-size:.82rem;color:#444;line-height:1.7;}
+    .email-body-area p{margin-bottom:.5rem;}
 
-    .practice-box{background:linear-gradient(135deg,rgba(31,127,138,.04),rgba(14,91,110,.02));border:2px dashed rgba(31,127,138,.3);border-radius:1.2rem;padding:1.5rem;margin:1.2rem 0;}
-    .practice-title{display:flex;align-items:center;gap:.6rem;font-weight:700;color:var(--teal);font-size:.95rem;margin-bottom:1rem;}
-    .practice-title .pnum{background:var(--teal);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0;}
+    /* ── GMAIL INTERFACE DIAGRAM ── */
+    .gmail-ui{background:#fff;border:1px solid var(--border);border-radius:1rem;overflow:hidden;margin:1.2rem 0;}
+    .gmail-header{background:#fff;border-bottom:1px solid var(--border);padding:.5rem 1rem;display:flex;align-items:center;gap:.8rem;}
+    .gmail-logo{color:#EA4335;font-weight:700;font-size:.9rem;font-family:'Fraunces',serif;}
+    .gmail-search{flex:1;background:#eaf1fb;border-radius:20px;padding:.3rem .8rem;font-size:.75rem;color:#666;max-width:300px;}
+    .gmail-layout{display:grid;grid-template-columns:140px 1fr;min-height:160px;}
+    .gmail-sidebar{background:#fff;padding:.5rem;border-right:1px solid var(--border);}
+    .gmail-sb-btn{display:flex;align-items:center;gap:.5rem;padding:.3rem .5rem;border-radius:20px;font-size:.72rem;color:#444;margin-bottom:.2rem;}
+    .gmail-sb-btn.active{background:#fce8e6;color:#EA4335;font-weight:700;}
+    .gmail-sb-btn i{font-size:.7rem;width:14px;}
+    .gmail-inbox{padding:.3rem;}
+    .gmail-row{display:flex;align-items:center;gap:.6rem;padding:.35rem .5rem;border-radius:6px;cursor:pointer;border-bottom:1px solid #f5f5f5;}
+    .gmail-row:hover{background:#f5f5f5;}
+    .gmail-row.unread{font-weight:700;}
+    .gmail-sender{font-size:.72rem;color:#333;width:90px;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+    .gmail-subject{font-size:.72rem;color:#444;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+    .gmail-time{font-size:.68rem;color:#888;flex-shrink:0;}
+
+    /* ── PASSWORD STRENGTH ── */
+    .password-demo{display:grid;gap:.6rem;margin:1rem 0;}
+    .pw-row{display:flex;align-items:center;gap:.8rem;background:var(--offwhite);border:1px solid var(--border);border-radius:.8rem;padding:.7rem 1rem;}
+    .pw-text{font-family:monospace;font-size:.88rem;flex:1;}
+    .pw-badge{display:inline-flex;align-items:center;gap:.3rem;padding:.2rem .7rem;border-radius:20px;font-size:.7rem;font-weight:700;flex-shrink:0;}
+    .pw-weak{background:#fde0e0;color:var(--red);}
+    .pw-ok{background:#fff3cd;color:#8a5700;}
+    .pw-strong{background:#c8e6c9;color:var(--green);}
+    .pw-meter{height:4px;flex:1;border-radius:4px;background:var(--border);}
+    .pw-meter-fill{height:4px;border-radius:4px;}
+    .pw-weak-fill{background:var(--red);width:25%;}
+    .pw-ok-fill{background:#f5a623;width:60%;}
+    .pw-strong-fill{background:var(--green);width:100%;}
+
+    /* ── PHISHING DEMO ── */
+    .phish-compare{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0;}
+    @media(max-width:580px){.phish-compare{grid-template-columns:1fr;}}
+    .phish-card{border-radius:1rem;padding:1.2rem;border:2px solid;}
+    .phish-bad{background:#fff5f5;border-color:#f5c0c0;}
+    .phish-good{background:#f0faf3;border-color:#a0d8b0;}
+    .phish-label{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;font-weight:700;margin-bottom:.6rem;}
+    .phish-bad .phish-label{color:var(--red);}
+    .phish-good .phish-label{color:var(--green);}
+    .phish-url{font-family:monospace;font-size:.8rem;background:rgba(0,0,0,.06);padding:.3rem .6rem;border-radius:5px;margin-bottom:.6rem;word-break:break-all;}
+    .phish-point{display:flex;align-items:flex-start;gap:.5rem;font-size:.8rem;color:var(--muted);margin:.3rem 0;}
+    .phish-point i{flex-shrink:0;margin-top:.15rem;}
+
+    /* ── PRACTICE BOX ── */
+    .practice-box{background:linear-gradient(135deg,rgba(26,128,144,.04),rgba(10,79,96,.02));border:2px dashed rgba(26,128,144,.3);border-radius:1.3rem;padding:1.6rem;margin:1.3rem 0;}
+    .practice-title{display:flex;align-items:center;gap:.65rem;font-weight:700;color:var(--teal);font-size:.95rem;margin-bottom:1rem;}
+    .practice-title .pnum{background:var(--teal);color:#fff;width:29px;height:29px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0;}
     .practice-steps{list-style:none;padding:0;}
-    .practice-steps li{display:flex;gap:.8rem;align-items:flex-start;padding:.45rem 0;border-bottom:1px solid rgba(31,127,138,.08);font-size:.88rem;color:var(--muted);}
+    .practice-steps li{display:flex;gap:.8rem;align-items:flex-start;padding:.45rem 0;border-bottom:1px solid rgba(26,128,144,.08);font-size:.88rem;color:var(--muted);}
+    .practice-steps li:last-child{border-bottom:none;}
     .practice-steps li i{color:var(--teal);margin-top:.2rem;flex-shrink:0;}
 
-    .skill-check{background:linear-gradient(135deg,#e8f4f6,#f0f7f8);border:1px solid #c8e0e4;border-radius:1.2rem;padding:1.3rem 1.5rem;margin:1.5rem 0;}
-    .skill-check h4{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem;font-weight:600;}
+    /* ── SKILL CHECK ── */
+    .skill-check{background:linear-gradient(135deg,#e6f4f7,#eef8f9);border:1px solid #b8dae0;border-radius:1.2rem;padding:1.3rem 1.5rem;margin:1.5rem 0;}
+    .skill-check h4{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem;font-weight:700;}
     .skill-items{display:flex;flex-wrap:wrap;gap:.5rem;}
-    .skill-item-pill{display:flex;align-items:center;gap:.4rem;background:var(--white);border:1px solid #c8e0e4;color:var(--teal);padding:.3rem .9rem;border-radius:30px;font-size:.82rem;font-weight:500;}
+    .skill-item-pill{display:flex;align-items:center;gap:.4rem;background:var(--white);border:1px solid #b8dae0;color:var(--teal);padding:.3rem .9rem;border-radius:30px;font-size:.82rem;font-weight:500;}
+    .skill-item-pill i{font-size:.75rem;}
 
-    .chapter-summary{background:linear-gradient(130deg,var(--ocean) 0%,var(--teal) 100%);border-radius:1.4rem;padding:2.5rem;margin:2.5rem 0;color:#fff;position:relative;overflow:hidden;}
-    .chapter-summary::before{content:'';position:absolute;width:250px;height:250px;border-radius:50%;background:rgba(255,255,255,.04);top:-80px;right:-60px;}
-    .chapter-summary h2{font-family:'Fraunces',serif;font-size:1.6rem;font-weight:700;margin-bottom:1rem;}
-    .summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;}
+    /* ── ISP GRID ── */
+    .isp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:.6rem;margin:1rem 0;}
+    .isp-card{background:var(--offwhite);border:1px solid var(--border);border-radius:.9rem;padding:.7rem;text-align:center;}
+    .isp-card .isp-name{font-size:.82rem;color:var(--teal);font-weight:700;margin:.3rem 0;}
+    .isp-card .isp-type{font-size:.7rem;color:var(--muted);}
+    .isp-card i{font-size:1.3rem;color:var(--teal);}
+
+    /* ── CHAPTER SUMMARY ── */
+    .chapter-summary{background:linear-gradient(130deg,var(--ocean) 0%,var(--teal) 60%,var(--cyan) 100%);border-radius:1.6rem;padding:2.8rem;margin:3rem 0;color:#fff;position:relative;overflow:hidden;}
+    .chapter-summary::before{content:'';position:absolute;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,.04);top:-100px;right:-60px;}
+    .chapter-summary::after{content:'';position:absolute;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.03);bottom:-50px;left:40px;}
+    .chapter-summary h2{font-family:'Fraunces',serif;font-size:1.65rem;font-weight:700;margin-bottom:1.2rem;position:relative;}
+    .summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:1.5rem;position:relative;}
     @media(max-width:500px){.summary-grid{grid-template-columns:1fr;}}
-    .summary-item{display:flex;align-items:center;gap:.7rem;background:rgba(255,255,255,.08);border-radius:.8rem;padding:.75rem 1rem;font-size:.88rem;}
-    .summary-item i{color:var(--gold);flex-shrink:0;}
+    .summary-item{display:flex;align-items:center;gap:.7rem;background:rgba(255,255,255,.09);border-radius:.8rem;padding:.75rem 1rem;font-size:.88rem;}
+    .summary-item i{color:var(--amber);flex-shrink:0;}
 
+    /* ── CHAPTER NAV ── */
     .chapter-nav{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2.5rem;}
     @media(max-width:480px){.chapter-nav{grid-template-columns:1fr;}}
     .chapter-nav a{display:flex;align-items:center;gap:1rem;padding:1.2rem 1.5rem;border-radius:1.1rem;text-decoration:none;transition:all .22s;border:1px solid var(--border);}
     .chapter-nav a.prev{background:var(--white);}
     .chapter-nav a.next{background:linear-gradient(135deg,var(--teal),var(--ocean));flex-direction:row-reverse;}
     .chapter-nav a.prev:hover{border-color:var(--teal);transform:translateY(-2px);}
-    .chapter-nav a.next:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(31,127,138,.3);}
+    .chapter-nav a.next:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(26,128,144,.3);}
     .nav-icon{width:42px;height:42px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.1rem;}
     .chapter-nav a.prev .nav-icon{background:var(--offwhite);color:var(--muted);}
     .chapter-nav a.next .nav-icon{background:rgba(255,255,255,.15);color:#fff;}
     .nav-text{flex:1;}
     .nav-label{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;font-weight:600;}
     .nav-title{font-size:.9rem;font-weight:700;margin-top:.1rem;}
-    .chapter-nav a.prev .nav-label{color:var(--muted);}
+    .chapter-nav a.prev .nav-label,.chapter-nav a.prev .nav-title{color:var(--muted);} 
     .chapter-nav a.prev .nav-title{color:var(--text);}
     .chapter-nav a.next .nav-label{color:rgba(255,255,255,.65);}
     .chapter-nav a.next .nav-title{color:#fff;}
 
-    .site-footer{background:var(--ocean);color:rgba(255,255,255,.5);text-align:center;padding:2rem;font-size:.82rem;border-top:3px solid var(--gold);}
-    .site-footer span{color:var(--gold);}
+    /* ── FOOTER ── */
+    .site-footer{background:var(--ocean);color:rgba(255,255,255,.6);text-align:center;padding:1.5rem;font-size:.8rem;}
+    .site-footer span{color:var(--amber);font-weight:600;}
+    .site-footer a{color:var(--amber);}
 
-    @keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
-    .reveal{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease;}
-    .reveal.visible{opacity:1;transform:translateY(0);}
+    /* ── DANGER / SCAM HIGHLIGHT ── */
+    .scam-highlight{background:#fff5f5;border:2px solid #f5c0c0;border-radius:1rem;padding:1.2rem;margin:1rem 0;}
+    .scam-highlight .scam-title{display:flex;align-items:center;gap:.5rem;font-weight:700;color:var(--red);font-size:.88rem;margin-bottom:.8rem;}
+    .scam-highlight ul{padding-left:1.2rem;font-size:.85rem;color:var(--muted);}
+    .scam-highlight li{margin:.3rem 0;}
+
+    /* ── SAFE HIGHLIGHT ── */
+    .safe-highlight{background:#f0faf3;border:2px solid #a0d8b0;border-radius:1rem;padding:1.2rem;margin:1rem 0;}
+    .safe-highlight .safe-title{display:flex;align-items:center;gap:.5rem;font-weight:700;color:var(--green);font-size:.88rem;margin-bottom:.8rem;}
+    .safe-highlight ul{padding-left:1.2rem;font-size:.85rem;color:var(--muted);}
+    .safe-highlight li{margin:.3rem 0;}
+
+    /* ── WIFI TYPES TABLE ── */
+    .speed-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:.8rem;margin:1rem 0;}
+    .speed-card{background:var(--offwhite);border:1px solid var(--border);border-radius:.9rem;padding:1rem;text-align:center;}
+    .speed-card .speed-icon{font-size:1.5rem;color:var(--teal);margin-bottom:.4rem;}
+    .speed-card .speed-name{font-size:.82rem;font-weight:700;color:var(--text);margin-bottom:.2rem;}
+    .speed-card .speed-val{font-size:.75rem;color:var(--muted);}
+
+    /* ── TWO FA STEPS ── */
+    .twofa-steps{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:.8rem;margin:1rem 0;}
+    .twofa-step{background:var(--offwhite);border:1px solid var(--border);border-radius:1rem;padding:1rem;text-align:center;}
+    .twofa-step .step-circle{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--ocean));color:#fff;display:flex;align-items:center;justify-content:center;font-size:1rem;margin:0 auto .6rem;}
+    .twofa-step p{font-size:.8rem;color:var(--muted);line-height:1.5;}
+    .twofa-step strong{font-size:.85rem;color:var(--text);display:block;margin-bottom:.3rem;}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:480px){.phish-compare{grid-template-columns:1fr;}.twofa-steps{grid-template-columns:1fr 1fr;}}
   </style>
 </head>
 <body>
-
 <div id="pbar"></div>
 
-<nav class="topbar">
-  <a href="index.html" class="topbar-brand">Digital<span>Literacy</span></a>
+<!-- TOP NAV -->
+<header class="topbar">
+  <a href="index.html" class="topbar-brand">Basics of Digital Literacy <span>· Castro Odhiambo</span></a>
   <div class="topbar-right">
-    <a href="index.html"><i class="fas fa-home"></i> Home</a>
-    <a href="Powerpoint.html">← Ch.5</a>
-    <a href="Online_navigation.html">Ch.7 →</a>
-    <a href="index.html#modules" class="nav-btn">All Chapters</a>
+    <a href="index.html">Home</a>
+    <a href="Powerpoint.html">← Ch 5</a>
+    <a href="Online_navigation.html" class="nav-btn">Ch 7 →</a>
   </div>
-</nav>
+</header>
 
+<!-- HERO -->
 <section class="hero">
-  <div class="hero-dots"></div>
+  <div class="hero-grid"></div>
   <div class="hero-inner">
-    <div class="chapter-eyebrow"><i class="fas fa-globe"></i>&nbsp; Chapter 6 · Internet & Email</div>
-    <h1>Navigate the <em>Digital World</em><br>Safely & Confidently</h1>
-    <p class="hero-sub">The internet connects millions of people and resources. Email is the backbone of professional communication. Learn to browse the web, search effectively, create an email account, send messages, and stay safe online.</p>
+    <div class="chapter-eyebrow"><i class="fas fa-globe"></i> Chapter 6 of 7</div>
+    <h1>Internet &amp; <em>Email</em></h1>
+    <p class="hero-sub">Master the internet safely — from opening a browser to writing professional emails, protecting yourself from scams, and staying secure online. Everything you need to communicate and navigate confidently.</p>
     <div class="hero-meta">
-      <div class="hero-meta-item"><i class="fas fa-list-check"></i> 8 Core Sections</div>
-      <div class="hero-meta-item"><i class="fas fa-flask"></i> 10 Practical Activities</div>
-      <div class="hero-meta-item"><i class="fas fa-shield-haltered"></i> Security & Privacy</div>
-      <div class="hero-meta-item"><i class="fas fa-clock"></i> ~90 minutes</div>
+      <div class="hero-meta-item"><i class="fas fa-clock"></i> 3–4 hours</div>
+      <div class="hero-meta-item"><i class="fas fa-layer-group"></i> 8 Sections</div>
+      <div class="hero-meta-item"><i class="fas fa-tasks"></i> 8 Exercises</div>
+      <div class="hero-meta-item"><i class="fas fa-shield-alt"></i> Safety Focus</div>
     </div>
     <div class="toc-pills">
-      <a href="#s1" class="toc-pill">6.1 What is the Internet?</a>
+      <a href="#s1" class="toc-pill">6.1 The Internet</a>
       <a href="#s2" class="toc-pill">6.2 Web Browsers</a>
-      <a href="#s3" class="toc-pill">6.3 Effective Searching</a>
-      <a href="#s4" class="toc-pill">6.4 Email Accounts</a>
-      <a href="#s5" class="toc-pill">6.5 Sending & Receiving</a>
-      <a href="#s6" class="toc-pill">6.6 Email Attachments</a>
+      <a href="#s3" class="toc-pill">6.3 Google Search</a>
+      <a href="#s4" class="toc-pill">6.4 Gmail Account</a>
+      <a href="#s5" class="toc-pill">6.5 Sending Email</a>
+      <a href="#s6" class="toc-pill">6.6 Attachments</a>
       <a href="#s7" class="toc-pill">6.7 Online Safety</a>
-      <a href="#s8" class="toc-pill">6.8 Complete Project</a>
+      <a href="#s8" class="toc-pill">6.8 Final Project</a>
     </div>
   </div>
 </section>
 
+<!-- MAIN CONTENT -->
 <div class="page-wrap">
 
+  <!-- SIDEBAR -->
   <aside class="sidebar">
     <div class="sidebar-box">
-      <h4>Sections</h4>
-      <a href="#s1" class="sb-link"><span class="sb-num">1</span><i class="fas fa-globe"></i> What is the Internet?</a>
-      <a href="#s2" class="sb-link"><span class="sb-num">2</span><i class="fas fa-compass"></i> Web Browsers</a>
-      <a href="#s3" class="sb-link"><span class="sb-num">3</span><i class="fas fa-search"></i> Effective Searching</a>
-      <a href="#s4" class="sb-link"><span class="sb-num">4</span><i class="fas fa-envelope"></i> Email Accounts</a>
-      <a href="#s5" class="sb-link"><span class="sb-num">5</span><i class="fas fa-paper-plane"></i> Sending & Receiving</a>
-      <a href="#s6" class="sb-link"><span class="sb-num">6</span><i class="fas fa-paperclip"></i> Attachments</a>
-      <a href="#s7" class="sb-link"><span class="sb-num">7</span><i class="fas fa-shield-halved"></i> Online Safety</a>
-      <a href="#s8" class="sb-link"><span class="sb-num">8</span><i class="fas fa-project-diagram"></i> Complete Project</a>
+      <h4>Chapter Sections</h4>
+      <a href="#s1" class="sb-link"><i class="fas fa-tower-cell"></i><span class="sb-num">1</span> The Internet</a>
+      <a href="#s2" class="sb-link"><i class="fas fa-compass"></i><span class="sb-num">2</span> Web Browsers</a>
+      <a href="#s3" class="sb-link"><i class="fab fa-google"></i><span class="sb-num">3</span> Google Search</a>
+      <a href="#s4" class="sb-link"><i class="fas fa-envelope"></i><span class="sb-num">4</span> Gmail Account</a>
+      <a href="#s5" class="sb-link"><i class="fas fa-paper-plane"></i><span class="sb-num">5</span> Sending Email</a>
+      <a href="#s6" class="sb-link"><i class="fas fa-paperclip"></i><span class="sb-num">6</span> Attachments</a>
+      <a href="#s7" class="sb-link"><i class="fas fa-shield-alt"></i><span class="sb-num">7</span> Online Safety</a>
+      <a href="#s8" class="sb-link"><i class="fas fa-project-diagram"></i><span class="sb-num">8</span> Final Project</a>
     </div>
     <div class="sidebar-box">
-      <h4>Navigation</h4>
       <div class="sidebar-nav-btns">
         <a href="Powerpoint.html" class="sb-nav-btn prev"><i class="fas fa-arrow-left"></i> Chapter 5</a>
-        <a href="Online_navigation.html" class="sb-nav-btn next">Chapter 7 <i class="fas fa-arrow-right"></i></a>
+        <a href="Online_navigation.html" class="sb-nav-btn next"><i class="fas fa-arrow-right"></i> Chapter 7</a>
       </div>
     </div>
-    <div class="sidebar-box">
-      <h4>Key Tips</h4>
-      <a class="sb-link"><i class="fas fa-key"></i> Strong passwords</a>
-      <a class="sb-link"><i class="fas fa-shield"></i> 2-Factor Authentication</a>
-      <a class="sb-link"><i class="fas fa-ban"></i> Block spam</a>
-      <a class="sb-link"><i class="fas fa-lock"></i> HTTPS = secure</a>
+    <div class="progress-tracker">
+      <h4>Your Progress</h4>
+      <div class="prog-row"><div class="prog-dot done"></div><div class="prog-label">Introduction</div></div>
+      <div class="prog-row"><div class="prog-dot done"></div><div class="prog-label">File Management</div></div>
+      <div class="prog-row"><div class="prog-dot done"></div><div class="prog-label">Microsoft Word</div></div>
+      <div class="prog-row"><div class="prog-dot done"></div><div class="prog-label">Microsoft Excel</div></div>
+      <div class="prog-row"><div class="prog-dot done"></div><div class="prog-label">PowerPoint</div></div>
+      <div class="prog-row"><div class="prog-dot done"></div><div class="prog-label">Internet &amp; Email</div></div>
+      <div class="prog-row"><div class="prog-dot"></div><div class="prog-label">Online Portals</div></div>
+      <div class="prog-bar-outer"><div class="prog-bar-fill" style="width:85%"></div></div>
     </div>
   </aside>
 
+  <!-- CONTENT -->
   <main class="content">
 
+    <!-- INTRO CARD -->
     <div class="intro-card reveal">
       <div>
-        <p>The internet has transformed how we work, learn, and communicate. In Kenya, over 50 million mobile phone subscribers and millions of internet users rely on the web daily for news, banking, education, business, and social connection. Email remains the primary professional communication tool worldwide.</p>
-        <p>This chapter teaches you how to use the internet safely, search effectively, create and manage email accounts, and protect yourself from online threats.</p>
+        <p>The internet has transformed how we work, learn, communicate, and access government services in Kenya. Whether you want to apply for a passport on eCitizen, send your CV to an employer, or pay a bill via M-Pesa's PayBill, you need to be comfortable online.</p>
+        <p>In this chapter you will learn how the internet works, how to navigate websites safely, how to create and use a Gmail account professionally, and — crucially — how to protect yourself from online scams that target Kenyans every day.</p>
         <div class="uses-grid">
-          <span class="use-chip"><i class="fas fa-search"></i> Research</span>
-          <span class="use-chip"><i class="fas fa-bank"></i> Online Banking</span>
-          <span class="use-chip"><i class="fas fa-graduation-cap"></i> eLearning</span>
-          <span class="use-chip"><i class="fas fa-shopping-cart"></i> Online Shopping</span>
-          <span class="use-chip"><i class="fas fa-envelope"></i> Professional Email</span>
-          <span class="use-chip"><i class="fas fa-newspaper"></i> News</span>
+          <span class="use-chip"><i class="fas fa-briefcase"></i> Job Applications</span>
+          <span class="use-chip"><i class="fas fa-university"></i> HELB &amp; eCitizen</span>
+          <span class="use-chip"><i class="fas fa-shield-alt"></i> Stay Safe Online</span>
+          <span class="use-chip"><i class="fas fa-search"></i> Google Research</span>
+          <span class="use-chip"><i class="fas fa-file-pdf"></i> Send Attachments</span>
+          <span class="use-chip"><i class="fas fa-key"></i> Strong Passwords</span>
         </div>
       </div>
       <div class="intro-panel">
         <div class="big-icon">🌐</div>
-        <strong>Internet & Email</strong>
-        <p>Connect, communicate, and discover</p>
+        <strong>Chapter 6</strong>
+        <p>Internet &amp;<br>Email Mastery</p>
       </div>
     </div>
 
+    <!-- ══════════════════════════════════════════ -->
     <!-- SECTION 6.1 -->
+    <!-- ══════════════════════════════════════════ -->
     <div id="s1" class="section-heading reveal">
-      <div class="sec-icon"><i class="fas fa-globe"></i></div>
-      <div><div class="sec-badge">Section 6.1</div><h2>What is the Internet?</h2></div>
+      <div class="sec-icon"><i class="fas fa-tower-cell"></i></div>
+      <div><div class="sec-badge">Section 6.1</div><h2>What Is the Internet?</h2></div>
     </div>
 
     <div class="content-card reveal">
       <h3><i class="fas fa-network-wired"></i> Understanding the Internet</h3>
-      <p>The <strong>internet</strong> is a global network of billions of computers and devices connected together. It allows information to travel instantly across the world. The <strong>World Wide Web (WWW)</strong> is the collection of websites and pages you access using the internet.</p>
-      
-      <h4>Key Internet Terminology</h4>
-      <table class="excel-table">
-        <thead><tr><th>Term</th><th>Meaning</th><th>Example</th></tr></thead>
+      <p>The <strong>internet</strong> is a massive global network of computers, phones, and servers all connected together. When you visit a website, your computer sends a request through your internet connection, travels to a server somewhere in the world, and the website's information is sent back to your screen — all within seconds.</p>
+      <p>Think of it like a highway: the internet is the road, websites are the destinations, your browser is your car, and your internet provider (ISP) is the fuel station that keeps you moving.</p>
+
+      <table class="data-table">
+        <thead><tr><th>Term</th><th>What It Means</th><th>Kenyan Example</th></tr></thead>
         <tbody>
-          <tr><td><strong>ISP</strong> (Internet Service Provider)</td><td>Company that provides internet access for a fee</td><td>Safaricom, Telkom, Airtel, Zuku, Faiba</td></tr>
-          <tr><td><strong>Wi-Fi</strong></td><td>Wireless connection to the internet (no cables)</td><td>Home Wi-Fi, cybercafé Wi-Fi</td></tr>
-          <tr><td><strong>Mobile Data</strong></td><td>Internet via mobile phone network (3G, 4G, 5G)</td><td>Safaricom bundles, Airtel data plans</td></tr>
-          <tr><td><strong>URL</strong> (Web Address)</td><td>Unique address of a website</td><td>www.google.com, www.kra.go.ke</td></tr>
-          <tr><td><strong>Website</strong></td><td>A collection of web pages under one domain</td><td>YouTube, Facebook, eCitizen</td></tr>
-          <tr><td><strong>Web Page</strong></td><td>A single document on a website</td><td>Contact page, About Us page</td></tr>
+          <tr><td><strong>ISP</strong></td><td>Internet Service Provider — company that connects you to the internet</td><td>Safaricom, Airtel, Telkom, Zuku, Faiba</td></tr>
+          <tr><td><strong>Wi-Fi</strong></td><td>Wireless internet connection via a router (no cable needed)</td><td>Home Wi-Fi, office Wi-Fi, cybercafé</td></tr>
+          <tr><td><strong>Mobile Data</strong></td><td>Internet via phone network (3G / 4G / 5G)</td><td>Safaricom bundles, Airtel data packs</td></tr>
+          <tr><td><strong>URL</strong></td><td>Web address — the unique location of a website</td><td>www.kra.go.ke, www.ecitizen.go.ke</td></tr>
+          <tr><td><strong>Website</strong></td><td>A collection of pages under one domain</td><td>YouTube, Facebook, Nation.co.ke</td></tr>
+          <tr><td><strong>Browser</strong></td><td>Software used to access websites</td><td>Chrome, Firefox, Edge</td></tr>
+          <tr><td><strong>Download</strong></td><td>Receiving a file from the internet to your computer</td><td>Downloading a PDF tax certificate from KRA</td></tr>
+          <tr><td><strong>Upload</strong></td><td>Sending a file from your computer to the internet</td><td>Uploading a passport photo to eCitizen</td></tr>
         </tbody>
       </table>
     </div>
 
     <div class="content-card reveal">
-      <h3><i class="fas fa-tower-cell"></i> Internet Connections in Kenya</h3>
-      <div class="isp-grid">
-        <div class="isp-item"><i class="fas fa-wifi"></i> Safaricom Home Fibre</div>
-        <div class="isp-item"><i class="fas fa-mobile-alt"></i> Safaricom Mobile Data</div>
-        <div class="isp-item"><i class="fas fa-wifi"></i> Telkom Fibre</div>
-        <div class="isp-item"><i class="fas fa-mobile-alt"></i> Airtel Data</div>
-        <div class="isp-item"><i class="fas fa-wifi"></i> Zuku Fibre</div>
-        <div class="isp-item"><i class="fas fa-wifi"></i> Faiba 4G</div>
+      <h3><i class="fas fa-signal"></i> Internet Connection Types in Kenya</h3>
+      <div class="speed-grid">
+        <div class="speed-card">
+          <div class="speed-icon"><i class="fas fa-wifi"></i></div>
+          <div class="speed-name">Home Fibre</div>
+          <div class="speed-val">10–200 Mbps<br>Safaricom, Zuku, Telkom</div>
+        </div>
+        <div class="speed-card">
+          <div class="speed-icon"><i class="fas fa-broadcast-tower"></i></div>
+          <div class="speed-name">4G Mobile Data</div>
+          <div class="speed-val">5–50 Mbps<br>Safaricom, Airtel, Telkom</div>
+        </div>
+        <div class="speed-card">
+          <div class="speed-icon"><i class="fas fa-mobile-alt"></i></div>
+          <div class="speed-name">3G Mobile Data</div>
+          <div class="speed-val">1–10 Mbps<br>Countrywide coverage</div>
+        </div>
+        <div class="speed-card">
+          <div class="speed-icon"><i class="fas fa-store"></i></div>
+          <div class="speed-name">Cybercafé</div>
+          <div class="speed-val">Pay-per-hour<br>Ksh 20–50/hr typical</div>
+        </div>
+        <div class="speed-card">
+          <div class="speed-icon"><i class="fas fa-satellite"></i></div>
+          <div class="speed-name">Faiba 4G</div>
+          <div class="speed-val">Fast &amp; affordable<br>Unlimited bundles</div>
+        </div>
       </div>
-      <div class="callout tip"><div class="callout-icon"><i class="fas fa-lightbulb"></i></div><div class="callout-body"><strong>Cybercafés Still Exist</strong><p>If you don't have home internet, visit a cybercafé. They charge per hour (usually 20–50 Ksh). Bring a USB drive to save your work.</p></div></div>
+
+      <div class="callout kenya">
+        <div class="callout-icon"><i class="fas fa-map-marker-alt"></i></div>
+        <div class="callout-body">
+          <strong>Using Cybercafés in Kenya</strong>
+          <p>If you don't have home internet, cybercafés are your best option. They charge Ksh 20–50 per hour. Always <strong>log out</strong> of all accounts before leaving. Bring a USB drive to save your work — don't rely on the café's computer to keep your files.</p>
+        </div>
+      </div>
+
+      <div class="callout tip">
+        <div class="callout-icon"><i class="fas fa-phone"></i></div>
+        <div class="callout-body">
+          <strong>Check Your Data Balance</strong>
+          <ul>
+            <li><strong>Safaricom:</strong> Dial <strong>*544#</strong> or SMS "data" to 200</li>
+            <li><strong>Airtel:</strong> Dial <strong>*123#</strong></li>
+            <li><strong>Telkom:</strong> Dial <strong>*544#</strong></li>
+          </ul>
+        </div>
+      </div>
     </div>
 
     <div class="practice-box reveal">
-      <div class="practice-title"><span class="pnum">1</span> Understanding Connection Types</div>
+      <div class="practice-title"><span class="pnum">1</span> Understand Your Connection</div>
       <ol class="practice-steps">
-        <li><i class="fas fa-question-circle"></i> Ask yourself: What internet connection do I have at home? (Wi-Fi / Mobile Data / None)</li>
-        <li><i class="fas fa-chart-line"></i> If you use mobile data, check your data balance by dialling *544# (Safaricom) or *123# (Airtel)</li>
-        <li><i class="fas fa-store"></i> Visit a nearby cybercafé and ask: "How much per hour?" and "Do you have printing?"</li>
+        <li><i class="fas fa-question-circle"></i> Identify: What type of internet do you currently use? (Wi-Fi / Mobile Data / Cybercafé)</li>
+        <li><i class="fas fa-chart-bar"></i> If using mobile data, check your balance now using the USSD code above</li>
+        <li><i class="fas fa-store"></i> Find the nearest cybercafé and note its hourly rate and opening hours</li>
+        <li><i class="fas fa-list-ul"></i> Write down 5 things you want to do online — we will do all of them in this chapter</li>
       </ol>
     </div>
 
-    <div class="skill-check reveal"><h4>Skill Check — Section 6.1</h4><div class="skill-items"><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I understand what the internet is</span><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I know Kenyan ISPs</span></div></div>
+    <div class="skill-check reveal">
+      <h4>Skill Check — Section 6.1</h4>
+      <div class="skill-items">
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I understand what the internet is</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I know the main Kenyan ISPs</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can explain URL, Wi-Fi, and mobile data</span>
+      </div>
+    </div>
 
+    <!-- ══════════════════════════════════════════ -->
     <!-- SECTION 6.2 -->
+    <!-- ══════════════════════════════════════════ -->
     <div id="s2" class="section-heading reveal">
       <div class="sec-icon"><i class="fas fa-compass"></i></div>
       <div><div class="sec-badge">Section 6.2</div><h2>Web Browsers — Your Gateway to the Internet</h2></div>
     </div>
 
     <div class="content-card reveal">
-      <h3><i class="fas fa-chrome"></i> Popular Web Browsers</h3>
+      <h3><i class="fas fa-globe"></i> The Four Major Browsers</h3>
       <div class="method-grid">
-        <div class="method-card"><div class="method-label"><i class="fab fa-chrome"></i> Google Chrome</div><p>Most popular browser. Fast, secure, syncs across devices. Default on many computers.</p></div>
-        <div class="method-card"><div class="method-label"><i class="fab fa-firefox"></i> Mozilla Firefox</div><p>Privacy-focused, open source. Good alternative to Chrome.</p></div>
-        <div class="method-card"><div class="method-label"><i class="fab fa-edge"></i> Microsoft Edge</div><p>Built into Windows 10/11. Improved and fast.</p></div>
-        <div class="method-card"><div class="method-label"><i class="fab fa-safari"></i> Safari</div><p>Default on Apple Mac and iPhone.</p></div>
+        <div class="method-card">
+          <div class="method-label"><i class="fab fa-chrome"></i> Google Chrome</div>
+          <p>The most popular browser worldwide. Fast, syncs with your Google account, and works perfectly on any website. <strong>Recommended for this course.</strong></p>
+        </div>
+        <div class="method-card">
+          <div class="method-label"><i class="fab fa-firefox"></i> Mozilla Firefox</div>
+          <p>Excellent privacy features. Open source and free. A great alternative if you're concerned about Google tracking your activity.</p>
+        </div>
+        <div class="method-card">
+          <div class="method-label"><i class="fab fa-edge"></i> Microsoft Edge</div>
+          <p>Built into Windows 10 and 11. Updated and fast — no longer the slow browser it once was. Works well for government sites.</p>
+        </div>
+        <div class="method-card">
+          <div class="method-label"><i class="fab fa-safari"></i> Safari</div>
+          <p>Default on iPhones and Mac computers. Very fast on Apple devices. If you have an iPhone, you likely already use this.</p>
+        </div>
       </div>
     </div>
 
     <div class="content-card reveal">
-      <h3><i class="fas fa-play-circle"></i> Opening a Web Browser</h3>
-      <div class="steps-box"><div class="steps-title">Launch Chrome (Windows)</div><ol class="steps-list"><li><span class="step-num">1</span> Click the <strong>Start Button</strong></li><li><span class="step-num">2</span> Type <strong>Chrome</strong> and press Enter</li><li><span class="step-num">3</span> OR double-click the Chrome icon on Desktop</li></ol></div>
-      
+      <h3><i class="fas fa-map"></i> Anatomy of a Web Browser</h3>
       <div class="browser-preview">
         <div class="browser-bar">
           <div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div>
-          <div class="browser-url">🔒 https://www.google.com</div>
+          <div class="browser-url"><span class="lock">🔒</span> https://www.ecitizen.go.ke</div>
         </div>
         <div class="browser-content">
-          <h4>Google Search</h4>
-          <p>Type your search terms here and press Enter</p>
+          <h4>eCitizen — Kenya Government Services Portal</h4>
+          <p>📋 Apply for Birth Certificates &nbsp;|&nbsp; 🪪 Passport Applications &nbsp;|&nbsp; 🚗 NTSA Services</p>
+          <p style="color:#999;font-size:.7rem;margin-top:.5rem;">The padlock icon (🔒) means this site is secure (HTTPS). Always check for this before entering personal information.</p>
         </div>
       </div>
 
-      <h4>Browser Anatomy</h4>
-      <table class="excel-table">
-        <thead><tr><th>Part</th><th>Location</th><th>What It Does</th></tr></thead>
+      <table class="data-table" style="margin-top:1rem;">
+        <thead><tr><th>Part of Browser</th><th>Location</th><th>What It Does</th></tr></thead>
         <tbody>
-          <tr><td><strong>Address Bar</strong></td><td>Top of browser (URL bar)</td><td>Type website addresses here (e.g., www.kra.go.ke) press Enter to go to that site</td></tr>
-          <tr><td><strong>Search Bar</strong> (often same as Address Bar)</td><td>Same as address bar in Chrome)</td><td>Type what you're looking for</td></tr>
-          <tr><td><strong>Back/Forward Buttons</strong></td><td>Left of address bar}<td>Go back to previous page or forward again</td></tr>
-          <tr><td><strong>Refresh Button</strong></td><td>Next to address bar}七十年代Reload current page (circle arrow)</td></tr>
-          <tr><td><strong>Bookmarks Bar</strong></td><td>Below address bar}七十年代Save your favourite websites for quick access</td></tr>
+          <tr><td><strong>Address Bar</strong></td><td>Top — centre of the browser</td><td>Type a web address (URL) like <em>www.kra.go.ke</em> and press Enter</td></tr>
+          <tr><td><strong>Back / Forward</strong></td><td>Top left, arrows ← →</td><td>Go back to the previous page or forward to the next</td></tr>
+          <tr><td><strong>Refresh Button</strong></td><td>Next to address bar (↺)</td><td>Reload the current page. Use if a page is loading slowly or has errors</td></tr>
+          <tr><td><strong>Tabs</strong></td><td>Row at the very top</td><td>Open multiple websites at once without closing any</td></tr>
+          <tr><td><strong>Bookmarks Bar</strong></td><td>Below address bar</td><td>Save favourite websites for one-click access</td></tr>
+          <tr><td><strong>Padlock (🔒)</strong></td><td>Left of address bar</td><td>Shows the site uses HTTPS — your data is encrypted. Always look for this!</td></tr>
+          <tr><td><strong>Menu (⋮ or ≡)</strong></td><td>Top right corner</td><td>Settings, history, downloads, print, and more</td></tr>
         </tbody>
       </table>
     </div>
 
     <div class="content-card reveal">
-      <h3><i class="fas fa-bookmark"></i> Bookmarks — Save Websites for Later</h3>
-      <div class="steps-box"><div class="steps-title">Bookmark a Website</div><ol class="steps-list"><li><span class="step-num">1</span> Go to the website you want to save</li><li><span class="step-num">2</span> Click the <strong>star icon</strong> at the right end of the address bar</li><li><span class="step-num">3</span> Choose a folder (Bookmarks Bar is easiest)</li><li><span class="step-num">4</span> Click Done</li><li><span class="step-num">5</span> The bookmark appears on your Bookmarks Bar</li></ol></div>
+      <h3><i class="fas fa-keyboard"></i> Essential Browser Shortcuts</h3>
+      <div class="shortcut-grid">
+        <div class="shortcut-card"><div class="keys"><span class="key">Ctrl</span><span class="key">L</span></div><div class="shortcut-desc"><strong>Select address bar</strong> — jump to address bar to type a new URL</div></div>
+        <div class="shortcut-card"><div class="keys"><span class="key">Ctrl</span><span class="key">T</span></div><div class="shortcut-desc"><strong>New tab</strong> — open a fresh blank tab</div></div>
+        <div class="shortcut-card"><div class="keys"><span class="key">Ctrl</span><span class="key">W</span></div><div class="shortcut-desc"><strong>Close tab</strong> — close the current tab</div></div>
+        <div class="shortcut-card"><div class="keys"><span class="key">Ctrl</span><span class="key">D</span></div><div class="shortcut-desc"><strong>Bookmark</strong> — save the current page as a bookmark</div></div>
+        <div class="shortcut-card"><div class="keys"><span class="key">F5</span></div><div class="shortcut-desc"><strong>Refresh</strong> — reload the current page</div></div>
+        <div class="shortcut-card"><div class="keys"><span class="key">Ctrl</span><span class="key">H</span></div><div class="shortcut-desc"><strong>History</strong> — see all websites you've visited</div></div>
+        <div class="shortcut-card"><div class="keys"><span class="key">Ctrl</span><span class="key">+</span></div><div class="shortcut-desc"><strong>Zoom in</strong> — make text bigger (useful for small text)</div></div>
+        <div class="shortcut-card"><div class="keys"><span class="key">Ctrl</span><span class="key">−</span></div><div class="shortcut-desc"><strong>Zoom out</strong> — make text smaller</div></div>
+      </div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-star"></i> Bookmarks — Save Websites You Use Often</h3>
+      <p>Bookmarks let you save a website so you can return in one click. Save frequently used sites like eCitizen, KRA iTax, and Gmail.</p>
+      <div class="steps-box">
+        <div class="steps-title"><i class="fas fa-bookmark"></i> How to Bookmark a Website (Chrome)</div>
+        <ol class="steps-list">
+          <li><span class="step-num">1</span> Go to the website you want to save (e.g., www.ecitizen.go.ke)</li>
+          <li><span class="step-num">2</span> Look at the far right of the address bar — click the <strong>star icon ☆</strong></li>
+          <li><span class="step-num">3</span> A small box appears — change the name if you want (e.g., "eCitizen")</li>
+          <li><span class="step-num">4</span> Choose <strong>Bookmarks Bar</strong> as the folder</li>
+          <li><span class="step-num">5</span> Click <strong>Done</strong> — the bookmark now appears in your bookmarks bar</li>
+          <li><span class="step-num">6</span> Next time, just click it to open the site instantly</li>
+        </ol>
+      </div>
+      <div class="callout note">
+        <div class="callout-icon"><i class="fas fa-info-circle"></i></div>
+        <div class="callout-body">
+          <strong>Recommended Bookmarks for Kenyans</strong>
+          <ul>
+            <li>www.ecitizen.go.ke — Government services</li>
+            <li>itax.kra.go.ke — KRA tax filing</li>
+            <li>gmail.com — Your email</li>
+            <li>www.helb.co.ke — Student loans</li>
+            <li>www.ntsa.go.ke — NTSA vehicle/licence services</li>
+          </ul>
+        </div>
+      </div>
     </div>
 
     <div class="practice-box reveal">
-      <div class="practice-title"><span class="pnum">2</span> Browser Basics</div>
+      <div class="practice-title"><span class="pnum">2</span> Browser Basics Practice</div>
       <ol class="practice-steps">
-        <li><i class="fas fa-chrome"></i> Open Google Chrome (or your browser)</li>
-        <li><i class="fas fa-link"></i> In the address bar, type <strong>www.google.com</strong> and press Enter</li>
-        <li><i class="fas fa-search"></i> Type "eCitizen Kenya" in the search box, press Enter</li>
-        <li><i class="fas fa-hand-point-right"></i> Click the first result (www.ecitizen.go.ke)</li>
-        <li><i class="fas fa-star"></i> Bookmark the eCitizen website</li>
-        <li><i class="fas fa-arrow-left"></i> Click the Back button to return to Google</li>
-        <li><i class="fas fa-sync"></i> Click Refresh to reload the page</li>
+        <li><i class="fab fa-chrome"></i> Open Google Chrome (or your browser of choice)</li>
+        <li><i class="fas fa-link"></i> Press <span class="key">Ctrl</span>+<span class="key">L</span>, type <strong>www.ecitizen.go.ke</strong>, press Enter</li>
+        <li><i class="fas fa-lock"></i> Check that the padlock 🔒 appears in the address bar</li>
+        <li><i class="fas fa-star"></i> Bookmark eCitizen using <span class="key">Ctrl</span>+<span class="key">D</span></li>
+        <li><i class="fas fa-plus"></i> Open a new tab with <span class="key">Ctrl</span>+<span class="key">T</span>, go to gmail.com, bookmark it too</li>
+        <li><i class="fas fa-arrow-left"></i> Use the Back button (←) to navigate between pages</li>
+        <li><i class="fas fa-sync"></i> Press <span class="key">F5</span> to refresh the page</li>
       </ol>
     </div>
 
-    <div class="skill-check reveal"><h4>Skill Check — Section 6.2</h4><div class="skill-items"><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can open a web browser</span><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can navigate to websites</span><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can bookmark a website</span></div></div>
+    <div class="skill-check reveal">
+      <h4>Skill Check — Section 6.2</h4>
+      <div class="skill-items">
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can open a browser and type a URL</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I know what the padlock means</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can bookmark important websites</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I use browser shortcuts (Ctrl+T, Ctrl+D)</span>
+      </div>
+    </div>
 
+    <!-- ══════════════════════════════════════════ -->
     <!-- SECTION 6.3 -->
+    <!-- ══════════════════════════════════════════ -->
     <div id="s3" class="section-heading reveal">
-      <div class="sec-icon"><i class="fas fa-search"></i></div>
-      <div><div class="sec-badge">Section 6.3</div><h2>Effective Searching — Find Anything Online</h2></div>
+      <div class="sec-icon"><i class="fab fa-google"></i></div>
+      <div><div class="sec-badge">Section 6.3</div><h2>Google Search — Finding Anything Online</h2></div>
     </div>
 
     <div class="content-card reveal">
-      <h3><i class="fab fa-google"></i> Google Search Tips</h3>
-      <p>Knowing how to search effectively saves time and finds better results.</p>
-      
-      <table class="excel-table">
-        <thead><tr><th>Technique</th><th>What to Type</th><th>What It Does</th></tr></thead>
+      <h3><i class="fas fa-search"></i> How Google Search Works</h3>
+      <p>Google searches billions of web pages in under a second to show you the most relevant results. The key to getting good results is using the <strong>right keywords</strong> — the important words that describe what you want, not complete sentences.</p>
+
+      <h4>Basic Search Tips</h4>
+      <div class="method-grid">
+        <div class="method-card">
+          <div class="method-label"><i class="fas fa-check"></i> Good Search</div>
+          <ul>
+            <li>Use short, specific keywords</li>
+            <li>Include the country if needed</li>
+            <li>Use the most important words first</li>
+            <li>Ignore small words (the, a, is, how)</li>
+          </ul>
+        </div>
+        <div class="method-card">
+          <div class="method-label"><i class="fas fa-times"></i> Avoid This</div>
+          <ul>
+            <li>Typing full sentences ("Can you please tell me how to…")</li>
+            <li>Using too many vague words</li>
+            <li>Not being specific enough</li>
+            <li>Forgetting to add "Kenya" for local results</li>
+          </ul>
+        </div>
+      </div>
+
+      <h4>Kenyan Search Examples</h4>
+      <div class="search-demo">
+        <div class="search-query">how to apply passport Kenya ecitizen</div>
+        <div class="search-result-title">How to Apply for a Kenyan Passport on eCitizen - Complete Guide</div>
+        <div class="search-result-url">https://www.ecitizen.go.ke › passport-application</div>
+        <div class="search-result-snippet">Step-by-step guide to applying for a Kenyan passport online using eCitizen. Requirements: National ID, passport photos, Ksh 4,550...</div>
+      </div>
+      <div class="search-demo">
+        <div class="search-query">KRA iTax PIN registration requirements</div>
+        <div class="search-result-title">How to Get a KRA PIN - iTax Registration Guide | KRA</div>
+        <div class="search-result-url">https://itax.kra.go.ke › get-pin</div>
+        <div class="search-result-snippet">Register for a KRA Personal Identification Number (PIN) online. Requirements: National ID, email address, phone number...</div>
+      </div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-magic"></i> Advanced Google Search Techniques</h3>
+      <table class="data-table">
+        <thead><tr><th>Technique</th><th>How to Use</th><th>Example</th></tr></thead>
         <tbody>
-          <tr><td><strong>Use quotes for exact phrase</strong></td><td>"Nairobi city county"</td><td>Finds results with those exact words in that order</td></tr>
-          <tr><td><strong>Minus sign to exclude words</strong></td><td>jaguar -car -animal</td><td>Finds Jaguar the brand, not the animal or car</td></tr>
-          <tr><td><strong>Site search</strong></td><td>site:kra.go.ke tax rates</td><td>Searches only within that specific website</td></tr>
-          <tr><td><strong>Define a word</strong></td><td>define:digital literacy</td><td>Shows dictionary definition</td></tr>
-          <tr><td><strong>Weather</strong></td><td>weather Kisumu</td><td>Shows current weather for that city</td></tr>
+          <tr><td><strong>"Exact phrase"</strong></td><td>Put words in quote marks to search for that exact phrase</td><td>"Safaricom customer care number"</td></tr>
+          <tr><td><strong>site:</strong></td><td>Search only within one website</td><td>site:kra.go.ke tax return</td></tr>
+          <tr><td><strong>filetype:</strong></td><td>Find specific file types</td><td>KCSE past papers filetype:pdf</td></tr>
+          <tr><td><strong>Minus (−)</strong></td><td>Exclude a word from results</td><td>laptop price Kenya -Jumia</td></tr>
+          <tr><td><strong>OR</strong></td><td>Search for either of two terms</td><td>Safaricom OR Airtel fibre Kenya</td></tr>
+          <tr><td><strong>intitle:</strong></td><td>Find pages with a specific word in the title</td><td>intitle:"digital literacy Kenya"</td></tr>
         </tbody>
       </table>
+
+      <div class="callout tip">
+        <div class="callout-icon"><i class="fas fa-lightbulb"></i></div>
+        <div class="callout-body">
+          <strong>Reading Search Results</strong>
+          <ul>
+            <li><strong>Blue link:</strong> The website title — click this to visit the page</li>
+            <li><strong>Green text:</strong> The URL (website address) — check this is a genuine site</li>
+            <li><strong>Grey text:</strong> A short description of what the page contains</li>
+            <li><strong>"Ad" label:</strong> Paid advertisement — not always the most trusted result</li>
+          </ul>
+        </div>
+      </div>
     </div>
 
     <div class="content-card reveal">
-      <h3><i class="fas fa-robot"></i> Trustworthy Sources</h3>
-      <div class="callout important"><div class="callout-icon"><i class="fas fa-check-circle"></i></div><div class="callout-body"><strong>Not everything online is true</strong><p>Always check: Who wrote the information? Is it a .gov (government) or .ac.ke (university) site? When was it published? Compare multiple sources before believing.</p></div></div>
-      
-      <h4>Reliable Kenyan Websites</h4>
-      <ul>
-        <li><strong>Government:</strong> www.ecitizen.go.ke, www.kra.go.ke, www.immigration.go.ke</li>
-        <li><strong>News:</strong> www.nation.africa, www.standardmedia.co.ke, www.citizen.digital</li>
-        <li><strong>Education:</strong> www.knec.ac.ke, www.ku.ac.ke, www.uonbi.ac.ke</li>
-        <li><strong>Banking:</strong> Your bank's official website (KCB, Equity, Co-op, etc.)</li>
-      </ul>
+      <h3><i class="fas fa-tools"></i> Useful Google Tools</h3>
+      <div class="method-grid">
+        <div class="method-card">
+          <div class="method-label"><i class="fas fa-images"></i> Google Images</div>
+          <p>Search for photos. Click <strong>Images</strong> at the top of Google. Useful for finding passport photo backgrounds, product images, and maps.</p>
+        </div>
+        <div class="method-card">
+          <div class="method-label"><i class="fas fa-map-marker-alt"></i> Google Maps</div>
+          <p>Find any location in Kenya. Search for a place, get directions, check business hours. Type <strong>maps.google.com</strong> or search "Google Maps Kenya".</p>
+        </div>
+        <div class="method-card">
+          <div class="method-label"><i class="fas fa-newspaper"></i> Google News</div>
+          <p>Read current news. Visit <strong>news.google.com</strong> or click <strong>News</strong> in Google. Shows headlines from Nation, Standard, and other Kenyan outlets.</p>
+        </div>
+        <div class="method-card">
+          <div class="method-label"><i class="fas fa-calculator"></i> Google Calculator</div>
+          <p>Type any calculation directly into Google search. Examples: <em>USD to KES</em>, <em>15% of 5000</em>, <em>Nairobi to Mombasa km</em> — Google answers instantly.</p>
+        </div>
+      </div>
     </div>
 
     <div class="practice-box reveal">
-      <div class="practice-title"><span class="pnum">3</span> Search Practice</div>
+      <div class="practice-title"><span class="pnum">3</span> Google Search Practice</div>
       <ol class="practice-steps">
-        <li><i class="fas fa-search"></i> Go to www.google.com</li>
-        <li><i class="fas fa-quote-left"></i> Search using quotes: "Matatu routes in Nairobi"</li>
-        <li><i class="fas fa-globe"></i> Search: site:kra.go.ke iTax</li>
-        <li><i class="fas fa-def"></i> Search: define:phishing</li>
-        <li><i class="fas fa-cloud-sun"></i> Search: weather Mombasa</li>
-        <li><i class="fas fa-book"></i> Find a reliable website about Kenyan history — bookmark it</li>
+        <li><i class="fas fa-search"></i> Go to www.google.com and search: <strong>eCitizen Kenya passport application</strong></li>
+        <li><i class="fas fa-link"></i> Identify the URL, title, and description of the first result</li>
+        <li><i class="fas fa-file-pdf"></i> Search: <strong>KCSE past papers 2023 filetype:pdf</strong> — find a downloadable exam</li>
+        <li><i class="fas fa-map"></i> Search: <strong>Huduma Centre near me</strong> on Google Maps</li>
+        <li><i class="fas fa-money-bill"></i> Type <strong>100 USD to KES</strong> in Google — see the exchange rate instantly</li>
+        <li><i class="fas fa-quote-left"></i> Try an exact phrase search: <strong>"Safaricom M-Pesa charges"</strong> and note the difference</li>
       </ol>
     </div>
 
-    <div class="skill-check reveal"><h4>Skill Check — Section 6.3</h4><div class="skill-items"><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can search using keywords</span><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can evaluate website reliability</span></div></div>
+    <div class="skill-check reveal">
+      <h4>Skill Check — Section 6.3</h4>
+      <div class="skill-items">
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I use keywords, not sentences</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can use "quotes" for exact phrases</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I know how to read search results</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I've used Google Maps to find a location</span>
+      </div>
+    </div>
 
+    <!-- ══════════════════════════════════════════ -->
     <!-- SECTION 6.4 -->
+    <!-- ══════════════════════════════════════════ -->
     <div id="s4" class="section-heading reveal">
       <div class="sec-icon"><i class="fas fa-envelope"></i></div>
-      <div><div class="sec-badge">Section 6.4</div><h2>Email Accounts — Your Digital Identity</h2></div>
+      <div><div class="sec-badge">Section 6.4</div><h2>Creating a Gmail Account</h2></div>
     </div>
 
     <div class="content-card reveal">
-      <h3><i class="fas fa-at"></i> Why You Need an Email Address</h3>
-      <ul>
-        <li>Apply for jobs (CV submission)</li>
-        <li>Register for eCitizen (passports, driving license, business permits)</li>
-        <li>Open a bank account</li>
-        <li>Receive official communication</li>
-        <li>Sign up for online services (Jumia, KPLC, etc.)</li>
-        <li>Contact teachers, employers, or customers</li>
-      </ul>
-    </div>
+      <h3><i class="fas fa-user-plus"></i> Why Gmail?</h3>
+      <p>Gmail (Google Mail) is Kenya's most widely used email service. It is free, trusted by employers, and required for almost every government portal including eCitizen, KRA iTax, and HELB. Your Gmail address becomes your digital identity — choose it carefully.</p>
 
-    <div class="content-card reveal">
-      <h3><i class="fas fa-mail-bulk"></i> Free Email Providers in Kenya</h3>
-      <div class="method-grid">
-        <div class="method-card"><div class="method-label"><i class="fab fa-google"></i> Gmail</div><p>Most popular. 15GB free storage. Works on any device. Sign up at mail.google.com</p></div>
-        <div class="method-card"><div class="method-label"><i class="fab fa-microsoft"></i> Outlook</div><p>Microsoft's email. Good for professional use. Outlook.com</p></div>
-        <div class="method-card"><div class="method-label"><i class="fab fa-yahoo"></i> Yahoo Mail</div><p>1TB storage. Older but still functional. Yahoo.com/mail</p></div>
+      <div class="callout important">
+        <div class="callout-icon"><i class="fas fa-lightbulb"></i></div>
+        <div class="callout-body">
+          <strong>Choosing a Professional Email Address</strong>
+          <ul>
+            <li><strong>Good:</strong> john.kamau@gmail.com, j.wanjiku2024@gmail.com, akinyi.professional@gmail.com</li>
+            <li><strong>Avoid:</strong> coolboy254@gmail.com, hotgirl_nairobi@gmail.com, sexy_kim@gmail.com</li>
+            <li>Employers judge your email address — use your real name. If your name is taken, add your birth year or middle initial.</li>
+          </ul>
+        </div>
       </div>
     </div>
 
     <div class="content-card reveal">
-      <h3><i class="fas fa-user-plus"></i> Creating a Gmail Account — Step by Step</h3>
-      <div class="steps-box"><div class="steps-title">Create Your Free Gmail</div><ol class="steps-list"><li><span class="step-num">1</span> Go to <strong>mail.google.com</strong> or <strong>accounts.google.com/signup</strong></li><li><span class="step-num">2</span> Click <strong>Create account → For myself</strong></li><li><span class="step-num">3</span> Fill in: First name, Last name</li><li><span class="step-num">4</span> Choose a <strong>username</strong> (e.g., john.mwangi2025) — this becomes your email: john.mwangi2025@gmail.com</li><li><span class="step-num">5</span> Create a <strong>strong password</strong> (at least 8 characters: letters + numbers + symbols)</li><li><span class="step-num">6</span> Confirm password</li><li><span class="step-num">7</span> Click Next → enter phone number (for recovery) → Next → verify with code sent via SMS</li><li><span class="step-num">8</span> Fill in recovery email (optional), birth date, gender → Next → Accept terms</li></ol></div>
-      
-      <div class="callout warning"><div class="callout-icon"><i class="fas fa-lock"></i></div><div class="callout-body"><strong>Password Security Rules</strong><ul><li>NEVER share your password with anyone</li><li>Use different passwords for different accounts</li><li>Write your password in a safe place (not on a sticky note on your computer!)</li><li>Use a phrase: Mombasa2024@Kenya is stronger than "password123"</li></ul></div></div>
+      <h3><i class="fas fa-list-ol"></i> Creating a Gmail Account — Step by Step</h3>
+      <div class="steps-box">
+        <div class="steps-title"><i class="fas fa-play-circle"></i> Create Your Gmail Account</div>
+        <ol class="steps-list">
+          <li><span class="step-num">1</span> Open Chrome and go to <strong>accounts.google.com</strong> or search "Create Gmail account"</li>
+          <li><span class="step-num">2</span> Click <strong>"Create account"</strong> → Choose <strong>"For my personal use"</strong></li>
+          <li><span class="step-num">3</span> Enter your <strong>First Name</strong> and <strong>Last Name</strong></li>
+          <li><span class="step-num">4</span> Choose your email address (e.g., jane.akinyi2024@gmail.com). If taken, Google suggests alternatives</li>
+          <li><span class="step-num">5</span> Create a <strong>strong password</strong> (see Section 6.7 for tips) — write it down safely</li>
+          <li><span class="step-num">6</span> Enter your <strong>phone number</strong> (for verification and account recovery)</li>
+          <li><span class="step-num">7</span> Enter your <strong>date of birth</strong> and gender</li>
+          <li><span class="step-num">8</span> Google sends an SMS verification code to your phone — enter it</li>
+          <li><span class="step-num">9</span> Read and <strong>Agree</strong> to Google's Terms and Privacy Policy</li>
+          <li><span class="step-num">10</span> Your account is created! You are now taken to Gmail</li>
+        </ol>
+      </div>
+
+      <div class="callout warning">
+        <div class="callout-icon"><i class="fas fa-exclamation-triangle"></i></div>
+        <div class="callout-body">
+          <strong>Write Down Your Details!</strong>
+          <p>After creating your account, immediately write down: your full email address, your password, and the recovery phone number. Store this in a safe place. Many people get locked out of their accounts because they forgot their password.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-desktop"></i> Navigating Gmail — The Interface</h3>
+
+      <div class="gmail-ui">
+        <div class="gmail-header">
+          <div class="gmail-logo">M Gmail</div>
+          <div class="gmail-search">🔍 Search mail</div>
+          <div style="margin-left:auto;font-size:.75rem;color:#555;">jane.akinyi2024@gmail.com ▾</div>
+        </div>
+        <div class="gmail-layout">
+          <div class="gmail-sidebar">
+            <div class="gmail-sb-btn active"><i class="fas fa-inbox"></i> Inbox <span style="margin-left:auto;font-size:.65rem;font-weight:700;color:#EA4335;">3</span></div>
+            <div class="gmail-sb-btn"><i class="fas fa-star"></i> Starred</div>
+            <div class="gmail-sb-btn"><i class="fas fa-paper-plane"></i> Sent</div>
+            <div class="gmail-sb-btn"><i class="fas fa-file-alt"></i> Drafts</div>
+            <div class="gmail-sb-btn"><i class="fas fa-trash"></i> Trash</div>
+            <div class="gmail-sb-btn"><i class="fas fa-exclamation-circle"></i> Spam</div>
+          </div>
+          <div class="gmail-inbox">
+            <div class="gmail-row unread"><div class="gmail-sender">KRA Kenya</div><div class="gmail-subject">Your iTax PIN has been registered successfully</div><div class="gmail-time">10:24 AM</div></div>
+            <div class="gmail-row unread"><div class="gmail-sender">eCitizen</div><div class="gmail-subject">Passport application received — Reference: EC2024...</div><div class="gmail-time">Yesterday</div></div>
+            <div class="gmail-row"><div class="gmail-sender">Mum</div><div class="gmail-subject">Are you coming home this weekend?</div><div class="gmail-time">Mon</div></div>
+            <div class="gmail-row"><div class="gmail-sender">HELB Portal</div><div class="gmail-subject">Your loan application status update</div><div class="gmail-time">23 Nov</div></div>
+          </div>
+        </div>
+      </div>
+
+      <table class="data-table" style="margin-top:1rem;">
+        <thead><tr><th>Gmail Section</th><th>What It Contains</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Inbox</strong></td><td>All emails sent to you. Bold = unread. Not bold = read.</td></tr>
+          <tr><td><strong>Starred</strong></td><td>Emails you've starred (☆) as important — click the star on any email</td></tr>
+          <tr><td><strong>Sent</strong></td><td>All emails you have sent — check here to confirm an email was delivered</td></tr>
+          <tr><td><strong>Drafts</strong></td><td>Emails you started but haven't sent yet — auto-saved as you type</td></tr>
+          <tr><td><strong>Spam</strong></td><td>Emails Google suspects are junk. Check here occasionally — important emails sometimes land here</td></tr>
+          <tr><td><strong>Trash</strong></td><td>Deleted emails — automatically emptied after 30 days</td></tr>
+        </tbody>
+      </table>
     </div>
 
     <div class="practice-box reveal">
-      <div class="practice-title"><span class="pnum">4</span> Create Your Email Account</div>
+      <div class="practice-title"><span class="pnum">4</span> Create Your Gmail Account</div>
       <ol class="practice-steps">
-        <li><i class="fab fa-google"></i> Follow the steps above to create a Gmail account</li>
-        <li><i class="fas fa-user"></i> Choose a professional username: firstname.lastname@gmail.com or firstname2025@gmail.com</li>
-        <li><i class="fas fa-key"></i> Create a strong password (write it down in a notebook — NOT on your computer)</li>
-        <li><i class="fas fa-mobile-alt"></i> Add your phone number for password recovery</li>
-        <li><i class="fas fa-check"></i> Log in to your new Gmail account</li>
+        <li><i class="fas fa-user-plus"></i> Go to accounts.google.com and create a new Gmail account using your real name</li>
+        <li><i class="fas fa-key"></i> Create a strong password (12+ characters, mix of letters, numbers, symbols)</li>
+        <li><i class="fas fa-pencil-alt"></i> Write your email address and password in a notebook — store it safely</li>
+        <li><i class="fas fa-inbox"></i> Open your Inbox and explore: Inbox, Sent, Drafts, Spam, Trash</li>
+        <li><i class="fas fa-star"></i> Find the first email Gmail sent you — click the star to mark it important</li>
+        <li><i class="fas fa-cog"></i> Go to Settings (⚙️) → check that your name and recovery phone number are correct</li>
       </ol>
     </div>
 
-    <div class="skill-check reveal"><h4>Skill Check — Section 6.4</h4><div class="skill-items"><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I have a working email address</span><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I understand password security</span></div></div>
+    <div class="skill-check reveal">
+      <h4>Skill Check — Section 6.4</h4>
+      <div class="skill-items">
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I have a professional Gmail address</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I know my password and recovery phone</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can navigate Gmail (Inbox, Sent, Drafts)</span>
+      </div>
+    </div>
 
+    <!-- ══════════════════════════════════════════ -->
     <!-- SECTION 6.5 -->
+    <!-- ══════════════════════════════════════════ -->
     <div id="s5" class="section-heading reveal">
       <div class="sec-icon"><i class="fas fa-paper-plane"></i></div>
-      <div><div class="sec-badge">Section 6.5</div><h2>Sending and Receiving Emails</h2></div>
+      <div><div class="sec-badge">Section 6.5</div><h2>Composing, Sending, Replying &amp; Forwarding</h2></div>
     </div>
 
     <div class="content-card reveal">
-      <h3><i class="fas fa-pen"></i> Composing an Email</h3>
-      <div class="steps-box"><div class="steps-title">Write and Send an Email (Gmail)</div><ol class="steps-list"><li><span class="step-num">1</span> Log in to your Gmail</li><li><span class="step-num">2</span> Click the <strong>Compose</strong> button (pencil icon)</li><li><span class="step-num">3</span> In <strong>To</strong> field: type the recipient's email address</li><li><span class="step-num">4</span> In <strong>Subject</strong>: write a brief summary of the email (e.g., "Application for Internship")</li><li><span class="step-num">5</span> In the large box: write your message</li><li><span class="step-num">6</span> Click <strong>Send</strong> button</li></ol></div>
+      <h3><i class="fas fa-pen"></i> Writing and Sending an Email</h3>
+      <p>To send an email, click the <strong>"Compose"</strong> button (red button, top-left in Gmail). A new message window appears. Here is each field explained:</p>
 
-      <div class="email-preview">
-        <div class="email-header">
-          <div class="email-field"><strong>To:</strong> hiring@company.co.ke</div>
-          <div class="email-field"><strong>Subject:</strong> Application for Data Entry Position</div>
+      <div class="email-anatomy">
+        <div class="email-chrome">
+          <span>New Message</span>
+          <div class="email-chrome-dots">
+            <div class="email-chrome-dot"></div><div class="email-chrome-dot"></div><div class="email-chrome-dot"></div>
+          </div>
         </div>
-        <div class="email-body">
+        <div class="email-field-row">
+          <div class="email-label">To</div>
+          <div class="email-value" style="color:#1a73e8;">hr@company.co.ke</div>
+        </div>
+        <div class="email-field-row">
+          <div class="email-label">Cc</div>
+          <div class="email-value" style="color:#888;font-style:italic;">Optional — carbon copy (others who receive a copy)</div>
+        </div>
+        <div class="email-field-row">
+          <div class="email-label">Bcc</div>
+          <div class="email-value" style="color:#888;font-style:italic;">Optional — blind carbon copy (hidden recipients)</div>
+        </div>
+        <div class="email-field-row">
+          <div class="email-label">Subject</div>
+          <div class="email-value" style="font-weight:600;">Application for Data Entry Position – Jane Akinyi</div>
+        </div>
+        <div class="email-body-area">
           <p>Dear Hiring Manager,</p>
-          <p>I am writing to apply for the Data Entry position advertised on your website. I have completed Digital Literacy training and am proficient in Microsoft Word, Excel, and email communication.</p>
-          <p>I have attached my CV for your review.</p>
-          <p>Thank you for your consideration.</p>
-          <p>Sincerely,<br>Jane Akinyi</p>
+          <p>I am writing to apply for the Data Entry position advertised on your website. I am a trained digital literacy student with skills in Microsoft Word, Excel, and professional email communication.</p>
+          <p>Please find my CV attached for your review. I am available for an interview at your earliest convenience.</p>
+          <p>Thank you for your time and consideration.</p>
+          <p>Sincerely,<br>Jane Akinyi<br>Phone: 0712 345 678</p>
         </div>
       </div>
-    </div>
 
-    <div class="content-card reveal">
-      <h3><i class="fas fa-inbox"></i> Reading and Replying to Emails</h3>
-      <ul>
-        <li><strong>Inbox:</strong> All emails you receive appear here. Unread emails are bold.</li>
-        <li><strong>Reply:</strong> Open an email → Click the <strong>Reply</strong> arrow (↩) → Type your response → Send</li>
-        <li><strong>Reply All:</strong> Sends to everyone who received the original email (use carefully)</li>
-        <li><strong>Forward:</strong> Share an email with someone else → Click Forward → type recipient → Send</li>
-        <li><strong>Delete:</strong> Click the trash icon to move email to Trash</li>
-      </ul>
-    </div>
-
-    <div class="content-card reveal">
-      <h3><i class="fas fa-folder"></i> Organising Your Inbox</h3>
-      <ul>
-        <li><strong>Labels (Gmail) / Folders (Outlook):</strong> Create folders to organise emails: "Job Applications", "Banking", "School", "Personal"</li>
-        <li><strong>Archive:</strong> Remove from Inbox but keep for later (not deleted)</li>
-        <li><strong>Star/Flag:</strong> Mark important emails for follow-up</li>
-        <li><strong>Spam/Junk:</strong> Unwanted emails go here automatically. Check occasionally for legitimate emails mistakenly flagged.</li>
-      </ul>
-    </div>
-
-    <div class="practice-box reveal">
-      <div class="practice-title"><span class="pnum">5</span> Send Your First Email</div>
-      <ol class="practice-steps">
-        <li><i class="fas fa-envelope"></i> Log into your Gmail account</li>
-        <li><i class="fas fa-pen"></i> Click Compose</li>
-        <li><i class="fas fa-at"></i> To: <strong>your-own-email-address</strong> (send to yourself for practice)</li>
-        <li><i class="fas fa-heading"></i> Subject: "My First Email"</li>
-        <li><i class="fas fa-keyboard"></i> Message: "Hello! I am learning how to use email. This is my first test message."</li>
-        <li><i class="fas fa-paper-plane"></i> Click Send</li>
-        <li><i class="fas fa-inbox"></i> Check your Inbox — you should see the email</li>
-        <li><i class="fas fa-reply"></i> Open it and click Reply, type "This is my reply!" → Send</li>
-      </ol>
-    </div>
-
-    <div class="skill-check reveal"><h4>Skill Check — Section 6.5</h4><div class="skill-items"><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can compose and send an email</span><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can reply to emails</span><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I understand subject lines</span></div></div>
-
-    <!-- SECTION 6.6 -->
-    <div id="s6" class="section-heading reveal">
-      <div class="sec-icon"><i class="fas fa-paperclip"></i></div>
-      <div><div class="sec-badge">Section 6.6</div><h2>Email Attachments — Sending Files</h2></div>
-    </div>
-
-    <div class="content-card reveal">
-      <h3><i class="fas fa-paperclip"></i> How to Attach a File</h3>
-      <div class="steps-box"><div class="steps-title">Attach a File to an Email</div><ol class="steps-list"><li><span class="step-num">1</span> Click Compose to start a new email</li><li><span class="step-num">2</span> Look for the <strong>paperclip icon</strong> 📎 (Attach files)</li><li><span class="step-num">3</span> Click it → browse your computer for the file</li><li><span class="step-num">4</span> Select the file → Click Open</li><li><span class="step-num">5</span> Wait for the file to upload (a progress bar appears)</li><li><span class="step-num">6</span> Write your message and send</li></ol></div>
-
-      <h4>Attachment Size Limits</h4>
-      <ul>
-        <li>Gmail: <strong>25MB</strong> per email</li>
-        <li>Outlook: <strong>20MB</strong> per email</li>
-        <li>If your file is too large, use <strong>Google Drive</strong> (for Gmail) or compress the file (ZIP)</li>
-      </ul>
-      <div class="callout tip"><div class="callout-icon"><i class="fas fa-download"></i></div><div class="callout-body"><strong>Downloading Attachments</strong><p>When you receive an email with an attachment, click the attachment name or download icon to save it to your computer. Be careful — only download from people you trust.</p></div></div>
-    </div>
-
-    <div class="practice-box reveal">
-      <div class="practice-title"><span class="pnum">6</span> Send an Email with an Attachment</div>
-      <ol class="practice-steps">
-        <li><i class="fas fa-file-word"></i> First, create a simple Word document on your computer: type your name and save as <strong>My_CV.docx</strong></li>
-        <li><i class="fas fa-envelope"></i> Compose a new email to yourself</li>
-        <li><i class="fas fa-heading"></i> Subject: "CV for Job Application"</li>
-        <li><i class="fas fa-paperclip"></i> Click the paperclip icon and attach <strong>My_CV.docx</strong></li>
-        <li><i class="fas fa-paper-plane"></i> Send the email</li>
-        <li><i class="fas fa-inbox"></i> Check your Inbox, open the email, and download the attachment</li>
-      </ol>
-    </div>
-
-    <div class="skill-check reveal"><h4>Skill Check — Section 6.6</h4><div class="skill-items"><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can attach files to emails</span><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can download attachments</span></div></div>
-
-    <!-- SECTION 6.7 -->
-    <div id="s7" class="section-heading reveal">
-      <div class="sec-icon"><i class="fas fa-shield-halved"></i></div>
-      <div><div class="sec-badge">Section 6.7 — Critical</div><h2>Online Safety, Phishing & Scams</h2></div>
-    </div>
-
-    <div class="content-card reveal">
-      <h3><i class="fas fa-skull-crossbones"></i> Common Online Threats in Kenya</h3>
-      
-      <div class="callout warning"><div class="callout-icon"><i class="fas fa-fish"></i></div><div class="callout-body"><strong>Phishing Emails</strong><p>Fake emails pretending to be from KRA, Safaricom, or your bank. They ask you to click a link and "verify" your password. <strong>Never click links in suspicious emails!</strong> Real organisations will never ask for your password by email.</p></div></div>
-      
-      <div class="callout warning"><div class="callout-icon"><i class="fas fa-gift"></i></div><div class="callout-body"><strong>Too-Good-To-Be-True Scams</strong><p>"You won 500,000 Ksh!" "Free iPhone!" These are scams designed to steal your personal information. If it sounds too good to be true, it is a scam.</p></div></div>
-
-      <div class="callout security"><div class="callout-icon"><i class="fas fa-fingerprint"></i></div><div class="callout-body"><strong>Identity Theft</strong><p>Never share your ID number, PIN, or bank details online unless YOU initiated the contact on the official website. Scammers pretend to be government officials to steal your identity.</p></div></div>
-
-      <h4>How to Spot a Phishing Email</h4>
-      <table class="excel-table">
-        <thead><tr><th>Red Flag</th><th>What to Look For</th></tr></thead>
+      <table class="data-table" style="margin-top:1rem;">
+        <thead><tr><th>Field</th><th>What to Put Here</th><th>Required?</th></tr></thead>
         <tbody>
-          <tr><td><strong>Generic greeting</strong></td><td>"Dear Customer" instead of your name</td></tr>
-          <tr><td><strong>Urgent language</strong></td><td>"Your account will be closed in 24 hours!"</td></tr>
-          <tr><td><strong>Suspicious sender address</strong></td><td>from "kra@email-support.com" not "kra.go.ke"</td></tr>
-          <tr><td><strong>Spelling/grammar errors</strong></td><td>Poor English is common in scam emails</td></tr>
-          <tr><td><strong>Requests for password</strong></td><td>No real company asks for your password via email</td></tr>
+          <tr><td><strong>To</strong></td><td>The main recipient's email address (e.g., boss@company.co.ke)</td><td>✅ Yes</td></tr>
+          <tr><td><strong>Cc</strong></td><td>Anyone else who should receive a copy (e.g., a colleague)</td><td>Optional</td></tr>
+          <tr><td><strong>Bcc</strong></td><td>Recipients who receive a copy but are hidden from others</td><td>Optional</td></tr>
+          <tr><td><strong>Subject</strong></td><td>A clear, specific summary of what the email is about</td><td>✅ Always</td></tr>
+          <tr><td><strong>Body</strong></td><td>Your message — greet, explain purpose, close professionally</td><td>✅ Yes</td></tr>
         </tbody>
       </table>
     </div>
 
     <div class="content-card reveal">
-      <h3><i class="fas fa-laptop"></i> Safe Browsing Habits</h3>
-      <ul>
-        <li><strong>Look for HTTPS:</strong> Before entering passwords or bank details, check the address bar for 🔒 and "https://" (the 's' means secure)</li>
-        <li><strong>Avoid public Wi-Fi for banking:</strong> Cybercafé Wi-Fi can be intercepted. Use mobile data for sensitive transactions.</li>
-        <li><strong>Log out of accounts:</strong> Especially on shared computers (cybercafés). Click Sign Out.</li>
-        <li><strong>Clear browsing history:</strong> On shared computers: Chrome → Three dots → History → Clear browsing data</li>
-        <li><strong>Keep software updated:</strong> Browser updates include security fixes.</li>
-      </ul>
+      <h3><i class="fas fa-graduation-cap"></i> Professional Email Etiquette</h3>
+      <div class="method-grid">
+        <div class="method-card">
+          <div class="method-label" style="color:var(--green);background:rgba(30,122,74,.1);">✅ Always Do This</div>
+          <ul>
+            <li>Start with a proper greeting: <em>Dear Mr. Kamau,</em> or <em>Dear Hiring Manager,</em></li>
+            <li>State your purpose in the first sentence</li>
+            <li>Keep it concise — 3–5 short paragraphs maximum</li>
+            <li>Proofread before sending</li>
+            <li>Close formally: <em>Sincerely, / Kind regards, / Thank you,</em></li>
+            <li>Include your full name and phone number in the signature</li>
+          </ul>
+        </div>
+        <div class="method-card">
+          <div class="method-label" style="color:var(--red);background:rgba(192,57,43,.08);">❌ Avoid This</div>
+          <ul>
+            <li>All capitals: <em>I NEED THIS URGENTLY</em> (looks aggressive)</li>
+            <li>Slang or texting language: <em>pliz snd me d form asap</em></li>
+            <li>Vague subject lines: "Hi" or "Question"</li>
+            <li>Forwarding chain emails and fake news</li>
+            <li>Emailing when angry — wait and re-read first</li>
+            <li>Sending large files over 25MB (compress them first)</li>
+          </ul>
+        </div>
+      </div>
     </div>
 
     <div class="content-card reveal">
-      <h3><i class="fas fa-mobile-alt"></i> Two-Factor Authentication (2FA)</h3>
-      <p>2FA adds an extra layer of security. After entering your password, you also enter a code sent to your phone. Enable this on your Gmail, bank account, and social media.</p>
-      <div class="steps-box"><div class="steps-title">Enable 2FA on Gmail</div><ol class="steps-list"><li><span class="step-num">1</span> Go to your Google Account → Security</li><li><span class="step-num">2</span> Click <strong>2-Step Verification</strong></li><li><span class="step-num">3</span> Follow steps to add your phone number</li><li><span class="step-num">4</span> Now every login requires your password + a text message code</li></ol></div>
+      <h3><i class="fas fa-reply"></i> Replying and Forwarding Emails</h3>
+      <div class="method-grid">
+        <div class="method-card">
+          <div class="method-label"><i class="fas fa-reply"></i> Reply</div>
+          <p>Respond to the person who sent you the email. Open the email, click <strong>"Reply"</strong> (or press <span class="key">R</span>). The original message is included below — this is called a <em>thread</em>.</p>
+          <p style="margin-top:.5rem;"><strong>Reply All</strong> — responds to everyone who received the original email. Use with caution!</p>
+        </div>
+        <div class="method-card">
+          <div class="method-label"><i class="fas fa-forward"></i> Forward</div>
+          <p>Send an email you received to a different person. Open the email, click <strong>"Forward"</strong>. You must type the new recipient's address in the "To" field.</p>
+          <p style="margin-top:.5rem;">Useful for sharing documents or information with a third party.</p>
+        </div>
+      </div>
+
+      <div class="callout note">
+        <div class="callout-icon"><i class="fas fa-exclamation-circle"></i></div>
+        <div class="callout-body">
+          <strong>Before You Hit Send — The 5-Point Check</strong>
+          <ul>
+            <li>✅ Is the "To" address correct? (One wrong letter = wrong person)</li>
+            <li>✅ Is the subject line clear and professional?</li>
+            <li>✅ Have you proofread for spelling and grammar?</li>
+            <li>✅ Did you attach the file if you mentioned an attachment?</li>
+            <li>✅ Is the tone professional and polite?</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-folder-open"></i> Organising Your Gmail</h3>
+      <p>As emails pile up, it becomes hard to find important messages. Use Gmail's organisation tools to stay on top of your inbox.</p>
+      <div class="steps-box">
+        <div class="steps-title"><i class="fas fa-tag"></i> Create Labels (like Folders)</div>
+        <ol class="steps-list">
+          <li><span class="step-num">1</span> In Gmail, look at the left sidebar and scroll down to <strong>Labels</strong></li>
+          <li><span class="step-num">2</span> Click <strong>"+ Create new label"</strong></li>
+          <li><span class="step-num">3</span> Type a name (e.g., "Job Applications", "Government Portals", "School")</li>
+          <li><span class="step-num">4</span> Open any email, click the <strong>Label icon</strong> (🏷️) and choose your label</li>
+          <li><span class="step-num">5</span> That email now appears under your label in the sidebar</li>
+        </ol>
+      </div>
     </div>
 
     <div class="practice-box reveal">
-      <div class="practice-title"><span class="pnum">7</span> Security Practice</div>
+      <div class="practice-title"><span class="pnum">5</span> Email Composing Practice</div>
       <ol class="practice-steps">
-        <li><i class="fas fa-lock"></i> Check if a website you use has HTTPS (look for 🔒 in address bar)</li>
-        <li><i class="fas fa-envelope-open-text"></i> Examine a recent email — does it look legitimate? Check the sender address carefully.</li>
-        <li><i class="fas fa-history"></i> On a shared computer: Clear browsing history (Chrome → Settings → Privacy → Clear browsing data)</li>
-        <li><i class="fas fa-shield"></i> Enable 2-Factor Authentication on your Gmail account</li>
+        <li><i class="fas fa-pen"></i> Click "Compose" in Gmail — write a formal email to a friend</li>
+        <li><i class="fas fa-heading"></i> Subject: <strong>Testing My New Gmail Account — [Your Name]</strong></li>
+        <li><i class="fas fa-align-left"></i> Write a 3-paragraph email: greeting, one paragraph about yourself, closing</li>
+        <li><i class="fas fa-paper-plane"></i> Send it to your own email address first (for practice)</li>
+        <li><i class="fas fa-reply"></i> Open the email in your Inbox and Reply to it</li>
+        <li><i class="fas fa-tag"></i> Create a label called "Practice Emails" and apply it to this email</li>
+        <li><i class="fas fa-inbox"></i> Check your Sent folder to confirm the email was delivered</li>
       </ol>
     </div>
 
-    <div class="skill-check reveal"><h4>Skill Check — Section 6.7</h4><div class="skill-items"><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can identify phishing emails</span><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I look for HTTPS before entering passwords</span><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I have enabled 2FA on my email</span></div></div>
+    <div class="skill-check reveal">
+      <h4>Skill Check — Section 6.5</h4>
+      <div class="skill-items">
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can compose a professional email</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I know To, Cc, Bcc, Subject fields</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can reply and forward emails</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I've created Gmail labels for organisation</span>
+      </div>
+    </div>
 
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 6.6 -->
+    <!-- ══════════════════════════════════════════ -->
+    <div id="s6" class="section-heading reveal">
+      <div class="sec-icon"><i class="fas fa-paperclip"></i></div>
+      <div><div class="sec-badge">Section 6.6</div><h2>Attachments — Sending and Receiving Files</h2></div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-upload"></i> How to Attach a File to an Email</h3>
+      <p>An attachment is a file (document, photo, PDF) that you include with an email. Common examples: attaching your CV when applying for jobs, or attaching a scanned ID for government applications.</p>
+      <div class="steps-box">
+        <div class="steps-title"><i class="fas fa-paperclip"></i> Attaching a File in Gmail</div>
+        <ol class="steps-list">
+          <li><span class="step-num">1</span> Click <strong>"Compose"</strong> to write a new email</li>
+          <li><span class="step-num">2</span> At the bottom of the compose window, click the <strong>paperclip icon 📎</strong></li>
+          <li><span class="step-num">3</span> A file explorer window opens — navigate to your file (e.g., on Desktop or USB drive)</li>
+          <li><span class="step-num">4</span> Click the file to select it, then click <strong>Open</strong></li>
+          <li><span class="step-num">5</span> The file appears as a thumbnail below your email — you can see the filename</li>
+          <li><span class="step-num">6</span> You can attach <strong>multiple files</strong> — just click the paperclip icon again</li>
+          <li><span class="step-num">7</span> Click <strong>Send</strong> — the recipient will see the attachment when they open your email</li>
+        </ol>
+      </div>
+
+      <div class="callout warning">
+        <div class="callout-icon"><i class="fas fa-weight-hanging"></i></div>
+        <div class="callout-body">
+          <strong>Gmail's 25MB Attachment Limit</strong>
+          <p>Gmail only allows attachments up to <strong>25MB</strong> in total. If your files are larger:</p>
+          <ul>
+            <li>Compress images using a free tool like tinypng.com</li>
+            <li>For large files, use <strong>Google Drive</strong> — attach the Drive link instead</li>
+            <li>Compress multiple files into a .zip folder before attaching</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-download"></i> Downloading Attachments You Receive</h3>
+      <div class="steps-box">
+        <div class="steps-title"><i class="fas fa-download"></i> Download an Attachment</div>
+        <ol class="steps-list">
+          <li><span class="step-num">1</span> Open the email containing the attachment</li>
+          <li><span class="step-num">2</span> Scroll to the bottom — you'll see the attached file(s) as icons</li>
+          <li><span class="step-num">3</span> Hover over the file — a small download icon ⬇️ appears</li>
+          <li><span class="step-num">4</span> Click the download icon — the file downloads to your <strong>Downloads</strong> folder</li>
+          <li><span class="step-num">5</span> Open File Explorer → Downloads to find and open your file</li>
+        </ol>
+      </div>
+
+      <div class="callout security">
+        <div class="callout-icon"><i class="fas fa-virus"></i></div>
+        <div class="callout-body">
+          <strong>Never Open Suspicious Attachments!</strong>
+          <ul>
+            <li>Do not open attachments from people you don't know</li>
+            <li>Be wary of .exe, .bat, or .vbs files — these can be viruses</li>
+            <li>Legitimate banks, KRA, and eCitizen never send attachments asking for your password</li>
+            <li>If in doubt, do NOT open the file</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fab fa-google-drive"></i> Google Drive — Share Large Files</h3>
+      <p>Google Drive gives you <strong>15GB of free cloud storage</strong>. Store documents, photos, and files online — accessible from any device. It's especially useful for sharing files too large to email.</p>
+      <div class="method-grid">
+        <div class="method-card">
+          <div class="method-label"><i class="fas fa-cloud-upload-alt"></i> Upload to Drive</div>
+          <ol>
+            <li>Go to <strong>drive.google.com</strong></li>
+            <li>Click <strong>"+ New"</strong> → File Upload</li>
+            <li>Select your file — it uploads to your Drive</li>
+          </ol>
+        </div>
+        <div class="method-card">
+          <div class="method-label"><i class="fas fa-share-alt"></i> Share from Drive</div>
+          <ol>
+            <li>Right-click the file in Drive</li>
+            <li>Click <strong>"Share"</strong></li>
+            <li>Enter the recipient's email address</li>
+            <li>Or click <strong>"Copy link"</strong> to paste in email</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="practice-box reveal">
+      <div class="practice-title"><span class="pnum">6</span> Attachments Practice</div>
+      <ol class="practice-steps">
+        <li><i class="fas fa-file-word"></i> Open Microsoft Word — create a simple 1-page document with your name and skills</li>
+        <li><i class="fas fa-save"></i> Save it as <strong>YourName_Skills.docx</strong> on the Desktop</li>
+        <li><i class="fas fa-paperclip"></i> Compose a new email to yourself — attach this Word document</li>
+        <li><i class="fas fa-paper-plane"></i> Send it and then open your inbox to confirm it arrived</li>
+        <li><i class="fas fa-download"></i> Download the attachment from the received email</li>
+        <li><i class="fab fa-google-drive"></i> Upload the file to Google Drive (drive.google.com) and copy the share link</li>
+      </ol>
+    </div>
+
+    <div class="skill-check reveal">
+      <h4>Skill Check — Section 6.6</h4>
+      <div class="skill-items">
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can attach files to emails</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I know the 25MB limit and workarounds</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can download email attachments</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I have uploaded a file to Google Drive</span>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 6.7 -->
+    <!-- ══════════════════════════════════════════ -->
+    <div id="s7" class="section-heading reveal">
+      <div class="sec-icon"><i class="fas fa-shield-alt"></i></div>
+      <div><div class="sec-badge">Section 6.7</div><h2>Online Safety, Passwords &amp; Avoiding Scams</h2></div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-key"></i> Creating Strong Passwords</h3>
+      <p>Your password is the lock on the door to your digital life. A weak password can be cracked in seconds. A strong password takes centuries to crack with a computer.</p>
+
+      <div class="password-demo">
+        <div class="pw-row">
+          <div class="pw-text">kenya2024</div>
+          <div class="pw-meter"><div class="pw-meter-fill pw-weak-fill"></div></div>
+          <div class="pw-badge pw-weak"><i class="fas fa-times-circle"></i> Very Weak</div>
+        </div>
+        <div class="pw-row">
+          <div class="pw-text">Nairobi@2024</div>
+          <div class="pw-meter"><div class="pw-meter-fill pw-ok-fill"></div></div>
+          <div class="pw-badge pw-ok"><i class="fas fa-minus-circle"></i> Moderate</div>
+        </div>
+        <div class="pw-row">
+          <div class="pw-text">Ng0ma!Safar1&amp;Kib@ra</div>
+          <div class="pw-meter"><div class="pw-meter-fill pw-strong-fill"></div></div>
+          <div class="pw-badge pw-strong"><i class="fas fa-check-circle"></i> Very Strong</div>
+        </div>
+      </div>
+
+      <h4>Rules for a Strong Password</h4>
+      <div class="method-grid">
+        <div class="method-card">
+          <div class="method-label"><i class="fas fa-check-circle"></i> A Strong Password Has…</div>
+          <ul>
+            <li>At least <strong>12 characters</strong> (the longer the better)</li>
+            <li>UPPERCASE and lowercase letters</li>
+            <li>At least one number (1, 2, 3...)</li>
+            <li>At least one symbol (!@#$%&amp;)</li>
+            <li>No dictionary words on their own</li>
+            <li>Nothing personal (no birthdate, name, or ID number)</li>
+          </ul>
+        </div>
+        <div class="method-card">
+          <div class="method-label"><i class="fas fa-times-circle"></i> Weak Password Examples</div>
+          <ul>
+            <li>password (most common worldwide)</li>
+            <li>123456 or 12345678</li>
+            <li>Your name or birth year</li>
+            <li>Your phone number</li>
+            <li>qwerty or abcdef</li>
+            <li>The word "Kenya" or your town name</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout tip">
+        <div class="callout-icon"><i class="fas fa-lightbulb"></i></div>
+        <div class="callout-body">
+          <strong>Password Creation Trick (Passphrase Method)</strong>
+          <p>Think of a sentence you'll remember: <em>"I moved to Nairobi in 2018 and love ugali!"</em><br>
+          Take the first letter of each word: <strong>ImtNi2018alu!</strong><br>
+          This is a 13-character password that's strong AND memorable.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-shield-virus"></i> Two-Factor Authentication (2FA) — Your Second Lock</h3>
+      <p>Even a strong password can be stolen. Two-Factor Authentication (2FA) means that to log in, you need <strong>two things</strong>: your password AND a code sent to your phone. Even if someone steals your password, they cannot log in without your phone.</p>
+
+      <div class="twofa-steps">
+        <div class="twofa-step">
+          <div class="step-circle"><i class="fas fa-lock"></i></div>
+          <strong>Step 1</strong>
+          <p>Enter your email and password as usual</p>
+        </div>
+        <div class="twofa-step">
+          <div class="step-circle"><i class="fas fa-mobile-alt"></i></div>
+          <strong>Step 2</strong>
+          <p>Google sends a 6-digit code to your phone via SMS</p>
+        </div>
+        <div class="twofa-step">
+          <div class="step-circle"><i class="fas fa-keyboard"></i></div>
+          <strong>Step 3</strong>
+          <p>Enter the 6-digit code into the login page</p>
+        </div>
+        <div class="twofa-step">
+          <div class="step-circle"><i class="fas fa-check-circle"></i></div>
+          <strong>Step 4</strong>
+          <p>You are now logged in securely — even if your password was stolen, the hacker cannot access your account</p>
+        </div>
+      </div>
+
+      <div class="steps-box">
+        <div class="steps-title"><i class="fas fa-shield-alt"></i> Enable 2FA on Gmail</div>
+        <ol class="steps-list">
+          <li><span class="step-num">1</span> Go to <strong>myaccount.google.com</strong></li>
+          <li><span class="step-num">2</span> Click <strong>Security</strong> in the left menu</li>
+          <li><span class="step-num">3</span> Under "How you sign in to Google", click <strong>"2-Step Verification"</strong></li>
+          <li><span class="step-num">4</span> Click <strong>Get started</strong> and follow the prompts</li>
+          <li><span class="step-num">5</span> Add your phone number — Google will verify it with an SMS code</li>
+          <li><span class="step-num">6</span> 2FA is now active — your account is much more secure</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-fish"></i> Recognising Phishing Scams</h3>
+      <p><strong>Phishing</strong> is when criminals send fake emails pretending to be a trusted organisation (KRA, Safaricom, your bank) to trick you into giving your password, ID, or money.</p>
+
+      <div class="phish-compare">
+        <div class="phish-card phish-bad">
+          <div class="phish-label">🚨 PHISHING EMAIL — FAKE</div>
+          <div class="phish-url">From: kra-kenya.tax-refund.net</div>
+          <div class="phish-point"><i class="fas fa-times-circle" style="color:var(--red);"></i> <span>Sent from a suspicious domain (.net, not .go.ke)</span></div>
+          <div class="phish-point"><i class="fas fa-times-circle" style="color:var(--red);"></i> <span>Subject: "URGENT: Your KRA tax refund of Ksh 25,000 is waiting"</span></div>
+          <div class="phish-point"><i class="fas fa-times-circle" style="color:var(--red);"></i> <span>Asks you to click a link and "verify" your PIN and National ID</span></div>
+          <div class="phish-point"><i class="fas fa-times-circle" style="color:var(--red);"></i> <span>Creates urgency: "You have 24 hours or your refund is cancelled"</span></div>
+          <div class="phish-point"><i class="fas fa-times-circle" style="color:var(--red);"></i> <span>Poor grammar and spelling</span></div>
+        </div>
+        <div class="phish-card phish-good">
+          <div class="phish-label">✅ GENUINE KRA EMAIL</div>
+          <div class="phish-url">From: noreply@kra.go.ke</div>
+          <div class="phish-point"><i class="fas fa-check-circle" style="color:var(--green);"></i> <span>Sent from official @kra.go.ke domain</span></div>
+          <div class="phish-point"><i class="fas fa-check-circle" style="color:var(--green);"></i> <span>Subject: "iTax — Your return has been submitted"</span></div>
+          <div class="phish-point"><i class="fas fa-check-circle" style="color:var(--green);"></i> <span>Does NOT ask for your password or PIN by email</span></div>
+          <div class="phish-point"><i class="fas fa-check-circle" style="color:var(--green);"></i> <span>Links go to itax.kra.go.ke (official domain)</span></div>
+          <div class="phish-point"><i class="fas fa-check-circle" style="color:var(--green);"></i> <span>Professional, correctly spelled language</span></div>
+        </div>
+      </div>
+
+      <div class="scam-highlight">
+        <div class="scam-title"><i class="fas fa-exclamation-triangle"></i> Common Kenyan Online Scams to Recognise</div>
+        <ul>
+          <li><strong>M-Pesa Refund Scam:</strong> "You accidentally sent me Ksh 5,000 — please return it." Do not refund strangers. Always verify via your M-Pesa statement.</li>
+          <li><strong>Lottery / Job Win:</strong> "You have won Ksh 1,000,000 — pay Ksh 2,000 processing fee." No legitimate lottery asks you to pay first.</li>
+          <li><strong>Fake eCitizen / KRA emails:</strong> Always go to the website directly — never click email links to log in.</li>
+          <li><strong>WhatsApp Impersonation:</strong> "Hi, this is your cousin — new number. Please send Ksh 3,000 urgently." Call back the original number to verify.</li>
+          <li><strong>Online Selling Fraud:</strong> "Send M-Pesa first, I'll deliver the phone." Only pay on delivery for unknown sellers.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-lock"></i> HTTPS — The Green Padlock</h3>
+      <p>Before entering any personal information (password, National ID, bank details) on a website, <strong>always check for HTTPS</strong> in the address bar. The padlock 🔒 means your data is encrypted as it travels to the server.</p>
+      <div class="method-grid">
+        <div class="method-card">
+          <div class="method-label" style="color:var(--green);background:rgba(30,122,74,.1);">🔒 HTTPS — Safe</div>
+          <p><strong>https://</strong>www.ecitizen.go.ke</p>
+          <p style="margin-top:.4rem;">Padlock icon visible. Data is encrypted. Safe to enter passwords, IDs, and personal details.</p>
+        </div>
+        <div class="method-card">
+          <div class="method-label" style="color:var(--red);background:rgba(192,57,43,.08);">⚠️ HTTP — Not Secure</div>
+          <p><strong>http://</strong>random-site.com</p>
+          <p style="margin-top:.4rem;">No padlock or "Not Secure" warning. Do NOT enter passwords, payment details, or personal information.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-broom"></i> Safe Internet Habits</h3>
+      <div class="safe-highlight">
+        <div class="safe-title"><i class="fas fa-shield-alt"></i> Your Online Safety Checklist</div>
+        <ul>
+          <li>Use a different, strong password for each important account (Gmail, eCitizen, banking)</li>
+          <li>Never share your password with anyone — not even family or "bank staff"</li>
+          <li>Always log out of accounts on shared computers (cybercafés)</li>
+          <li>Lock your phone with a PIN or fingerprint to protect your email app</li>
+          <li>Keep your computer and phone updated — updates patch security holes</li>
+          <li>Use antivirus software (Windows Defender is built-in and free on Windows)</li>
+          <li>Think before you click: hover over links to see where they really go</li>
+          <li>If something seems too good to be true, it is a scam</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="practice-box reveal">
+      <div class="practice-title"><span class="pnum">7</span> Online Safety Practice</div>
+      <ol class="practice-steps">
+        <li><i class="fas fa-key"></i> Check your Gmail password — is it 12+ characters with letters, numbers, and symbols?</li>
+        <li><i class="fas fa-shield-alt"></i> Enable 2-Factor Authentication on your Gmail account (myaccount.google.com → Security)</li>
+        <li><i class="fas fa-search"></i> Look at the URL bar for ecitizen.go.ke — confirm the padlock 🔒 is present</li>
+        <li><i class="fas fa-envelope-open"></i> Look through your Gmail Spam folder — identify 3 signs of phishing in one email</li>
+        <li><i class="fas fa-lock"></i> Write down your email, password, and recovery phone — store in a safe place at home</li>
+      </ol>
+    </div>
+
+    <div class="skill-check reveal">
+      <h4>Skill Check — Section 6.7</h4>
+      <div class="skill-items">
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I have a strong 12+ character password</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I've enabled 2FA on Gmail</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can identify phishing emails</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I check for HTTPS before entering data</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I know 5 common Kenyan online scams</span>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
     <!-- SECTION 6.8 -->
+    <!-- ══════════════════════════════════════════ -->
     <div id="s8" class="section-heading reveal">
-      <div class="sec-icon"><i class="fas fa-project-diagram"></i></div>
+      <div class="sec-icon"><i class="fas fa-briefcase"></i></div>
       <div><div class="sec-badge">Section 6.8 — Final Project</div><h2>Complete Project: Apply for a Job by Email</h2></div>
     </div>
 
     <div class="content-card reveal">
-      <h3><i class="fas fa-briefcase"></i> Real-World Scenario: Job Application Email</h3>
-      <p>A company has advertised a Data Entry position. You must send a professional email with your CV attached. This project tests everything you've learned.</p>
-      
-      <div class="steps-box"><div class="steps-title">Step 1 — Prepare Your CV</div>
-      <ul><li>Open Microsoft Word and create a simple CV (use the CV template from Chapter 3)</li>
-      <li>Include: Your name, contact, education, skills, and a short profile</li>
-      <li>Save as <strong>YourName_CV.pdf</strong> (File → Save As → PDF)</li></ul></div>
+      <h3><i class="fas fa-clipboard-check"></i> Real-World Scenario: Job Application Email</h3>
+      <p>A Nairobi data entry company has posted a job vacancy. You must write a complete, professional job application email with your CV attached. This project tests everything you have learned in Chapter 6.</p>
 
-      <div class="steps-box"><div class="steps-title">Step 2 — Research the Company</div>
-      <ul><li>Use Google to search for a real company in Kenya that might hire interns or data entry staff</li>
-      <li>Find their email address (usually on their "Contact Us" page or Careers page)</li>
-      <li>If you can't find a real one, use your own email address as practice</li></ul></div>
+      <div class="steps-box">
+        <div class="steps-title"><i class="fas fa-file-word"></i> Step 1 — Prepare Your CV</div>
+        <ol class="steps-list">
+          <li><span class="step-num">1</span> Open Microsoft Word (from the skills in Chapter 3)</li>
+          <li><span class="step-num">2</span> Create a one-page CV with: Full name, Contact (email + phone), Education, Skills, and a 3-sentence profile</li>
+          <li><span class="step-num">3</span> Include your digital literacy skills: Word, Excel, PowerPoint, Gmail, Internet browsing</li>
+          <li><span class="step-num">4</span> Save as a PDF: File → Save As → Choose PDF → name it <strong>YourName_CV.pdf</strong></li>
+        </ol>
+      </div>
 
-      <div class="steps-box"><div class="steps-title">Step 3 — Write the Email</div>
-      <ul><li><strong>To:</strong> [company email address]</li>
-      <li><strong>Subject:</strong> Application for Data Entry Position – [Your Name]</li>
-      <li><strong>Message:</strong> Use the professional email format shown below</li>
-      <li><strong>Attachment:</strong> Attach YourName_CV.pdf</li></ul></div>
+      <div class="steps-box">
+        <div class="steps-title"><i class="fas fa-search"></i> Step 2 — Find a Real Company</div>
+        <ol class="steps-list">
+          <li><span class="step-num">1</span> Go to Google and search: <strong>data entry jobs Nairobi Kenya email application</strong></li>
+          <li><span class="step-num">2</span> Find a company's careers email (often on their website's "Contact" or "Careers" page)</li>
+          <li><span class="step-num">3</span> If you cannot find a real one, use your own email address to practice</li>
+        </ol>
+      </div>
 
-      <div class="email-preview">
-        <div class="email-header">
-          <div class="email-field"><strong>To:</strong> careers@company.co.ke</div>
-          <div class="email-field"><strong>Subject:</strong> Application for Data Entry Position – Jane Akinyi</div>
+      <div class="steps-box">
+        <div class="steps-title"><i class="fas fa-pen"></i> Step 3 — Write Your Application Email</div>
+        <ol class="steps-list">
+          <li><span class="step-num">1</span> Click Compose in Gmail</li>
+          <li><span class="step-num">2</span> To: [company email / your own email for practice]</li>
+          <li><span class="step-num">3</span> Subject: <strong>Application for Data Entry Position – [Your Full Name]</strong></li>
+          <li><span class="step-num">4</span> Write the body (use the template below)</li>
+          <li><span class="step-num">5</span> Attach your <strong>YourName_CV.pdf</strong></li>
+          <li><span class="step-num">6</span> Proofread — check name, email address, and spelling</li>
+          <li><span class="step-num">7</span> Click <strong>Send</strong></li>
+        </ol>
+      </div>
+
+      <div class="email-anatomy">
+        <div class="email-chrome">
+          <span>Application Email — Completed Example</span>
         </div>
-        <div class="email-body">
+        <div class="email-field-row"><div class="email-label">To</div><div class="email-value" style="color:#1a73e8;">hr@techcompany.co.ke</div></div>
+        <div class="email-field-row"><div class="email-label">Subject</div><div class="email-value" style="font-weight:600;">Application for Data Entry Position – Jane Akinyi</div></div>
+        <div class="email-body-area">
           <p>Dear Hiring Manager,</p>
-          <p>I am writing to apply for the Data Entry position advertised on your website. I have completed Digital Literacy training and possess the following skills:</p>
-          <p>• Microsoft Word, Excel, and PowerPoint<br>
-          • Fast and accurate typing (40 wpm)<br>
-          • Professional email communication<br>
-          • Ability to work under supervision</p>
-          <p>I have attached my CV for your review. I am available for an interview at your earliest convenience.</p>
-          <p>Thank you for considering my application.</p>
-          <p>Sincerely,<br>Jane Akinyi<br>Phone: 0712 345 678<br>Email: jane.akinyi@gmail.com</p>
+          <p>I am writing to express my interest in the Data Entry position advertised on your company website. I have recently completed a comprehensive Digital Literacy training programme and am eager to apply my skills in a professional environment.</p>
+          <p>I am proficient in Microsoft Word, Excel, and PowerPoint, and I have strong skills in professional email communication, file management, and internet research. I am a fast and accurate typist and able to work under supervision.</p>
+          <p>Please find my CV attached for your review and consideration. I would welcome the opportunity to discuss how I can contribute to your team. I am available for an interview at your convenience.</p>
+          <p>Thank you very much for your time.</p>
+          <p>Sincerely,<br><strong>Jane Akinyi</strong><br>Phone: 0712 345 678<br>Email: jane.akinyi2024@gmail.com</p>
         </div>
       </div>
     </div>
 
     <div class="practice-box reveal">
-      <div class="practice-title"><span class="pnum">8</span> Complete Job Application Email</div>
+      <div class="practice-title"><span class="pnum">8</span> Complete Job Application — Final Project</div>
       <ol class="practice-steps">
-        <li><i class="fas fa-file-word"></i> Create your CV in Word and save as PDF</li>
-        <li><i class="fas fa-globe"></i> Search for a real Kenyan company with a careers email (or use your own email for practice)</li>
-        <li><i class="fas fa-pen"></i> Compose a professional email following the template above</li>
-        <li><i class="fas fa-paperclip"></i> Attach your CV PDF</li>
-        <li><i class="fas fa-check"></i> Proofread: Check spelling, grammar, and the recipient's email address</li>
+        <li><i class="fas fa-file-word"></i> Create your CV in Word and save as PDF (<strong>YourName_CV.pdf</strong>)</li>
+        <li><i class="fab fa-google"></i> Search Google for a real company in Kenya with a hiring email (or use your own email)</li>
+        <li><i class="fas fa-pen-nib"></i> Compose a professional application email using the template above</li>
+        <li><i class="fas fa-paperclip"></i> Attach your CV PDF to the email</li>
+        <li><i class="fas fa-spell-check"></i> Proofread: spelling, recipient address, subject line, your name in the signature</li>
         <li><i class="fas fa-paper-plane"></i> Send the email</li>
-        <li><i class="fas fa-inbox"></i> Check your Sent folder to confirm it was sent</li>
-        <li><i class="fas fa-folder"></i> Create an email label/folder called "Job Applications" and move this email there</li>
+        <li><i class="fas fa-inbox"></i> Check your Sent folder to confirm it was delivered</li>
+        <li><i class="fas fa-folder-plus"></i> Create a Gmail label called "Job Applications" and move this email there</li>
       </ol>
     </div>
 
-    <div class="skill-check reveal"><h4>Skill Check — Section 6.8</h4><div class="skill-items"><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can write a professional job application email</span><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can attach a PDF CV</span><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I understand professional email etiquette</span></div></div>
-
-    <!-- CHAPTER SUMMARY -->
-    <div class="chapter-summary reveal">
-      <h2>🎯 Chapter 6 Summary — Internet & Email Skills Mastered</h2>
-      <div class="summary-grid">
-        <div class="summary-item"><i class="fas fa-check-circle"></i> I understand what the internet is and Kenyan ISPs</div>
-        <div class="summary-item"><i class="fas fa-check-circle"></i> I can open a browser and navigate to websites</div>
-        <div class="summary-item"><i class="fas fa-check-circle"></i> I can search effectively using Google techniques</div>
-        <div class="summary-item"><i class="fas fa-check-circle"></i> I created a Gmail account with a strong password</div>
-        <div class="summary-item"><i class="fas fa-check-circle"></i> I can compose, send, reply, and forward emails</div>
-        <div class="summary-item"><i class="fas fa-check-circle"></i> I can attach files and download attachments</div>
-        <div class="summary-item"><i class="fas fa-check-circle"></i> I can identify phishing emails and online scams</div>
-        <div class="summary-item"><i class="fas fa-check-circle"></i> I use HTTPS and 2-Factor Authentication</div>
-        <div class="summary-item"><i class="fas fa-check-circle"></i> I sent a professional job application email with CV</div>
+    <div class="skill-check reveal">
+      <h4>Skill Check — Section 6.8</h4>
+      <div class="skill-items">
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I wrote a professional job application email</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I attached my PDF CV successfully</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I organised my inbox with labels</span>
       </div>
-      <p style="margin-top:1.5rem;opacity:.85;font-style:italic;">"The internet is a powerful tool, but like any tool, you must learn to use it safely. Your email address is your digital identity — protect it."<br><strong>— Castro Odhiambo</strong></p>
     </div>
 
+    <!-- ══════════════════════════════════════════ -->
+    <!-- CHAPTER SUMMARY -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="chapter-summary reveal">
+      <h2>🎯 Chapter 6 Summary — Internet &amp; Email Skills Mastered</h2>
+      <div class="summary-grid">
+        <div class="summary-item"><i class="fas fa-check-circle"></i> I understand the internet, ISPs, and Kenyan connections</div>
+        <div class="summary-item"><i class="fas fa-check-circle"></i> I can open a browser, navigate, bookmark, and use shortcuts</div>
+        <div class="summary-item"><i class="fas fa-check-circle"></i> I can search effectively with Google keywords and tools</div>
+        <div class="summary-item"><i class="fas fa-check-circle"></i> I created a professional Gmail account</div>
+        <div class="summary-item"><i class="fas fa-check-circle"></i> I can compose, send, reply, and forward emails professionally</div>
+        <div class="summary-item"><i class="fas fa-check-circle"></i> I can send and receive email attachments</div>
+        <div class="summary-item"><i class="fas fa-check-circle"></i> I use Google Drive for large file sharing</div>
+        <div class="summary-item"><i class="fas fa-check-circle"></i> I have a strong password and enabled 2FA</div>
+        <div class="summary-item"><i class="fas fa-check-circle"></i> I can identify phishing, scams, and unsafe websites</div>
+        <div class="summary-item"><i class="fas fa-check-circle"></i> I sent a complete professional job application email</div>
+      </div>
+      <p style="margin-top:1.8rem;opacity:.85;font-style:italic;font-size:.95rem;">"The internet is a powerful tool, but like any tool, you must learn to use it safely. Your email address is your digital identity — choose it wisely, guard it carefully, and use it professionally."</p>
+      <p style="margin-top:.5rem;font-weight:700;">— Castro Odhiambo · Basics of Digital Literacy</p>
+    </div>
+
+    <!-- CHAPTER NAVIGATION -->
     <div class="chapter-nav reveal">
-      <a href="Powerpoint.html" class="prev"><div class="nav-icon"><i class="fas fa-arrow-left"></i></div><div class="nav-text"><div class="nav-label">Previous Chapter</div><div class="nav-title">Chapter 5 — PowerPoint</div></div></a>
-      <a href="Online_navigation.html" class="next"><div class="nav-icon"><i class="fas fa-arrow-right"></i></div><div class="nav-text"><div class="nav-label">Next Chapter</div><div class="nav-title">Chapter 7 — Online Navigation</div></div></a>
+      <a href="Powerpoint.html" class="prev">
+        <div class="nav-icon"><i class="fas fa-arrow-left"></i></div>
+        <div class="nav-text">
+          <div class="nav-label">Previous Chapter</div>
+          <div class="nav-title">Chapter 5 — PowerPoint</div>
+        </div>
+      </a>
+      <a href="Online_navigation.html" class="next">
+        <div class="nav-icon"><i class="fas fa-arrow-right"></i></div>
+        <div class="nav-text">
+          <div class="nav-label">Next Chapter</div>
+          <div class="nav-title">Chapter 7 — Online Portals</div>
+        </div>
+      </a>
     </div>
 
   </main>
 </div>
 
+<!-- FOOTER -->
 <footer class="site-footer">
-  <p>© 2026 <span>Castro Odhiambo</span> — Basics of Digital Literacy &nbsp;·&nbsp; Chapter 6: Internet & Email — Complete Guide</p>
-  <p style="margin-top:.4rem;font-size:.76rem;">Stay safe online and communicate professionally · <a href="index.html" style="color:var(--gold);text-decoration:none;">← Back to Home</a></p>
+  <p>© 2026 <span>Castro Odhiambo</span> — Basics of Digital Literacy &nbsp;·&nbsp; Chapter 6: Internet &amp; Email</p>
+  <p style="margin-top:.4rem;font-size:.76rem;">Stay safe online · Communicate professionally · <a href="index.html">← Back to Home</a></p>
 </footer>
 
 <script>
-  window.addEventListener('scroll',()=>{const s=window.scrollY,h=document.documentElement.scrollHeight-window.innerHeight;document.getElementById('pbar').style.width=(s/h*100)+'%';});
-  const els=document.querySelectorAll('.reveal');const obs=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*55);obs.unobserve(e.target);}});},{threshold:.07});els.forEach(el=>obs.observe(el));
-  const sections=document.querySelectorAll('[id^="s"]');const sbLinks=document.querySelectorAll('.sb-link');window.addEventListener('scroll',()=>{let cur='';sections.forEach(s=>{if(window.scrollY>=s.offsetTop-130)cur=s.id;});sbLinks.forEach(l=>{l.classList.remove('active');if(l.getAttribute('href')==='#'+cur)l.classList.add('active');});});
+  // Progress bar
+  window.addEventListener('scroll', () => {
+    const s = window.scrollY;
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('pbar').style.width = (s / h * 100) + '%';
+  });
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const ro = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 55);
+        ro.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.06 });
+  revealEls.forEach(el => ro.observe(el));
+
+  // Active sidebar link on scroll
+  const sections = document.querySelectorAll('[id^="s"]');
+  const sbLinks = document.querySelectorAll('.sb-link');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        sbLinks.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`.sb-link[href="#${e.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.3 });
+  sections.forEach(s => io.observe(s));
 </script>
 </body>
 </html>
