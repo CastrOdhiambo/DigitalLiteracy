@@ -4,167 +4,268 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Chapter 4: Microsoft Excel – Complete Guide | Digital Literacy – Castro Odhiambo</title>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    :root {
-      --forest:   #1a5f3a;
-      --green:    #2b7a4b;
-      --lightgreen:#e8f5e9;
-      --mint:     #a3d9b1;
-      --gold:     #f5a623;
-      --amber:    #ffd27a;
-      --white:    #ffffff;
-      --offwhite: #f8faf5;
-      --text:     #1e3a2f;
-      --muted:    #4a6b5c;
-      --border:   #cfe3d4;
-      --red:      #c0392b;
-      --blue:     #1a4b6e;
-      --sky:      #5dade2;
-      --radius:   1.2rem;
+    :root{
+      --navy:#0b2010;
+      --green:#1a5c2a;
+      --mid:#2c8040;
+      --light:#4caf50;
+      --pale:#e8f5e9;
+      --gold:#f5a623;
+      --amber:#ffd27a;
+      --white:#ffffff;
+      --offwhite:#f4faf5;
+      --text:#1a2c1e;
+      --muted:#3d6b4a;
+      --border:#b8ddc0;
+      --red:#c0392b;
+      --blue:#1a4b6e;
     }
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
     html{scroll-behavior:smooth;}
     body{font-family:'DM Sans',sans-serif;background:var(--offwhite);color:var(--text);line-height:1.75;overflow-x:hidden;}
 
-    #pbar{position:fixed;top:0;left:0;height:3px;z-index:999;background:linear-gradient(to right,var(--green),var(--gold));width:0%;transition:width .1s linear;}
+    /* PROGRESS BAR */
+    #pbar{position:fixed;top:0;left:0;height:3px;z-index:999;background:linear-gradient(to right,var(--mid),var(--gold));width:0%;transition:width .1s linear;}
 
-    .topbar{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(26,95,58,.97);backdrop-filter:blur(14px);display:flex;align-items:center;justify-content:space-between;padding:.75rem 2.5rem;border-bottom:1px solid rgba(255,255,255,.07);}
-    .topbar-brand{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:700;color:var(--gold);text-decoration:none;}
+    /* NAV */
+    .topbar{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(10,26,14,.97);backdrop-filter:blur(14px);display:flex;align-items:center;justify-content:space-between;padding:.75rem 2.5rem;border-bottom:1px solid rgba(255,255,255,.07);}
+    .topbar-brand{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:700;color:var(--amber);text-decoration:none;}
     .topbar-brand span{color:#fff;font-weight:300;}
     .topbar-right{display:flex;align-items:center;gap:1rem;}
     .topbar-right a{color:rgba(255,255,255,.55);text-decoration:none;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;transition:color .2s;}
-    .topbar-right a:hover{color:var(--gold);}
-    .nav-btn{background:var(--gold);color:#1a5f3a !important;padding:.4rem 1.1rem;border-radius:40px;font-size:.78rem;font-weight:600;}
+    .topbar-right a:hover{color:var(--amber);}
+    .nav-btn{background:var(--gold);color:#0b2010 !important;padding:.4rem 1.1rem;border-radius:40px;font-size:.78rem;font-weight:600;}
     .nav-btn:hover{background:var(--amber);}
     @media(max-width:680px){.topbar{padding:.7rem 1rem;}.topbar-right a:not(.nav-btn){display:none;}}
 
-    .hero{background:linear-gradient(130deg,#1a5f3a 0%,#2b7a4b 55%,#4aa36b 100%);padding:8rem 2rem 4.5rem;position:relative;overflow:hidden;text-align:center;}
+    /* HERO */
+    .hero{background:linear-gradient(130deg,#051409 0%,#0e3518 45%,#1a5c2a 100%);padding:8rem 2rem 4.5rem;position:relative;overflow:hidden;text-align:center;}
     .hero::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(245,166,35,.1) 0%,transparent 70%);top:-180px;right:-80px;pointer-events:none;}
-    .hero::after{content:'';position:absolute;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(93,173,226,.12) 0%,transparent 70%);bottom:-60px;left:-50px;pointer-events:none;}
-    .hero-dots{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px);background-size:30px 30px;}
+    .hero::after{content:'';position:absolute;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(76,175,80,.12) 0%,transparent 70%);bottom:-60px;left:-50px;pointer-events:none;}
+    .hero-dots{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.04) 1px,transparent 1px);background-size:30px 30px;}
     .hero-inner{position:relative;z-index:1;max-width:860px;margin:0 auto;}
-    .chapter-eyebrow{display:inline-flex;align-items:center;gap:.5rem;background:rgba(245,166,35,.15);border:1px solid rgba(245,166,35,.4);color:var(--gold);padding:.3rem 1.2rem;border-radius:40px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;margin-bottom:1.5rem;animation:fadeUp .6s ease both;}
+    .chapter-eyebrow{display:inline-flex;align-items:center;gap:.5rem;background:rgba(245,166,35,.15);border:1px solid rgba(245,166,35,.4);color:var(--amber);padding:.3rem 1.2rem;border-radius:40px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;margin-bottom:1.5rem;animation:fadeUp .6s ease both;}
     .hero h1{font-family:'Fraunces',serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-.5px;margin-bottom:1.2rem;animation:fadeUp .6s .1s ease both;}
-    .hero h1 em{font-style:italic;color:var(--gold);}
+    .hero h1 em{font-style:italic;color:var(--amber);}
     .hero-sub{font-size:1.05rem;color:rgba(255,255,255,.72);max-width:640px;margin:0 auto 2rem;line-height:1.8;animation:fadeUp .6s .2s ease both;}
     .hero-meta{display:flex;justify-content:center;flex-wrap:wrap;gap:1.5rem;margin-bottom:2rem;animation:fadeUp .6s .3s ease both;}
     .hero-meta-item{display:flex;align-items:center;gap:.5rem;color:rgba(255,255,255,.65);font-size:.82rem;}
-    .hero-meta-item i{color:var(--gold);}
+    .hero-meta-item i{color:var(--amber);}
     .toc-pills{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;margin-top:2rem;animation:fadeUp .6s .4s ease both;}
     .toc-pill{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.8);padding:.35rem 1rem;border-radius:40px;font-size:.78rem;text-decoration:none;transition:all .2s;}
-    .toc-pill:hover{background:rgba(245,166,35,.25);border-color:var(--gold);color:var(--gold);}
+    .toc-pill:hover{background:rgba(245,166,35,.25);border-color:var(--amber);color:var(--amber);}
 
+    /* LAYOUT */
     .page-wrap{max-width:1080px;margin:0 auto;padding:3rem 1.5rem 5rem;display:grid;grid-template-columns:230px 1fr;gap:3rem;align-items:start;}
     @media(max-width:860px){.page-wrap{grid-template-columns:1fr;}.sidebar{display:none;}}
 
+    /* SIDEBAR */
     .sidebar{position:sticky;top:5rem;}
     .sidebar-box{background:var(--white);border:1px solid var(--border);border-radius:1.2rem;padding:1.3rem;margin-bottom:1rem;}
     .sidebar-box h4{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem;font-weight:600;}
     .sb-link{display:flex;align-items:center;gap:.55rem;padding:.45rem .55rem;border-radius:.55rem;text-decoration:none;color:var(--muted);font-size:.8rem;transition:all .18s;margin-bottom:.15rem;}
-    .sb-link:hover,.sb-link.active{background:rgba(43,122,75,.08);color:var(--green);}
-    .sb-link i{color:var(--green);font-size:.78rem;width:15px;}
+    .sb-link:hover,.sb-link.active{background:rgba(44,128,64,.1);color:var(--green);}
+    .sb-link i{color:var(--mid);font-size:.78rem;width:15px;}
     .sb-num{display:inline-flex;width:18px;height:18px;border-radius:50%;background:var(--offwhite);color:var(--muted);font-size:.6rem;font-weight:700;align-items:center;justify-content:center;flex-shrink:0;}
     .sidebar-nav-btns{display:flex;flex-direction:column;gap:.6rem;}
     .sb-nav-btn{display:flex;align-items:center;gap:.5rem;padding:.6rem .9rem;border-radius:.7rem;text-decoration:none;font-size:.8rem;font-weight:600;transition:all .2s;}
     .sb-nav-btn.prev{background:var(--offwhite);color:var(--muted);border:1px solid var(--border);}
-    .sb-nav-btn.next{background:var(--green);color:#fff;}
+    .sb-nav-btn.next{background:var(--mid);color:#fff;}
     .sb-nav-btn.prev:hover{background:var(--border);}
-    .sb-nav-btn.next:hover{background:var(--forest);}
+    .sb-nav-btn.next:hover{background:var(--green);}
 
+    /* CONTENT */
     .content{min-width:0;}
 
+    /* intro card */
     .intro-card{background:var(--white);border:1px solid var(--border);border-radius:1.4rem;padding:2rem;margin-bottom:2.5rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;}
     .intro-card p{color:var(--muted);font-size:.95rem;line-height:1.8;margin-bottom:.8rem;}
-    .uses-grid{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem;}
-    .use-chip{display:flex;align-items:center;gap:.4rem;background:rgba(43,122,75,.08);border:1px solid rgba(43,122,75,.2);color:var(--green);padding:.3rem .8rem;border-radius:30px;font-size:.78rem;}
-    .use-chip i{font-size:.72rem;}
-    .intro-panel{background:linear-gradient(135deg,var(--forest),var(--green));color:#fff;border-radius:1.2rem;padding:1.5rem;text-align:center;min-width:180px;}
+    .intro-panel{background:linear-gradient(135deg,var(--green),var(--mid));color:#fff;border-radius:1.2rem;padding:1.5rem;text-align:center;min-width:170px;}
     .intro-panel .big-icon{font-size:2.8rem;margin-bottom:.6rem;}
-    .intro-panel strong{display:block;font-size:1rem;margin-bottom:.4rem;}
-    .intro-panel p{font-size:.78rem;opacity:.8;color:#fff;}
+    .intro-panel strong{display:block;font-size:1rem;margin-bottom:.3rem;}
+    .intro-panel p{font-size:.78rem;opacity:.85;color:#fff;line-height:1.5;}
+    .uses-grid{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem;}
+    .use-chip{display:flex;align-items:center;gap:.4rem;background:rgba(44,128,64,.08);border:1px solid rgba(44,128,64,.2);color:var(--green);padding:.3rem .8rem;border-radius:30px;font-size:.78rem;}
+    .use-chip i{font-size:.72rem;}
     @media(max-width:600px){.intro-card{grid-template-columns:1fr;}.intro-panel{display:none;}}
 
+    /* section heading */
     .section-heading{display:flex;align-items:center;gap:1rem;margin:2.5rem 0 1.2rem;}
-    .sec-icon{width:50px;height:50px;border-radius:12px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.3rem;background:linear-gradient(135deg,var(--green),var(--forest));color:#fff;}
-    .section-heading h2{font-family:'Fraunces',serif;font-size:clamp(1.35rem,3vw,1.85rem);font-weight:700;color:var(--forest);line-height:1.15;}
+    .sec-icon{width:50px;height:50px;border-radius:12px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.3rem;background:linear-gradient(135deg,var(--mid),var(--green));color:#fff;}
+    .section-heading h2{font-family:'Fraunces',serif;font-size:clamp(1.35rem,3vw,1.85rem);font-weight:700;color:var(--green);line-height:1.15;}
     .sec-badge{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600;}
 
+    /* content card */
     .content-card{background:var(--white);border:1px solid var(--border);border-radius:1.3rem;padding:1.8rem;margin-bottom:1.4rem;}
     .content-card h3{font-family:'Fraunces',serif;font-size:1.12rem;font-weight:700;color:var(--green);margin-bottom:.8rem;display:flex;align-items:center;gap:.6rem;}
-    .content-card h3 i{color:var(--gold);}
+    .content-card h3 i{color:var(--gold);font-size:.95rem;}
     .content-card h4{font-size:.94rem;font-weight:600;color:var(--text);margin:1rem 0 .4rem;}
     .content-card p{color:var(--muted);font-size:.92rem;line-height:1.75;margin-bottom:.7rem;}
+    .content-card p:last-child{margin-bottom:0;}
     .content-card ul,.content-card ol{padding-left:1.4rem;color:var(--muted);font-size:.92rem;}
     .content-card li{margin:.35rem 0;line-height:1.6;}
+    .content-card strong{color:var(--text);}
 
+    /* method grid */
     .method-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0;}
     @media(max-width:580px){.method-grid{grid-template-columns:1fr;}}
     .method-card{background:var(--offwhite);border:1px solid var(--border);border-radius:1rem;padding:1.2rem;}
-    .method-label{display:inline-flex;align-items:center;gap:.4rem;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--green);margin-bottom:.8rem;background:rgba(43,122,75,.1);padding:.2rem .7rem;border-radius:20px;}
+    .method-label{display:inline-flex;align-items:center;gap:.4rem;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--mid);margin-bottom:.8rem;background:rgba(44,128,64,.1);padding:.2rem .7rem;border-radius:20px;}
+    .method-card ol,.method-card ul,.method-card p{font-size:.86rem;color:var(--muted);}
+    .method-card ol,.method-card ul{padding-left:1.2rem;}
+    .method-card li{margin:.3rem 0;}
 
-    .steps-box{background:rgba(43,122,75,.05);border-left:4px solid var(--green);border-radius:0 1rem 1rem 0;padding:1.2rem 1.5rem;margin:1rem 0;}
+    /* steps box */
+    .steps-box{background:rgba(44,128,64,.05);border-left:4px solid var(--mid);border-radius:0 1rem 1rem 0;padding:1.2rem 1.5rem;margin:1rem 0;}
     .steps-title{display:flex;align-items:center;gap:.5rem;font-weight:700;color:var(--green);font-size:.88rem;margin-bottom:.8rem;}
+    .steps-title i{color:var(--gold);}
     .steps-list{list-style:none;padding:0;counter-reset:step;}
-    .steps-list li{display:flex;gap:.9rem;align-items:flex-start;padding:.5rem 0;border-bottom:1px solid rgba(43,122,75,.08);font-size:.88rem;color:var(--muted);}
+    .steps-list li{display:flex;gap:.9rem;align-items:flex-start;padding:.5rem 0;border-bottom:1px solid rgba(44,128,64,.08);font-size:.88rem;color:var(--muted);}
     .steps-list li:last-child{border-bottom:none;}
-    .step-num{display:inline-flex;width:22px;height:22px;border-radius:50%;background:var(--green);color:#fff;font-size:.65rem;font-weight:700;align-items:center;justify-content:center;flex-shrink:0;margin-top:.18rem;}
+    .step-num{display:inline-flex;width:22px;height:22px;border-radius:50%;background:var(--mid);color:#fff;font-size:.65rem;font-weight:700;align-items:center;justify-content:center;flex-shrink:0;margin-top:.18rem;}
 
+    /* callout */
     .callout{border-radius:1rem;padding:1.1rem 1.4rem;margin:1rem 0;display:flex;gap:.9rem;align-items:flex-start;}
     .callout-icon{width:36px;height:36px;border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1rem;}
     .callout-body strong{display:block;font-size:.88rem;margin-bottom:.3rem;}
     .callout-body p,.callout-body ul{font-size:.86rem;color:var(--muted);line-height:1.65;}
     .callout-body ul{padding-left:1.2rem;}
+    .callout-body li{margin:.25rem 0;}
     .callout.note{background:#fff9e8;border:1px solid #ffe4a0;}
     .callout.note .callout-icon{background:#fff3cd;color:#d68c00;}
+    .callout.note strong{color:#8a5700;}
     .callout.warning{background:#fff0f0;border:1px solid #f5c0c0;}
     .callout.warning .callout-icon{background:#fde0e0;color:var(--red);}
+    .callout.warning strong{color:var(--red);}
     .callout.tip{background:#e8f5e9;border:1px solid #b8ddb8;}
     .callout.tip .callout-icon{background:#c8e6c9;color:var(--green);}
+    .callout.tip strong{color:var(--green);}
     .callout.important{background:#e8f0fe;border:1px solid #b0c8f8;}
     .callout.important .callout-icon{background:#d0e4ff;color:var(--blue);}
+    .callout.important strong{color:var(--blue);}
 
-    .key{background:var(--white);border:1px solid var(--border);border-bottom:3px solid var(--border);border-radius:5px;padding:.2rem .5rem;font-size:.75rem;font-weight:700;color:var(--text);font-family:monospace;}
+    /* keyboard keys */
+    .key{background:var(--white);border:1px solid var(--border);border-bottom:3px solid var(--border);border-radius:5px;padding:.2rem .5rem;font-size:.75rem;font-weight:700;color:var(--text);font-family:monospace;white-space:nowrap;}
+
+    /* shortcut grid */
     .shortcut-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin:1rem 0;}
     @media(max-width:540px){.shortcut-grid{grid-template-columns:1fr;}}
     .shortcut-card{display:flex;align-items:center;gap:.8rem;background:var(--offwhite);border:1px solid var(--border);border-radius:.8rem;padding:.8rem 1rem;}
+    .keys{display:flex;gap:.25rem;flex-shrink:0;align-items:center;}
+    .shortcut-desc{font-size:.82rem;color:var(--muted);}
+    .shortcut-desc strong{color:var(--text);}
 
-    .excel-demo{background:linear-gradient(135deg,#1e3a2f,#2b7a4b);border-radius:1rem;padding:1rem;margin:1rem 0;}
-    .excel-grid{background:#fff;border-radius:8px;overflow:auto;padding:.5rem;}
-    .excel-table{width:100%;border-collapse:collapse;font-family:'Courier New',monospace;font-size:.8rem;}
-    .excel-table th,.excel-table td{border:1px solid #ccc;padding:.4rem .6rem;text-align:center;}
-    .excel-table th{background:#f0f0f0;font-weight:700;color:var(--forest);}
-    .excel-table td{color:#333;}
-    .excel-formula-bar{background:#f8f8f8;border:1px solid #ddd;border-radius:4px;padding:.3rem .5rem;margin-bottom:.5rem;font-family:monospace;font-size:.75rem;}
+    /* data table */
+    .data-table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.86rem;}
+    .data-table th{background:linear-gradient(90deg,var(--green),var(--mid));color:#fff;padding:.65rem 1rem;text-align:left;font-size:.82rem;}
+    .data-table td{padding:.6rem 1rem;border-bottom:1px solid var(--border);color:var(--muted);}
+    .data-table tr:last-child td{border-bottom:none;}
+    .data-table tr:nth-child(even) td{background:#f0faf2;}
+    .data-table strong{color:var(--text);}
+    .data-table .num{text-align:right;font-family:monospace;color:var(--text);}
+    .data-table .formula{font-family:monospace;background:rgba(44,128,64,.08);color:var(--green);padding:.1rem .4rem;border-radius:4px;font-size:.82rem;}
+    .data-table .err{color:var(--red);font-weight:700;}
 
-    .practice-box{background:linear-gradient(135deg,rgba(43,122,75,.04),rgba(26,95,58,.02));border:2px dashed rgba(43,122,75,.3);border-radius:1.2rem;padding:1.5rem;margin:1.2rem 0;}
+    /* Excel interface mockup */
+    .excel-ui{background:#1e3a1e;border-radius:1.2rem;overflow:hidden;margin:1.2rem 0;}
+    .excel-title{background:#2c5030;padding:.5rem 1rem;display:flex;align-items:center;gap:.5rem;}
+    .win-dot{width:10px;height:10px;border-radius:50%;}
+    .excel-title span{color:rgba(255,255,255,.7);font-size:.8rem;margin-left:.5rem;}
+    .excel-ribbon{background:#217346;padding:.4rem 1rem;display:flex;gap:.25rem;flex-wrap:wrap;}
+    .e-tab{padding:.25rem .75rem;border-radius:3px;font-size:.73rem;color:rgba(255,255,255,.8);cursor:pointer;}
+    .e-tab.active{background:rgba(255,255,255,.15);color:#fff;}
+    .excel-formula-bar{background:#fff;padding:.35rem .8rem;display:flex;align-items:center;gap:.5rem;border-bottom:1px solid #ccc;}
+    .excel-formula-bar .cell-ref{background:#f0f0f0;border:1px solid #ccc;padding:.2rem .5rem;border-radius:3px;font-size:.75rem;font-family:monospace;min-width:50px;text-align:center;}
+    .excel-formula-bar .fx{color:#888;font-size:.75rem;padding:0 .3rem;}
+    .excel-formula-bar .formula-text{font-family:monospace;font-size:.82rem;color:#333;flex:1;}
+    .excel-sheet{background:#fff;overflow-x:auto;}
+    .excel-grid{border-collapse:collapse;width:100%;font-size:.78rem;}
+    .excel-grid .col-header{background:#f0f0f0;border:1px solid #d0d0d0;padding:.3rem .6rem;text-align:center;color:#555;font-size:.72rem;min-width:60px;}
+    .excel-grid .row-header{background:#f0f0f0;border:1px solid #d0d0d0;padding:.3rem .5rem;text-align:center;color:#555;font-size:.72rem;min-width:30px;}
+    .excel-grid td{border:1px solid #e0e0e0;padding:.3rem .6rem;min-width:60px;font-size:.8rem;}
+    .excel-grid .header-cell{background:#217346;color:#fff;font-weight:700;font-size:.78rem;text-align:center;}
+    .excel-grid .data-cell{color:#333;}
+    .excel-grid .formula-cell{color:#0070c0;font-family:monospace;}
+    .excel-grid .selected{background:#c9e6ff !important;outline:2px solid #1473e6;}
+    .excel-grid .total-cell{background:#e2f0d9;font-weight:700;color:#1a5c2a;}
+    .excel-tabs{background:#f0f0f0;padding:.3rem .5rem;display:flex;gap:.2rem;}
+    .e-sheet-tab{background:#fff;border:1px solid #ccc;border-bottom:none;padding:.25rem .9rem;font-size:.72rem;border-radius:3px 3px 0 0;color:#333;}
+    .e-sheet-tab.active{background:#217346;color:#fff;border-color:#217346;}
+
+    /* formula examples */
+    .formula-examples{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem;margin:1rem 0;}
+    .formula-card{background:var(--white);border:1px solid var(--border);border-radius:1rem;padding:1.3rem;transition:all .2s;}
+    .formula-card:hover{border-color:var(--mid);transform:translateY(-2px);box-shadow:0 6px 16px rgba(44,128,64,.1);}
+    .formula-card .fname{display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem;}
+    .formula-card .fname .tag{font-family:monospace;background:rgba(44,128,64,.1);color:var(--green);padding:.2rem .6rem;border-radius:5px;font-size:.85rem;font-weight:700;}
+    .formula-card .fname .category{font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:600;}
+    .formula-card .fdesc{font-size:.82rem;color:var(--muted);line-height:1.55;margin-bottom:.5rem;}
+    .formula-card .fexample{font-family:monospace;font-size:.8rem;background:var(--offwhite);border:1px solid var(--border);padding:.35rem .7rem;border-radius:6px;color:var(--green);}
+    .formula-card .fresult{font-size:.78rem;color:var(--muted);margin-top:.3rem;}
+
+    /* chart type cards */
+    .chart-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0;}
+    @media(max-width:580px){.chart-grid{grid-template-columns:1fr;}}
+    .chart-card{background:var(--white);border:1px solid var(--border);border-radius:1rem;padding:1.3rem;}
+    .chart-card .chart-icon{font-size:2rem;margin-bottom:.7rem;}
+    .chart-card h4{font-weight:700;color:var(--text);font-size:.92rem;margin-bottom:.4rem;}
+    .chart-card p{font-size:.82rem;color:var(--muted);line-height:1.55;}
+    .chart-card .use-when{font-size:.75rem;color:var(--mid);font-weight:600;margin-top:.4rem;}
+
+    /* bar chart demo */
+    .bar-chart-demo{background:var(--white);border:1px solid var(--border);border-radius:1rem;padding:1.4rem;margin:1rem 0;}
+    .bar-chart-demo .chart-title{font-size:.8rem;font-weight:700;color:var(--green);text-align:center;margin-bottom:1rem;text-transform:uppercase;letter-spacing:.08em;}
+    .bar-row{display:flex;align-items:center;gap:.8rem;margin-bottom:.6rem;}
+    .bar-label{font-size:.75rem;color:var(--muted);width:80px;flex-shrink:0;text-align:right;}
+    .bar-track{flex:1;background:var(--offwhite);border-radius:4px;height:20px;overflow:hidden;}
+    .bar-fill{height:100%;border-radius:4px;display:flex;align-items:center;padding-left:.5rem;font-size:.68rem;color:#fff;font-weight:700;}
+    .bar-value{font-size:.75rem;color:var(--text);width:40px;flex-shrink:0;font-family:monospace;}
+
+    /* budget spreadsheet demo */
+    .budget-demo{background:var(--white);border:2px solid var(--border);border-radius:1rem;overflow:hidden;margin:1.2rem 0;}
+    .budget-demo table{width:100%;border-collapse:collapse;}
+    .budget-demo th{background:linear-gradient(90deg,#1a5c2a,#2c8040);color:#fff;padding:.6rem .9rem;font-size:.8rem;text-align:left;}
+    .budget-demo td{padding:.55rem .9rem;border-bottom:1px solid #e0ece2;font-size:.82rem;color:var(--muted);}
+    .budget-demo tr:last-child td{background:#e2f0d9;font-weight:700;color:#1a5c2a;border-bottom:none;}
+    .budget-demo .amt{text-align:right;font-family:monospace;color:var(--text);}
+    .budget-demo .formula-c{text-align:right;font-family:monospace;color:#0070c0;font-size:.78rem;}
+
+    /* practice box */
+    .practice-box{background:linear-gradient(135deg,rgba(26,92,42,.04),rgba(44,128,64,.02));border:2px dashed rgba(44,128,64,.3);border-radius:1.2rem;padding:1.5rem;margin:1.2rem 0;}
     .practice-title{display:flex;align-items:center;gap:.6rem;font-weight:700;color:var(--green);font-size:.95rem;margin-bottom:1rem;}
-    .practice-title .pnum{background:var(--green);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0;}
+    .practice-title .pnum{background:var(--mid);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0;}
     .practice-steps{list-style:none;padding:0;}
-    .practice-steps li{display:flex;gap:.8rem;align-items:flex-start;padding:.45rem 0;border-bottom:1px solid rgba(43,122,75,.08);font-size:.88rem;color:var(--muted);}
-    .practice-steps li i{color:var(--green);margin-top:.2rem;flex-shrink:0;}
+    .practice-steps li{display:flex;gap:.8rem;align-items:flex-start;padding:.45rem 0;border-bottom:1px solid rgba(44,128,64,.08);font-size:.88rem;color:var(--muted);}
+    .practice-steps li:last-child{border-bottom:none;}
+    .practice-steps li i{color:var(--mid);margin-top:.2rem;flex-shrink:0;}
 
-    .skill-check{background:linear-gradient(135deg,#e8f5e9,#f0faf0);border:1px solid #b8ddb8;border-radius:1.2rem;padding:1.3rem 1.5rem;margin:1.5rem 0;}
+    /* skill check */
+    .skill-check{background:linear-gradient(135deg,#e8f5e9,#f0faf2);border:1px solid #b8ddb8;border-radius:1.2rem;padding:1.3rem 1.5rem;margin:1.5rem 0;}
     .skill-check h4{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem;font-weight:600;}
     .skill-items{display:flex;flex-wrap:wrap;gap:.5rem;}
     .skill-item-pill{display:flex;align-items:center;gap:.4rem;background:var(--white);border:1px solid #b8ddb8;color:var(--green);padding:.3rem .9rem;border-radius:30px;font-size:.82rem;font-weight:500;}
+    .skill-item-pill i{color:var(--light);font-size:.78rem;}
 
-    .chapter-summary{background:linear-gradient(130deg,var(--forest) 0%,#2b7a4b 100%);border-radius:1.4rem;padding:2.5rem;margin:2.5rem 0;color:#fff;position:relative;overflow:hidden;}
-    .chapter-summary::before{content:'';position:absolute;width:250px;height:250px;border-radius:50%;background:rgba(255,255,255,.04);top:-80px;right:-60px;}
-    .chapter-summary h2{font-family:'Fraunces',serif;font-size:1.6rem;font-weight:700;margin-bottom:1rem;}
-    .summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;}
+    /* chapter summary */
+    .chapter-summary{background:linear-gradient(130deg,var(--navy) 0%,#1a5c2a 100%);border-radius:1.4rem;padding:2.5rem;margin:2.5rem 0;color:#fff;position:relative;overflow:hidden;}
+    .chapter-summary::before{content:'';position:absolute;width:250px;height:250px;border-radius:50%;background:rgba(255,255,255,.04);top:-80px;right:-60px;pointer-events:none;}
+    .chapter-summary h2{font-family:'Fraunces',serif;font-size:1.6rem;font-weight:700;margin-bottom:1rem;position:relative;}
+    .summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;position:relative;}
     @media(max-width:500px){.summary-grid{grid-template-columns:1fr;}}
     .summary-item{display:flex;align-items:center;gap:.7rem;background:rgba(255,255,255,.08);border-radius:.8rem;padding:.75rem 1rem;font-size:.88rem;}
-    .summary-item i{color:var(--gold);flex-shrink:0;}
+    .summary-item i{color:var(--amber);flex-shrink:0;}
 
+    /* chapter nav */
     .chapter-nav{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2.5rem;}
     @media(max-width:480px){.chapter-nav{grid-template-columns:1fr;}}
     .chapter-nav a{display:flex;align-items:center;gap:1rem;padding:1.2rem 1.5rem;border-radius:1.1rem;text-decoration:none;transition:all .22s;border:1px solid var(--border);}
     .chapter-nav a.prev{background:var(--white);}
-    .chapter-nav a.next{background:linear-gradient(135deg,var(--green),var(--forest));flex-direction:row-reverse;}
-    .chapter-nav a.prev:hover{border-color:var(--green);transform:translateY(-2px);}
-    .chapter-nav a.next:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(43,122,75,.3);}
+    .chapter-nav a.next{background:linear-gradient(135deg,var(--green),var(--mid));flex-direction:row-reverse;}
+    .chapter-nav a.prev:hover{border-color:var(--mid);transform:translateY(-2px);}
+    .chapter-nav a.next:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(26,92,42,.3);}
     .nav-icon{width:42px;height:42px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.1rem;}
     .chapter-nav a.prev .nav-icon{background:var(--offwhite);color:var(--muted);}
     .chapter-nav a.next .nav-icon{background:rgba(255,255,255,.15);color:#fff;}
@@ -176,18 +277,20 @@
     .chapter-nav a.next .nav-label{color:rgba(255,255,255,.65);}
     .chapter-nav a.next .nav-title{color:#fff;}
 
-    .site-footer{background:var(--forest);color:rgba(255,255,255,.5);text-align:center;padding:2rem;font-size:.82rem;border-top:3px solid var(--gold);}
-    .site-footer span{color:var(--gold);}
+    /* footer */
+    .site-footer{background:var(--navy);color:rgba(255,255,255,.5);text-align:center;padding:2rem;font-size:.82rem;border-top:3px solid var(--mid);}
+    .site-footer span{color:var(--amber);}
 
+    /* animations */
     @keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
     .reveal{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease;}
     .reveal.visible{opacity:1;transform:translateY(0);}
   </style>
 </head>
 <body>
-
 <div id="pbar"></div>
 
+<!-- NAV -->
 <nav class="topbar">
   <a href="index.html" class="topbar-brand">Digital<span>Literacy</span></a>
   <div class="topbar-right">
@@ -198,87 +301,97 @@
   </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-dots"></div>
   <div class="hero-inner">
-    <div class="chapter-eyebrow"><i class="fas fa-chart-line"></i>&nbsp; Chapter 4 · Microsoft Excel</div>
-    <h1>Master <em>Numbers &amp; Data</em><br>with Excel</h1>
-    <p class="hero-sub">Microsoft Excel is the world's leading spreadsheet software — used for budgets, marksheets, data analysis, and business calculations. Learn from the absolute basics to real-world proficiency.</p>
+    <div class="chapter-eyebrow"><i class="fas fa-table"></i>&nbsp; Chapter 4 · Microsoft Excel</div>
+    <h1>Master <em>Spreadsheets</em><br>with Microsoft Excel</h1>
+    <p class="hero-sub">Learn to enter data, write powerful formulas, format spreadsheets, create charts, sort and filter, set up printing, and protect your work — everything you need to use Excel like a professional.</p>
     <div class="hero-meta">
-      <div class="hero-meta-item"><i class="fas fa-list-check"></i> 8 Core Sections</div>
-      <div class="hero-meta-item"><i class="fas fa-flask"></i> 9 Practical Activities</div>
-      <div class="hero-meta-item"><i class="fas fa-calculator"></i> 15+ Formulas &amp; Functions</div>
-      <div class="hero-meta-item"><i class="fas fa-clock"></i> ~100 minutes</div>
+      <div class="hero-meta-item"><i class="fas fa-list-check"></i> 8 Sections</div>
+      <div class="hero-meta-item"><i class="fas fa-flask"></i> 8 Practical Activities</div>
+      <div class="hero-meta-item"><i class="fas fa-function"></i> 10+ Formulas</div>
+      <div class="hero-meta-item"><i class="fas fa-clock"></i> ~90 min</div>
     </div>
     <div class="toc-pills">
-      <a href="#s1" class="toc-pill">4.1 The Interface</a>
-      <a href="#s2" class="toc-pill">4.2 Navigation &amp; Data Entry</a>
-      <a href="#s3" class="toc-pill">4.3 Formulas &amp; Functions</a>
+      <a href="#s1" class="toc-pill">4.1 Interface</a>
+      <a href="#s2" class="toc-pill">4.2 Entering Data</a>
+      <a href="#s3" class="toc-pill">4.3 Formulas</a>
       <a href="#s4" class="toc-pill">4.4 Formatting</a>
       <a href="#s5" class="toc-pill">4.5 Charts</a>
-      <a href="#s6" class="toc-pill">4.6 Sorting &amp; Filtering</a>
-      <a href="#s7" class="toc-pill">4.7 Printing</a>
-      <a href="#s8" class="toc-pill">4.8 Budget Project</a>
+      <a href="#s6" class="toc-pill">4.6 Sort &amp; Filter</a>
+      <a href="#s7" class="toc-pill">4.7 Print Setup</a>
+      <a href="#s8" class="toc-pill">4.8 Save &amp; Protect</a>
     </div>
   </div>
 </section>
 
+<!-- PAGE WRAP -->
 <div class="page-wrap">
 
+  <!-- SIDEBAR -->
   <aside class="sidebar">
     <div class="sidebar-box">
       <h4>Sections</h4>
       <a href="#s1" class="sb-link"><span class="sb-num">1</span><i class="fas fa-desktop"></i> The Interface</a>
-      <a href="#s2" class="sb-link"><span class="sb-num">2</span><i class="fas fa-arrow-right"></i> Navigation &amp; Data</a>
+      <a href="#s2" class="sb-link"><span class="sb-num">2</span><i class="fas fa-keyboard"></i> Entering Data</a>
       <a href="#s3" class="sb-link"><span class="sb-num">3</span><i class="fas fa-calculator"></i> Formulas &amp; Functions</a>
-      <a href="#s4" class="sb-link"><span class="sb-num">4</span><i class="fas fa-paint-brush"></i> Formatting</a>
-      <a href="#s5" class="sb-link"><span class="sb-num">5</span><i class="fas fa-chart-bar"></i> Charts</a>
-      <a href="#s6" class="sb-link"><span class="sb-num">6</span><i class="fas fa-sort"></i> Sorting &amp; Filtering</a>
-      <a href="#s7" class="sb-link"><span class="sb-num">7</span><i class="fas fa-print"></i> Printing</a>
-      <a href="#s8" class="sb-link"><span class="sb-num">8</span><i class="fas fa-file-invoice-dollar"></i> Budget Project</a>
+      <a href="#s4" class="sb-link"><span class="sb-num">4</span><i class="fas fa-paint-brush"></i> Formatting Cells</a>
+      <a href="#s5" class="sb-link"><span class="sb-num">5</span><i class="fas fa-chart-bar"></i> Creating Charts</a>
+      <a href="#s6" class="sb-link"><span class="sb-num">6</span><i class="fas fa-sort"></i> Sort &amp; Filter</a>
+      <a href="#s7" class="sb-link"><span class="sb-num">7</span><i class="fas fa-print"></i> Print Setup</a>
+      <a href="#s8" class="sb-link"><span class="sb-num">8</span><i class="fas fa-shield-alt"></i> Save &amp; Protect</a>
     </div>
     <div class="sidebar-box">
       <h4>Navigation</h4>
       <div class="sidebar-nav-btns">
         <a href="Word.html" class="sb-nav-btn prev"><i class="fas fa-arrow-left"></i> Chapter 3</a>
-        <a href="PowerPoint.html" class="sb-nav-btn next">Chapter 5 <i class="fas fa-arrow-right"></i></a>
+        <a href="Powerpoint.html" class="sb-nav-btn next">Chapter 5 <i class="fas fa-arrow-right"></i></a>
       </div>
     </div>
     <div class="sidebar-box">
-      <h4>Key Formulas</h4>
-      <a class="sb-link"><i class="fas fa-sum"></i> =SUM()</a>
-      <a class="sb-link"><i class="fas fa-chart-line"></i> =AVERAGE()</a>
-      <a class="sb-link"><i class="fas fa-sort-numeric-up"></i> =MAX() / MIN()</a>
-      <a class="sb-link"><i class="fas fa-check-circle"></i> =IF()</a>
-      <a class="sb-link"><i class="fas fa-table"></i> =COUNT()</a>
+      <h4>Key Shortcuts</h4>
+      <a class="sb-link"><i class="fas fa-keyboard"></i> Ctrl+S — Save</a>
+      <a class="sb-link"><i class="fas fa-keyboard"></i> Ctrl+Z — Undo</a>
+      <a class="sb-link"><i class="fas fa-keyboard"></i> Ctrl+C/V — Copy/Paste</a>
+      <a class="sb-link"><i class="fas fa-keyboard"></i> F2 — Edit cell</a>
+      <a class="sb-link"><i class="fas fa-keyboard"></i> Ctrl+Home — Go to A1</a>
+      <a class="sb-link"><i class="fas fa-keyboard"></i> Ctrl+P — Print</a>
+      <a class="sb-link"><i class="fas fa-keyboard"></i> Tab — Next cell</a>
+      <a class="sb-link"><i class="fas fa-keyboard"></i> Enter — Cell below</a>
     </div>
   </aside>
 
+  <!-- MAIN CONTENT -->
   <main class="content">
 
+    <!-- INTRO CARD -->
     <div class="intro-card reveal">
       <div>
-        <p>Microsoft Excel is a spreadsheet program used to organise, calculate, and analyse data. It is essential for accountants, administrators, teachers, business owners, and students across Kenya. From simple budgets to complex data analysis, Excel helps you work with numbers efficiently and accurately.</p>
-        <p>In this chapter, you will learn everything from opening Excel for the first time to creating a complete monthly budget with charts and professional formatting.</p>
+        <p>Microsoft Excel is one of the most powerful and widely used software applications in the world. It transforms raw numbers into organised, analysed, and visualised information. Every business, school, hospital, and government office in Kenya uses Excel daily.</p>
+        <p>Unlike a Word document, an Excel spreadsheet is a living calculation engine — change one number and every formula updates instantly. This chapter will give you complete, practical Excel skills from scratch.</p>
         <div class="uses-grid">
-          <span class="use-chip"><i class="fas fa-money-bill-wave"></i> Budgets</span>
-          <span class="use-chip"><i class="fas fa-chart-line"></i> Sales Reports</span>
-          <span class="use-chip"><i class="fas fa-percent"></i> Marksheets</span>
-          <span class="use-chip"><i class="fas fa-tasks"></i> Inventory</span>
-          <span class="use-chip"><i class="fas fa-chart-pie"></i> Data Analysis</span>
-          <span class="use-chip"><i class="fas fa-calculator"></i> Payroll</span>
-          <span class="use-chip"><i class="fas fa-calendar"></i> Schedules</span>
-          <span class="use-chip"><i class="fas fa-chart-simple"></i> Dashboards</span>
+          <span class="use-chip"><i class="fas fa-money-bill"></i> Budgets</span>
+          <span class="use-chip"><i class="fas fa-graduation-cap"></i> Marksheets</span>
+          <span class="use-chip"><i class="fas fa-boxes"></i> Inventory</span>
+          <span class="use-chip"><i class="fas fa-chart-line"></i> Sales tracking</span>
+          <span class="use-chip"><i class="fas fa-users"></i> Payroll</span>
+          <span class="use-chip"><i class="fas fa-hospital"></i> Patient records</span>
+          <span class="use-chip"><i class="fas fa-store"></i> Shop stock</span>
+          <span class="use-chip"><i class="fas fa-file-invoice-dollar"></i> Invoices</span>
         </div>
       </div>
       <div class="intro-panel">
         <div class="big-icon">📊</div>
         <strong>Microsoft Excel</strong>
-        <p>Part of Microsoft Office. Used worldwide for data &amp; calculations.</p>
+        <p>Part of Microsoft Office. Extension: <strong>.xlsx</strong></p>
       </div>
     </div>
 
-    <!-- SECTION 4.1 -->
+    <!-- ══════════════════
+         SECTION 4.1
+    ══════════════════ -->
     <div id="s1" class="section-heading reveal">
       <div class="sec-icon"><i class="fas fa-desktop"></i></div>
       <div><div class="sec-badge">Section 4.1</div><h2>Opening Excel &amp; Understanding the Interface</h2></div>
@@ -287,452 +400,1117 @@
     <div class="content-card reveal">
       <h3><i class="fas fa-play-circle"></i> Opening Microsoft Excel</h3>
       <div class="method-grid">
-        <div class="method-card"><div class="method-label"><i class="fas fa-windows"></i> Start Menu</div><ol><li>Click Start Button</li><li>Find <strong>Microsoft Excel</strong></li><li>Click to open</li></ol></div>
-        <div class="method-card"><div class="method-label"><i class="fas fa-search"></i> Search</div><ol><li>Type <strong>Excel</strong> in search bar</li><li>Click <strong>Microsoft Excel</strong></li></ol></div>
-        <div class="method-card"><div class="method-label"><i class="fas fa-desktop"></i> Desktop Shortcut</div><ol><li>Double-click the Excel icon</li></ol></div>
-        <div class="method-card"><div class="method-label"><i class="fas fa-folder-open"></i> From File</div><ol><li>Double-click any <strong>.xlsx file</strong></li></ol></div>
+        <div class="method-card">
+          <div class="method-label"><i class="fas fa-windows"></i> Start Menu</div>
+          <ol><li>Click the <strong>Start Button</strong></li><li>Scroll to <strong>Microsoft Excel</strong></li><li>Click to open</li></ol>
+        </div>
+        <div class="method-card">
+          <div class="method-label"><i class="fas fa-search"></i> Search</div>
+          <ol><li>Click <strong>Start</strong></li><li>Type <strong>Excel</strong></li><li>Click result</li></ol>
+        </div>
+        <div class="method-card">
+          <div class="method-label"><i class="fas fa-desktop"></i> Desktop Shortcut</div>
+          <ol><li>Find the <strong>Excel icon</strong> on Desktop</li><li><strong>Double-click</strong> it</li></ol>
+        </div>
+        <div class="method-card">
+          <div class="method-label"><i class="fas fa-folder-open"></i> Open a File</div>
+          <ol><li>Find a <strong>.xlsx file</strong> in File Explorer</li><li><strong>Double-click</strong> it — Excel opens with that file</li></ol>
+        </div>
       </div>
-      <div class="callout tip"><div class="callout-icon"><i class="fas fa-lightbulb"></i></div><div class="callout-body"><strong>Start Screen</strong><p>Click <strong>Blank Workbook</strong> to begin a new spreadsheet.</p></div></div>
+      <div class="callout tip">
+        <div class="callout-icon"><i class="fas fa-lightbulb"></i></div>
+        <div class="callout-body"><strong>When Excel Opens</strong><p>Click <strong>Blank Workbook</strong> to start fresh. A workbook is the entire Excel file. Each workbook contains one or more <strong>worksheets</strong> (the tabs at the bottom).</p></div>
+      </div>
     </div>
 
     <div class="content-card reveal">
-      <h3><i class="fas fa-th-large"></i> The Excel Interface — Workbook, Worksheets, Cells</h3>
-      <p>An Excel <strong>workbook</strong> is a file containing one or more <strong>worksheets</strong> (tabs). Each worksheet is a grid of <strong>cells</strong> organised into columns and rows.</p>
-      
-      <div class="excel-demo">
-        <div class="excel-formula-bar"><i class="fas fa-fx"></i> <strong>A1</strong> &nbsp;|&nbsp; =SUM(B2:B5)</div>
-        <div class="excel-grid">
-          <table class="excel-table">
-            <thead><tr><th></th><th>A</th><th>B</th><th>C</th></tr></thead>
-            <tbody>
-              <tr><th>1</th><td>Item</td><td>Price</td><td>Quantity</td></tr>
-              <tr><th>2</th><td>Flour</td><td>150</td><td>2</td></tr>
-              <tr><th>3</th><td>Sugar</td><td>200</td><td>1</td></tr>
-              <tr><th>4</th><td>Milk</td><td>70</td><td>3</td></tr>
-            </tbody>
+      <h3><i class="fas fa-th-large"></i> The Excel Interface — Every Part Explained</h3>
+
+      <!-- Excel UI Mockup -->
+      <div class="excel-ui">
+        <div class="excel-title">
+          <div class="win-dot" style="background:#ff5f57;"></div>
+          <div class="win-dot" style="background:#febc2e;"></div>
+          <div class="win-dot" style="background:#28c840;"></div>
+          <span>Student_Marks.xlsx — Excel &nbsp;&nbsp; 💾 ↩ ↪</span>
+        </div>
+        <div class="excel-ribbon">
+          <div class="e-tab active">Home</div><div class="e-tab">Insert</div><div class="e-tab">Page Layout</div>
+          <div class="e-tab">Formulas</div><div class="e-tab">Data</div><div class="e-tab">Review</div><div class="e-tab">View</div>
+        </div>
+        <div class="excel-formula-bar">
+          <div class="cell-ref">B3</div>
+          <div class="fx"><i>fx</i></div>
+          <div class="formula-text">=SUM(B3:D3)</div>
+        </div>
+        <div class="excel-sheet">
+          <table class="excel-grid">
+            <tr>
+              <td class="row-header"></td>
+              <td class="col-header">A</td><td class="col-header">B</td><td class="col-header">C</td>
+              <td class="col-header">D</td><td class="col-header">E</td><td class="col-header">F</td>
+            </tr>
+            <tr>
+              <td class="row-header">1</td>
+              <td class="header-cell">Name</td><td class="header-cell">Maths</td><td class="header-cell">English</td>
+              <td class="header-cell">Science</td><td class="header-cell">Total</td><td class="header-cell">Average</td>
+            </tr>
+            <tr>
+              <td class="row-header">2</td>
+              <td class="data-cell">Achieng</td><td class="data-cell">78</td><td class="data-cell">85</td>
+              <td class="data-cell">80</td><td class="formula-cell selected">=SUM(B2:D2)</td><td class="formula-cell">=AVERAGE(B2:D2)</td>
+            </tr>
+            <tr>
+              <td class="row-header">3</td>
+              <td class="data-cell">Kamau</td><td class="data-cell">90</td><td class="data-cell">72</td>
+              <td class="data-cell">88</td><td class="formula-cell">=SUM(B3:D3)</td><td class="formula-cell">=AVERAGE(B3:D3)</td>
+            </tr>
+            <tr>
+              <td class="row-header">4</td>
+              <td class="data-cell">Wanjiru</td><td class="data-cell">65</td><td class="data-cell">91</td>
+              <td class="data-cell">74</td><td class="formula-cell">=SUM(B4:D4)</td><td class="formula-cell">=AVERAGE(B4:D4)</td>
+            </tr>
+            <tr>
+              <td class="row-header">5</td>
+              <td class="total-cell">Highest</td><td class="total-cell">=MAX(B2:B4)</td><td class="total-cell">=MAX(C2:C4)</td>
+              <td class="total-cell">=MAX(D2:D4)</td><td></td><td></td>
+            </tr>
           </table>
+        </div>
+        <div class="excel-tabs">
+          <div class="e-sheet-tab active">Sheet1</div>
+          <div class="e-sheet-tab">Sheet2</div>
+          <div class="e-sheet-tab">Sheet3</div>
+          <div style="padding:.25rem .5rem;font-size:1rem;color:#888;cursor:pointer;">+</div>
         </div>
       </div>
 
-      <h4>Key Terminology</h4>
-      <table class="excel-table" style="margin-top:.5rem;">
-        <thead><tr><th>Term</th><th>Meaning</th></tr></thead>
+      <table class="data-table" style="margin-top:1.2rem;">
+        <thead><tr><th>Part</th><th>Location</th><th>Purpose</th></tr></thead>
         <tbody>
-          <tr><td><strong>Workbook</strong></td><td>The entire Excel file (saved as .xlsx)</td></tr>
-          <tr><td><strong>Worksheet / Sheet</strong></td><td>One tab within a workbook (Sheet1, Sheet2, Sheet3)</td></tr>
-          <tr><td><strong>Cell</strong></td><td>The intersection of a column and a row (e.g., A1, B4, F12)</td></tr>
-          <tr><td><strong>Column</strong></td><td>Vertical — labelled A, B, C, ...</td></tr>
-          <tr><td><strong>Row</strong></td><td>Horizontal — numbered 1, 2, 3, ...</td></tr>
-          <tr><td><strong>Active Cell</strong></td><td>The cell with a thick border — ready for data entry</td></tr>
-          <tr><td><strong>Formula Bar</strong></td><td>Above the grid — shows the contents of the active cell</td></tr>
+          <tr><td><strong>Title Bar</strong></td><td>Very top</td><td>Shows workbook name (e.g., Student_Marks.xlsx) and "Excel"</td></tr>
+          <tr><td><strong>Quick Access Toolbar</strong></td><td>Top-left</td><td>One-click Save, Undo, Redo</td></tr>
+          <tr><td><strong>Ribbon</strong></td><td>Below title bar</td><td>All tabs and tools. Click a tab to see its tools.</td></tr>
+          <tr><td><strong>Formula Bar</strong></td><td>Below Ribbon</td><td>Shows what is inside the selected cell — including formulas</td></tr>
+          <tr><td><strong>Name Box</strong></td><td>Left of Formula Bar</td><td>Shows the cell reference (e.g., B3). Click to navigate to any cell.</td></tr>
+          <tr><td><strong>Column Letters</strong></td><td>Top of grid</td><td>A, B, C… up to XFD (16,384 columns)</td></tr>
+          <tr><td><strong>Row Numbers</strong></td><td>Left of grid</td><td>1, 2, 3… up to 1,048,576 rows</td></tr>
+          <tr><td><strong>Cell</strong></td><td>Intersection of row &amp; column</td><td>Where you type data. Every cell has a unique address (e.g., C5)</td></tr>
+          <tr><td><strong>Active Cell</strong></td><td>The selected cell</td><td>Highlighted with a green border — your cursor's current position</td></tr>
+          <tr><td><strong>Sheet Tabs</strong></td><td>Very bottom</td><td>Navigate between worksheets. Click + to add a new sheet.</td></tr>
+          <tr><td><strong>Status Bar</strong></td><td>Very bottom-right</td><td>Shows quick stats: Sum, Average, Count of selected cells</td></tr>
         </tbody>
       </table>
     </div>
 
     <div class="content-card reveal">
-      <h3><i class="fas fa-layer-group"></i> Ribbon Tabs in Excel</h3>
-      <table class="excel-table">
-        <thead><tr><th>Tab</th><th>Main Purpose</th><th>Key Tools</th></tr></thead>
+      <h3><i class="fas fa-layer-group"></i> Ribbon Tabs and What They Do</h3>
+      <table class="data-table">
+        <thead><tr><th>Tab</th><th>Purpose</th><th>Key Tools</th></tr></thead>
         <tbody>
-          <tr><td><strong>Home</strong></td><td>Common formatting</td><td>Font, Alignment, Number Format, Conditional Formatting</td></tr>
-          <tr><td><strong>Insert</strong></td><td>Add objects</td><td>Table, Chart, Picture, Shapes, PivotTable</td></tr>
-          <tr><td><strong>Page Layout</strong></td><td>Print setup</td><td>Margins, Orientation, Print Area</td></tr>
-          <tr><td><strong>Formulas</strong></td><td>Functions library</td><td>AutoSum, Insert Function, Defined Names</td></tr>
-          <tr><td><strong>Data</strong></td><td>Manage data</td><td>Sort, Filter, Text to Columns</td></tr>
+          <tr><td><strong>Home</strong></td><td>Everyday formatting &amp; editing</td><td>Font, Fill Color, Borders, Alignment, Number format, Paste, AutoSum</td></tr>
+          <tr><td><strong>Insert</strong></td><td>Add objects to your sheet</td><td>Charts, Tables, Pictures, Shapes, Header/Footer, Sparklines</td></tr>
+          <tr><td><strong>Page Layout</strong></td><td>Prepare for printing</td><td>Margins, Orientation, Print Area, Scale, Themes, Gridlines</td></tr>
+          <tr><td><strong>Formulas</strong></td><td>Functions library</td><td>Function Wizard, AutoSum, Financial, Statistical, Text functions</td></tr>
+          <tr><td><strong>Data</strong></td><td>Manage data</td><td>Sort, Filter, Data Validation, Remove Duplicates, Text to Columns</td></tr>
+          <tr><td><strong>Review</strong></td><td>Proofing &amp; protection</td><td>Spelling, Comments, Protect Sheet, Protect Workbook, Share</td></tr>
+          <tr><td><strong>View</strong></td><td>Display options</td><td>Zoom, Freeze Panes, Split, Hide/Show Gridlines &amp; Headings</td></tr>
         </tbody>
       </table>
     </div>
 
     <div class="practice-box reveal">
-      <div class="practice-title"><span class="pnum">1</span> Explore the Interface</div>
+      <div class="practice-title"><span class="pnum">1</span> Practical Activity 1 — Explore the Interface</div>
       <ol class="practice-steps">
-        <li><i class="fas fa-play-circle"></i> Open Excel and click <strong>Blank Workbook</strong></li>
-        <li><i class="fas fa-eye"></i> Identify: Formula Bar, Column letters (A,B,C), Row numbers (1,2,3)</li>
-        <li><i class="fas fa-mouse-pointer"></i> Click cell <strong>B4</strong> — notice the Name Box shows "B4"</li>
-        <li><i class="fas fa-tab"></i> Look at the sheet tabs at the bottom: Sheet1, Sheet2, Sheet3</li>
-        <li><i class="fas fa-undo"></i> Close without saving</li>
+        <li><i class="fas fa-play-circle"></i> Open Excel → click <strong>Blank Workbook</strong></li>
+        <li><i class="fas fa-mouse-pointer"></i> Click different tabs on the Ribbon — observe how tools change</li>
+        <li><i class="fas fa-keyboard"></i> Click cell <strong>A1</strong> — notice the Name Box shows "A1"</li>
+        <li><i class="fas fa-font"></i> Type <strong>Name</strong> in A1, press <span class="key">Tab</span>, type <strong>Score</strong> in B1, press <span class="key">Tab</span>, type <strong>Grade</strong> in C1</li>
+        <li><i class="fas fa-eye"></i> Look at the Formula Bar — what does it show when you click each cell?</li>
+        <li><i class="fas fa-save"></i> Save as <strong>ExcelPractice.xlsx</strong> in Documents (Ctrl+S)</li>
       </ol>
     </div>
 
     <div class="skill-check reveal">
       <h4>Skill Check — Section 4.1</h4>
-      <div class="skill-items"><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can open Excel</span><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I understand cells, columns, rows</span><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can identify the Formula Bar and Name Box</span></div>
+      <div class="skill-items">
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can open Excel</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I identify the Ribbon, Formula Bar, Name Box</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I understand cell addresses (A1, B3, etc.)</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I know what each Ribbon Tab does</span>
+      </div>
     </div>
 
-    <!-- SECTION 4.2 -->
+    <!-- ══════════════════
+         SECTION 4.2
+    ══════════════════ -->
     <div id="s2" class="section-heading reveal">
-      <div class="sec-icon"><i class="fas fa-arrow-right"></i></div>
-      <div><div class="sec-badge">Section 4.2</div><h2>Navigation, Selecting Cells &amp; Entering Data</h2></div>
+      <div class="sec-icon"><i class="fas fa-keyboard"></i></div>
+      <div><div class="sec-badge">Section 4.2</div><h2>Entering and Editing Data</h2></div>
     </div>
 
     <div class="content-card reveal">
-      <h3><i class="fas fa-arrows-alt"></i> Moving Around the Worksheet</h3>
-      <div class="method-grid">
-        <div class="method-card"><div class="method-label"><i class="fas fa-keyboard"></i> Keyboard Navigation</div><ul><li><strong>Arrow Keys</strong> — move one cell</li><li><strong>Enter</strong> — down one cell</li><li><strong>Tab</strong> — right one cell</li><li><strong>Ctrl + Home</strong> — go to cell A1</li><li><strong>Ctrl + End</strong> — go to last used cell</li><li><strong>Page Down/Up</strong> — move one screen down/up</li></ul></div>
-        <div class="method-card"><div class="method-label"><i class="fas fa-mouse"></i> Mouse Navigation</div><ul><li>Click any cell to select it</li><li>Use <strong>scroll bars</strong> to move up/down/left/right</li><li>Click sheet tabs (Sheet1, Sheet2) to switch worksheets</li><li>Right-click sheet tab → Rename to change sheet name</li></ul></div>
-      </div>
-    </div>
-
-    <div class="content-card reveal">
-      <h3><i class="fas fa-pen"></i> Entering and Editing Data</h3>
-      <div class="steps-box">
-        <div class="steps-title">Entering Data</div>
-        <ol class="steps-list"><li><span class="step-num">1</span> Click the cell where you want to enter data</li><li><span class="step-num">2</span> Start typing (text, numbers, dates)</li><li><span class="step-num">3</span> Press <strong>Enter</strong> to confirm and move down, or <strong>Tab</strong> to move right</li></ol>
-      </div>
-      <div class="steps-box">
-        <div class="steps-title">Editing an Existing Cell</div>
-        <ol class="steps-list"><li><span class="step-num">1</span> Double-click the cell OR select it and press <strong>F2</strong></li><li><span class="step-num">2</span> Edit the content using arrow keys</li><li><span class="step-num">3</span> Press Enter when finished</li></ol>
-      </div>
-      <div class="callout note"><div class="callout-icon"><i class="fas fa-trash-alt"></i></div><div class="callout-body"><strong>Deleting Cell Contents</strong><p>Select cell(s) and press <span class="key">Delete</span> key to clear content. To remove formatting too, use Home → Clear → Clear All.</p></div></div>
-    </div>
-
-    <div class="content-card reveal">
-      <h3><i class="fas fa-fill-drip"></i> AutoFill — Excel's Magic Handle</h3>
-      <p>The <strong>fill handle</strong> is the small square at the bottom-right corner of any selected cell. Drag it to automatically fill data series.</p>
-      <div class="method-grid">
-        <div class="method-card"><div class="method-label">AutoFill Numbers</div><p>Type <strong>1</strong> in cell A1, drag fill handle — copies 1. Type <strong>1</strong> in A1 and <strong>2</strong> in A2, select both, drag → creates sequence 1,2,3,4...</p></div>
-        <div class="method-card"><div class="method-label">AutoFill Days/Months</div><p>Type "Monday" → drag → Tuesday, Wednesday... Type "January" → drag → February, March...</p></div>
-        <div class="method-card"><div class="method-label">AutoFill Formulas</div><p>Enter a formula, then drag the fill handle to copy it to adjacent cells (relative references adjust automatically).</p></div>
-      </div>
-    </div>
-
-    <div class="practice-box reveal">
-      <div class="practice-title"><span class="pnum">2</span> Enter Data and Use AutoFill</div>
-      <ol class="practice-steps">
-        <li><i class="fas fa-file-excel"></i> Open a new blank workbook</li>
-        <li><i class="fas fa-keyboard"></i> In cell A1 type <strong>Day</strong>, B1 type <strong>Sales (Ksh)</strong></li>
-        <li><i class="fas fa-calendar"></i> In A2 type <strong>Monday</strong>, use AutoFill to complete Tuesday–Friday</li>
-        <li><i class="fas fa-dollar-sign"></i> In B2–B6 type any sales numbers: 500, 700, 300, 900, 600</li>
-        <li><i class="fas fa-save"></i> Save as <strong>Sales_Data</strong></li>
-      </ol>
-    </div>
-
-    <div class="skill-check reveal">
-      <h4>Skill Check — Section 4.2</h4>
-      <div class="skill-items"><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can navigate using arrow keys</span><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can enter and edit data</span><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can use AutoFill for numbers and days</span></div>
-    </div>
-
-    <!-- SECTION 4.3 -->
-    <div id="s3" class="section-heading reveal">
-      <div class="sec-icon"><i class="fas fa-calculator"></i></div>
-      <div><div class="sec-badge">Section 4.3 — Core Skill</div><h2>Formulas &amp; Functions: The Heart of Excel</h2></div>
-    </div>
-
-    <div class="content-card reveal">
-      <h3><i class="fas fa-equals"></i> What is a Formula?</h3>
-      <p>A formula is an equation that performs calculations. <strong>All formulas in Excel begin with an equals sign (=)</strong>.</p>
-      <div class="callout important"><div class="callout-icon"><i class="fas fa-star"></i></div><div class="callout-body"><strong>Rule #1</strong><p>Every formula MUST start with <span class="key">=</span>. If you forget, Excel treats it as plain text and won't calculate.</p></div></div>
-
-      <h4>Basic Arithmetic Operators</h4>
-      <table class="excel-table">
-        <thead><tr><th>Operator</th><th>Operation</th><th>Example Formula</th><th>Result</th></tr></thead>
+      <h3><i class="fas fa-database"></i> Types of Data in Excel</h3>
+      <table class="data-table">
+        <thead><tr><th>Type</th><th>Examples</th><th>Behaviour</th><th>Aligned</th></tr></thead>
         <tbody>
-          <tr><td>+</td><td>Addition</td><td>=5+3</td><td>8</td></tr>
-          <tr><td>-</td><td>Subtraction</td><td>=10-4</td><td>6</td></tr>
-          <tr><td>*</td><td>Multiplication</td><td>=6*7</td><td>42</td></tr>
-          <tr><td>/</td><td>Division</td><td>=20/4</td><td>5</td></tr>
+          <tr><td><strong>Text (Labels)</strong></td><td>John, Maths, Total, Kenya</td><td>Cannot be used in calculations</td><td>Left</td></tr>
+          <tr><td><strong>Numbers (Values)</strong></td><td>50, 1000, 3.14, -25</td><td>Used in formulas and calculations</td><td>Right</td></tr>
+          <tr><td><strong>Dates</strong></td><td>12/02/2026, Jan-15</td><td>Stored as numbers, display as dates</td><td>Right</td></tr>
+          <tr><td><strong>Formulas</strong></td><td>=SUM(A1:A5), =A1+B1</td><td>Calculate automatically when data changes</td><td>Right</td></tr>
+          <tr><td><strong>Boolean</strong></td><td>TRUE, FALSE</td><td>Used in logical functions</td><td>Centre</td></tr>
         </tbody>
       </table>
+      <div class="callout note">
+        <div class="callout-icon"><i class="fas fa-lightbulb"></i></div>
+        <div class="callout-body"><strong>How to Tell Text from Numbers</strong><p>Numbers align to the <strong>right</strong> by default. Text aligns to the <strong>left</strong>. If your numbers are left-aligned, Excel sees them as text and they won't work in formulas!</p></div>
+      </div>
+    </div>
 
-      <h4>Cell References — The Power of Excel</h4>
-      <p>Instead of typing numbers directly, use cell references. When you change the numbers in cells, formulas update automatically.</p>
-      <div class="excel-demo" style="margin-top:.5rem;">
-        <div class="excel-grid">
-          <table class="excel-table">
-            <tr><th></th><th>A</th><th>B</th></tr>
-            <tr><th>1</th><td>100</td><td>=A1*2 → 200</td></tr>
-            <tr><th>2</th><td>50</td><td>=A1+A2 → 150</td></tr>
-          </table>
+    <div class="content-card reveal">
+      <h3><i class="fas fa-edit"></i> Entering and Navigating Data</h3>
+      <div class="method-grid">
+        <div class="method-card">
+          <div class="method-label"><i class="fas fa-keyboard"></i> Keys After Typing</div>
+          <ul>
+            <li><span class="key">Enter</span> — Move to cell below</li>
+            <li><span class="key">Tab</span> — Move to cell on the right</li>
+            <li><span class="key">Shift</span>+<span class="key">Tab</span> — Move left</li>
+            <li><span class="key">↑↓←→</span> — Move in any direction</li>
+            <li><span class="key">Esc</span> — Cancel what you're typing</li>
+          </ul>
+        </div>
+        <div class="method-card">
+          <div class="method-label"><i class="fas fa-map-marker-alt"></i> Navigation Shortcuts</div>
+          <ul>
+            <li><span class="key">Ctrl</span>+<span class="key">Home</span> — Jump to A1</li>
+            <li><span class="key">Ctrl</span>+<span class="key">End</span> — Jump to last data cell</li>
+            <li><span class="key">Ctrl</span>+<span class="key">→</span> — Jump to end of row</li>
+            <li><span class="key">Ctrl</span>+<span class="key">↓</span> — Jump to bottom of column</li>
+            <li><span class="key">F5</span> — Go to any cell address</li>
+          </ul>
+        </div>
+      </div>
+      <h4>Editing a Cell You Already Typed In</h4>
+      <div class="method-grid">
+        <div class="method-card">
+          <div class="method-label"><i class="fas fa-redo"></i> Replace Completely</div>
+          <p>Click the cell → type new content → press Enter. The old content is completely replaced.</p>
+        </div>
+        <div class="method-card">
+          <div class="method-label"><i class="fas fa-pen"></i> Edit Partially</div>
+          <p><strong>Double-click</strong> the cell to enter edit mode, OR press <span class="key">F2</span>. Your cursor appears inside the cell. Edit, then press Enter.</p>
         </div>
       </div>
     </div>
 
     <div class="content-card reveal">
-      <h3><i class="fas fa-sum"></i> SUM Function — Add a Range of Cells</h3>
-      <p>SUM adds all numbers in a range. This is the most commonly used function in Excel.</p>
+      <h3><i class="fas fa-magic"></i> AutoFill — Excel's Time-Saving Feature</h3>
+      <p>AutoFill lets Excel automatically complete a series for you. Instead of typing 1, 2, 3, 4, 5... you type just 1 and 2, then drag.</p>
       <div class="steps-box">
-        <div class="steps-title">Syntax: =SUM(number1, number2, ...) or =SUM(range)</div>
-        <ol class="steps-list"><li><span class="step-num">1</span> Click the cell where you want the total</li><li><span class="step-num">2</span> Type <strong>=SUM(</strong></li><li><span class="step-num">3</span> Select the cells to add (e.g., B2:B10)</li><li><span class="step-num">4</span> Type <strong>)</strong> and press Enter</li></ol>
+        <div class="steps-title"><i class="fas fa-list-ol"></i> Using AutoFill</div>
+        <ol class="steps-list">
+          <li><span class="step-num">1</span> Type the <strong>first two values</strong> of your series (e.g., 1 and 2, or Jan and Feb)</li>
+          <li><span class="step-num">2</span> <strong>Select both cells</strong></li>
+          <li><span class="step-num">3</span> Hover over the <strong>bottom-right corner</strong> of the selection — the cursor becomes a small <strong>+</strong> (Fill Handle)</li>
+          <li><span class="step-num">4</span> Click and <strong>drag down or right</strong> to fill the series</li>
+        </ol>
       </div>
-      <div class="callout tip"><div class="callout-icon"><i class="fas fa-bolt"></i></div><div class="callout-body"><strong>AutoSum Shortcut</strong><p>Click the <strong>AutoSum button Σ</strong> on the Home tab or press <span class="key">Alt</span>+<span class="key">=</span> — Excel automatically detects the range to sum.</p></div></div>
+      <div class="callout tip">
+        <div class="callout-icon"><i class="fas fa-wand-magic-sparkles"></i></div>
+        <div class="callout-body"><strong>What AutoFill Can Complete Automatically</strong><ul>
+          <li>Numbers: 1, 2, 3… or 5, 10, 15…</li>
+          <li>Months: January, February, March…</li>
+          <li>Days: Monday, Tuesday, Wednesday…</li>
+          <li>Dates: 01/01/2026, 02/01/2026…</li>
+          <li>Formulas: copies and adjusts cell references automatically</li>
+        </ul></div>
+      </div>
+    </div>
 
-      <h4>Example: SUM</h4>
-      <div class="excel-demo"><div class="excel-grid"><table class="excel-table"><tr><th></th><th>A</th><th>B</th></tr><tr><th>1</th><td>Item</td><td>Price</td></tr><tr><th>2</th><td>Rice</td><td>250</td></tr><tr><th>3</th><td>Beans</td><td>180</td></tr><tr><th>4</th><td>Oil</td><td>350</td></tr><tr><th>5</th><td><strong>Total</strong></td><td><strong>=SUM(B2:B4) → 780</strong></td></tr></table></div></div>
+    <div class="practice-box reveal">
+      <div class="practice-title"><span class="pnum">2</span> Practical Activity 2 — Student Records</div>
+      <ol class="practice-steps">
+        <li><i class="fas fa-table"></i> Open a new workbook. Type headers in row 1: <strong>Name | Maths | English | Science | Class</strong></li>
+        <li><i class="fas fa-keyboard"></i> Enter data for 5 Kenyan students (use real names: Achieng, Kamau, Wanjiru, Otieno, Njeri)</li>
+        <li><i class="fas fa-edit"></i> Change Kamau's Maths score to 88 using <span class="key">F2</span></li>
+        <li><i class="fas fa-trash"></i> Delete Wanjiru's Class using the <span class="key">Delete</span> key</li>
+        <li><i class="fas fa-copy"></i> Copy Achieng's English score to a new cell using <span class="key">Ctrl</span>+<span class="key">C</span> / <span class="key">Ctrl</span>+<span class="key">V</span></li>
+        <li><i class="fas fa-magic"></i> Use AutoFill to number rows 1–5 in column G</li>
+        <li><i class="fas fa-save"></i> Save as <strong>StudentData.xlsx</strong></li>
+      </ol>
+    </div>
+
+    <div class="skill-check reveal">
+      <h4>Skill Check — Section 4.2</h4>
+      <div class="skill-items">
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can enter text, numbers, and dates</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can edit cells using F2</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can navigate with keyboard shortcuts</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can use AutoFill to complete series</span>
+      </div>
+    </div>
+
+    <!-- ══════════════════
+         SECTION 4.3
+    ══════════════════ -->
+    <div id="s3" class="section-heading reveal">
+      <div class="sec-icon"><i class="fas fa-calculator"></i></div>
+      <div><div class="sec-badge">Section 4.3</div><h2>Formulas &amp; Functions — Excel's Core Power</h2></div>
     </div>
 
     <div class="content-card reveal">
-      <h3><i class="fas fa-chart-line"></i> AVERAGE, MAX, MIN, COUNT Functions</h3>
-      <div class="method-grid">
-        <div class="method-card"><div class="method-label">AVERAGE</div><p>=AVERAGE(range) — calculates the mean of numbers.</p><div style="background:#f0f0f0;padding:.3rem;border-radius:4px;font-size:.75rem;margin-top:.3rem;">Example: =AVERAGE(B2:B10)</div></div>
-        <div class="method-card"><div class="method-label">MAX</div><p>=MAX(range) — finds the largest number.</p><div style="background:#f0f0f0;padding:.3rem;border-radius:4px;font-size:.75rem;margin-top:.3rem;">Example: =MAX(B2:B10)</div></div>
-        <div class="method-card"><div class="method-label">MIN</div><p>=MIN(range) — finds the smallest number.</p><div style="background:#f0f0f0;padding:.3rem;border-radius:4px;font-size:.75rem;margin-top:.3rem;">Example: =MIN(B2:B10)</div></div>
-        <div class="method-card"><div class="method-label">COUNT</div><p>=COUNT(range) — counts cells containing numbers.</p><div style="background:#f0f0f0;padding:.3rem;border-radius:4px;font-size:.75rem;margin-top:.3rem;">Example: =COUNT(A2:A50)</div></div>
+      <h3><i class="fas fa-equals"></i> The Golden Rule of Excel Formulas</h3>
+      <div class="callout important">
+        <div class="callout-icon"><i class="fas fa-star"></i></div>
+        <div class="callout-body">
+          <strong>Every formula MUST start with an equals sign =</strong>
+          <p>Without the <strong>=</strong>, Excel treats what you type as text, not a formula. <br>
+          ✅ <code>=A1+B1</code> → calculates the sum &nbsp;&nbsp; ❌ <code>A1+B1</code> → displays the text "A1+B1"</p>
+        </div>
       </div>
-    </div>
 
-    <div class="content-card reveal">
-      <h3><i class="fas fa-code-branch"></i> IF Function — Make Decisions</h3>
-      <p>IF returns one value if a condition is TRUE, and another value if FALSE. It is used for pass/fail, above/below target, etc.</p>
-      <div class="steps-box">
-        <div class="steps-title">Syntax: =IF(logical_test, value_if_true, value_if_false)</div>
-        <ol class="steps-list"><li><span class="step-num">1</span> Type <strong>=IF(</strong></li><li><span class="step-num">2</span> Enter condition (e.g., B2>=50)</li><li><span class="step-num">3</span> Type comma, then result if true (e.g., "Pass")</li><li><span class="step-num">4</span> Type comma, then result if false (e.g., "Fail")</li><li><span class="step-num">5</span> Type <strong>)</strong> and press Enter</li></ol>
-      </div>
-      <div class="excel-demo"><div class="excel-grid"><table class="excel-table"><tr><th></th><th>A</th><th>B</th><th>C</th></tr><tr><th>1</th><td>Name</td><td>Score</td><td>Result</td></tr><tr><th>2</th><td>John</td><td>75</td><td>=IF(B2>=50,"Pass","Fail") → Pass</td></tr><tr><th>3</th><td>Mary</td><td>42</td><td>=IF(B3>=50,"Pass","Fail") → Fail</td></tr></table></div></div>
-    </div>
-
-    <div class="content-card reveal">
-      <h3><i class="fas fa-table"></i> Common Excel Functions Reference</h3>
-      <table class="excel-table">
-        <thead><tr><th>Function</th><th>What It Does</th><th>Example</th></tr></thead>
+      <h4>Arithmetic Operators</h4>
+      <table class="data-table">
+        <thead><tr><th>Operator</th><th>Meaning</th><th>Example</th><th>Result (if A1=10, B1=5)</th></tr></thead>
         <tbody>
-          <tr><td><strong>=SUM()</strong></td><td>Adds numbers</td><td>=SUM(A1:A10)</td></tr>
-          <tr><td><strong>=AVERAGE()</strong></td><td>Calculates average</td><td>=AVERAGE(B2:B20)</td></tr>
-          <tr><td><strong>=MAX()</strong></td><td>Finds highest value</td><td>=MAX(C1:C50)</td></tr>
-          <tr><td><strong>=MIN()</strong></td><td>Finds lowest value</td><td>=MIN(D1:D50)</td></tr>
-          <tr><td><strong>=COUNT()</strong></td><td>Counts numbers</td><td>=COUNT(E2:E100)</td></tr>
-          <tr><td><strong>=COUNTA()</strong></td><td>Counts non-empty cells</td><td>=COUNTA(A2:A100)</td></tr>
-          <tr><td><strong>=IF()</strong></td><td>Conditional test</td><td>=IF(A1>10,"Yes","No")</td></tr>
-          <tr><td><strong>=SUMIF()</strong></td><td>Sum with condition</td><td>=SUMIF(B2:B100,">100")</td></tr>
+          <tr><td><code>+</code></td><td>Addition</td><td><span class="formula">=A1+B1</span></td><td>15</td></tr>
+          <tr><td><code>-</code></td><td>Subtraction</td><td><span class="formula">=A1-B1</span></td><td>5</td></tr>
+          <tr><td><code>*</code></td><td>Multiplication</td><td><span class="formula">=A1*B1</span></td><td>50</td></tr>
+          <tr><td><code>/</code></td><td>Division</td><td><span class="formula">=A1/B1</span></td><td>2</td></tr>
+          <tr><td><code>^</code></td><td>Power / Exponent</td><td><span class="formula">=A1^2</span></td><td>100</td></tr>
+          <tr><td><code>%</code></td><td>Percentage</td><td><span class="formula">=A1*15%</span></td><td>1.5</td></tr>
+        </tbody>
+      </table>
+
+      <h4>Understanding Cell Ranges</h4>
+      <div class="method-grid">
+        <div class="method-card">
+          <div class="method-label"><i class="fas fa-colon"></i> Colon (:) — Range</div>
+          <p><code>A1:A10</code> means "from A1 to A10" — all 10 cells in between. Used in functions like <code>=SUM(A1:A10)</code></p>
+        </div>
+        <div class="method-card">
+          <div class="method-label"><i class="fas fa-comma"></i> Comma (,) — Multiple</div>
+          <p><code>A1,C1,E1</code> means "A1 and C1 and E1" — non-adjacent cells. Used like <code>=SUM(A1,C1,E1)</code></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-function"></i> Essential Functions — Learn All of These</h3>
+      <div class="formula-examples">
+
+        <div class="formula-card">
+          <div class="fname"><span class="tag">=SUM()</span><span class="category">Math</span></div>
+          <div class="fdesc">Adds all numbers in a range. The most-used function in Excel.</div>
+          <div class="fexample">=SUM(B2:B10)</div>
+          <div class="fresult">→ Total of all values from B2 to B10</div>
+        </div>
+
+        <div class="formula-card">
+          <div class="fname"><span class="tag">=AVERAGE()</span><span class="category">Statistical</span></div>
+          <div class="fdesc">Calculates the mean (average) of a range of numbers.</div>
+          <div class="fexample">=AVERAGE(C2:C10)</div>
+          <div class="fresult">→ Sum ÷ Count of all values in C2:C10</div>
+        </div>
+
+        <div class="formula-card">
+          <div class="fname"><span class="tag">=MAX()</span><span class="category">Statistical</span></div>
+          <div class="fdesc">Returns the largest number in a range.</div>
+          <div class="fexample">=MAX(D2:D20)</div>
+          <div class="fresult">→ Highest score / largest value</div>
+        </div>
+
+        <div class="formula-card">
+          <div class="fname"><span class="tag">=MIN()</span><span class="category">Statistical</span></div>
+          <div class="fdesc">Returns the smallest number in a range.</div>
+          <div class="fexample">=MIN(D2:D20)</div>
+          <div class="fresult">→ Lowest score / smallest value</div>
+        </div>
+
+        <div class="formula-card">
+          <div class="fname"><span class="tag">=COUNT()</span><span class="category">Statistical</span></div>
+          <div class="fdesc">Counts how many cells contain numbers.</div>
+          <div class="fexample">=COUNT(B2:B20)</div>
+          <div class="fresult">→ Number of students with a score entered</div>
+        </div>
+
+        <div class="formula-card">
+          <div class="fname"><span class="tag">=COUNTA()</span><span class="category">Statistical</span></div>
+          <div class="fdesc">Counts all non-empty cells (text or numbers).</div>
+          <div class="fexample">=COUNTA(A2:A20)</div>
+          <div class="fresult">→ Total number of entries in column A</div>
+        </div>
+
+        <div class="formula-card">
+          <div class="fname"><span class="tag">=IF()</span><span class="category">Logical</span></div>
+          <div class="fdesc">Tests a condition — if TRUE gives one result, if FALSE gives another.</div>
+          <div class="fexample">=IF(B2&gt;=50,"Pass","Fail")</div>
+          <div class="fresult">→ "Pass" if score ≥ 50, "Fail" if below 50</div>
+        </div>
+
+        <div class="formula-card">
+          <div class="fname"><span class="tag">=ROUND()</span><span class="category">Math</span></div>
+          <div class="fdesc">Rounds a number to a specified number of decimal places.</div>
+          <div class="fexample">=ROUND(AVERAGE(B2:B10),1)</div>
+          <div class="fresult">→ Average rounded to 1 decimal place</div>
+        </div>
+
+        <div class="formula-card">
+          <div class="fname"><span class="tag">=CONCATENATE()</span><span class="category">Text</span></div>
+          <div class="fdesc">Joins text from multiple cells. Modern alternative: use &amp; operator.</div>
+          <div class="fexample">=A2&amp;" "&amp;B2</div>
+          <div class="fresult">→ "Faith Achieng" (joins first + last name)</div>
+        </div>
+
+        <div class="formula-card">
+          <div class="fname"><span class="tag">=TODAY()</span><span class="category">Date</span></div>
+          <div class="fdesc">Returns today's date, automatically updating every time you open the file.</div>
+          <div class="fexample">=TODAY()</div>
+          <div class="fresult">→ Shows current date (e.g., 05/04/2026)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-arrows-alt-h"></i> The Fill Handle — Copy Formulas Instantly</h3>
+      <p>After writing a formula in one cell, you can copy it to all other rows automatically using the Fill Handle. Excel adjusts the cell references automatically (this is called <strong>relative referencing</strong>).</p>
+      <div class="steps-box">
+        <div class="steps-title"><i class="fas fa-list-ol"></i> How to Use the Fill Handle</div>
+        <ol class="steps-list">
+          <li><span class="step-num">1</span> Write your formula in the first cell (e.g., E2 = <code>=SUM(B2:D2)</code>)</li>
+          <li><span class="step-num">2</span> Click on cell E2 to select it</li>
+          <li><span class="step-num">3</span> Move your mouse to the <strong>bottom-right corner</strong> of E2 — cursor becomes a <strong>+</strong></li>
+          <li><span class="step-num">4</span> <strong>Click and drag down</strong> through E3, E4, E5 etc.</li>
+          <li><span class="step-num">5</span> Release — Excel fills the formula for every row, adjusting B3:D3, B4:D4, etc.</li>
+        </ol>
+      </div>
+
+      <h4>Common Formula Errors and What They Mean</h4>
+      <table class="data-table">
+        <thead><tr><th>Error</th><th>Meaning</th><th>How to Fix</th></tr></thead>
+        <tbody>
+          <tr><td><span class="err">#VALUE!</span></td><td>Formula contains text where a number is expected</td><td>Check cells in the formula — make sure all contain numbers</td></tr>
+          <tr><td><span class="err">#DIV/0!</span></td><td>Dividing by zero or an empty cell</td><td>Check the divisor cell — it must not be 0 or empty</td></tr>
+          <tr><td><span class="err">#REF!</span></td><td>Cell reference is invalid (deleted row/column)</td><td>Update or re-enter the formula with correct references</td></tr>
+          <tr><td><span class="err">#NAME?</span></td><td>Excel doesn't recognise the function name</td><td>Check spelling — <code>=SUME()</code> is wrong, <code>=SUM()</code> is right</td></tr>
+          <tr><td><span class="err">######</span></td><td>Column is too narrow to display the number</td><td>Widen the column by dragging the column border</td></tr>
+          <tr><td><span class="err">#N/A</span></td><td>Value not available (common in VLOOKUP)</td><td>Check the lookup value exists in the source table</td></tr>
         </tbody>
       </table>
     </div>
 
     <div class="practice-box reveal">
-      <div class="practice-title"><span class="pnum">3</span> Create a Marksheet with Formulas</div>
+      <div class="practice-title"><span class="pnum">3</span> Practical Activity 3 — Kenyan Student Marks Analysis</div>
       <ol class="practice-steps">
-        <li><i class="fas fa-file-excel"></i> New workbook. In A1: <strong>Student Name</strong>, B1: <strong>Maths</strong>, C1: <strong>English</strong>, D1: <strong>Science</strong>, E1: <strong>Total</strong>, F1: <strong>Average</strong>, G1: <strong>Status</strong></li>
-        <li><i class="fas fa-keyboard"></i> Enter 3 student names and scores (0–100)</li>
-        <li><i class="fas fa-sum"></i> In E2 enter <strong>=SUM(B2:D2)</strong> → drag down for all students</li>
-        <li><i class="fas fa-chart-line"></i> In F2 enter <strong>=AVERAGE(B2:D2)</strong> → drag down</li>
-        <li><i class="fas fa-code-branch"></i> In G2 enter <strong>=IF(F2>=50,"Pass","Fail")</strong> → drag down</li>
-        <li><i class="fas fa-save"></i> Save as <strong>Marksheet_Formulas</strong></li>
+        <li><i class="fas fa-table"></i> Open a new workbook. Enter in Row 1: <strong>Name | Maths | English | Science | Kiswahili | Total | Average | Grade</strong></li>
+        <li><i class="fas fa-keyboard"></i> Enter 5 students with their scores (60–95 range)</li>
+        <li><i class="fas fa-calculator"></i> In <strong>Column F</strong>: <code>=SUM(B2:E2)</code> — drag down for all students</li>
+        <li><i class="fas fa-calculator"></i> In <strong>Column G</strong>: <code>=AVERAGE(B2:E2)</code> — drag down</li>
+        <li><i class="fas fa-code-branch"></i> In <strong>Column H</strong>: <code>=IF(G2&gt;=50,"Pass","Fail")</code> — drag down</li>
+        <li><i class="fas fa-arrow-up"></i> Below the table: use <code>=MAX()</code> for highest total and <code>=MIN()</code> for lowest</li>
+        <li><i class="fas fa-hashtag"></i> Use <code>=COUNT(B2:B6)</code> to count how many students have Maths scores</li>
+        <li><i class="fas fa-save"></i> Save as <strong>StudentMarks.xlsx</strong></li>
       </ol>
     </div>
 
     <div class="skill-check reveal">
       <h4>Skill Check — Section 4.3</h4>
-      <div class="skill-items"><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I understand cell references</span><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can use SUM, AVERAGE, MAX, MIN</span><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can use the IF function</span></div>
+      <div class="skill-items">
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> All formulas start with =</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can use SUM, AVERAGE, MAX, MIN</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can write IF statements</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I use the Fill Handle to copy formulas</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can read common error messages</span>
+      </div>
     </div>
 
-    <!-- SECTION 4.4 -->
+    <!-- ══════════════════
+         SECTION 4.4
+    ══════════════════ -->
     <div id="s4" class="section-heading reveal">
       <div class="sec-icon"><i class="fas fa-paint-brush"></i></div>
-      <div><div class="sec-badge">Section 4.4</div><h2>Formatting Cells — Make Data Professional</h2></div>
+      <div><div class="sec-badge">Section 4.4</div><h2>Formatting Cells Professionally</h2></div>
     </div>
 
     <div class="content-card reveal">
-      <h3><i class="fas fa-dollar-sign"></i> Number Formatting — Currency, Percentage, Decimals</h3>
-      <div class="method-grid">
-        <div class="method-card"><div class="method-label"><i class="fas fa-coins"></i> Currency (Ksh)</div><p>Select cells → Home Tab → Number group → click <strong>Currency</strong> ($ symbol) → Kenya uses Ksh. Use Accounting format for tables.</p></div>
-        <div class="method-card"><div class="method-label"><i class="fas fa-percent"></i> Percentage</div><p>Select cells → Click <strong>%</strong> symbol. Example: 0.25 becomes 25%.</p></div>
-        <div class="method-card"><div class="method-label"><i class="fas fa-th"></i> Increase/Decrease Decimals</div><p>Use .0→.0 buttons to show 2 decimal places (e.g., 1000.00).</p></div>
+      <h3><i class="fas fa-hashtag"></i> Number Formatting — Display Data Correctly</h3>
+      <p>Formatting does not change the actual number stored in a cell — it only changes how it looks. The number 1000 can be displayed as 1,000 or Ksh 1,000.00 or 100000% — it's still the same value inside.</p>
+      <table class="data-table">
+        <thead><tr><th>Format</th><th>Raw Number</th><th>Displayed As</th><th>Use For</th></tr></thead>
+        <tbody>
+          <tr><td><strong>General</strong></td><td>1000</td><td>1000</td><td>Default — no special formatting</td></tr>
+          <tr><td><strong>Number</strong></td><td>1000</td><td>1,000.00</td><td>General numbers with thousands separator</td></tr>
+          <tr><td><strong>Currency</strong></td><td>1000</td><td>Ksh 1,000.00</td><td>Money amounts — prices, salaries, expenses</td></tr>
+          <tr><td><strong>Accounting</strong></td><td>1000</td><td>Ksh&nbsp;&nbsp;&nbsp;1,000.00</td><td>Financial reports — symbols &amp; decimals aligned</td></tr>
+          <tr><td><strong>Percentage</strong></td><td>0.85</td><td>85%</td><td>Rates, percentages, exam scores</td></tr>
+          <tr><td><strong>Date</strong></td><td>46000</td><td>15-Mar-2026</td><td>Dates — choose format for your region</td></tr>
+          <tr><td><strong>Fraction</strong></td><td>0.5</td><td>1/2</td><td>Scientific or mathematical data</td></tr>
+        </tbody>
+      </table>
+
+      <div class="steps-box">
+        <div class="steps-title"><i class="fas fa-list-ol"></i> How to Apply Number Formatting</div>
+        <ol class="steps-list">
+          <li><span class="step-num">1</span> <strong>Select</strong> the cells you want to format</li>
+          <li><span class="step-num">2</span> Go to <strong>Home Tab → Number group</strong></li>
+          <li><span class="step-num">3</span> Click the <strong>Number Format dropdown</strong> (shows "General" by default)</li>
+          <li><span class="step-num">4</span> Choose your format, OR click <strong>"More Number Formats"</strong> for advanced options</li>
+        </ol>
       </div>
     </div>
 
     <div class="content-card reveal">
-      <h3><i class="fas fa-border-all"></i> Cell Borders &amp; Fill Color</h3>
-      <ul>
-        <li><strong>Borders</strong>: Home Tab → Font group → Borders dropdown → choose All Borders</li>
-        <li><strong>Fill Color</strong>: Paint bucket icon → choose background colour for headers</li>
-        <li><strong>Font Color</strong>: Letter A with colour bar → change text colour</li>
-        <li><strong>Merge &amp; Center</strong>: Select multiple cells → Home Tab → Merge &amp; Center (creates a title over multiple columns)</li>
-      </ul>
+      <h3><i class="fas fa-font"></i> Font, Borders, and Fill Colour</h3>
+      <div class="method-grid">
+        <div class="method-card">
+          <div class="method-label"><i class="fas fa-bold"></i> Font Formatting</div>
+          <ul>
+            <li><strong>Bold:</strong> <span class="key">Ctrl</span>+<span class="key">B</span> — for headings and totals</li>
+            <li><strong>Italic:</strong> <span class="key">Ctrl</span>+<span class="key">I</span> — for notes</li>
+            <li><strong>Font Size:</strong> Home Tab → Font Size box</li>
+            <li><strong>Font Colour:</strong> Home Tab → Font Color (A▾)</li>
+            <li><strong>Increase/Decrease Size:</strong> Ctrl+Shift+&gt; / &lt;</li>
+          </ul>
+        </div>
+        <div class="method-card">
+          <div class="method-label"><i class="fas fa-border-all"></i> Borders</div>
+          <ul>
+            <li>Select cells → Home Tab → <strong>Borders</strong> dropdown (⊞▾)</li>
+            <li><strong>All Borders</strong> — grid lines on all cells</li>
+            <li><strong>Outside Borders</strong> — box around the selection</li>
+            <li><strong>Thick Box Border</strong> — bold outer border</li>
+            <li>Best practice: All Borders for data, Thick Box for the whole table</li>
+          </ul>
+        </div>
+        <div class="method-card">
+          <div class="method-label"><i class="fas fa-fill-drip"></i> Fill Colour (Background)</div>
+          <ul>
+            <li>Select cells → Home Tab → <strong>Fill Color</strong> (bucket▾)</li>
+            <li>Use light colours only — dark fills make text hard to read</li>
+            <li>Headers: light blue or light green</li>
+            <li>Totals row: light yellow or pale green</li>
+            <li>Alternating rows: very light grey</li>
+          </ul>
+        </div>
+        <div class="method-card">
+          <div class="method-label"><i class="fas fa-align-center"></i> Alignment</div>
+          <ul>
+            <li><strong>Horizontal:</strong> Left / Centre / Right (Home Tab)</li>
+            <li><strong>Vertical:</strong> Top / Middle / Bottom</li>
+            <li><strong>Merge &amp; Centre:</strong> combines selected cells into one — great for table titles</li>
+            <li><strong>Wrap Text:</strong> shows long text on multiple lines within one cell</li>
+          </ul>
+        </div>
+      </div>
     </div>
 
     <div class="content-card reveal">
-      <h3><i class="fas fa-chart-simple"></i> Conditional Formatting — Colour Based on Value</h3>
-      <p>Conditional Formatting automatically changes cell appearance based on its value. Perfect for highlighting low scores, high sales, or overdue dates.</p>
-      <div class="steps-box"><div class="steps-title">Highlight cells above a threshold</div><ol class="steps-list"><li><span class="step-num">1</span> Select your data range</li><li><span class="step-num">2</span> Home Tab → Conditional Formatting</li><li><span class="step-num">3</span> Highlight Cells Rules → Greater Than</li><li><span class="step-num">4</span> Enter value (e.g., 70) and choose format (Green Fill)</li></ol></div>
+      <h3><i class="fas fa-magic"></i> Conditional Formatting — Colour Cells Automatically</h3>
+      <p>Conditional formatting automatically applies colour, bold, or other styles to cells based on their value. For example, highlight all failing scores in red — without doing it manually.</p>
+      <div class="steps-box">
+        <div class="steps-title"><i class="fas fa-list-ol"></i> Applying Conditional Formatting</div>
+        <ol class="steps-list">
+          <li><span class="step-num">1</span> <strong>Select</strong> the cells you want to apply rules to (e.g., the Scores column)</li>
+          <li><span class="step-num">2</span> Go to <strong>Home Tab → Conditional Formatting</strong></li>
+          <li><span class="step-num">3</span> Choose a rule type:<br>
+            <strong>Highlight Cells Rules</strong> → Greater Than, Less Than, Equal To, Between…<br>
+            <strong>Top/Bottom Rules</strong> → Top 10%, Above Average…<br>
+            <strong>Data Bars / Colour Scales / Icon Sets</strong> → visual indicators</li>
+          <li><span class="step-num">4</span> Set the condition (e.g., Less Than 50) and choose a colour (e.g., Red fill)</li>
+          <li><span class="step-num">5</span> Click <strong>OK</strong></li>
+        </ol>
+      </div>
+      <div class="callout tip">
+        <div class="callout-icon"><i class="fas fa-eye"></i></div>
+        <div class="callout-body"><strong>Practical Use of Conditional Formatting</strong><ul>
+          <li>Red background for scores below 50 (Fail)</li>
+          <li>Green background for scores above 80 (Distinction)</li>
+          <li>Data Bars in the Amount column of a budget to see which category is largest</li>
+          <li>Top 3 values highlighted in gold on a sales leaderboard</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <!-- Budget demo -->
+    <div class="content-card reveal">
+      <h3><i class="fas fa-money-bill-wave"></i> Example: A Formatted Household Budget</h3>
+      <div class="budget-demo">
+        <table>
+          <thead><tr><th>Expense Category</th><th>Budgeted (Ksh)</th><th>Actual (Ksh)</th><th>Difference</th></tr></thead>
+          <tbody>
+            <tr><td>Food &amp; Groceries</td><td class="amt">5,000</td><td class="amt">4,800</td><td class="formula-c">=C2-B2</td></tr>
+            <tr><td>Rent / Utilities</td><td class="amt">8,000</td><td class="amt">8,000</td><td class="formula-c">=C3-B3</td></tr>
+            <tr><td>Transport (Matatu)</td><td class="amt">2,000</td><td class="amt">2,400</td><td class="formula-c">=C4-B4</td></tr>
+            <tr><td>Airtime &amp; Data</td><td class="amt">500</td><td class="amt">650</td><td class="formula-c">=C5-B5</td></tr>
+            <tr><td>School Fees</td><td class="amt">3,500</td><td class="amt">3,500</td><td class="formula-c">=C6-B6</td></tr>
+            <tr><td><strong>TOTAL</strong></td><td class="amt formula-c">=SUM(B2:B6)</td><td class="amt formula-c">=SUM(C2:C6)</td><td class="formula-c">=SUM(D2:D6)</td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
     <div class="practice-box reveal">
-      <div class="practice-title"><span class="pnum">4</span> Format the Marksheet</div>
+      <div class="practice-title"><span class="pnum">4</span> Practical Activity 4 — Formatted Inventory Table</div>
       <ol class="practice-steps">
-        <li><i class="fas fa-paint-brush"></i> Open your Marksheet_Formulas file</li>
-        <li><i class="fas fa-bold"></i> Bold and centre the header row</li>
-        <li><i class="fas fa-coins"></i> Format Total column as Currency (Ksh)</li>
-        <li><i class="fas fa-border-all"></i> Add All Borders to the entire table</li>
-        <li><i class="fas fa-chart-simple"></i> Apply Conditional Formatting to Average column: Highlight averages below 50 in red</li>
-        <li><i class="fas fa-save"></i> Save as <strong>Marksheet_Formatted</strong></li>
+        <li><i class="fas fa-table"></i> Enter headers: <strong>Item | Qty | Unit Price (Ksh) | Total (Ksh)</strong></li>
+        <li><i class="fas fa-keyboard"></i> Enter 6 items: Pen, Notebook, Eraser, Ruler, Stapler, Highlighter with quantities and prices</li>
+        <li><i class="fas fa-calculator"></i> In Total column: formula <code>=B2*C2</code> — drag down</li>
+        <li><i class="fas fa-money-bill"></i> Apply <strong>Currency format (Ksh)</strong> to Unit Price and Total columns</li>
+        <li><i class="fas fa-bold"></i> Bold and fill header row with light green background</li>
+        <li><i class="fas fa-border-all"></i> Apply <strong>All Borders</strong> to the entire table</li>
+        <li><i class="fas fa-magic"></i> Apply <strong>Conditional Formatting</strong>: highlight totals over Ksh 100 in yellow</li>
+        <li><i class="fas fa-object-group"></i> Add a <strong>Merge &amp; Centre</strong> title above: "SHOP INVENTORY — APRIL 2026"</li>
+        <li><i class="fas fa-save"></i> Save as <strong>Inventory.xlsx</strong></li>
       </ol>
     </div>
 
-    <div class="skill-check reveal"><h4>Skill Check — Section 4.4</h4><div class="skill-items"><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can format numbers as currency/percentage</span><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can add borders and fill colours</span><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can use Conditional Formatting</span></div></div>
+    <div class="skill-check reveal">
+      <h4>Skill Check — Section 4.4</h4>
+      <div class="skill-items">
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I format numbers as Currency (Ksh)</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I apply Borders and Fill Colour</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I use Merge &amp; Centre for titles</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I apply Conditional Formatting</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> My spreadsheets look professional</span>
+      </div>
+    </div>
 
-    <!-- SECTION 4.5 -->
+    <!-- ══════════════════
+         SECTION 4.5
+    ══════════════════ -->
     <div id="s5" class="section-heading reveal">
       <div class="sec-icon"><i class="fas fa-chart-bar"></i></div>
-      <div><div class="sec-badge">Section 4.5</div><h2>Creating Charts — Visualise Your Data</h2></div>
+      <div><div class="sec-badge">Section 4.5</div><h2>Creating Charts and Graphs</h2></div>
     </div>
 
     <div class="content-card reveal">
-      <h3><i class="fas fa-chart-simple"></i> How to Insert a Chart</h3>
-      <div class="steps-box"><div class="steps-title">Create a Chart in 4 Steps</div><ol class="steps-list"><li><span class="step-num">1</span> Select the data you want to visualise (including headers)</li><li><span class="step-num">2</span> Go to <strong>Insert Tab</strong></li><li><span class="step-num">3</span> Choose a chart type: Column, Bar, Line, Pie</li><li><span class="step-num">4</span> Excel inserts the chart. Use the <strong>Chart Design</strong> tab to customise</li></ol></div>
-      
-      <h4>Chart Types and When to Use Them</h4>
-      <table class="excel-table">
-        <thead><tr><th>Chart Type</th><th>Best Used For</th><th>Example</th></tr></thead>
+      <h3><i class="fas fa-chart-pie"></i> Chart Types and When to Use Each</h3>
+      <div class="chart-grid">
+        <div class="chart-card">
+          <div class="chart-icon">📊</div>
+          <h4>Column Chart</h4>
+          <p>Vertical bars comparing values across categories.</p>
+          <div class="use-when">USE WHEN: Comparing student scores, monthly sales, product quantities</div>
+        </div>
+        <div class="chart-card">
+          <div class="chart-icon">📉</div>
+          <h4>Bar Chart</h4>
+          <p>Horizontal bars — same as Column but rotated. Better when category names are long.</p>
+          <div class="use-when">USE WHEN: Survey results, ranked lists with long labels</div>
+        </div>
+        <div class="chart-card">
+          <div class="chart-icon">📈</div>
+          <h4>Line Chart</h4>
+          <p>Points connected by a line showing change over time.</p>
+          <div class="use-when">USE WHEN: Monthly trends, temperature changes, sales growth over time</div>
+        </div>
+        <div class="chart-card">
+          <div class="chart-icon">🥧</div>
+          <h4>Pie Chart</h4>
+          <p>A circle divided into slices showing proportion of a whole.</p>
+          <div class="use-when">USE WHEN: Budget breakdown, market share — best with 5–7 categories max</div>
+        </div>
+      </div>
+
+      <!-- Bar chart visual demo -->
+      <div class="bar-chart-demo">
+        <div class="chart-title">📊 Product Sales — May 2026</div>
+        <div class="bar-row">
+          <div class="bar-label">Pens</div>
+          <div class="bar-track"><div class="bar-fill" style="width:70%;background:#2c8040;">70</div></div>
+          <div class="bar-value">70</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Notebooks</div>
+          <div class="bar-track"><div class="bar-fill" style="width:50%;background:#4caf50;">50</div></div>
+          <div class="bar-value">50</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Erasers</div>
+          <div class="bar-track"><div class="bar-fill" style="width:30%;background:#81c784;">30</div></div>
+          <div class="bar-value">30</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Pencils</div>
+          <div class="bar-track"><div class="bar-fill" style="width:60%;background:#1a5c2a;">60</div></div>
+          <div class="bar-value">60</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Rulers</div>
+          <div class="bar-track"><div class="bar-fill" style="width:40%;background:#66bb6a;">40</div></div>
+          <div class="bar-value">40</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-plus-circle"></i> Creating a Chart — Step by Step</h3>
+      <div class="steps-box">
+        <div class="steps-title"><i class="fas fa-list-ol"></i> Insert a Chart</div>
+        <ol class="steps-list">
+          <li><span class="step-num">1</span> <strong>Select your data</strong> — include the headers (e.g., A1:B6)</li>
+          <li><span class="step-num">2</span> Go to <strong>Insert Tab</strong></li>
+          <li><span class="step-num">3</span> Click the chart type button (e.g., <strong>Insert Column Chart</strong>)</li>
+          <li><span class="step-num">4</span> Choose a style (e.g., <strong>2-D Clustered Column</strong>)</li>
+          <li><span class="step-num">5</span> The chart appears on your sheet — click and drag to reposition it</li>
+        </ol>
+      </div>
+
+      <h4>Customising Your Chart</h4>
+      <ul>
+        <li><strong>Chart Title:</strong> Click the title text box → type a meaningful name (e.g., "Monthly Sales — April 2026")</li>
+        <li><strong>Axis Titles:</strong> Click chart → <strong>Chart Design Tab</strong> → Add Chart Element → Axis Titles → Primary Horizontal/Vertical</li>
+        <li><strong>Data Labels:</strong> Add Chart Element → Data Labels → show the exact value on each bar/slice</li>
+        <li><strong>Legend:</strong> Shows which colour represents which data series — can be repositioned or hidden</li>
+        <li><strong>Chart Style:</strong> Chart Design Tab → choose from the style gallery to change colours and appearance</li>
+        <li><strong>Resize:</strong> Click the chart → drag corner handles to resize</li>
+        <li><strong>Move to new sheet:</strong> Right-click chart → Move Chart → New Sheet (gives the chart its own full-page tab)</li>
+      </ul>
+
+      <div class="callout warning">
+        <div class="callout-icon"><i class="fas fa-exclamation-triangle"></i></div>
+        <div class="callout-body"><strong>Chart Mistakes to Avoid</strong><ul>
+          <li>Using a Pie chart with more than 7 categories — it becomes unreadable</li>
+          <li>Not adding a chart title — nobody knows what the chart is about</li>
+          <li>Not labelling axes — readers can't understand the scale</li>
+          <li>Using 3D charts — they look fancy but distort perception of values</li>
+          <li>Selecting the wrong data range — your chart shows nonsense</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <div class="practice-box reveal">
+      <div class="practice-title"><span class="pnum">5</span> Practical Activity 5 — Sales Dashboard Charts</div>
+      <ol class="practice-steps">
+        <li><i class="fas fa-table"></i> Create data: <strong>Month (Jan–Jun) | Revenue (Ksh)</strong>: 45000, 52000, 38000, 61000, 55000, 70000</li>
+        <li><i class="fas fa-chart-line"></i> Select A1:B7 → Insert → <strong>Line Chart</strong> → 2-D Line. Title: "Monthly Revenue 2026"</li>
+        <li><i class="fas fa-chart-bar"></i> Select same data → Insert → <strong>Column Chart</strong>. Title: "Revenue by Month"</li>
+        <li><i class="fas fa-tags"></i> Add <strong>Data Labels</strong> to the Column chart</li>
+        <li><i class="fas fa-chart-pie"></i> Create a new data range: <strong>Category | Expense</strong>: Rent 8000, Food 5000, Transport 2000, Airtime 500, Misc 1500. Create a <strong>Pie Chart</strong> with percentages</li>
+        <li><i class="fas fa-paint-brush"></i> Apply a colourful <strong>Chart Style</strong> to each chart</li>
+        <li><i class="fas fa-save"></i> Save as <strong>SalesCharts.xlsx</strong></li>
+      </ol>
+    </div>
+
+    <div class="skill-check reveal">
+      <h4>Skill Check — Section 4.5</h4>
+      <div class="skill-items">
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I choose the right chart type</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I create Column, Line, and Pie charts</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I add titles and data labels</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I resize and reposition charts</span>
+      </div>
+    </div>
+
+    <!-- ══════════════════
+         SECTION 4.6
+    ══════════════════ -->
+    <div id="s6" class="section-heading reveal">
+      <div class="sec-icon"><i class="fas fa-sort"></i></div>
+      <div><div class="sec-badge">Section 4.6</div><h2>Sorting and Filtering Data</h2></div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-sort-alpha-down"></i> Sorting Data</h3>
+      <p>Sorting rearranges your rows in a meaningful order — alphabetically, by highest score, by date, etc. Excel moves entire rows so related data stays together.</p>
+
+      <div class="method-grid">
+        <div class="method-card">
+          <div class="method-label"><i class="fas fa-bolt"></i> Quick Sort (1 Column)</div>
+          <ol>
+            <li>Click <strong>any cell</strong> in the column you want to sort by</li>
+            <li>Go to <strong>Data Tab</strong></li>
+            <li>Click <strong>Sort A to Z</strong> (ascending) or <strong>Sort Z to A</strong> (descending)</li>
+          </ol>
+          <p style="font-size:.82rem;color:var(--muted);margin-top:.5rem;">Excel automatically selects all related columns and sorts all rows together.</p>
+        </div>
+        <div class="method-card">
+          <div class="method-label"><i class="fas fa-layer-group"></i> Multi-Level Sort</div>
+          <ol>
+            <li>Click any cell in your data</li>
+            <li>Data Tab → <strong>Sort</strong></li>
+            <li>Set <strong>Sort by</strong>: Class, A to Z</li>
+            <li>Click <strong>Add Level</strong></li>
+            <li>Set <strong>Then by</strong>: Score, Largest to Smallest</li>
+            <li>Click <strong>OK</strong></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="callout warning">
+        <div class="callout-icon"><i class="fas fa-exclamation-triangle"></i></div>
+        <div class="callout-body"><strong>Critical — Never Sort a Single Column Alone</strong><p>If you only sort one column without selecting all columns, <strong>the data relationships are destroyed</strong>. John's score gets attached to Mary's name. Always click a single cell (not a whole column) before sorting so Excel selects and sorts all columns together.</p></div>
+      </div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-filter"></i> Filtering Data</h3>
+      <p>Filtering hides rows that don't match your criteria — without deleting them. Use filtering to show only the data you need at the moment.</p>
+
+      <div class="steps-box">
+        <div class="steps-title"><i class="fas fa-list-ol"></i> Apply and Use Filters</div>
+        <ol class="steps-list">
+          <li><span class="step-num">1</span> Click <strong>any cell</strong> in your data table</li>
+          <li><span class="step-num">2</span> Go to <strong>Data Tab → Filter</strong> (or press <span class="key">Ctrl</span>+<span class="key">Shift</span>+<span class="key">L</span>)</li>
+          <li><span class="step-num">3</span> Dropdown arrows (▾) appear on each header</li>
+          <li><span class="step-num">4</span> Click the arrow on the column you want to filter</li>
+          <li><span class="step-num">5</span> Choose your filter type:<br>
+            <strong>Check/uncheck values</strong> — show only selected items<br>
+            <strong>Number Filters</strong> → Greater Than, Less Than, Between, Top 10…<br>
+            <strong>Text Filters</strong> → Contains, Begins With, Does Not Contain…</li>
+          <li><span class="step-num">6</span> Click <strong>OK</strong> — matching rows are shown, others are hidden (row numbers turn blue)</li>
+        </ol>
+      </div>
+
+      <div class="method-grid">
+        <div class="method-card" style="border-color:#b8ddb8;">
+          <div class="method-label"><i class="fas fa-check-circle"></i> Useful Filter Examples</div>
+          <ul>
+            <li>Show only students from "8A"</li>
+            <li>Show scores <strong>greater than 80</strong></li>
+            <li>Show expenses <strong>between Ksh 1000 and 5000</strong></li>
+            <li>Show all entries <strong>containing "Nairobi"</strong></li>
+            <li>Show <strong>Top 5</strong> highest sales</li>
+          </ul>
+        </div>
+        <div class="method-card" style="border-color:#f5c0c0;">
+          <div class="method-label"><i class="fas fa-times-circle"></i> Clear Filters</div>
+          <p style="font-size:.86rem;color:var(--muted);">To show all data again:</p>
+          <ul>
+            <li>Data Tab → <strong>Clear</strong> (removes all filters)</li>
+            <li>OR click the filter arrow → <strong>Clear Filter From [Column]</strong></li>
+            <li>Clicking <strong>Filter</strong> again removes all filter dropdowns</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="practice-box reveal">
+      <div class="practice-title"><span class="pnum">6</span> Practical Activity 6 — Sort and Filter Student Records</div>
+      <ol class="practice-steps">
+        <li><i class="fas fa-table"></i> Create a table: <strong>Name | Class | Maths | English | Average</strong> — enter 8 students from 8A and 8B</li>
+        <li><i class="fas fa-sort-alpha-down"></i> Sort by <strong>Name A → Z</strong></li>
+        <li><i class="fas fa-sort-numeric-down-alt"></i> Sort by <strong>Average — Largest to Smallest</strong></li>
+        <li><i class="fas fa-layer-group"></i> Multi-level sort: <strong>Class A→Z</strong>, then <strong>Average Largest→Smallest</strong></li>
+        <li><i class="fas fa-filter"></i> Apply Filter → show only students from <strong>Class 8A</strong></li>
+        <li><i class="fas fa-greater-than-equal"></i> Filter the Average column: <strong>Number Filters → Greater Than or Equal To → 70</strong></li>
+        <li><i class="fas fa-times"></i> Clear all filters — confirm all 8 rows return</li>
+        <li><i class="fas fa-save"></i> Save as <strong>SortFilter.xlsx</strong></li>
+      </ol>
+    </div>
+
+    <div class="skill-check reveal">
+      <h4>Skill Check — Section 4.6</h4>
+      <div class="skill-items">
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I sort by one or multiple columns</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I apply filters to show specific data</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I use Number Filters and Text Filters</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I clear filters to restore all data</span>
+      </div>
+    </div>
+
+    <!-- ══════════════════
+         SECTION 4.7
+    ══════════════════ -->
+    <div id="s7" class="section-heading reveal">
+      <div class="sec-icon"><i class="fas fa-print"></i></div>
+      <div><div class="sec-badge">Section 4.7</div><h2>Page Setup and Printing</h2></div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-ruler-combined"></i> Setting Up Your Page for Printing</h3>
+      <div class="method-grid">
+        <div class="method-card">
+          <div class="method-label"><i class="fas fa-file"></i> Orientation</div>
+          <ul>
+            <li><strong>Portrait</strong> — taller than wide. Good for most tables</li>
+            <li><strong>Landscape</strong> — wider than tall. Good for wide tables with many columns</li>
+          </ul>
+          <p style="font-size:.82rem;color:var(--muted);margin-top:.5rem;"><strong>Page Layout Tab → Orientation</strong></p>
+        </div>
+        <div class="method-card">
+          <div class="method-label"><i class="fas fa-expand-arrows-alt"></i> Margins</div>
+          <ul>
+            <li><strong>Normal</strong> — 2.54 cm, standard for most prints</li>
+            <li><strong>Narrow</strong> — 1.27 cm, fits more columns</li>
+            <li><strong>Wide</strong> — more white space around content</li>
+          </ul>
+          <p style="font-size:.82rem;color:var(--muted);margin-top:.5rem;"><strong>Page Layout Tab → Margins</strong></p>
+        </div>
+        <div class="method-card">
+          <div class="method-label"><i class="fas fa-compress-arrows-alt"></i> Scaling</div>
+          <ul>
+            <li><strong>Fit Sheet on One Page</strong> — shrinks to fit a single printed page</li>
+            <li><strong>Fit All Columns on One Page</strong> — squeezes columns to fit width</li>
+            <li>Page Layout Tab → Scale to Fit group</li>
+          </ul>
+        </div>
+        <div class="method-card">
+          <div class="method-label"><i class="fas fa-vector-square"></i> Print Area</div>
+          <ul>
+            <li>Select only the cells you want to print</li>
+            <li><strong>Page Layout Tab → Print Area → Set Print Area</strong></li>
+            <li>Only the selected range prints — not the whole sheet</li>
+            <li>Clear with: Page Layout → Print Area → Clear Print Area</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-heading"></i> Headers, Footers, and Repeating Rows</h3>
+      <div class="steps-box">
+        <div class="steps-title"><i class="fas fa-list-ol"></i> Adding a Header or Footer</div>
+        <ol class="steps-list">
+          <li><span class="step-num">1</span> Go to <strong>Insert Tab → Header &amp; Footer</strong></li>
+          <li><span class="step-num">2</span> The view switches to Page Layout view</li>
+          <li><span class="step-num">3</span> Click in the Header box and type: e.g., <em>"Monthly Sales Report — Castro Odhiambo"</em></li>
+          <li><span class="step-num">4</span> Use the <strong>Header &amp; Footer Tools</strong> to insert: Page Number, Date, File Name, Sheet Name</li>
+          <li><span class="step-num">5</span> Click the Footer box and add page numbers</li>
+          <li><span class="step-num">6</span> Click outside the header/footer area to finish</li>
+        </ol>
+      </div>
+      <div class="callout important">
+        <div class="callout-icon"><i class="fas fa-repeat"></i></div>
+        <div class="callout-body"><strong>Repeat Header Rows on Every Printed Page</strong><p>For tables longer than one page, set the header row to repeat:<br>
+        <strong>Page Layout Tab → Print Titles → Rows to Repeat at Top → click row 1</strong><br>
+        Now "Name, Score, Grade" appears at the top of every printed page automatically.</p></div>
+      </div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-eye"></i> Print Preview and Printing</h3>
+      <div class="steps-box">
+        <div class="steps-title"><i class="fas fa-list-ol"></i> How to Preview and Print</div>
+        <ol class="steps-list">
+          <li><span class="step-num">1</span> Press <span class="key">Ctrl</span>+<span class="key">P</span> (or File → Print)</li>
+          <li><span class="step-num">2</span> The <strong>Print Preview</strong> appears on the right — inspect it carefully</li>
+          <li><span class="step-num">3</span> Check: Is everything visible? Are columns cut off? How many pages?</li>
+          <li><span class="step-num">4</span> Adjust settings on the left: Printer, Copies, Pages to print, Orientation, Margins, Scaling</li>
+          <li><span class="step-num">5</span> When satisfied, click <strong>Print</strong></li>
+        </ol>
+      </div>
+      <div class="callout warning">
+        <div class="callout-icon"><i class="fas fa-money-bill"></i></div>
+        <div class="callout-body"><strong>Cybercafé Tip — Always Preview First</strong><p>At a cybercafé you pay per page printed. A spreadsheet without Print Area set might print 10+ empty pages. Always check Print Preview, set your Print Area, and count the pages before clicking Print.</p></div>
+      </div>
+    </div>
+
+    <div class="practice-box reveal">
+      <div class="practice-title"><span class="pnum">7</span> Practical Activity 7 — Print-Ready Sales Report</div>
+      <ol class="practice-steps">
+        <li><i class="fas fa-table"></i> Create a 15-row sales table: <strong>Product | Category | Unit Price | Qty Sold | Total</strong></li>
+        <li><i class="fas fa-vector-square"></i> Select A1:E16 → <strong>Set Print Area</strong></li>
+        <li><i class="fas fa-file"></i> Set orientation to <strong>Landscape</strong>, margins to <strong>Narrow</strong></li>
+        <li><i class="fas fa-compress-arrows-alt"></i> Set scaling to <strong>Fit All Columns on One Page</strong></li>
+        <li><i class="fas fa-heading"></i> Add Header: <em>"Monthly Sales Report — May 2026"</em></li>
+        <li><i class="fas fa-hashtag"></i> Add Footer: Page number centred</li>
+        <li><i class="fas fa-repeat"></i> Set <strong>Row 1 to repeat</strong> on every printed page</li>
+        <li><i class="fas fa-eye"></i> Open <strong>Print Preview</strong> (Ctrl+P) — confirm 1 clean page</li>
+        <li><i class="fas fa-save"></i> Save as <strong>SalesReport_Print.xlsx</strong></li>
+      </ol>
+    </div>
+
+    <div class="skill-check reveal">
+      <h4>Skill Check — Section 4.7</h4>
+      <div class="skill-items">
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I set Print Area correctly</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I use Landscape for wide tables</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I scale to fit on one page</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I add headers and footers</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I always check Print Preview first</span>
+      </div>
+    </div>
+
+    <!-- ══════════════════
+         SECTION 4.8
+    ══════════════════ -->
+    <div id="s8" class="section-heading reveal">
+      <div class="sec-icon"><i class="fas fa-shield-alt"></i></div>
+      <div><div class="sec-badge">Section 4.8</div><h2>Saving, File Formats &amp; Protecting Workbooks</h2></div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-floppy-disk"></i> Saving Your Workbook</h3>
+      <div class="method-grid">
+        <div class="method-card">
+          <div class="method-label"><i class="fas fa-keyboard"></i> Save (Ctrl+S)</div>
+          <p>Updates the current file instantly. Use this every few minutes. If the file has not been saved before, it will open the Save As dialog.</p>
+        </div>
+        <div class="method-card">
+          <div class="method-label"><i class="fas fa-save"></i> Save As (F12)</div>
+          <p>Save a new copy with a different name, in a different location, or as a different file type. Use to create versions: <em>Budget_Draft.xlsx → Budget_Final.xlsx</em></p>
+        </div>
+      </div>
+
+      <h4>Excel File Formats — Choose the Right One</h4>
+      <table class="data-table">
+        <thead><tr><th>Extension</th><th>Format</th><th>When to Use</th></tr></thead>
         <tbody>
-          <tr><td><strong>Column / Bar Chart</strong></td><td>Comparing values across categories</td><td>Sales by month, marks per student</td></tr>
-          <tr><td><strong>Line Chart</strong></td><td>Showing trends over time</td><td>Stock prices, temperature changes</td></tr>
-          <tr><td><strong>Pie Chart</strong></td><td>Showing parts of a whole (percentages)</td><td>Budget categories, market share</td></tr>
+          <tr><td><strong>.xlsx</strong></td><td>Excel Workbook (default)</td><td>Always use this for normal Excel files (Excel 2007 and newer)</td></tr>
+          <tr><td><strong>.xls</strong></td><td>Excel 97–2003</td><td>Only if recipient uses very old Excel — otherwise use .xlsx</td></tr>
+          <tr><td><strong>.csv</strong></td><td>Comma Separated Values</td><td>Export data to other systems (databases, web apps) — formulas and formatting are lost</td></tr>
+          <tr><td><strong>.pdf</strong></td><td>PDF Document</td><td>Share spreadsheets that should not be edited — preserves layout</td></tr>
+          <tr><td><strong>.xlsm</strong></td><td>Macro-Enabled Workbook</td><td>If the file contains VBA macros (advanced automation)</td></tr>
         </tbody>
       </table>
     </div>
 
-    <div class="practice-box reveal">
-      <div class="practice-title"><span class="pnum">5</span> Create a Sales Chart</div>
-      <ol class="practice-steps">
-        <li><i class="fas fa-chart-simple"></i> Open your Sales_Data file</li>
-        <li><i class="fas fa-mouse-pointer"></i> Select cells A1:B6 (Days and Sales)</li>
-        <li><i class="fas fa-chart-column"></i> Insert → Column Chart → Clustered Column</li>
-        <li><i class="fas fa-edit"></i> Add a chart title: "Weekly Sales (Ksh)"</li>
-        <li><i class="fas fa-save"></i> Save as <strong>Sales_Chart</strong></li>
-      </ol>
-    </div>
+    <div class="content-card reveal">
+      <h3><i class="fas fa-lock"></i> Protecting Your Workbook and Worksheets</h3>
+      <p>Protection prevents unauthorised users from changing your data, formulas, or structure. This is essential for shared files — payroll, student marks, or business data.</p>
 
-    <div class="skill-check reveal"><h4>Skill Check — Section 4.5</h4><div class="skill-items"><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can insert a column chart</span><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I know which chart to use for different data</span></div></div>
+      <h4>Protect the Entire Workbook with a Password</h4>
+      <div class="steps-box">
+        <div class="steps-title"><i class="fas fa-list-ol"></i> Password to Open</div>
+        <ol class="steps-list">
+          <li><span class="step-num">1</span> Click <strong>File → Info</strong></li>
+          <li><span class="step-num">2</span> Click <strong>Protect Workbook → Encrypt with Password</strong></li>
+          <li><span class="step-num">3</span> Type a strong password (e.g., Marks@2026!)</li>
+          <li><span class="step-num">4</span> Confirm the password → Click OK</li>
+          <li><span class="step-num">5</span> Save the file — password required to open next time</li>
+        </ol>
+      </div>
 
-    <!-- SECTION 4.6 -->
-    <div id="s6" class="section-heading reveal">
-      <div class="sec-icon"><i class="fas fa-sort"></i></div>
-      <div><div class="sec-badge">Section 4.6</div><h2>Sorting &amp; Filtering Data</h2></div>
+      <h4>Protect a Worksheet (Prevent Editing)</h4>
+      <div class="steps-box">
+        <div class="steps-title"><i class="fas fa-list-ol"></i> Protect Sheet</div>
+        <ol class="steps-list">
+          <li><span class="step-num">1</span> Go to <strong>Review Tab → Protect Sheet</strong></li>
+          <li><span class="step-num">2</span> Enter a password</li>
+          <li><span class="step-num">3</span> Choose what users are <strong>still allowed to do</strong> (e.g., select cells, but not change them)</li>
+          <li><span class="step-num">4</span> Click <strong>OK</strong> — users can view but not edit the sheet</li>
+          <li><span class="step-num">5</span> To unprotect: Review Tab → <strong>Unprotect Sheet</strong> → enter password</li>
+        </ol>
+      </div>
+
+      <h4>Locking Specific Cells (Advanced)</h4>
+      <p>Sometimes you want to protect formulas but allow users to enter data in input cells. Here's how:</p>
+      <div class="steps-box">
+        <div class="steps-title"><i class="fas fa-list-ol"></i> Lock Formulas, Unlock Input Cells</div>
+        <ol class="steps-list">
+          <li><span class="step-num">1</span> <strong>Select all cells</strong> (Ctrl+A) → Right-click → Format Cells → Protection → <strong>check "Locked"</strong> → OK</li>
+          <li><span class="step-num">2</span> <strong>Select only the input cells</strong> (cells users should type in) → Right-click → Format Cells → Protection → <strong>uncheck "Locked"</strong> → OK</li>
+          <li><span class="step-num">3</span> Now go to <strong>Review Tab → Protect Sheet</strong> → enter password → OK</li>
+          <li><span class="step-num">4</span> Users can now only type in the unlocked cells — all formulas are protected</li>
+        </ol>
+      </div>
+
+      <div class="callout warning">
+        <div class="callout-icon"><i class="fas fa-exclamation-triangle"></i></div>
+        <div class="callout-body"><strong>Never Forget Your Password</strong><p>Excel password protection cannot be recovered if you forget the password. Write it down and store it safely. Use a memorable but strong password like <code>Excel@Nairobi2026</code>.</p></div>
+      </div>
     </div>
 
     <div class="content-card reveal">
-      <h3><i class="fas fa-arrow-up-wide-short"></i> Sorting Data</h3>
-      <div class="steps-box"><div class="steps-title">Sort a Column (A to Z or Smallest to Largest)</div><ol class="steps-list"><li><span class="step-num">1</span> Select any cell in the column you want to sort</li><li><span class="step-num">2</span> Data Tab → Sort A to Z (ascending) or Sort Z to A (descending)</li><li><span class="step-num">3</span> For multiple-level sorts, click <strong>Sort</strong> and add levels</li></ol></div>
-    </div>
-
-    <div class="content-card reveal">
-      <h3><i class="fas fa-filter"></i> Filtering — Show Only What You Need</h3>
-      <div class="steps-box"><div class="steps-title">Apply a Filter</div><ol class="steps-list"><li><span class="step-num">1</span> Select your data range (including headers)</li><li><span class="step-num">2</span> Data Tab → <strong>Filter</strong> button (funnel icon)</li><li><span class="step-num">3</span> Dropdown arrows appear on headers — click to filter by specific values</li></ol></div>
-      <div class="callout tip"><div class="callout-icon"><i class="fas fa-search"></i></div><div class="callout-body"><strong>Clear Filter:</strong> Click the filter funnel icon again, or use Data → Clear.</div></div>
-    </div>
-
-    <div class="practice-box reveal">
-      <div class="practice-title"><span class="pnum">6</span> Sort and Filter Practice</div>
-      <ol class="practice-steps">
-        <li><i class="fas fa-table"></i> Open Sales_Data file</li>
-        <li><i class="fas fa-arrow-down"></i> Sort the Sales column from highest to lowest</li>
-        <li><i class="fas fa-filter"></i> Apply a filter and show only days with sales above 500</li>
-        <li><i class="fas fa-save"></i> Save as <strong>Sales_Sorted_Filtered</strong></li>
-      </ol>
-    </div>
-
-    <div class="skill-check reveal"><h4>Skill Check — Section 4.6</h4><div class="skill-items"><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can sort data ascending/descending</span><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can apply and clear filters</span></div></div>
-
-    <!-- SECTION 4.7 -->
-    <div id="s7" class="section-heading reveal">
-      <div class="sec-icon"><i class="fas fa-print"></i></div>
-      <div><div class="sec-badge">Section 4.7</div><h2>Printing in Excel — Page Setup &amp; Print Area</h2></div>
-    </div>
-
-    <div class="content-card reveal">
-      <h3><i class="fas fa-ruler-combined"></i> Set Print Area &amp; Page Layout</h3>
-      <div class="steps-box"><div class="steps-title">Set Print Area</div><ol class="steps-list"><li><span class="step-num">1</span> Select the cells you want to print</li><li><span class="step-num">2</span> Page Layout Tab → Print Area → Set Print Area</li></ol></div>
-      <div class="steps-box"><div class="steps-title">Fit Sheet on One Page</div><ol class="steps-list"><li><span class="step-num">1</span> Page Layout Tab → Width → 1 page</li><li><span class="step-num">2</span> Height → 1 page</li><li><span class="step-num">3</span> Check Print Preview (Ctrl+P)</li></ol></div>
-      <div class="callout warning"><div class="callout-icon"><i class="fas fa-eye"></i></div><div class="callout-body"><strong>Always Preview Before Printing</strong><p>Press <span class="key">Ctrl</span>+<span class="key">P</span> to see exactly what will print. Adjust margins and scaling as needed.</p></div></div>
+      <h3><i class="fas fa-keyboard"></i> Complete Excel Keyboard Shortcuts Reference</h3>
+      <div class="shortcut-grid">
+        <div class="shortcut-card"><div class="keys"><span class="key">Ctrl</span>+<span class="key">N</span></div><div class="shortcut-desc"><strong>New</strong> workbook</div></div>
+        <div class="shortcut-card"><div class="keys"><span class="key">Ctrl</span>+<span class="key">O</span></div><div class="shortcut-desc"><strong>Open</strong> workbook</div></div>
+        <div class="shortcut-card"><div class="keys"><span class="key">Ctrl</span>+<span class="key">S</span></div><div class="shortcut-desc"><strong>Save</strong></div></div>
+        <div class="shortcut-card"><div class="keys"><span class="key">F12</span></div><div class="shortcut-desc"><strong>Save As</strong></div></div>
+        <div class="shortcut-card"><div class="keys"><span class="key">Ctrl</span>+<span class="key">P</span></div><div class="shortcut-desc"><strong>Print</strong> / Print Preview</div></div>
+        <div class="shortcut-card"><div class="keys"><span class="key">Ctrl</span>+<span class="key">Z</span></div><div class="shortcut-desc"><strong>Undo</strong> last action</div></div>
+        <div class="shortcut-card"><div class="keys"><span class="key">Ctrl</span>+<span class="key">Y</span></div><div class="shortcut-desc"><strong>Redo</strong></div></div>
+        <div class="shortcut-card"><div class="keys"><span class="key">Ctrl</span>+<span class="key">C</span></div><div class="shortcut-desc"><strong>Copy</strong> selected cells</div></div>
+        <div class="shortcut-card"><div class="keys"><span class="key">Ctrl</span>+<span class="key">X</span></div><div class="shortcut-desc"><strong>Cut</strong> (move)</div></div>
+        <div class="shortcut-card"><div class="keys"><span class="key">Ctrl</span>+<span class="key">V</span></div><div class="shortcut-desc"><strong>Paste</strong></div></div>
+        <div class="shortcut-card"><div class="keys"><span class="key">F2</span></div><div class="shortcut-desc"><strong>Edit</strong> selected cell</div></div>
+        <div class="shortcut-card"><div class="keys"><span class="key">Delete</span></div><div class="shortcut-desc"><strong>Clear</strong> cell contents</div></div>
+        <div class="shortcut-card"><div class="keys"><span class="key">Ctrl</span>+<span class="key">Home</span></div><div class="shortcut-desc"><strong>Go to A1</strong></div></div>
+        <div class="shortcut-card"><div class="keys"><span class="key">Ctrl</span>+<span class="key">End</span></div><div class="shortcut-desc"><strong>Last used cell</strong></div></div>
+        <div class="shortcut-card"><div class="keys"><span class="key">Ctrl</span>+<span class="key">A</span></div><div class="shortcut-desc"><strong>Select all</strong> cells</div></div>
+        <div class="shortcut-card"><div class="keys"><span class="key">Ctrl</span>+<span class="key">B</span></div><div class="shortcut-desc"><strong>Bold</strong> selected cells</div></div>
+      </div>
     </div>
 
     <div class="practice-box reveal">
-      <div class="practice-title"><span class="pnum">7</span> Prepare Marksheet for Printing</div>
+      <div class="practice-title"><span class="pnum">8</span> Practical Activity 8 — Employee Payroll Protection</div>
       <ol class="practice-steps">
-        <li><i class="fas fa-print"></i> Open Marksheet_Formatted</li>
-        <li><i class="fas fa-border-all"></i> Set Print Area to your entire table</li>
-        <li><i class="fas fa-ruler"></i> Set margins to Narrow (Page Layout → Margins → Narrow)</li>
-        <li><i class="fas fa-align-center"></i> In Page Setup, check "Horizontally" under Center on Page</li>
-        <li><i class="fas fa-eye"></i> Preview (Ctrl+P) — adjust if needed</li>
-        <li><i class="fas fa-save"></i> Save</li>
+        <li><i class="fas fa-table"></i> Create a table: <strong>Employee | Department | Basic Pay | Tax (15%) | Net Pay</strong></li>
+        <li><i class="fas fa-keyboard"></i> Enter 6 employees. Tax = <code>=C2*15%</code>. Net Pay = <code>=C2-D2</code></li>
+        <li><i class="fas fa-money-bill"></i> Apply <strong>Currency (Ksh)</strong> format to all money columns</li>
+        <li><i class="fas fa-save"></i> Save as <strong>Payroll.xlsx</strong></li>
+        <li><i class="fas fa-lock"></i> Protect with password: <code>Payroll2026!</code> (File → Info → Encrypt)</li>
+        <li><i class="fas fa-file-csv"></i> Save a copy as <strong>Payroll.csv</strong> (File → Save As → CSV)</li>
+        <li><i class="fas fa-shield-alt"></i> Protect the worksheet (Review → Protect Sheet) with password: <code>edit123</code></li>
+        <li><i class="fas fa-check-circle"></i> Test the protection — try editing a cell and confirm it's blocked</li>
       </ol>
     </div>
 
-    <div class="skill-check reveal"><h4>Skill Check — Section 4.7</h4><div class="skill-items"><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can set Print Area</span><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can fit a sheet on one page</span><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I always preview before printing</span></div></div>
-
-    <!-- SECTION 4.8 -->
-    <div id="s8" class="section-heading reveal">
-      <div class="sec-icon"><i class="fas fa-file-invoice-dollar"></i></div>
-      <div><div class="sec-badge">Section 4.8 — Real-World Project</div><h2>Complete Monthly Budget Project</h2></div>
+    <div class="skill-check reveal">
+      <h4>Skill Check — Section 4.8</h4>
+      <div class="skill-items">
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I save as .xlsx and .csv correctly</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I protect workbooks with passwords</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I protect worksheets from editing</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can lock and unlock specific cells</span>
+      </div>
     </div>
-
-    <div class="content-card reveal">
-      <h3><i class="fas fa-tasks"></i> Project: Create a Personal Monthly Budget</h3>
-      <p>This project combines everything you've learned: data entry, formulas, formatting, charting, and printing.</p>
-      
-      <div class="steps-box"><div class="steps-title">Step 1 — Set Up the Budget Structure</div>
-      <ol class="steps-list"><li><span class="step-num">1</span> Open new blank workbook. Rename Sheet1 to "January"</li>
-      <li><span class="step-num">2</span> In row 1: <strong>A1: Category, B1: Budget (Ksh), C1: Actual (Ksh), D1: Difference, E1: Status</strong></li>
-      <li><span class="step-num">3</span> In column A, list categories: Rent, Groceries, Transport, Airtime, Electricity, Water, Entertainment, Savings, Miscellaneous</li></ol></div>
-
-      <div class="steps-box"><div class="steps-title">Step 2 — Enter Sample Numbers</div>
-      <ol class="steps-list"><li><span class="step-num">1</span> Enter realistic Budget amounts (e.g., Rent: 8000, Groceries: 5000, Transport: 2000, Airtime: 1000)</li>
-      <li><span class="step-num">2</span> Enter Actual amounts (some higher, some lower than budget)</li></ol></div>
-
-      <div class="steps-box"><div class="steps-title">Step 3 — Add Formulas</div>
-      <ol class="steps-list"><li><span class="step-num">1</span> In D2 (Difference): <strong>=C2-B2</strong> → drag down (positive means under budget, negative means over)</li>
-      <li><span class="step-num">2</span> In E2 (Status): <strong>=IF(D2>=0,"Under","Over")</strong> → drag down</li>
-      <li><span class="step-num">3</span> At bottom, add TOTAL row: <strong>=SUM(B2:B10)</strong> for Budget Total, same for Actual and Difference</li></ol></div>
-
-      <div class="steps-box"><div class="steps-title">Step 4 — Format the Budget</div>
-      <ol class="steps-list"><li><span class="step-num">1</span> Format all currency numbers as Kenyan Shillings (Number → Currency, symbol Ksh)</li>
-      <li><span class="step-num">2</span> Bold headers, add borders, use conditional formatting to highlight negative differences in red</li>
-      <li><span class="step-num">3</span> Create a Pie Chart showing Actual spending by category (Insert → Pie Chart)</li></ol></div>
-
-      <div class="steps-box"><div class="steps-title">Step 5 — Finalise</div>
-      <ol class="steps-list"><li><span class="step-num">1</span> Set Print Area to include the table and chart</li>
-      <li><span class="step-num">2</span> Fit to one page wide</li>
-      <li><span class="step-num">3</span> Add a header with your name and "Monthly Budget - January"</li>
-      <li><span class="step-num">4</span> Save as <strong>My_Monthly_Budget</strong></li></ol></div>
-    </div>
-
-    <div class="practice-box reveal">
-      <div class="practice-title"><span class="pnum">8</span> Build Your Own Budget</div>
-      <ol class="practice-steps">
-        <li><i class="fas fa-file-excel"></i> Follow all steps above using YOUR own expense categories and numbers</li>
-        <li><i class="fas fa-chart-pie"></i> Create a pie chart of your Actual expenses</li>
-        <li><i class="fas fa-code-branch"></i> Use IF to show "Under Budget" or "Over Budget" for each category</li>
-        <li><i class="fas fa-print"></i> Preview and ensure it fits on one page</li>
-        <li><i class="fas fa-save"></i> Save as <strong>YourName_Budget</strong></li>
-      </ol>
-    </div>
-
-    <div class="skill-check reveal"><h4>Skill Check — Section 4.8</h4><div class="skill-items"><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can create a complete budget from scratch</span><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I use SUM, IF, and charts together</span><span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can prepare a spreadsheet for printing</span></div></div>
 
     <!-- CHAPTER SUMMARY -->
     <div class="chapter-summary reveal">
-      <h2>🎯 Chapter 4 Summary — Excel Skills Mastered</h2>
+      <h2>🎯 Chapter 4 Summary — Skills Mastered</h2>
       <div class="summary-grid">
-        <div class="summary-item"><i class="fas fa-check-circle"></i> I understand workbooks, worksheets, cells</div>
-        <div class="summary-item"><i class="fas fa-check-circle"></i> I can enter and edit data, use AutoFill</div>
-        <div class="summary-item"><i class="fas fa-check-circle"></i> I create formulas with + - * /</div>
-        <div class="summary-item"><i class="fas fa-check-circle"></i> I use SUM, AVERAGE, MAX, MIN, COUNT</div>
-        <div class="summary-item"><i class="fas fa-check-circle"></i> I use IF for conditional results</div>
-        <div class="summary-item"><i class="fas fa-check-circle"></i> I format numbers, borders, colours</div>
-        <div class="summary-item"><i class="fas fa-check-circle"></i> I create column and pie charts</div>
-        <div class="summary-item"><i class="fas fa-check-circle"></i> I sort and filter data</div>
-        <div class="summary-item"><i class="fas fa-check-circle"></i> I set Print Area and fit to one page</div>
-        <div class="summary-item"><i class="fas fa-check-circle"></i> I built a complete monthly budget</div>
+        <div class="summary-item"><i class="fas fa-check-circle"></i> Open Excel and navigate the full interface</div>
+        <div class="summary-item"><i class="fas fa-check-circle"></i> Enter text, numbers, dates, and formulas</div>
+        <div class="summary-item"><i class="fas fa-check-circle"></i> Use AutoFill to complete series instantly</div>
+        <div class="summary-item"><i class="fas fa-check-circle"></i> Write SUM, AVERAGE, MAX, MIN, COUNT, IF</div>
+        <div class="summary-item"><i class="fas fa-check-circle"></i> Copy formulas down using the Fill Handle</div>
+        <div class="summary-item"><i class="fas fa-check-circle"></i> Read and fix formula errors (#VALUE!, etc.)</div>
+        <div class="summary-item"><i class="fas fa-check-circle"></i> Format cells: Currency, Borders, Fill, Alignment</div>
+        <div class="summary-item"><i class="fas fa-check-circle"></i> Apply Conditional Formatting automatically</div>
+        <div class="summary-item"><i class="fas fa-check-circle"></i> Create Column, Line, and Pie charts</div>
+        <div class="summary-item"><i class="fas fa-check-circle"></i> Sort data by single or multiple columns</div>
+        <div class="summary-item"><i class="fas fa-check-circle"></i> Apply and clear filters to find specific data</div>
+        <div class="summary-item"><i class="fas fa-check-circle"></i> Set up Print Area, orientation, and scale</div>
+        <div class="summary-item"><i class="fas fa-check-circle"></i> Add repeating headers for multi-page prints</div>
+        <div class="summary-item"><i class="fas fa-check-circle"></i> Protect workbooks and worksheets with passwords</div>
       </div>
-      <p style="margin-top:1.5rem;opacity:.85;font-style:italic;">"Excel turns raw numbers into useful information. From household budgets to business reports, these skills will serve you for life."<br><strong>— Castro Odhiambo</strong></p>
+      <p style="margin-top:1.5rem;opacity:.85;font-size:.95rem;font-style:italic;">"Excel doesn't just organise data — it reveals the story inside the numbers. Every professional who masters Excel becomes more valuable in every workplace."<br><strong style="opacity:1;">— Castro Odhiambo</strong></p>
     </div>
 
+    <!-- CHAPTER NAV -->
     <div class="chapter-nav reveal">
-      <a href="Word.html" class="prev"><div class="nav-icon"><i class="fas fa-arrow-left"></i></div><div class="nav-text"><div class="nav-label">Previous Chapter</div><div class="nav-title">Chapter 3 — Microsoft Word</div></div></a>
-      <a href="Powerpoint.html" class="next"><div class="nav-icon"><i class="fas fa-arrow-right"></i></div><div class="nav-text"><div class="nav-label">Next Chapter</div><div class="nav-title">Chapter 5 — PowerPoint</div></div></a>
+      <a href="Word.html" class="prev">
+        <div class="nav-icon"><i class="fas fa-arrow-left"></i></div>
+        <div class="nav-text"><div class="nav-label">Previous Chapter</div><div class="nav-title">Chapter 3 — Microsoft Word</div></div>
+      </a>
+      <a href="Powerpoint.html" class="next">
+        <div class="nav-icon"><i class="fas fa-arrow-right"></i></div>
+        <div class="nav-text"><div class="nav-label">Next Chapter</div><div class="nav-title">Chapter 5 — Microsoft PowerPoint</div></div>
+      </a>
     </div>
 
   </main>
 </div>
 
+<!-- FOOTER -->
 <footer class="site-footer">
   <p>© 2026 <span>Castro Odhiambo</span> — Basics of Digital Literacy &nbsp;·&nbsp; Chapter 4: Microsoft Excel — Complete Guide</p>
-  <p style="margin-top:.4rem;font-size:.76rem;">Master spreadsheets, formulas, and data analysis · <a href="index.html" style="color:var(--gold);text-decoration:none;">← Back to Home</a></p>
+  <p style="margin-top:.4rem;font-size:.76rem;">For hands-on mastery of spreadsheets · <a href="index.html" style="color:var(--amber);text-decoration:none;">← Back to Home</a></p>
 </footer>
 
 <script>
-  window.addEventListener('scroll',()=>{const s=window.scrollY,h=document.documentElement.scrollHeight-window.innerHeight;document.getElementById('pbar').style.width=(s/h*100)+'%';});
-  const els=document.querySelectorAll('.reveal');const obs=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*55);obs.unobserve(e.target);}});},{threshold:.07});els.forEach(el=>obs.observe(el));
-  const sections=document.querySelectorAll('[id^="s"]');const sbLinks=document.querySelectorAll('.sb-link');window.addEventListener('scroll',()=>{let cur='';sections.forEach(s=>{if(window.scrollY>=s.offsetTop-130)cur=s.id;});sbLinks.forEach(l=>{l.classList.remove('active');if(l.getAttribute('href')==='#'+cur)l.classList.add('active');});});
+  window.addEventListener('scroll',()=>{
+    const s=window.scrollY,h=document.documentElement.scrollHeight-window.innerHeight;
+    document.getElementById('pbar').style.width=(s/h*100)+'%';
+  });
+  const els=document.querySelectorAll('.reveal');
+  const obs=new IntersectionObserver((entries)=>{
+    entries.forEach((e,i)=>{
+      if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*55);obs.unobserve(e.target);}
+    });
+  },{threshold:.07});
+  els.forEach(el=>obs.observe(el));
+  const sections=document.querySelectorAll('[id^="s"]');
+  const sbLinks=document.querySelectorAll('.sb-link');
+  window.addEventListener('scroll',()=>{
+    let cur='';
+    sections.forEach(s=>{if(window.scrollY>=s.offsetTop-130)cur=s.id;});
+    sbLinks.forEach(l=>{l.classList.remove('active');if(l.getAttribute('href')==='#'+cur)l.classList.add('active');});
+  });
 </script>
 </body>
 </html>
