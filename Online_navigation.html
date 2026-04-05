@@ -3,434 +3,638 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Digital Competency | Chapter 7: Navigating Online Spaces (Government Portals & Digital Tools)</title>
+  <title>Chapter 7: Navigating Online Spaces – Government Portals & Digital Tools | Digital Literacy – Castro Odhiambo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root {
+      --navy:      #0a2e3b;
+      --teal:      #0e5b6e;
+      --cyan:      #1a7f8a;
+      --gold:      #f5a623;
+      --amber:     #ffd27a;
+      --white:     #ffffff;
+      --offwhite:  #f0f7f8;
+      --text:      #1a4a52;
+      --muted:     #5a7a82;
+      --border:    #c8e0e4;
+      --red:       #c0392b;
+      --green:     #2b7a4b;
+      --blue:      #1a4b6e;
+      --radius:    1.2rem;
     }
-    body {
-      background: #f0f4f8;
-      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-      line-height: 1.5;
-      color: #1a2c3e;
-      padding: 2rem 1rem;
-    }
-    .container {
-      max-width: 1300px;
-      margin: 0 auto;
-      background: white;
-      border-radius: 32px;
-      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.2);
-      overflow: hidden;
-    }
-    .hero {
-      background: linear-gradient(135deg, #0e4b5e, #0a2e3b);
-      color: white;
-      padding: 2rem 2rem;
-      text-align: center;
-    }
-    .hero h1 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-    }
-    .hero .author {
-      font-size: 1rem;
-      opacity: 0.9;
-      margin-top: 0.5rem;
-      border-top: 1px solid rgba(255,255,255,0.3);
-      display: inline-block;
-      padding-top: 0.5rem;
-    }
-    .chapter-badge {
-      background: #f39c12;
-      color: #1e2a3e;
-      display: inline-block;
-      padding: 0.25rem 1.2rem;
-      border-radius: 40px;
-      font-weight: bold;
-      font-size: 0.8rem;
-      margin-bottom: 1rem;
-    }
-    .content {
-      padding: 2rem 2rem 2.5rem 2rem;
-    }
-    h2 {
-      font-size: 1.9rem;
-      margin: 1.8rem 0 1rem;
-      color: #0e4b5e;
-      border-left: 6px solid #f39c12;
-      padding-left: 1rem;
-    }
-    h3 {
-      font-size: 1.5rem;
-      margin: 1.2rem 0 0.8rem;
-      color: #1a6b7a;
-    }
-    h4 {
-      font-size: 1.2rem;
-      margin: 1rem 0 0.5rem;
-      color: #0e5a6b;
-    }
-    .section-card {
-      background: #fbfef9;
-      border-radius: 24px;
-      padding: 1.2rem 1.8rem;
-      margin: 1.5rem 0;
-      border: 1px solid #dee9f0;
-    }
-    .steps-box {
-      background: #eef4fa;
-      border-left: 5px solid #2980b9;
-      padding: 1rem 1.8rem;
-      border-radius: 20px;
-      margin: 1.2rem 0;
-    }
-    .note {
-      background: #fff9e8;
-      border-left: 5px solid #f39c12;
-      padding: 1rem 1.5rem;
-      border-radius: 16px;
-      margin: 1rem 0;
-      font-weight: 500;
-    }
-    .warning {
-      background: #ffeae9;
-      border-left: 5px solid #d9534f;
-      padding: 1rem 1.5rem;
-      border-radius: 16px;
-      margin: 1rem 0;
-    }
-    .skill-check {
-      background: #e8f0f4;
-      border-radius: 20px;
-      padding: 1rem 1.8rem;
-      margin: 1.5rem 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      font-weight: 500;
-    }
-    .skill-check span {
-      background: white;
-      padding: 0.3rem 1rem;
-      border-radius: 30px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1rem 0;
-      background: white;
-      border-radius: 16px;
-      overflow-x: auto;
-      display: block;
-    }
-    th, td {
-      border: 1px solid #ccc;
-      padding: 0.5rem 0.8rem;
-      text-align: left;
-      vertical-align: top;
-    }
-    th {
-      background: #eaf2f8;
-      font-weight: 600;
-    }
-    ul, ol {
-      padding-left: 1.6rem;
-      margin: 0.8rem 0;
-    }
-    li {
-      margin: 0.3rem 0;
-    }
-    hr {
-      margin: 2rem 0;
-      border: none;
-      height: 2px;
-      background: linear-gradient(to right, #cbdbe0, transparent);
-    }
-    footer {
-      background: #f1f5f9;
-      text-align: center;
-      padding: 1.2rem;
-      font-size: 0.85rem;
-      color: #0e4b5e;
-      border-top: 1px solid #d0dfe8;
-    }
-    .cyber-tip {
-      background: #e8f8f5;
-      border-left: 5px solid #1abc9c;
-      padding: 0.8rem 1.2rem;
-      border-radius: 12px;
-      margin: 0.8rem 0;
-      font-weight: 500;
-    }
-    .paybill-note {
-      background: #2c3e50;
-      color: white;
-      padding: 0.8rem 1.2rem;
-      border-radius: 12px;
-      font-family: monospace;
-      margin: 0.8rem 0;
-    }
-    @media (max-width: 700px) {
-      .content { padding: 1rem; }
-      h2 { font-size: 1.6rem; }
-    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'DM Sans',sans-serif;background:var(--offwhite);color:var(--text);line-height:1.75;overflow-x:hidden;}
+
+    #pbar{position:fixed;top:0;left:0;height:3px;z-index:999;background:linear-gradient(to right,var(--teal),var(--gold));width:0%;transition:width .1s linear;}
+
+    .topbar{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(10,46,59,.97);backdrop-filter:blur(14px);display:flex;align-items:center;justify-content:space-between;padding:.75rem 2.5rem;border-bottom:1px solid rgba(255,255,255,.07);}
+    .topbar-brand{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:700;color:var(--gold);text-decoration:none;}
+    .topbar-brand span{color:#fff;font-weight:300;}
+    .topbar-right{display:flex;align-items:center;gap:1rem;}
+    .topbar-right a{color:rgba(255,255,255,.55);text-decoration:none;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;transition:color .2s;}
+    .topbar-right a:hover{color:var(--gold);}
+    .nav-btn{background:var(--gold);color:#0a2e3b !important;padding:.4rem 1.1rem;border-radius:40px;font-size:.78rem;font-weight:600;}
+    .nav-btn:hover{background:var(--amber);}
+    @media(max-width:680px){.topbar{padding:.7rem 1rem;}.topbar-right a:not(.nav-btn){display:none;}}
+
+    .hero{background:linear-gradient(130deg,#0a2e3b 0%,#0e5b6e 55%,#1a7f8a 100%);padding:8rem 2rem 4.5rem;position:relative;overflow:hidden;text-align:center;}
+    .hero::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(245,166,35,.1) 0%,transparent 70%);top:-180px;right:-80px;pointer-events:none;}
+    .hero::after{content:'';position:absolute;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(26,127,138,.12) 0%,transparent 70%);bottom:-60px;left:-50px;pointer-events:none;}
+    .hero-dots{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px);background-size:30px 30px;}
+    .hero-inner{position:relative;z-index:1;max-width:860px;margin:0 auto;}
+    .chapter-eyebrow{display:inline-flex;align-items:center;gap:.5rem;background:rgba(245,166,35,.15);border:1px solid rgba(245,166,35,.4);color:var(--gold);padding:.3rem 1.2rem;border-radius:40px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;margin-bottom:1.5rem;animation:fadeUp .6s ease both;}
+    .hero h1{font-family:'Fraunces',serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-.5px;margin-bottom:1.2rem;animation:fadeUp .6s .1s ease both;}
+    .hero h1 em{font-style:italic;color:var(--gold);}
+    .hero-sub{font-size:1.05rem;color:rgba(255,255,255,.72);max-width:640px;margin:0 auto 2rem;line-height:1.8;animation:fadeUp .6s .2s ease both;}
+    .hero-meta{display:flex;justify-content:center;flex-wrap:wrap;gap:1.5rem;margin-bottom:2rem;animation:fadeUp .6s .3s ease both;}
+    .hero-meta-item{display:flex;align-items:center;gap:.5rem;color:rgba(255,255,255,.65);font-size:.82rem;}
+    .hero-meta-item i{color:var(--gold);}
+    .toc-pills{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;margin-top:2rem;animation:fadeUp .6s .4s ease both;}
+    .toc-pill{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.8);padding:.35rem 1rem;border-radius:40px;font-size:.78rem;text-decoration:none;transition:all .2s;}
+    .toc-pill:hover{background:rgba(245,166,35,.25);border-color:var(--gold);color:var(--gold);}
+
+    .page-wrap{max-width:1080px;margin:0 auto;padding:3rem 1.5rem 5rem;display:grid;grid-template-columns:230px 1fr;gap:3rem;align-items:start;}
+    @media(max-width:860px){.page-wrap{grid-template-columns:1fr;}.sidebar{display:none;}}
+
+    .sidebar{position:sticky;top:5rem;}
+    .sidebar-box{background:var(--white);border:1px solid var(--border);border-radius:1.2rem;padding:1.3rem;margin-bottom:1rem;}
+    .sidebar-box h4{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem;font-weight:600;}
+    .sb-link{display:flex;align-items:center;gap:.55rem;padding:.45rem .55rem;border-radius:.55rem;text-decoration:none;color:var(--muted);font-size:.8rem;transition:all .18s;margin-bottom:.15rem;}
+    .sb-link:hover,.sb-link.active{background:rgba(14,91,110,.08);color:var(--teal);}
+    .sb-link i{color:var(--teal);font-size:.78rem;width:15px;}
+    .sb-num{display:inline-flex;width:18px;height:18px;border-radius:50%;background:var(--offwhite);color:var(--muted);font-size:.6rem;font-weight:700;align-items:center;justify-content:center;flex-shrink:0;}
+    .sidebar-nav-btns{display:flex;flex-direction:column;gap:.6rem;}
+    .sb-nav-btn{display:flex;align-items:center;gap:.5rem;padding:.6rem .9rem;border-radius:.7rem;text-decoration:none;font-size:.8rem;font-weight:600;transition:all .2s;}
+    .sb-nav-btn.prev{background:var(--offwhite);color:var(--muted);border:1px solid var(--border);}
+    .sb-nav-btn.next{background:var(--teal);color:#fff;}
+    .sb-nav-btn.prev:hover{background:var(--border);}
+    .sb-nav-btn.next:hover{background:var(--navy);}
+
+    .content{min-width:0;}
+
+    .intro-card{background:var(--white);border:1px solid var(--border);border-radius:1.4rem;padding:2rem;margin-bottom:2.5rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;}
+    .intro-card p{color:var(--muted);font-size:.95rem;line-height:1.8;margin-bottom:.8rem;}
+    .uses-grid{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem;}
+    .use-chip{display:flex;align-items:center;gap:.4rem;background:rgba(14,91,110,.08);border:1px solid rgba(14,91,110,.2);color:var(--teal);padding:.3rem .8rem;border-radius:30px;font-size:.78rem;}
+    .use-chip i{font-size:.72rem;}
+    .intro-panel{background:linear-gradient(135deg,var(--navy),var(--teal));color:#fff;border-radius:1.2rem;padding:1.5rem;text-align:center;min-width:180px;}
+    .intro-panel .big-icon{font-size:2.8rem;margin-bottom:.6rem;}
+    .intro-panel strong{display:block;font-size:1rem;margin-bottom:.4rem;}
+    .intro-panel p{font-size:.78rem;opacity:.8;color:#fff;}
+    @media(max-width:600px){.intro-card{grid-template-columns:1fr;}.intro-panel{display:none;}}
+
+    .section-heading{display:flex;align-items:center;gap:1rem;margin:2.5rem 0 1.2rem;}
+    .sec-icon{width:50px;height:50px;border-radius:12px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.3rem;background:linear-gradient(135deg,var(--teal),var(--navy));color:#fff;}
+    .section-heading h2{font-family:'Fraunces',serif;font-size:clamp(1.35rem,3vw,1.85rem);font-weight:700;color:var(--navy);line-height:1.15;}
+    .sec-badge{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600;}
+
+    .content-card{background:var(--white);border:1px solid var(--border);border-radius:1.3rem;padding:1.8rem;margin-bottom:1.4rem;}
+    .content-card h3{font-family:'Fraunces',serif;font-size:1.12rem;font-weight:700;color:var(--teal);margin-bottom:.8rem;display:flex;align-items:center;gap:.6rem;}
+    .content-card h3 i{color:var(--gold);}
+    .content-card h4{font-size:.94rem;font-weight:600;color:var(--text);margin:1rem 0 .4rem;}
+    .content-card p{color:var(--muted);font-size:.92rem;line-height:1.75;margin-bottom:.7rem;}
+    .content-card ul,.content-card ol{padding-left:1.4rem;color:var(--muted);font-size:.92rem;}
+    .content-card li{margin:.35rem 0;line-height:1.6;}
+
+    .method-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0;}
+    @media(max-width:580px){.method-grid{grid-template-columns:1fr;}}
+    .method-card{background:var(--offwhite);border:1px solid var(--border);border-radius:1rem;padding:1.2rem;}
+    .method-label{display:inline-flex;align-items:center;gap:.4rem;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--teal);margin-bottom:.8rem;background:rgba(14,91,110,.1);padding:.2rem .7rem;border-radius:20px;}
+
+    .steps-box{background:rgba(14,91,110,.05);border-left:4px solid var(--teal);border-radius:0 1rem 1rem 0;padding:1.2rem 1.5rem;margin:1rem 0;}
+    .steps-title{display:flex;align-items:center;gap:.5rem;font-weight:700;color:var(--teal);font-size:.88rem;margin-bottom:.8rem;}
+    .steps-list{list-style:none;padding:0;counter-reset:step;}
+    .steps-list li{display:flex;gap:.9rem;align-items:flex-start;padding:.5rem 0;border-bottom:1px solid rgba(14,91,110,.08);font-size:.88rem;color:var(--muted);}
+    .steps-list li:last-child{border-bottom:none;}
+    .step-num{display:inline-flex;width:22px;height:22px;border-radius:50%;background:var(--teal);color:#fff;font-size:.65rem;font-weight:700;align-items:center;justify-content:center;flex-shrink:0;margin-top:.18rem;}
+
+    .callout{border-radius:1rem;padding:1.1rem 1.4rem;margin:1rem 0;display:flex;gap:.9rem;align-items:flex-start;}
+    .callout-icon{width:36px;height:36px;border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1rem;}
+    .callout-body strong{display:block;font-size:.88rem;margin-bottom:.3rem;}
+    .callout-body p,.callout-body ul{font-size:.86rem;color:var(--muted);line-height:1.65;}
+    .callout-body ul{padding-left:1.2rem;}
+    .callout.note{background:#fff9e8;border:1px solid #ffe4a0;}
+    .callout.note .callout-icon{background:#fff3cd;color:#d68c00;}
+    .callout.warning{background:#fff0f0;border:1px solid #f5c0c0;}
+    .callout.warning .callout-icon{background:#fde0e0;color:var(--red);}
+    .callout.tip{background:#e8f5e9;border:1px solid #b8ddb8;}
+    .callout.tip .callout-icon{background:#c8e6c9;color:var(--green);}
+    .callout.important{background:#e8f0fe;border:1px solid #b0c8f8;}
+    .callout.important .callout-icon{background:#d0e4ff;color:var(--blue);}
+
+    .key{background:var(--white);border:1px solid var(--border);border-bottom:3px solid var(--border);border-radius:5px;padding:.2rem .5rem;font-size:.75rem;font-weight:700;color:var(--text);font-family:monospace;}
+    .paybill-card{background:linear-gradient(135deg,var(--navy),var(--teal));border-radius:1rem;padding:1rem;margin:1rem 0;text-align:center;}
+    .paybill-card .paybill-num{font-family:'Courier New',monospace;font-size:1.4rem;font-weight:700;color:var(--gold);letter-spacing:2px;margin:.3rem 0;}
+
+    .practice-box{background:linear-gradient(135deg,rgba(14,91,110,.04),rgba(10,46,59,.02));border:2px dashed rgba(14,91,110,.3);border-radius:1.2rem;padding:1.5rem;margin:1.2rem 0;}
+    .practice-title{display:flex;align-items:center;gap:.6rem;font-weight:700;color:var(--teal);font-size:.95rem;margin-bottom:1rem;}
+    .practice-title .pnum{background:var(--teal);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0;}
+    .practice-steps{list-style:none;padding:0;}
+    .practice-steps li{display:flex;gap:.8rem;align-items:flex-start;padding:.45rem 0;border-bottom:1px solid rgba(14,91,110,.08);font-size:.88rem;color:var(--muted);}
+    .practice-steps li i{color:var(--teal);margin-top:.2rem;flex-shrink:0;}
+
+    .skill-check{background:linear-gradient(135deg,#e8f4f6,#f0f7f8);border:1px solid #c8e0e4;border-radius:1.2rem;padding:1.3rem 1.5rem;margin:1.5rem 0;}
+    .skill-check h4{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem;font-weight:600;}
+    .skill-items{display:flex;flex-wrap:wrap;gap:.5rem;}
+    .skill-item-pill{display:flex;align-items:center;gap:.4rem;background:var(--white);border:1px solid #c8e0e4;color:var(--teal);padding:.3rem .9rem;border-radius:30px;font-size:.82rem;font-weight:500;}
+
+    .chapter-summary{background:linear-gradient(130deg,var(--navy) 0%,var(--teal) 100%);border-radius:1.4rem;padding:2.5rem;margin:2.5rem 0;color:#fff;position:relative;overflow:hidden;}
+    .chapter-summary::before{content:'';position:absolute;width:250px;height:250px;border-radius:50%;background:rgba(255,255,255,.04);top:-80px;right:-60px;}
+    .chapter-summary h2{font-family:'Fraunces',serif;font-size:1.6rem;font-weight:700;margin-bottom:1rem;}
+    .summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;}
+    @media(max-width:500px){.summary-grid{grid-template-columns:1fr;}}
+    .summary-item{display:flex;align-items:center;gap:.7rem;background:rgba(255,255,255,.08);border-radius:.8rem;padding:.75rem 1rem;font-size:.88rem;}
+    .summary-item i{color:var(--gold);flex-shrink:0;}
+
+    .chapter-nav{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2.5rem;}
+    @media(max-width:480px){.chapter-nav{grid-template-columns:1fr;}}
+    .chapter-nav a{display:flex;align-items:center;gap:1rem;padding:1.2rem 1.5rem;border-radius:1.1rem;text-decoration:none;transition:all .22s;border:1px solid var(--border);}
+    .chapter-nav a.prev{background:var(--white);}
+    .chapter-nav a.next{background:linear-gradient(135deg,var(--teal),var(--navy));flex-direction:row-reverse;}
+    .chapter-nav a.prev:hover{border-color:var(--teal);transform:translateY(-2px);}
+    .chapter-nav a.next:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(14,91,110,.3);}
+    .nav-icon{width:42px;height:42px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.1rem;}
+    .chapter-nav a.prev .nav-icon{background:var(--offwhite);color:var(--muted);}
+    .chapter-nav a.next .nav-icon{background:rgba(255,255,255,.15);color:#fff;}
+    .nav-text{flex:1;}
+    .nav-label{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;font-weight:600;}
+    .nav-title{font-size:.9rem;font-weight:700;margin-top:.1rem;}
+    .chapter-nav a.prev .nav-label{color:var(--muted);}
+    .chapter-nav a.prev .nav-title{color:var(--text);}
+    .chapter-nav a.next .nav-label{color:rgba(255,255,255,.65);}
+    .chapter-nav a.next .nav-title{color:#fff;}
+
+    .site-footer{background:var(--navy);color:rgba(255,255,255,.5);text-align:center;padding:2rem;font-size:.82rem;border-top:3px solid var(--gold);}
+    .site-footer span{color:var(--gold);}
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+    .reveal{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease;}
+    .reveal.visible{opacity:1;transform:translateY(0);}
   </style>
 </head>
 <body>
-<div class="container">
-  <div class="hero">
-    <div class="chapter-badge">🚀 CHAPTER SEVEN</div>
-    <h1>NAVIGATING THROUGH ONLINE SPACES</h1>
-    <div class="author">by Castro Odhiambo — Government Portals, Productivity Tools & Best Practices</div>
-    <p style="margin-top: 0.8rem; max-width: 800px; margin-left: auto; margin-right: auto;">Every word, every portal step, every table and checklist — fully written, professional, and complete.</p>
+
+<div id="pbar"></div>
+
+<nav class="topbar">
+  <a href="index.html" class="topbar-brand">Digital<span>Literacy</span></a>
+  <div class="topbar-right">
+    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+    <a href="Internet_and_Email.html">← Ch.6</a>
+    <a href="index.html#modules" class="nav-btn">All Chapters</a>
   </div>
-  <div class="content">
+</nav>
 
-    <!-- Chapter Introduction -->
-    <p><strong>Chapter Introduction</strong><br>
-    In Kenyan cybercafes, customers walk in daily with urgent needs: "I need to apply for my passport," "Help me register for KUCCPS," "I must file my KRA returns before the deadline," or "Print my HELB loan application." This chapter is your practical handbook for handling these requests professionally and efficiently. We will cover every major online service typically handled in a Kenyan cybercafé, from government portals to productivity tools. Follow the steps carefully, use the provided links, and you will become the go-to expert in your community.</p>
+<section class="hero">
+  <div class="hero-dots"></div>
+  <div class="hero-inner">
+    <div class="chapter-eyebrow"><i class="fas fa-globe"></i>&nbsp; Chapter 7 · Navigating Online Spaces</div>
+    <h1>Master <em>Government Portals</em><br>& Digital Tools</h1>
+    <p class="hero-sub">In Kenyan cybercafes, customers walk in daily with urgent needs: passport applications, KRA returns, HELB loans, KUCCPS placements. This chapter is your practical handbook for handling these requests professionally and efficiently.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item"><i class="fas fa-list-check"></i> 6 Core Sections</div>
+      <div class="hero-meta-item"><i class="fas fa-flask"></i> 8 Practical Activities</div>
+      <div class="hero-meta-item"><i class="fas fa-building"></i> 10+ Government Portals</div>
+      <div class="hero-meta-item"><i class="fas fa-clock"></i> ~90 minutes</div>
+    </div>
+    <div class="toc-pills">
+      <a href="#s1" class="toc-pill">7.1 e-Citizen</a>
+      <a href="#s2" class="toc-pill">7.2 KRA iTax</a>
+      <a href="#s3" class="toc-pill">7.3 KUCCPS & HELB</a>
+      <a href="#s4" class="toc-pill">7.4 Productivity Tools</a>
+      <a href="#s5" class="toc-pill">7.5 Troubleshooting</a>
+      <a href="#s6" class="toc-pill">7.6 Best Practices</a>
+    </div>
+  </div>
+</section>
 
-    <!-- SECTION A: GOVERNMENT SERVICES PORTALS -->
-    <h2>SECTION A: GOVERNMENT SERVICES PORTALS</h2>
-    
-    <!-- 7.1 e-Citizen -->
-    <h3>7.1 e-Citizen: Your Gateway to Government Services</h3>
-    <p>e-Citizen (www.ecitizen.go.ke) is the unified payment platform for accessing Kenyan government services. Most customers will need it for passport applications, driving licenses, business registration, and land transactions.</p>
-    <h4>I. Creating an e-Citizen Account</h4>
-    <table>
-      <thead><tr><th>Step</th><th>Action</th><th>Details</th></tr></thead>
-      <tbody>
-        <tr><td>i.</td><td>Visit the portal</td><td>Open your browser and go to www.ecitizen.go.ke</td></tr>
-        <tr><td>ii.</td><td>Click "Register"</td><td>Located at the top right corner of the homepage</td></tr>
-        <tr><td>iii.</td><td>Enter personal details</td><td>Provide: National ID number, full names as they appear on ID, email address, mobile phone number (active, registered in customer's name)</td></tr>
-        <tr><td>iv.</td><td>Create password</td><td>Must be strong: at least 8 characters with letters, numbers, and symbols</td></tr>
-        <tr><td>v.</td><td>Verify email</td><td>Customer must open email from e-Citizen and click activation link (check Spam folder if not in Inbox)</td></tr>
-        <tr><td>vi.</td><td>Verify mobile</td><td>Enter the code sent via SMS to confirm the phone number</td></tr>
-        <tr><td>vii.</td><td>Login</td><td>Use registered email and password to access dashboard</td></tr>
-      </tbody>
-    </table>
-    <h4>II. Passport Application (Immigration Services)</h4>
-    <p>Direct link: https://immigration.ecitizen.go.ke</p>
-    <div class="steps-box">
-      <ol>
-        <li>Login to e-Citizen using customer's credentials</li>
-        <li>Select "Immigration Services" under "Directorate of Immigration Services"</li>
-        <li>Choose "Passport Application" – Read instructions carefully before proceeding</li>
-        <li>Select passport type: Ordinary 32 pages (Ksh 4,550) - most common for general travel; Ordinary 48 pages (Ksh 6,050) - frequent travelers; Ordinary 64 pages (Ksh 7,550) - very frequent travelers; East African Passport (Ksh 990) - EAC travel only; Lost/Mutilated passport - higher fees apply</li>
-        <li>Fill application form: Enter personal details, place of birth, parents' details, ID number, profession, physical address</li>
-        <li>Upload photo: Passport photo requirements – white background, clear face, no glasses, digital copy (max 500KB)</li>
-        <li>Upload documents: Scanned copies of National ID (both sides), Birth certificate, Recommender's ID copy</li>
-        <li>Review information – Double-check EVERY detail – errors cause rejection</li>
-        <li>Make payment: Select payment method – M-Pesa PayBill, Visa/Mastercard, or bank</li>
-        <li>M-Pesa payment: Select "Lipa na M-Pesa" → Business number appears on screen → process – Customer pays from phone → Enter transaction code on portal</li>
-        <li>Download forms: After payment, download and print: Application summary (3 copies), Payment receipts (3 copies)</li>
-        <li>Book appointment: Select date for physical submission at Nyayo House (Nairobi), Mombasa, or Kisumu</li>
-        <li>Inform customer: Remind them to bring printed forms, original documents, and passport photos on appointment date</li>
+<div class="page-wrap">
+
+  <aside class="sidebar">
+    <div class="sidebar-box">
+      <h4>Sections</h4>
+      <a href="#s1" class="sb-link"><span class="sb-num">1</span><i class="fas fa-globe"></i> e-Citizen Portal</a>
+      <a href="#s2" class="sb-link"><span class="sb-num">2</span><i class="fas fa-file-invoice"></i> KRA iTax</a>
+      <a href="#s3" class="sb-link"><span class="sb-num">3</span><i class="fas fa-graduation-cap"></i> KUCCPS & HELB</a>
+      <a href="#s4" class="sb-link"><span class="sb-num">4</span><i class="fas fa-pen-fancy"></i> Productivity Tools</a>
+      <a href="#s5" class="sb-link"><span class="sb-num">5</span><i class="fas fa-wrench"></i> Troubleshooting</a>
+      <a href="#s6" class="sb-link"><span class="sb-num">6</span><i class="fas fa-shield"></i> Best Practices</a>
+    </div>
+    <div class="sidebar-box">
+      <h4>Quick PayBill Numbers</h4>
+      <a class="sb-link"><i class="fas fa-mobile-alt"></i> HELB: 222222</a>
+      <a class="sb-link"><i class="fas fa-mobile-alt"></i> KRA: 572572</a>
+      <a class="sb-link"><i class="fas fa-mobile-alt"></i> KUCCPS: 820201</a>
+      <a class="sb-link"><i class="fas fa-mobile-alt"></i> NHIF: 200222</a>
+      <a class="sb-link"><i class="fas fa-mobile-alt"></i> Kenya Power: 888880</a>
+    </div>
+    <div class="sidebar-box">
+      <h4>Navigation</h4>
+      <div class="sidebar-nav-btns">
+        <a href="Internet_and_Email.html" class="sb-nav-btn prev"><i class="fas fa-arrow-left"></i> Chapter 6</a>
+        <a href="index.html" class="sb-nav-btn next">Course Complete <i class="fas fa-check-circle"></i></a>
+      </div>
+    </div>
+  </aside>
+
+  <main class="content">
+
+    <div class="intro-card reveal">
+      <div>
+        <p><strong>Chapter Introduction</strong><br>In Kenyan cybercafes, customers walk in daily with urgent needs: "I need to apply for my passport," "Help me register for KUCCPS," "I must file my KRA returns before the deadline," or "Print my HELB loan application." This chapter is your practical handbook for handling these requests professionally and efficiently. We will cover every major online service typically handled in a Kenyan cybercafé, from government portals to productivity tools.</p>
+        <div class="uses-grid">
+          <span class="use-chip"><i class="fas fa-passport"></i> Passport</span>
+          <span class="use-chip"><i class="fas fa-car"></i> Driving License</span>
+          <span class="use-chip"><i class="fas fa-file-invoice"></i> KRA Returns</span>
+          <span class="use-chip"><i class="fas fa-graduation-cap"></i> KUCCPS</span>
+          <span class="use-chip"><i class="fas fa-hand-holding-usd"></i> HELB Loans</span>
+          <span class="use-chip"><i class="fas fa-building"></i> Business Registration</span>
+        </div>
+      </div>
+      <div class="intro-panel">
+        <div class="big-icon">🏛️</div>
+        <strong>Government Portals</strong>
+        <p>Your complete guide to Kenyan online services</p>
+      </div>
+    </div>
+
+    <!-- SECTION 7.1: e-CITIZEN -->
+    <div id="s1" class="section-heading reveal">
+      <div class="sec-icon"><i class="fas fa-globe"></i></div>
+      <div><div class="sec-badge">Section 7.1</div><h2>e-Citizen: Your Gateway to Government Services</h2></div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-user-plus"></i> Creating an e-Citizen Account</h3>
+      <p>e-Citizen (www.ecitizen.go.ke) is the unified payment platform for accessing Kenyan government services. Most customers will need it for passport applications, driving licenses, business registration, and land transactions.</p>
+      <table class="excel-table">
+        <thead><tr><th>Step</th><th>Action</th><th>Details</th></tr></thead>
+        <tbody>
+          <tr><td><strong>1</strong></td><td>Visit the portal</td><td>Open your browser and go to www.ecitizen.go.ke</td></tr>
+          <tr><td><strong>2</strong></td><td>Click "Register"</td><td>Located at the top right corner of the homepage</td></tr>
+          <tr><td><strong>3</strong></td><td>Enter personal details</td><td>National ID number, full names as they appear on ID, email address, mobile phone number</td></tr>
+          <tr><td><strong>4</strong></td><td>Create password</td><td>Must be strong: at least 8 characters with letters, numbers, and symbols</td></tr>
+          <tr><td><strong>5</strong></td><td>Verify email</td><td>Customer opens email from e-Citizen and clicks activation link</td></tr>
+          <tr><td><strong>6</strong></td><td>Verify mobile</td><td>Enter the code sent via SMS to confirm the phone number</td></tr>
+          <tr><td><strong>7</strong></td><td>Login</td><td>Use registered email and password to access dashboard</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-passport"></i> Passport Application (Immigration Services)</h3>
+      <p>Direct link: https://immigration.ecitizen.go.ke</p>
+      <div class="steps-box">
+        <div class="steps-title">Passport Application Steps</div>
+        <ol class="steps-list">
+          <li><span class="step-num">1</span> Login to e-Citizen using customer's credentials</li>
+          <li><span class="step-num">2</span> Select "Immigration Services" under "Directorate of Immigration Services"</li>
+          <li><span class="step-num">3</span> Choose "Passport Application" – Read instructions carefully before proceeding</li>
+          <li><span class="step-num">4</span> Select passport type: Ordinary 32 pages (Ksh 4,550), 48 pages (Ksh 6,050), 64 pages (Ksh 7,550), East African (Ksh 990)</li>
+          <li><span class="step-num">5</span> Fill application form with personal details, place of birth, parents' details, ID number, profession</li>
+          <li><span class="step-num">6</span> Upload photo: white background, clear face, no glasses, max 500KB</li>
+          <li><span class="step-num">7</span> Upload documents: National ID (both sides), Birth certificate, Recommender's ID copy</li>
+          <li><span class="step-num">8</span> Review information – Double-check EVERY detail – errors cause rejection</li>
+          <li><span class="step-num">9</span> Make payment via M-Pesa PayBill, Visa/Mastercard, or bank</li>
+          <li><span class="step-num">10</span> Download forms: Application summary (3 copies), Payment receipts (3 copies)</li>
+          <li><span class="step-num">11</span> Book appointment at Nyayo House, Mombasa, or Kisumu</li>
+        </ol>
+      </div>
+      <div class="callout tip"><div class="callout-icon"><i class="fas fa-store"></i></div><div class="callout-body"><strong>Cybercafe Tip:</strong> Always print three copies of everything. Charge for scanning documents if customer brings hard copies.</div></div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-car"></i> Driving License Services (NTSA)</h3>
+      <p>Direct link: https://ntsa.ecitizen.go.ke</p>
+      <table class="excel-table">
+        <thead><tr><th>Service</th><th>Steps</th><th>Fee</th></tr></thead>
+        <tbody>
+          <tr><td><strong>New Driving License</strong></td><td>Login → NTSA → Driving License → New Application → Fill details → Pay → Download acknowledgment</td><td>Ksh 3,000+</td></tr>
+          <tr><td><strong>License Renewal</strong></td><td>Login → NTSA → Driving License → Renewal → Confirm details → Pay → Print temporary license</td><td>Ksh 500</td></tr>
+          <tr><td><strong>Duplicate License (Lost)</strong></td><td>Login → NTSA → Driving License → Replace Lost → Report loss → Pay → Print</td><td>Ksh 1,000</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-building"></i> Business Registration (BRS)</h3>
+      <p>Direct link: https://brs.ecitizen.go.ke</p>
+      <table class="excel-table">
+        <thead><tr><th>Step</th><th>Action</th><th>Fee</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Name Search</strong></td><td>Check if desired business name is available</td><td>Ksh 150</td></tr>
+          <tr><td><strong>Name Reservation</strong></td><td>Reserve name for 30 days</td><td>Ksh 150</td></tr>
+          <tr><td><strong>Registration (Sole Proprietorship)</strong></td><td>Complete CR1 form, upload ID, PIN</td><td>~Ksh 3,000</td></tr>
+          <tr><td><strong>Registration (Company)</strong></td><td>Complete CR2-12 forms, upload documents</td><td>~Ksh 10,000+</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="practice-box reveal">
+      <div class="practice-title"><span class="pnum">1</span> e-Citizen Practice</div>
+      <ol class="practice-steps">
+        <li><i class="fas fa-globe"></i> Visit www.ecitizen.go.ke and familiarise yourself with the homepage</li>
+        <li><i class="fas fa-passport"></i> Navigate to Immigration Services and identify three different passport types and their fees</li>
+        <li><i class="fas fa-car"></i> Find the NTSA section and check driving license renewal requirements</li>
+        <li><i class="fas fa-building"></i> Explore the Business Registration Service portal</li>
       </ol>
     </div>
-    <div class="cyber-tip">💡 Cybercafe Tip: Always print three copies of everything. Charge for scanning documents if customer brings hard copies.</div>
 
-    <h4>III. Driving License Services (NTSA)</h4>
-    <p>Direct link: https://ntsa.ecitizen.go.ke</p>
-    <table>
-      <thead><tr><th>Service</th><th>Steps</th><th>Fee</th></tr></thead>
-      <tbody>
-        <tr><td>New Driving License Application</td><td>Login → NTSA → Driving License → New Application → Fill details → Pay → Download acknowledgment</td><td>Ksh 3,000+</td></tr>
-        <tr><td>License Renewal</td><td>Login → NTSA → Driving License → Renewal → Confirm details → Pay → Print temporary license</td><td>Ksh 500</td></tr>
-        <tr><td>Duplicate License (Lost)</td><td>Login → NTSA → Driving License → Replace Lost → Report loss → Pay → Print</td><td>Ksh 1,000</td></tr>
-        <tr><td>Foreign License Conversion</td><td>Login → NTSA → Driving License → Foreign Conversion → Upload foreign license → Pay → Visit NTSA office for test</td><td>Varies</td></tr>
-      </tbody>
-    </table>
-    <h4>IV. Vehicle Search and Transfer</h4>
-    <p>Purpose: Customers buying used cars must verify vehicle details before purchase.</p>
-    <table>
-      <thead><tr><th>Step</th><th>Action</th><th>Details</th></tr></thead>
-      <tbody>
-        <tr><td>i.</td><td>Login to e-Citizen</td><td>Customer account required</td></tr>
-        <tr><td>ii.</td><td>Select "NTSA Services"</td><td>From dashboard</td></tr>
-        <tr><td>iii.</td><td>Choose "Vehicle Search/Verification"</td><td>Also called "Motor Vehicle Search"</td></tr>
-        <tr><td>iv.</td><td>Enter registration number</td><td>Format: KXX 123A or KXX 123 (no spaces)</td></tr>
-        <tr><td>v.</td><td>Pay search fee</td><td>Currently Ksh 550 per search</td></tr>
-        <tr><td>vi.</td><td>View report</td><td>Results show: Make and model, Year of manufacture, Engine and chassis numbers, Colour, Current ownership status, Any encumbrances (loans)</td></tr>
-        <tr><td>vii.</td><td>Download/Print</td><td>Provide customer with printed copy for their records</td></tr>
-      </tbody>
-    </table>
-    <div class="warning">⚠️ Cybercafe Warning: Many fraudsters sell vehicles with fake logbooks. Always insist on an e-Citizen vehicle search before completing any car purchase.</div>
-    <h4>V. Business Registration (BRS)</h4>
-    <p>Direct link: https://brs.ecitizen.go.ke</p>
-    <table><thead><tr><th>Step</th><th>Action</th><th>Notes</th></tr></thead><tbody>
-      <tr><td>i.</td><td>Login to e-Citizen</td><td>Use business owner's account</td></tr>
-      <tr><td>ii.</td><td>Select "Business Registration Service"</td><td>From available ministries</td></tr>
-      <tr><td>iii.</td><td>Choose service type</td><td>Register new business, Reserve business name, Search for business name, Get certificates</td></tr>
-      <tr><td>iv.</td><td>Name search</td><td>Check if desired business name is available (Ksh 150)</td></tr>
-      <tr><td>v.</td><td>Reserve name</td><td>Pay Ksh 150 to reserve for 30 days</td></tr>
-      <tr><td>vi.</td><td>Register business</td><td>Complete CR1 form for sole proprietorship/partnership or CR2-12 for company</td></tr>
-      <tr><td>vii.</td><td>Upload documents</td><td>ID copies, KRA PIN certificates, passport photos</td></tr>
-      <tr><td>viii.</td><td>Pay registration fees</td><td>Depends on business type: Sole proprietorship ~Ksh 3,000, Company ~Ksh 10,000+</td></tr>
-      <tr><td>ix.</td><td>Download certificate</td><td>Certificate of Registration issued upon approval</td></tr>
-    </tbody></table>
-    <h4>VI. Land Transactions (Ardhisasa)</h4>
-    <p>Direct link: https://ardhisa.sa.ecitizen.go.ke</p>
-    <p>Ardhisasa handles all land-related matters for properties in Nairobi. Other counties use similar portals.</p>
-    <table><thead><tr><th>Service</th><th>Process</th></tr></thead><tbody>
-      <tr><td>Land search</td><td>Login → Select property → Request official search → Pay (Ksh 500) → Download search certificate</td></tr>
-      <tr><td>Rent payment</td><td>For government land: Select property → Make payment → Print receipt</td></tr>
-      <tr><td>Transfer of land</td><td>Complex process requiring lawyer assistance – assist customer with document uploads only</td></tr>
-    </tbody></table>
-
-    <!-- 7.2 KRA iTax -->
-    <h3>7.2 KRA iTax: Tax Compliance Portal</h3>
-    <p>KRA iTax (https://itax.kra.go.ke) handles all tax matters: PIN registration, filing returns, and compliance certificates.</p>
-    <h4>I. KRA PIN Registration (First-Time Applicants)</h4>
-    <p>Why needed: Opening bank accounts, employment, business registration, vehicle transfer, land transactions.</p>
-    <div class="steps-box"><ol>
-      <li>Visit iTax portal → https://itax.kra.go.ke</li>
-      <li>Click "New PIN Registration" under "Quick Links" or "Register" button</li>
-      <li>Select category: Individual – for personal PIN; Non-Individual – for companies, partnerships, clubs, trusts</li>
-      <li>Individual registration: Enter National ID number, ID issue date, ID expiry date, Date of birth (matches ID exactly)</li>
-      <li>Enter contact details: Valid email address (must be accessible), Mobile phone number (Safaricom, Airtel, or Telkom)</li>
-      <li>Create password – Strong password – note it down for customer</li>
-      <li>Select tax obligations: For most individuals: "Income Tax – Resident Individual" only; For business owners: Add "Turnover Tax" if turnover &lt; Ksh 5M/year; For VAT registered: Add "VAT"</li>
-      <li>Submit application – Click submit and wait for processing</li>
-      <li>Check email – KRA sends PIN certificate to provided email within minutes</li>
-      <li>Download PIN – Open email attachment – this is the official KRA PIN certificate</li>
-      <li>Print for customer – Print at least 2 copies for their records</li>
-    </ol></div>
-    <div class="cyber-tip">💡 Cybercafé Tip: Many customers don't have email access. Use a cybercafé email to register but ensure customer knows how to retrieve documents later, or forward emails to a relative's phone via WhatsApp.</div>
-    <h4>III. Filing Individual Income Tax Returns</h4>
-    <p>Deadline: Every year by 30th June for the previous year's income.</p>
-    <table><thead><tr><th>Step</th><th>Action</th><th>Details</th></tr></thead><tbody>
-      <tr><td>i.</td><td>Login to iTax</td><td>Use customer's PIN and password</td></tr>
-      <tr><td>ii.</td><td>Go to "Returns" menu</td><td>Click "File Return" under "Returns" dropdown</td></tr>
-      <tr><td>iii.</td><td>Select return period</td><td>Choose tax year (e.g., 2024 for returns due June 2025)</td></tr>
-      <tr><td>iv.</td><td>Select return form</td><td>P1 – Resident Individual (employed persons); P9 – Business/self-employed</td></tr>
-      <tr><td>v.</td><td>For employed persons</td><td>System auto-fills from employer's monthly filings – just verify and confirm</td></tr>
-      <tr><td>vi.</td><td>For self-employed</td><td>Enter: Gross sales/receipts, Expenses (if using profit method), Instalment taxes paid during year</td></tr>
-      <tr><td>vii.</td><td>Tax computation</td><td>System calculates tax due or refund owed</td></tr>
-      <tr><td>viii.</td><td>If tax due</td><td>Generate payment slip (Payer slip) → Customer pays via M-Pesa PayBill or bank → Enter transaction code to finalize</td></tr>
-      <tr><td>ix.</td><td>If no tax due</td><td>Submit directly → you will receive confirmation</td></tr>
-      <tr><td>x.</td><td>Download</td><td>Print "Return Acknowledgement Receipt" as proof of filing acknowledgment</td></tr>
-    </tbody></table>
-
-    <!-- 7.3 KUCCPS -->
-    <h3>7.3 KUCCPS: University and College Placement Application</h3>
-    <p>KUCCPS handles applications for government-sponsored students to universities and colleges.</p>
-    <p>Portal link: https://students.kuccps.net</p>
-    <div class="steps-box"><strong>Student Portal Access:</strong> Visit portal → First time: Use KCSE index number as username and password → Reset password → Dashboard.</div>
-    <div class="steps-box"><strong>Course Application Fees:</strong> Ksh 1,500 total. M-Pesa PayBill: 820201, Account: KCSE Year and Index Number.</div>
-
-    <!-- 7.4 HELB -->
-    <h3>7.4 HELB: Higher Education Loans Board</h3>
-    <p>HELB (https://www.helb.co.ke) provides loans and bursaries to Kenyan students.</p>
-    <div class="steps-box"><strong>First-Time Loan Application Requirements:</strong> National ID, KRA PIN, valid email, phone, KCSE index, KCPE index, passport photo, admission letter, parents' IDs, two guarantors' IDs, birth certificate.</div>
-    <div class="paybill-note">HELB PayBill: 222222 &nbsp;|&nbsp; KRA PayBill: 572572 &nbsp;|&nbsp; KUCCPS PayBill: 820201</div>
-
-    <!-- 7.5 Other Government Portals -->
-    <h3>7.5 Other Essential Government Portals</h3>
-    <ul>
-      <li><strong>CRB Check:</strong> www.crbafrica.com or www.transunion.co.ke – Individual Credit Report (Ksh 150-300 via M-Pesa)</li>
-      <li><strong>Business Registration Service (e-BRS):</strong> https://brs.go.ke – Name search, company registration, annual returns</li>
-      <li><strong>Registrar of Persons (e-Citizen):</strong> Duplicate ID (Ksh 100) – print acknowledgment, visit Huduma Centre for biometrics</li>
-      <li><strong>Marriage Registry:</strong> https://oag.ecitizen.go.ke – Marriage application, certificate search</li>
-    </ul>
-
-    <!-- SECTION B: PRODUCTIVITY AND CREATIVE TOOLS -->
-    <h2>SECTION B: PRODUCTIVITY AND CREATIVE TOOLS</h2>
-    <h3>7.6 Canva: Professional Design Made Simple</h3>
-    <p>Website: https://www.canva.com – Create CVs, flyers, posters, social media graphics.</p>
-    <div class="steps-box"><strong>Creating a Professional CV/Resume:</strong> Search "CV" → Browse templates → Select template → Replace text with customer details → Upload photo → Customize colors → Download as PDF → Print or email.</div>
-    <h3>7.7 CapCut: Video Editing for Beginners</h3>
-    <p>Available at: https://www.capcut.com – Free video editor for social media content, event videos.</p>
-    <div class="steps-box"><strong>Basic Video Editing:</strong> Visit capcut.com → "Edit in browser" → Create new project → Upload footage → Arrange clips → Trim/cut → Add music → Add text → Add transitions → Export (1080p) → Download.</div>
-    <h3>7.8 PDF Tools (ILovePDF)</h3>
-    <p>Website: https://www.ilovepdf.com – Merge PDF, Compress PDF, PDF to Word, Word to PDF.</p>
-    <h3>7.9 Google Workspace</h3>
-    <p>Gmail, Google Drive (drive.google.com), Google Docs – automatic saving, download as .docx or PDF.</p>
-    <h3>7.10 Job Application Portals</h3>
-    <ul>
-      <li><strong>TSC:</strong> https://tsconline.tsc.go.ke – Registration, internship, promotion applications</li>
-      <li><strong>PSC:</strong> https://psckjobs.go.ke – Create account, browse vacancies, apply online</li>
-      <li><strong>Fuzu:</strong> www.fuzu.com – General job search</li>
-    </ul>
-
-    <!-- SECTION C: TROUBLESHOOTING AND BEST PRACTICES -->
-    <h2>SECTION C: TROUBLESHOOTING AND BEST PRACTICES</h2>
-    <h3>7.11 Common Issues and Solutions</h3>
-    <h4>I. Forgotten Passwords</h4>
-    <table><thead><tr><th>Portal</th><th>Password Reset Process</th></tr></thead><tbody>
-      <tr><td>e-Citizen</td><td>Login page → "Forgot Password" → Enter email → Reset link sent → Create new password</td></tr>
-      <tr><td>KRA iTax</td><td>Login page → "Forgot Password" → Enter PIN and email → Reset instructions via email</td></tr>
-      <tr><td>KUCCPS</td><td>students.kuccps.net → "Forgot Password" → Enter index number/email → Reset link</td></tr>
-      <tr><td>HELB</td><td>Portal → "Forgot Password" → Enter ID/phone → Reset via email/SMS</td></tr>
-      <tr><td>Gmail</td><td>accounts.google.com → "Forgot email" or "Forgot password" → Recovery options</td></tr>
-    </tbody></table>
-    <h4>III. Document Size Guidelines</h4>
-    <table><thead><tr><th>Portal</th><th>Maximum Size</th><th>Format</th></tr></thead><tbody>
-      <tr><td>e-Citizen</td><td>2MB per document</td><td>PDF or JPG</td></tr>
-      <tr><td>KRA iTax</td><td>5MB per attachment</td><td>PDF only</td></tr>
-    </tbody></table>
-    <div class="steps-box"><strong>Compressing Images:</strong> TinyPNG (tinypng.com) – Upload image → Download compressed version.<br><strong>Compressing PDFs:</strong> I LovePDF (ilovepdf.com/compress_pdf) – Upload PDF → Choose compression level → Download.</div>
-
-    <h3>7.12 Cybercafe Best Practices</h3>
-    <div class="section-card">
-      <p><strong>Customer Service:</strong> Ask for ID before handling sensitive transactions, explain steps as you work, offer printed receipts, keep a log, charge fairly.</p>
-      <p><strong>Security Practices:</strong> Clear browser history after each customer, use incognito/private mode for sensitive transactions, don't install unknown software, scan USBs, use strong passwords.</p>
+    <!-- SECTION 7.2: KRA iTAX -->
+    <div id="s2" class="section-heading reveal">
+      <div class="sec-icon"><i class="fas fa-file-invoice"></i></div>
+      <div><div class="sec-badge">Section 7.2</div><h2>KRA iTax: Tax Compliance Portal</h2></div>
     </div>
 
-    <!-- Key Takeaways -->
-    <h3>Key Takeaways</h3>
-    <ul>
-      <li>e-Citizen is the foundation – Most government services start here. Master it first.</li>
-      <li>Accuracy saves time – One wrong digit in an ID number or vehicle registration can cause application rejection.</li>
-      <li>Compression is essential – Learn to reduce file sizes – it solves 80% of upload problems.</li>
-      <li>Save confirmation messages – Always note loan serial numbers, payment receipts, and application IDs.</li>
-      <li>Stay updated – Government portals change frequently. Follow official social media for announcements.</li>
-    </ul>
+    <div class="content-card reveal">
+      <h3><i class="fas fa-id-card"></i> KRA PIN Registration</h3>
+      <p>KRA iTax (https://itax.kra.go.ke) handles all tax matters. PIN is needed for bank accounts, employment, business registration, vehicle transfer, and land transactions.</p>
+      <div class="steps-box">
+        <div class="steps-title">PIN Registration Steps</div>
+        <ol class="steps-list">
+          <li><span class="step-num">1</span> Visit iTax portal → https://itax.kra.go.ke</li>
+          <li><span class="step-num">2</span> Click "New PIN Registration" under "Quick Links"</li>
+          <li><span class="step-num">3</span> Select category: Individual – for personal PIN; Non-Individual – for companies</li>
+          <li><span class="step-num">4</span> Enter National ID number, ID issue date, ID expiry date, Date of birth</li>
+          <li><span class="step-num">5</span> Enter contact details: Valid email address, mobile phone number</li>
+          <li><span class="step-num">6</span> Create password – Strong password – note it down for customer</li>
+          <li><span class="step-num">7</span> Select tax obligations: For most individuals: "Income Tax – Resident Individual" only</li>
+          <li><span class="step-num">8</span> Submit application – Check email for PIN certificate within minutes</li>
+          <li><span class="step-num">9</span> Download PIN certificate and print at least 2 copies</li>
+        </ol>
+      </div>
+    </div>
 
-    <!-- Practice Exercises -->
-    <div class="steps-box">
-      <p><strong>Practice Exercises</strong></p>
-      <ol>
-        <li>e-Citizen Practice: Log into a demo account and navigate to Immigration Services. Identify three different passport types and their fees.</li>
-        <li>KRA Practice: Using a sample ID number (for practice only), walk through the KRA PIN registration process without submitting.</li>
-        <li>Document Preparation: Take a phone photo (3MB+), compress it to under 500KB using TinyPNG, and save it.</li>
-        <li>Design Task: Create a one-page CV in Canva for a hypothetical customer with sample details.</li>
-        <li>Portal Navigation: Visit the KUCCPS student portal and identify where to check placement results.</li>
+    <div class="content-card reveal">
+      <h3><i class="fas fa-chart-line"></i> Filing Individual Income Tax Returns</h3>
+      <p>Deadline: Every year by 30th June for the previous year's income.</p>
+      <table class="excel-table">
+        <thead><tr><th>Step</th><th>Action</th><th>Details</th></tr></thead>
+        <tbody>
+          <tr><td><strong>1</strong></td><td>Login to iTax</td><td>Use customer's PIN and password</td></tr>
+          <tr><td><strong>2</strong></td><td>Go to "Returns" menu</td><td>Click "File Return" under "Returns" dropdown</td></tr>
+          <tr><td><strong>3</strong></td><td>Select return period</td><td>Choose tax year (e.g., 2024 for returns due June 2025)</td></tr>
+          <tr><td><strong>4</strong></td><td>Select return form</td><td>P1 – Resident Individual (employed); P9 – Business/self-employed</td></tr>
+          <tr><td><strong>5</strong></td><td>For employed persons</td><td>System auto-fills from employer's monthly filings – just verify</td></tr>
+          <tr><td><strong>6</strong></td><td>For self-employed</td><td>Enter gross sales, expenses, instalment taxes paid</td></tr>
+          <tr><td><strong>7</strong></td><td>Tax computation</td><td>System calculates tax due or refund owed</td></tr>
+          <tr><td><strong>8</strong></td><td>Submit</td><td>Download "Return Acknowledgement Receipt" as proof</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="practice-box reveal">
+      <div class="practice-title"><span class="pnum">2</span> KRA Practice</div>
+      <ol class="practice-steps">
+        <li><i class="fas fa-file-invoice"></i> Visit itax.kra.go.ke and explore the homepage</li>
+        <li><i class="fas fa-id-card"></i> Walk through the PIN registration process (without submitting)</li>
+        <li><i class="fas fa-chart-line"></i> Locate the Returns filing section</li>
       </ol>
     </div>
-    <div class="note" style="text-align: center; font-style: italic;">"Digital competency is not just about using computers – it's about confidently guiding others through the online spaces that shape their daily lives. Master these steps, and you become an indispensable bridge between citizens and the services they need."</div>
 
-    <!-- Appendices Quick Reference -->
-    <h3>Common PayBill Numbers:</h3>
-    <div class="paybill-note">HELB: 222222 &nbsp;|&nbsp; KRA: 572572 &nbsp;|&nbsp; KUCCPS: 820201 &nbsp;|&nbsp; NHIF: 200222 &nbsp;|&nbsp; Kenya Power: 888880</div>
-    <div class="section-card">
-      <p><strong>Useful Contacts:</strong><br>
-      KRA: 020-4-999-999 | tax.kra.go.ke<br>
-      HELB: 0709-777-000 | helb.co.ke<br>
-      KUCCPS: 020-513-7400 | kuccps.net<br>
-      e-Citizen: 020-690-0000 | ecitizen.go.ke<br>
-      NTSA: 0707-999-000 | ntsa.go.ke<br>
-      Huduma Kenya: 020-690-0000 | hudumakenya.go.ke</p>
+    <!-- SECTION 7.3: KUCCPS & HELB -->
+    <div id="s3" class="section-heading reveal">
+      <div class="sec-icon"><i class="fas fa-graduation-cap"></i></div>
+      <div><div class="sec-badge">Section 7.3</div><h2>KUCCPS & HELB: Education Portals</h2></div>
     </div>
 
-    <!-- Final Skill Check -->
-    <div class="skill-check">
-      <span>✅ I can create e-Citizen account and apply for passport</span>
-      <span>✅ I can register KRA PIN and file returns</span>
-      <span>✅ I can assist with KUCCPS and HELB applications</span>
-      <span>✅ I can use Canva, CapCut, and PDF tools</span>
-      <span>✅ I understand cybercafe best practices and troubleshooting</span>
-      <span>🇰🇪 Fully prepared for Kenyan online services</span>
+    <div class="content-card reveal">
+      <h3><i class="fas fa-university"></i> KUCCPS: University and College Placement</h3>
+      <p>Portal link: https://students.kuccps.net</p>
+      <div class="steps-box">
+        <div class="steps-title">KUCCPS Application Process</div>
+        <ol class="steps-list">
+          <li><span class="step-num">1</span> Visit students.kuccps.net</li>
+          <li><span class="step-num">2</span> First time: Use KCSE index number as username and password</li>
+          <li><span class="step-num">3</span> Reset password immediately after first login</li>
+          <li><span class="step-num">4</span> Browse available courses and institutions</li>
+          <li><span class="step-num">5</span> Select and rank course choices</li>
+          <li><span class="step-num">6</span> Pay application fee: Ksh 1,500 via M-Pesa PayBill 820201</li>
+          <li><span class="step-num">7</span> Submit application and print confirmation</li>
+        </ol>
+      </div>
     </div>
 
-    <div class="note" style="text-align: center;">✅ End of Chapter Seven — Complete coverage of all government portals, productivity tools, and professional best practices.</div>
-    <hr>
-  </div>
-  <footer>© 2026 Castro Odhiambo — Basics of Digital Literacy | Chapter 7: Navigating Online Spaces (Complete, professional edition) | Your complete guide to Kenyan cybercafé operations.</footer>
+    <div class="content-card reveal">
+      <h3><i class="fas fa-hand-holding-usd"></i> HELB: Higher Education Loans Board</h3>
+      <p>HELB (https://www.helb.co.ke) provides loans and bursaries to Kenyan students.</p>
+      <div class="steps-box">
+        <div class="steps-title">First-Time Loan Application Requirements</div>
+        <ul>
+          <li>National ID (or waiting card)</li>
+          <li>KRA PIN certificate</li>
+          <li>Valid email address and phone number</li>
+          <li>KCSE index number and year</li>
+          <li>KCPE index number and year</li>
+          <li>Passport size photo (digital)</li>
+          <li>Admission letter from university/college</li>
+          <li>Parents' National ID copies</li>
+          <li>Two guarantors' ID copies</li>
+          <li>Birth certificate</li>
+        </ul>
+      </div>
+      <div class="paybill-card">
+        <i class="fas fa-mobile-alt" style="font-size:1.2rem; color:var(--gold);"></i>
+        <div style="font-size:.7rem; letter-spacing:2px;">PAYBILL NUMBERS</div>
+        <div class="paybill-num">HELB: 222222</div>
+        <div class="paybill-num" style="font-size:1rem;">KRA: 572572</div>
+        <div class="paybill-num" style="font-size:1rem;">KUCCPS: 820201</div>
+        <div class="paybill-num" style="font-size:1rem;">NHIF: 200222</div>
+      </div>
+    </div>
+
+    <div class="practice-box reveal">
+      <div class="practice-title"><span class="pnum">3</span> Education Portals Practice</div>
+      <ol class="practice-steps">
+        <li><i class="fas fa-university"></i> Visit students.kuccps.net and identify where to check placement results</li>
+        <li><i class="fas fa-hand-holding-usd"></i> Explore the HELB portal and list all loan requirements</li>
+        <li><i class="fas fa-print"></i> Practice printing a KUCCPS application summary (sample)</li>
+      </ol>
+    </div>
+
+    <!-- SECTION 7.4: PRODUCTIVITY TOOLS -->
+    <div id="s4" class="section-heading reveal">
+      <div class="sec-icon"><i class="fas fa-pen-fancy"></i></div>
+      <div><div class="sec-badge">Section 7.4</div><h2>Productivity & Creative Tools</h2></div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-palette"></i> Canva: Professional Design Made Simple</h3>
+      <p>Website: https://www.canva.com – Create CVs, flyers, posters, social media graphics.</p>
+      <div class="steps-box">
+        <div class="steps-title">Creating a Professional CV/Resume</div>
+        <ol class="steps-list">
+          <li><span class="step-num">1</span> Go to canva.com and create free account</li>
+          <li><span class="step-num">2</span> Search "CV" or "Resume" in templates</li>
+          <li><span class="step-num">3</span> Browse templates and select one</li>
+          <li><span class="step-num">4</span> Replace text with customer details</li>
+          <li><span class="step-num">5</span> Upload photo if needed</li>
+          <li><span class="step-num">6</span> Customize colors and fonts to match style</li>
+          <li><span class="step-num">7</span> Download as PDF (best for printing)</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-video"></i> CapCut & PDF Tools</h3>
+      <p><strong>CapCut</strong> (https://www.capcut.com) – Free video editor for social media content, event videos.</p>
+      <p><strong>ILovePDF</strong> (https://www.ilovepdf.com) – Merge PDF, Compress PDF, PDF to Word, Word to PDF.</p>
+      <div class="steps-box">
+        <div class="steps-title">Compressing Images and PDFs</div>
+        <ol class="steps-list">
+          <li><span class="step-num">1</span> For images: Visit tinypng.com → Upload image → Download compressed version</li>
+          <li><span class="step-num">2</span> For PDFs: Visit ilovepdf.com/compress_pdf → Upload PDF → Choose compression level → Download</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="practice-box reveal">
+      <div class="practice-title"><span class="pnum">4</span> Design & Compression Practice</div>
+      <ol class="practice-steps">
+        <li><i class="fas fa-palette"></i> Create a one-page CV in Canva for a hypothetical customer</li>
+        <li><i class="fas fa-file-pdf"></i> Download the CV as PDF</li>
+        <li><i class="fas fa-compress"></i> Take a phone photo, compress it under 500KB using TinyPNG</li>
+      </ol>
+    </div>
+
+    <!-- SECTION 7.5: TROUBLESHOOTING -->
+    <div id="s5" class="section-heading reveal">
+      <div class="sec-icon"><i class="fas fa-wrench"></i></div>
+      <div><div class="sec-badge">Section 7.5</div><h2>Troubleshooting & Common Issues</h2></div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-key"></i> Forgotten Passwords</h3>
+      <table class="excel-table">
+        <thead><tr><th>Portal</th><th>Password Reset Process</th></tr></thead>
+        <tbody>
+          <tr><td><strong>e-Citizen</strong></td><td>Login page → "Forgot Password" → Enter email → Reset link sent → Create new password</td></tr>
+          <tr><td><strong>KRA iTax</strong></td><td>Login page → "Forgot Password" → Enter PIN and email → Reset instructions via email</td></tr>
+          <tr><td><strong>KUCCPS</strong></td><td>students.kuccps.net → "Forgot Password" → Enter index number/email → Reset link</td></tr>
+          <tr><td><strong>HELB</strong></td><td>Portal → "Forgot Password" → Enter ID/phone → Reset via email/SMS</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-file-upload"></i> Document Size Guidelines</h3>
+      <table class="excel-table">
+        <thead><tr><th>Portal</th><th>Maximum Size</th><th>Format</th></tr></thead>
+        <tbody>
+          <tr><td><strong>e-Citizen</strong></td><td>2MB per document</td><td>PDF or JPG</td></tr>
+          <tr><td><strong>KRA iTax</strong></td><td>5MB per attachment</td><td>PDF only</td></tr>
+          <tr><td><strong>HELB</strong></td><td>2MB per document</td><td>PDF or JPG</td></tr>
+        </tbody>
+      </table>
+      <div class="callout tip"><div class="callout-icon"><i class="fas fa-compress-alt"></i></div><div class="callout-body"><strong>Quick Fixes:</strong> Compression solves 80% of upload problems. Always check file size before uploading.</div></div>
+    </div>
+
+    <div class="practice-box reveal">
+      <div class="practice-title"><span class="pnum">5</span> Troubleshooting Practice</div>
+      <ol class="practice-steps">
+        <li><i class="fas fa-key"></i> Walk through the password reset process for e-Citizen (without actually resetting)</li>
+        <li><i class="fas fa-compress"></i> Practice compressing a sample PDF using ilovepdf.com</li>
+        <li><i class="fas fa-history"></i> Learn to clear browser history on Chrome (Ctrl+Shift+Delete)</li>
+      </ol>
+    </div>
+
+    <!-- SECTION 7.6: BEST PRACTICES -->
+    <div id="s6" class="section-heading reveal">
+      <div class="sec-icon"><i class="fas fa-shield-alt"></i></div>
+      <div><div class="sec-badge">Section 7.6</div><h2>Cybercafe Best Practices & Security</h2></div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-store"></i> Professional Customer Service</h3>
+      <ul>
+        <li><strong>Ask for ID</strong> – Before handling sensitive transactions, verify customer identity</li>
+        <li><strong>Explain steps</strong> – Keep customer informed about what you are doing</li>
+        <li><strong>Offer printed receipts</strong> – Always provide printed confirmation of applications</li>
+        <li><strong>Keep a log</strong> – Maintain a record of transactions for reference</li>
+        <li><strong>Charge fairly</strong> – Be transparent about service fees</li>
+      </ul>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-lock"></i> Security Practices</h3>
+      <ul>
+        <li><strong>Clear browser history</strong> – After each customer, clear all browsing data (Ctrl+Shift+Delete)</li>
+        <li><strong>Use incognito/private mode</strong> – For sensitive transactions, use Chrome's incognito mode</li>
+        <li><strong>Don't install unknown software</strong> – Only use trusted applications</li>
+        <li><strong>Scan USBs</strong> – Always scan customer USBs before opening files</li>
+        <li><strong>Log out completely</strong> – Ensure all portals are logged out before next customer</li>
+      </ul>
+    </div>
+
+    <div class="content-card reveal">
+      <h3><i class="fas fa-star-of-life"></i> Key Takeaways</h3>
+      <div class="method-grid">
+        <div class="method-card"><div class="method-label"><i class="fas fa-globe"></i> e-Citizen First</div><p>Most government services start here. Master it first.</p></div>
+        <div class="method-card"><div class="method-label"><i class="fas fa-check-double"></i> Accuracy Saves Time</div><p>One wrong digit can cause application rejection.</p></div>
+        <div class="method-card"><div class="method-label"><i class="fas fa-compress"></i> Compression is Essential</div><p>Learn to reduce file sizes – solves 80% of upload problems.</p></div>
+        <div class="method-card"><div class="method-label"><i class="fas fa-save"></i> Save Confirmation</div><p>Always note loan serial numbers, payment receipts, and application IDs.</p></div>
+      </div>
+    </div>
+
+    <div class="practice-box reveal">
+      <div class="practice-title"><span class="pnum">6</span> Complete Practice Portfolio</div>
+      <ol class="practice-steps">
+        <li><i class="fas fa-passport"></i> Simulate a passport application process from start to payment step</li>
+        <li><i class="fas fa-file-invoice"></i> Walk through a KRA return filing for a self-employed person</li>
+        <li><i class="fas fa-graduation-cap"></i> Complete a mock KUCCPS course selection</li>
+        <li><i class="fas fa-palette"></i> Design a professional CV in Canva for a real person</li>
+        <li><i class="fas fa-shield-alt"></i> Practice clearing browser history and using incognito mode</li>
+      </ol>
+    </div>
+
+    <div class="skill-check reveal">
+      <h4>Skill Check — Chapter 7 Complete</h4>
+      <div class="skill-items">
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can create e-Citizen account and apply for passport</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can register KRA PIN and file returns</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can assist with KUCCPS and HELB applications</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can use Canva, CapCut, and PDF tools</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I understand cybercafe best practices</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can troubleshoot common portal issues</span>
+        <span class="skill-item-pill"><i class="fas fa-flag-checkered"></i> FULLY PREPARED for Kenyan online services</span>
+      </div>
+    </div>
+
+    <!-- CHAPTER SUMMARY -->
+    <div class="chapter-summary reveal">
+      <h2>🎯 Chapter 7 Summary — Skills Mastered</h2>
+      <div class="summary-grid">
+        <div class="summary-item"><i class="fas fa-check-circle"></i> I can navigate e-Citizen for all government services</div>
+        <div class="summary-item"><i class="fas fa-check-circle"></i> I can assist with passport and driving license applications</div>
+        <div class="summary-item"><i class="fas fa-check-circle"></i> I can register KRA PIN and file tax returns</div>
+        <div class="summary-item"><i class="fas fa-check-circle"></i> I can help with KUCCPS placement and HELB loans</div>
+        <div class="summary-item"><i class="fas fa-check-circle"></i> I can create professional designs using Canva</div>
+        <div class="summary-item"><i class="fas fa-check-circle"></i> I can compress images and PDFs for upload</div>
+        <div class="summary-item"><i class="fas fa-check-circle"></i> I can troubleshoot forgotten passwords and file size issues</div>
+        <div class="summary-item"><i class="fas fa-check-circle"></i> I follow security best practices in a cybercafe</div>
+      </div>
+      <p style="margin-top:1.5rem;opacity:.85;font-style:italic;">"Digital competency is not just about using computers – it's about confidently guiding others through the online spaces that shape their daily lives. Master these steps, and you become an indispensable bridge between citizens and the services they need."<br><strong>— Castro Odhiambo</strong></p>
+    </div>
+
+    <div class="chapter-nav reveal">
+      <a href="Internet_and_Email.html" class="prev"><div class="nav-icon"><i class="fas fa-arrow-left"></i></div><div class="nav-text"><div class="nav-label">Previous Chapter</div><div class="nav-title">Chapter 6 — Internet & Email</div></div></a>
+      <a href="index.html" class="next"><div class="nav-icon"><i class="fas fa-check-circle"></i></div><div class="nav-text"><div class="nav-label">Course Complete</div><div class="nav-title">Certificate of Completion</div></div></a>
+    </div>
+
+  </main>
 </div>
+
+<footer class="site-footer">
+  <p>© 2026 <span>Castro Odhiambo</span> — Basics of Digital Literacy &nbsp;·&nbsp; Chapter 7: Navigating Online Spaces — Complete Guide</p>
+  <p style="margin-top:.4rem;font-size:.76rem;">Your complete guide to Kenyan government portals and cybercafe operations · <a href="index.html" style="color:var(--gold);text-decoration:none;">← Back to Home</a></p>
+</footer>
+
+<script>
+  window.addEventListener('scroll',()=>{const s=window.scrollY,h=document.documentElement.scrollHeight-window.innerHeight;document.getElementById('pbar').style.width=(s/h*100)+'%';});
+  const els=document.querySelectorAll('.reveal');const obs=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*55);obs.unobserve(e.target);}});},{threshold:.07});els.forEach(el=>obs.observe(el));
+  const sections=document.querySelectorAll('[id^="s"]');const sbLinks=document.querySelectorAll('.sb-link');window.addEventListener('scroll',()=>{let cur='';sections.forEach(s=>{if(window.scrollY>=s.offsetTop-130)cur=s.id;});sbLinks.forEach(l=>{l.classList.remove('active');if(l.getAttribute('href')==='#'+cur)l.classList.add('active');});});
+</script>
 </body>
 </html>
