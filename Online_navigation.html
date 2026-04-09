@@ -349,6 +349,9 @@
       <a href="#ntsa" class="toc-pill">NTSA</a>
       <a href="#other" class="toc-pill">Other Portals</a>
       <a href="#tools" class="toc-pill">Productivity Tools</a>
+      <a href="#gdrive" class="toc-pill">Google Drive</a>
+      <a href="#gforms" class="toc-pill">Google Forms</a>
+      <a href="#canva" class="toc-pill">Canva Design</a>
       <a href="#safety" class="toc-pill">Safety &amp; Tips</a>
     </div>
   </div>
@@ -370,6 +373,9 @@
       <a href="#ntsa"     class="sb-link"><i class="fas fa-car"></i> NTSA</a>
       <a href="#other"    class="sb-link"><i class="fas fa-th"></i> Other Portals</a>
       <a href="#tools"    class="sb-link"><i class="fas fa-tools"></i> Productivity Tools</a>
+      <a href="#gdrive"   class="sb-link"><i class="fas fa-cloud"></i> Google Drive</a>
+      <a href="#gforms"   class="sb-link"><i class="fas fa-wpforms"></i> Google Forms</a>
+      <a href="#canva"    class="sb-link"><i class="fas fa-paint-brush"></i> Canva Design</a>
       <a href="#safety"   class="sb-link"><i class="fas fa-shield-alt"></i> Safety &amp; Tips</a>
     </div>
     <div class="sidebar-box">
@@ -1013,6 +1019,618 @@
       </div>
     </div>
 
+    <!-- ═══════════════════════════════════════
+         GOOGLE DRIVE — DEEP DIVE
+    ═══════════════════════════════════════ -->
+    <div id="gdrive" class="section-heading reveal" style="margin-top:2.5rem;">
+      <div class="sec-icon" style="background:linear-gradient(135deg,#1565c0,#1976d2);">☁️</div>
+      <div><div class="sec-badge">Section 7.7a · Deep Dive</div><h2 style="color:#1565c0;">Google Drive — Your Free Cloud Office</h2></div>
+    </div>
+
+    <div class="portal-banner reveal" style="background:linear-gradient(135deg,#0d47a1,#1565c0);">
+      <div class="pb-emoji">☁️</div>
+      <div>
+        <h3>Google Drive</h3>
+        <p>15GB of free cloud storage. Store, create, share, and access your documents, photos, and files from any computer, phone, or tablet — anywhere in Kenya, anytime.</p>
+        <span class="pb-url">drive.google.com</span>
+      </div>
+    </div>
+
+    <!-- WHAT IS GOOGLE DRIVE -->
+    <div class="content-card reveal">
+      <h3 style="color:#1565c0;"><i class="fas fa-cloud"></i> What Is Google Drive and Why Every Kenyan Needs It</h3>
+      <p>Google Drive is Google's free cloud storage service. Think of it as a <strong>hard drive in the sky</strong> — your files live on Google's servers, not just on one computer. This means even if your laptop is stolen, broken, or lost at the cybercafé, your documents are safe and accessible from any device with internet access.</p>
+      <p>Every Gmail account comes with <strong>15GB of free storage</strong> — enough for thousands of Word documents, PDFs, and photos. For most Kenyans, 15GB is more than enough for years of documents.</p>
+
+      <div class="method-grid">
+        <div class="method-card" style="border-color:#bbdefb;">
+          <div class="method-label" style="background:rgba(21,101,192,.1);color:#1565c0;"><i class="fas fa-star"></i> Why Drive Is Essential</div>
+          <ul>
+            <li>Never lose your CV, certificates, or KRA PIN — they're safe in the cloud</li>
+            <li>Access your files from any cybercafé computer without a flash disk</li>
+            <li>Share documents with employers by sending a link instead of an attachment</li>
+            <li>Collaborate — multiple people can edit one document at the same time</li>
+            <li>Automatic saving — Drive saves every change as you type, no more Ctrl+S panic</li>
+          </ul>
+        </div>
+        <div class="method-card" style="border-color:#bbdefb;">
+          <div class="method-label" style="background:rgba(21,101,192,.1);color:#1565c0;"><i class="fas fa-apps"></i> What's Included in Drive</div>
+          <ul>
+            <li>📄 <strong>Google Docs</strong> — like Microsoft Word, free</li>
+            <li>📊 <strong>Google Sheets</strong> — like Microsoft Excel, free</li>
+            <li>📊 <strong>Google Slides</strong> — like Microsoft PowerPoint, free</li>
+            <li>📝 <strong>Google Forms</strong> — create surveys and questionnaires</li>
+            <li>📁 <strong>File storage</strong> — upload any file type</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACCESSING AND NAVIGATING DRIVE -->
+    <div class="content-card reveal">
+      <h3 style="color:#1565c0;"><i class="fas fa-sign-in-alt"></i> Accessing Google Drive</h3>
+      <div class="steps-box">
+        <div class="steps-title"><i class="fas fa-list-ol"></i> Open Google Drive</div>
+        <ol class="steps-list">
+          <li><span class="step-num">1</span> Open Chrome → type <strong>drive.google.com</strong> in the address bar → press Enter</li>
+          <li><span class="step-num">2</span> If not already signed in → enter your Gmail address and password</li>
+          <li><span class="step-num">3</span> Your Drive homepage opens — showing "My Drive" with all your files and folders</li>
+          <li><span class="step-num">4</span> <strong>OR</strong> — click the Google Apps grid (⋮⋮⋮) at the top-right of any Google page → click <strong>Drive</strong></li>
+        </ol>
+      </div>
+
+      <h4>Understanding the Google Drive Interface</h4>
+      <!-- Drive UI Mockup -->
+      <div style="background:#fff;border:1px solid var(--border);border-radius:1rem;overflow:hidden;margin:1rem 0;box-shadow:0 4px 16px rgba(0,0,0,.06);">
+        <!-- Topbar -->
+        <div style="background:#fff;padding:.6rem 1rem;display:flex;align-items:center;gap:.8rem;border-bottom:1px solid #f1f3f4;">
+          <span style="font-size:.9rem;font-weight:700;color:#1a73e8;">▲ Drive</span>
+          <div style="flex:1;background:#f1f3f4;border-radius:24px;padding:.3rem 1rem;font-size:.75rem;color:#999;">🔍 Search in Drive</div>
+          <div style="width:28px;height:28px;border-radius:50%;background:#fbbc04;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;color:#333;">F</div>
+        </div>
+        <!-- Layout -->
+        <div style="display:grid;grid-template-columns:160px 1fr;min-height:180px;">
+          <!-- Sidebar -->
+          <div style="background:#f8f9fa;padding:.6rem;border-right:1px solid #f1f3f4;">
+            <div style="background:#d2e3fc;border-radius:20px;padding:.4rem .8rem;font-size:.75rem;font-weight:700;color:#1a73e8;margin-bottom:.6rem;display:flex;align-items:center;gap:.4rem;">➕ New</div>
+            <div style="font-size:.72rem;color:#3c4043;padding:.3rem .4rem;display:flex;align-items:center;gap:.4rem;background:#e8f0fe;border-radius:.3rem;margin-bottom:.1rem;">🏠 My Drive</div>
+            <div style="font-size:.72rem;color:#5f6368;padding:.3rem .4rem;display:flex;align-items:center;gap:.4rem;">👥 Shared with me</div>
+            <div style="font-size:.72rem;color:#5f6368;padding:.3rem .4rem;display:flex;align-items:center;gap:.4rem;">🕐 Recent</div>
+            <div style="font-size:.72rem;color:#5f6368;padding:.3rem .4rem;display:flex;align-items:center;gap:.4rem;">⭐ Starred</div>
+            <div style="font-size:.72rem;color:#5f6368;padding:.3rem .4rem;display:flex;align-items:center;gap:.4rem;">🗑️ Trash</div>
+            <div style="margin-top:.6rem;font-size:.68rem;color:#999;">Storage: 2.1 GB / 15 GB</div>
+            <div style="height:4px;background:#e8eaed;border-radius:2px;margin-top:.2rem;"><div style="width:14%;height:100%;background:#1a73e8;border-radius:2px;"></div></div>
+          </div>
+          <!-- Main area -->
+          <div style="padding:.8rem;">
+            <div style="font-size:.72rem;color:#5f6368;margin-bottom:.6rem;font-weight:600;">MY DRIVE — Folders</div>
+            <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:.8rem;">
+              <div style="background:#f1f3f4;border-radius:.6rem;padding:.5rem .8rem;font-size:.72rem;color:#3c4043;display:flex;align-items:center;gap:.3rem;">📁 My CV &amp; Certificates</div>
+              <div style="background:#f1f3f4;border-radius:.6rem;padding:.5rem .8rem;font-size:.72rem;color:#3c4043;display:flex;align-items:center;gap:.3rem;">📁 KRA Documents</div>
+              <div style="background:#f1f3f4;border-radius:.6rem;padding:.5rem .8rem;font-size:.72rem;color:#3c4043;display:flex;align-items:center;gap:.3rem;">📁 School Work</div>
+            </div>
+            <div style="font-size:.72rem;color:#5f6368;margin-bottom:.4rem;font-weight:600;">RECENT FILES</div>
+            <div style="display:flex;flex-direction:column;gap:.2rem;">
+              <div style="display:flex;align-items:center;gap:.5rem;padding:.3rem .4rem;border-radius:.3rem;font-size:.72rem;color:#3c4043;background:#f8f9fa;">📄 <span style="flex:1;">Faith_Achieng_CV_2026.docx</span><span style="color:#999;font-size:.65rem;">Edited today</span></div>
+              <div style="display:flex;align-items:center;gap:.5rem;padding:.3rem .4rem;border-radius:.3rem;font-size:.72rem;color:#3c4043;">📊 <span style="flex:1;">Monthly_Budget_2026.xlsx</span><span style="color:#999;font-size:.65rem;">Edited yesterday</span></div>
+              <div style="display:flex;align-items:center;gap:.5rem;padding:.3rem .4rem;border-radius:.3rem;font-size:.72rem;color:#3c4043;">📑 <span style="flex:1;">KRA_PIN_Certificate.pdf</span><span style="color:#999;font-size:.65rem;">Mar 28</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- UPLOADING FILES -->
+    <div class="content-card reveal">
+      <h3 style="color:#1565c0;"><i class="fas fa-upload"></i> Uploading Files to Google Drive</h3>
+      <p>Upload any file from your computer to Drive and it becomes accessible from any device forever — as long as you have your Gmail login.</p>
+      <div class="method-grid">
+        <div class="method-card">
+          <div class="method-label" style="background:rgba(21,101,192,.1);color:#1565c0;"><i class="fas fa-mouse-pointer"></i> Method 1 — Drag and Drop</div>
+          <ol>
+            <li>Open <strong>drive.google.com</strong></li>
+            <li>Open File Explorer in another window</li>
+            <li>Find your file (e.g., your CV)</li>
+            <li>Drag it directly into the Google Drive browser window</li>
+            <li>It uploads automatically — watch the progress bar</li>
+          </ol>
+          <p style="font-size:.8rem;color:var(--muted);margin-top:.4rem;">Fastest method for uploading one or a few files.</p>
+        </div>
+        <div class="method-card">
+          <div class="method-label" style="background:rgba(21,101,192,.1);color:#1565c0;"><i class="fas fa-plus"></i> Method 2 — New Button</div>
+          <ol>
+            <li>Click the <strong>+ New</strong> button (top-left of Drive)</li>
+            <li>Select <strong>File upload</strong></li>
+            <li>Browse to your file → select it → click <strong>Open</strong></li>
+            <li>The file uploads and appears in My Drive</li>
+          </ol>
+          <p style="font-size:.8rem;color:var(--muted);margin-top:.4rem;">To upload an entire folder: click <strong>Folder upload</strong> instead.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ORGANISING WITH FOLDERS -->
+    <div class="content-card reveal">
+      <h3 style="color:#1565c0;"><i class="fas fa-folder-plus"></i> Creating Folders and Organising Your Files</h3>
+      <p>Just like on your computer, Google Drive lets you create folders to keep your files organised. A well-organised Drive means you can always find what you need in seconds.</p>
+      <div class="steps-box">
+        <div class="steps-title"><i class="fas fa-list-ol"></i> Create a Folder in Drive</div>
+        <ol class="steps-list">
+          <li><span class="step-num">1</span> Click <strong>+ New</strong> → select <strong>New Folder</strong></li>
+          <li><span class="step-num">2</span> Type a folder name (e.g., <em>My CV &amp; Certificates</em>) → click <strong>Create</strong></li>
+          <li><span class="step-num">3</span> The folder appears in My Drive — double-click to open it</li>
+          <li><span class="step-num">4</span> Drag files into the folder, or upload directly into it using <strong>+ New → File Upload</strong></li>
+        </ol>
+      </div>
+
+      <h4>Recommended Folder Structure for Every Kenyan</h4>
+      <div style="background:var(--offwhite);border:1px solid var(--border);border-radius:1rem;padding:1.2rem;font-family:monospace;font-size:.82rem;margin:1rem 0;">
+        <div style="color:var(--gold);font-weight:700;margin-bottom:.5rem;">📁 My Drive</div>
+        <div style="padding-left:1.2rem;">
+          <div style="color:#1565c0;font-weight:700;">📁 Identity Documents</div>
+          <div style="padding-left:1.2rem;color:var(--muted);">📄 National_ID_Front.jpg &nbsp;·&nbsp; 📄 National_ID_Back.jpg &nbsp;·&nbsp; 📄 Birth_Certificate.pdf &nbsp;·&nbsp; 📄 KRA_PIN_Certificate.pdf</div>
+          <div style="color:#1565c0;font-weight:700;margin-top:.4rem;">📁 CV &amp; Job Applications</div>
+          <div style="padding-left:1.2rem;color:var(--muted);">📄 Faith_CV_2026.docx &nbsp;·&nbsp; 📄 Cover_Letter_Template.docx &nbsp;·&nbsp; 📄 Academic_Certificates.pdf</div>
+          <div style="color:#1565c0;font-weight:700;margin-top:.4rem;">📁 School &amp; HELB</div>
+          <div style="padding-left:1.2rem;color:var(--muted);">📄 HELB_Serial_Number.txt &nbsp;·&nbsp; 📄 Admission_Letter.pdf &nbsp;·&nbsp; 📄 KUCCPS_Placement.pdf</div>
+          <div style="color:#1565c0;font-weight:700;margin-top:.4rem;">📁 Financial Records</div>
+          <div style="padding-left:1.2rem;color:var(--muted);">📊 Monthly_Budget.xlsx &nbsp;·&nbsp; 📄 KRA_Returns_Receipt_2025.pdf</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SHARING FILES -->
+    <div class="content-card reveal">
+      <h3 style="color:#1565c0;"><i class="fas fa-share-alt"></i> Sharing Files from Google Drive</h3>
+      <p>Sharing via Drive is better than email attachments for large files. You send a link — the recipient clicks it and sees or downloads the file instantly. No file size limits, no bounce-backs.</p>
+      <div class="steps-box">
+        <div class="steps-title"><i class="fas fa-list-ol"></i> Share a File or Folder</div>
+        <ol class="steps-list">
+          <li><span class="step-num">1</span> Right-click the file or folder in Drive → select <strong>Share</strong></li>
+          <li><span class="step-num">2</span> A sharing dialog opens — type the recipient's email address, OR click <strong>"Copy link"</strong></li>
+          <li><span class="step-num">3</span> Set the permission level:<br>
+            <strong>Viewer</strong> — can only view, not edit<br>
+            <strong>Commenter</strong> — can add comments<br>
+            <strong>Editor</strong> — can make changes to the file</li>
+          <li><span class="step-num">4</span> Click <strong>Send</strong> (by email) or <strong>Copy link</strong> (to share via WhatsApp or any other way)</li>
+        </ol>
+      </div>
+      <div class="callout tip">
+        <div class="callout-icon"><i class="fas fa-lightbulb"></i></div>
+        <div class="callout-body">
+          <strong>Share Your CV with Employers the Professional Way</strong>
+          <p>Upload your CV to Google Drive → right-click → Share → Change to "Anyone with the link can view" → Copy link → paste the link in your job application email. The employer clicks the link and sees a crisp, perfectly formatted document. No attachment size issues, no corrupt files.</p>
+        </div>
+      </div>
+      <div class="callout warning">
+        <div class="callout-icon"><i class="fas fa-exclamation-triangle"></i></div>
+        <div class="callout-body">
+          <strong>Be Careful with "Anyone with the link" Setting</strong>
+          <p>If you set a file to "Anyone with the link can view," anyone who gets that link — even someone you didn't intend — can see it. For sensitive documents like your ID scan or bank statements, use "Restricted" sharing (specific people only) or just download and attach the file directly.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- GOOGLE DOCS IN DRIVE -->
+    <div class="content-card reveal">
+      <h3 style="color:#1565c0;"><i class="fas fa-file-alt"></i> Creating Documents Directly in Drive — Google Docs &amp; Sheets</h3>
+      <p>You don't need Microsoft Office installed. Google Drive lets you create Word-like documents, Excel-like spreadsheets, and PowerPoint-like presentations directly in your browser — for free.</p>
+      <table class="data-table">
+        <thead><tr><th>Drive App</th><th>Like Microsoft</th><th>Use For</th><th>Can Save As</th></tr></thead>
+        <tbody>
+          <tr><td><strong>📄 Google Docs</strong></td><td>Microsoft Word</td><td>Letters, CVs, reports, assignments</td><td>.docx, .pdf, .txt</td></tr>
+          <tr><td><strong>📊 Google Sheets</strong></td><td>Microsoft Excel</td><td>Budgets, marks, inventory, data</td><td>.xlsx, .csv, .pdf</td></tr>
+          <tr><td><strong>📊 Google Slides</strong></td><td>Microsoft PowerPoint</td><td>Presentations, pitches, projects</td><td>.pptx, .pdf</td></tr>
+          <tr><td><strong>📝 Google Forms</strong></td><td>Survey / form builder</td><td>Surveys, quizzes, registrations</td><td>Results go to Sheets</td></tr>
+        </tbody>
+      </table>
+      <div class="steps-box">
+        <div class="steps-title"><i class="fas fa-file-alt"></i> Create a New Google Doc</div>
+        <ol class="steps-list">
+          <li><span class="step-num">1</span> In Google Drive → click <strong>+ New → Google Docs</strong></li>
+          <li><span class="step-num">2</span> A blank document opens in a new tab — it looks just like Microsoft Word</li>
+          <li><span class="step-num">3</span> Start typing — <strong>every change is saved automatically every few seconds</strong> (no Ctrl+S needed)</li>
+          <li><span class="step-num">4</span> To download as a Word document: <strong>File → Download → Microsoft Word (.docx)</strong></li>
+          <li><span class="step-num">5</span> To save as PDF: <strong>File → Download → PDF Document</strong></li>
+        </ol>
+      </div>
+      <div class="callout kenya" style="background:#fff8e1;border:1px solid #ffe082;">
+        <div class="callout-icon" style="background:#fff3cd;color:#bb0000;"><i class="fas fa-flag"></i></div>
+        <div class="callout-body">
+          <strong style="color:var(--green);">🇰🇪 Cybercafé Tip — No Microsoft Office? No Problem!</strong>
+          <p>If the cybercafé computer doesn't have Microsoft Office, open <strong>docs.google.com</strong> in Chrome. You can create a professional CV, letter, or report completely free — then download it as a .docx or .pdf and print it right there.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+         GOOGLE FORMS — DEEP DIVE
+    ═══════════════════════════════════════ -->
+    <div id="gforms" class="section-heading reveal" style="margin-top:2.5rem;">
+      <div class="sec-icon" style="background:linear-gradient(135deg,#6a1b9a,#8e24aa);">📝</div>
+      <div><div class="sec-badge">Section 7.7b · Deep Dive</div><h2 style="color:#6a1b9a;">Google Forms — Collect Information Online</h2></div>
+    </div>
+
+    <div class="portal-banner reveal" style="background:linear-gradient(135deg,#4a0e72,#6a1b9a);">
+      <div class="pb-emoji">📝</div>
+      <div>
+        <h3>Google Forms</h3>
+        <p>Create professional surveys, registration forms, quizzes, feedback forms, and job application forms in minutes — completely free. Responses are collected automatically in Google Sheets.</p>
+        <span class="pb-url">forms.google.com</span>
+      </div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3 style="color:#6a1b9a;"><i class="fas fa-question-circle"></i> What Is Google Forms and Who Uses It?</h3>
+      <p>Google Forms is a free online tool that lets you create <strong>digital forms</strong> — questionnaires, surveys, registration forms, quizzes, and feedback forms. Instead of printing paper forms and collecting them manually, you share a link. Anyone who clicks the link fills in the form online, and all responses appear instantly in your Google account.</p>
+
+      <div class="method-grid">
+        <div class="method-card" style="border-color:#e1bee7;">
+          <div class="method-label" style="background:rgba(106,27,154,.1);color:#6a1b9a;"><i class="fas fa-users"></i> Who Uses Google Forms in Kenya?</div>
+          <ul>
+            <li><strong>Schools</strong> — Student registration, exam feedback, parent surveys</li>
+            <li><strong>Churches &amp; NGOs</strong> — Event registration, volunteer sign-ups</li>
+            <li><strong>Businesses</strong> — Customer feedback, order forms, job applications</li>
+            <li><strong>Government</strong> — Community data collection, needs assessment</li>
+            <li><strong>Students</strong> — Research questionnaires, group project planning</li>
+            <li><strong>Cybercafés</strong> — Customer registration, service feedback</li>
+          </ul>
+        </div>
+        <div class="method-card" style="border-color:#e1bee7;">
+          <div class="method-label" style="background:rgba(106,27,154,.1);color:#6a1b9a;"><i class="fas fa-star"></i> Why Forms Is Powerful</div>
+          <ul>
+            <li>100% free — no subscription needed</li>
+            <li>No paper, no printing, no manual data entry</li>
+            <li>Responses collected automatically in Google Sheets</li>
+            <li>Works on any phone or computer — no app to download</li>
+            <li>Real-time response graphs and charts built-in</li>
+            <li>Share via link, WhatsApp, email, or QR code</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3 style="color:#6a1b9a;"><i class="fas fa-plus-circle"></i> Creating Your First Google Form — Step by Step</h3>
+      <div class="steps-box">
+        <div class="steps-title"><i class="fas fa-list-ol"></i> Create a Google Form</div>
+        <ol class="steps-list">
+          <li><span class="step-num">1</span> Go to <strong>forms.google.com</strong> (or Google Drive → + New → Google Forms)</li>
+          <li><span class="step-num">2</span> Click <strong>"Blank form"</strong> to start from scratch, OR choose a template (Event registration, Contact form, RSVP, Quiz, etc.)</li>
+          <li><span class="step-num">3</span> Click "Untitled form" at the top → type your form title (e.g., <em>Youth Club Registration — Kisumu 2026</em>)</li>
+          <li><span class="step-num">4</span> Add a description below the title to explain the form's purpose</li>
+          <li><span class="step-num">5</span> Click on the first question → type it (e.g., <em>What is your full name?</em>)</li>
+          <li><span class="step-num">6</span> Choose the question type from the dropdown on the right</li>
+          <li><span class="step-num">7</span> Toggle <strong>"Required"</strong> on questions that must be answered</li>
+          <li><span class="step-num">8</span> Click the <strong>+ button</strong> on the right panel to add more questions</li>
+          <li><span class="step-num">9</span> Click the <strong>eye icon</strong> (Preview) to see how your form looks to respondents</li>
+          <li><span class="step-num">10</span> Click the purple <strong>Send button</strong> → choose how to share: by email, copy link, or embed code</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3 style="color:#6a1b9a;"><i class="fas fa-list-alt"></i> Question Types — Choose the Right One</h3>
+      <table class="data-table">
+        <thead><tr><th>Question Type</th><th>What It Looks Like</th><th>Best Used For</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Short Answer</strong></td><td>A single line text box</td><td>Names, phone numbers, email addresses, short text responses</td></tr>
+          <tr><td><strong>Paragraph</strong></td><td>A large multi-line text box</td><td>Longer responses — feedback, suggestions, descriptions</td></tr>
+          <tr><td><strong>Multiple Choice</strong></td><td>Radio buttons — pick one option</td><td>Gender, county, yes/no questions, single selection</td></tr>
+          <tr><td><strong>Checkboxes</strong></td><td>Tick boxes — pick multiple options</td><td>Selecting multiple skills, interests, or services</td></tr>
+          <tr><td><strong>Dropdown</strong></td><td>A dropdown menu — pick one</td><td>County/city selection, product options, large lists</td></tr>
+          <tr><td><strong>Linear Scale</strong></td><td>A numbered scale (e.g., 1–5)</td><td>Rating questions — "Rate our service from 1 to 5"</td></tr>
+          <tr><td><strong>Date</strong></td><td>A calendar date picker</td><td>Date of birth, appointment preference, event date</td></tr>
+          <tr><td><strong>File Upload</strong></td><td>Allows respondent to upload a file</td><td>Accepting CV uploads, photo submissions, document requests</td></tr>
+        </tbody>
+      </table>
+
+      <!-- Google Form Visual Mockup -->
+      <h4 style="margin-top:1.2rem;">Example: Youth Club Registration Form</h4>
+      <div style="background:#fff;border:1px solid #e1bee7;border-radius:1.2rem;overflow:hidden;margin:1rem 0;box-shadow:0 4px 16px rgba(106,27,154,.08);">
+        <!-- Form header bar -->
+        <div style="background:#6a1b9a;height:8px;"></div>
+        <div style="padding:1.5rem 1.5rem .8rem;">
+          <div style="font-size:1.1rem;font-weight:700;color:#202124;margin-bottom:.3rem;">Youth Club Registration — Kisumu 2026</div>
+          <div style="font-size:.8rem;color:#5f6368;margin-bottom:1rem;">Please fill in your details to register for the Digital Literacy Youth Club. All fields marked * are required.</div>
+
+          <!-- Question 1 -->
+          <div style="background:#f8f9fa;border-radius:.8rem;padding:1rem;margin-bottom:.8rem;border:1px solid #e1bee7;">
+            <div style="font-size:.85rem;font-weight:600;color:#202124;margin-bottom:.5rem;">Full Name <span style="color:#d93025;">*</span></div>
+            <div style="border-bottom:2px solid #6a1b9a;padding-bottom:.3rem;font-size:.78rem;color:#aaa;">Your answer</div>
+          </div>
+
+          <!-- Question 2 -->
+          <div style="background:#f8f9fa;border-radius:.8rem;padding:1rem;margin-bottom:.8rem;border:1px solid #e1bee7;">
+            <div style="font-size:.85rem;font-weight:600;color:#202124;margin-bottom:.5rem;">Gender <span style="color:#d93025;">*</span></div>
+            <div style="display:flex;flex-direction:column;gap:.3rem;">
+              <label style="display:flex;align-items:center;gap:.5rem;font-size:.8rem;color:#202124;"><input type="radio" disabled> Male</label>
+              <label style="display:flex;align-items:center;gap:.5rem;font-size:.8rem;color:#202124;"><input type="radio" disabled> Female</label>
+              <label style="display:flex;align-items:center;gap:.5rem;font-size:.8rem;color:#202124;"><input type="radio" disabled> Prefer not to say</label>
+            </div>
+          </div>
+
+          <!-- Question 3 -->
+          <div style="background:#f8f9fa;border-radius:.8rem;padding:1rem;margin-bottom:.8rem;border:1px solid #e1bee7;">
+            <div style="font-size:.85rem;font-weight:600;color:#202124;margin-bottom:.5rem;">Which digital skills do you already have? (Select all that apply)</div>
+            <div style="display:flex;flex-direction:column;gap:.3rem;">
+              <label style="display:flex;align-items:center;gap:.5rem;font-size:.8rem;color:#202124;"><input type="checkbox" disabled checked> Typing on a keyboard</label>
+              <label style="display:flex;align-items:center;gap:.5rem;font-size:.8rem;color:#202124;"><input type="checkbox" disabled> Microsoft Word</label>
+              <label style="display:flex;align-items:center;gap:.5rem;font-size:.8rem;color:#202124;"><input type="checkbox" disabled> Email / Gmail</label>
+              <label style="display:flex;align-items:center;gap:.5rem;font-size:.8rem;color:#202124;"><input type="checkbox" disabled checked> Using the internet</label>
+            </div>
+          </div>
+
+          <!-- Question 4 -->
+          <div style="background:#f8f9fa;border-radius:.8rem;padding:1rem;border:1px solid #e1bee7;">
+            <div style="font-size:.85rem;font-weight:600;color:#202124;margin-bottom:.5rem;">Rate your interest in learning digital skills (1 = Not interested, 5 = Very interested) <span style="color:#d93025;">*</span></div>
+            <div style="display:flex;align-items:center;gap:.8rem;margin-top:.4rem;">
+              <span style="font-size:.72rem;color:#5f6368;">Not interested</span>
+              <div style="display:flex;gap:.5rem;">
+                <div style="width:24px;height:24px;border-radius:50%;border:2px solid #6a1b9a;display:flex;align-items:center;justify-content:center;font-size:.68rem;color:#6a1b9a;">1</div>
+                <div style="width:24px;height:24px;border-radius:50%;border:2px solid #6a1b9a;display:flex;align-items:center;justify-content:center;font-size:.68rem;color:#6a1b9a;">2</div>
+                <div style="width:24px;height:24px;border-radius:50%;border:2px solid #6a1b9a;display:flex;align-items:center;justify-content:center;font-size:.68rem;color:#6a1b9a;">3</div>
+                <div style="width:24px;height:24px;border-radius:50%;border:2px solid #6a1b9a;display:flex;align-items:center;justify-content:center;font-size:.68rem;color:#6a1b9a;">4</div>
+                <div style="width:24px;height:24px;border-radius:50%;border:2px solid #6a1b9a;background:#6a1b9a;display:flex;align-items:center;justify-content:center;font-size:.68rem;color:#fff;">5</div>
+              </div>
+              <span style="font-size:.72rem;color:#5f6368;">Very interested</span>
+            </div>
+          </div>
+
+          <div style="margin-top:1rem;"><button style="background:#6a1b9a;color:#fff;border:none;border-radius:4px;padding:.45rem 1.4rem;font-size:.82rem;font-weight:600;cursor:pointer;">Submit</button></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3 style="color:#6a1b9a;"><i class="fas fa-chart-bar"></i> Viewing and Using Form Responses</h3>
+      <p>After you share your form and people start responding, you can view the results instantly — with charts, graphs, and individual response records.</p>
+      <div class="steps-box">
+        <div class="steps-title"><i class="fas fa-list-ol"></i> View Your Form Responses</div>
+        <ol class="steps-list">
+          <li><span class="step-num">1</span> Open your form at <strong>forms.google.com</strong></li>
+          <li><span class="step-num">2</span> Click the <strong>"Responses" tab</strong> at the top of the form editor</li>
+          <li><span class="step-num">3</span> You see the <strong>Summary view</strong> — charts and graphs showing all responses automatically</li>
+          <li><span class="step-num">4</span> Click <strong>"Individual"</strong> to see each person's complete answers one by one</li>
+          <li><span class="step-num">5</span> Click the Google Sheets icon (green grid) to export all responses to a spreadsheet for analysis in Google Sheets or Excel</li>
+        </ol>
+      </div>
+      <div class="callout tip">
+        <div class="callout-icon"><i class="fas fa-lightbulb"></i></div>
+        <div class="callout-body">
+          <strong>Practical Uses of Google Forms for Kenyans</strong>
+          <ul>
+            <li>A church group collecting member information for a retreat</li>
+            <li>A school collecting parent contact details digitally</li>
+            <li>A business collecting customer orders or feedback</li>
+            <li>A student collecting research data for a university project</li>
+            <li>A youth group registering members for a community event</li>
+            <li>A cybercafé collecting customer feedback on service quality</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="practice-box reveal">
+      <div class="practice-title"><span class="pnum">★</span> Practice — Build a Registration Form</div>
+      <ol class="practice-steps">
+        <li><i class="fas fa-globe"></i> Open Chrome → go to <strong>forms.google.com</strong> → click <strong>Blank form</strong></li>
+        <li><i class="fas fa-heading"></i> Title: <em>"Digital Literacy Course Registration — 2026"</em></li>
+        <li><i class="fas fa-plus-circle"></i> Add these questions:<br>
+          &nbsp;&nbsp;• Full Name (Short answer, Required)<br>
+          &nbsp;&nbsp;• Phone Number (Short answer, Required)<br>
+          &nbsp;&nbsp;• County of Residence (Dropdown — add 5 Kenyan counties)<br>
+          &nbsp;&nbsp;• Highest Education (Multiple choice: KCPE / KCSE / Certificate / Diploma / Degree)<br>
+          &nbsp;&nbsp;• Why do you want to learn digital skills? (Paragraph)</li>
+        <li><i class="fas fa-eye"></i> Click the <strong>Preview (eye) icon</strong> — fill in the form yourself as a test respondent</li>
+        <li><i class="fas fa-share-alt"></i> Click <strong>Send → Copy link</strong> — share the link with a classmate to fill in</li>
+        <li><i class="fas fa-chart-bar"></i> Go to the <strong>Responses</strong> tab → view the summary charts</li>
+      </ol>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+         CANVA — DEEP DIVE
+    ═══════════════════════════════════════ -->
+    <div id="canva" class="section-heading reveal" style="margin-top:2.5rem;">
+      <div class="sec-icon" style="background:linear-gradient(135deg,#00b5d1,#06a3c4);">🎨</div>
+      <div><div class="sec-badge">Section 7.7c · Deep Dive</div><h2 style="color:#00b5d1;">Canva — Professional Design for Everyone</h2></div>
+    </div>
+
+    <div class="portal-banner reveal" style="background:linear-gradient(135deg,#007b91,#00b5d1);">
+      <div class="pb-emoji">🎨</div>
+      <div>
+        <h3>Canva</h3>
+        <p>The world's most popular free design tool. Create stunning CVs, business flyers, social media posts, school certificates, posters, and presentations — with no design experience needed whatsoever.</p>
+        <span class="pb-url">www.canva.com</span>
+      </div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3 style="color:#007b91;"><i class="fas fa-paint-brush"></i> What Is Canva and Why Is It a Game-Changer?</h3>
+      <p>Before Canva, creating a professional flyer or CV required expensive software like Adobe Photoshop and years of design training. Canva changed everything — it gives anyone the power to create professional, beautiful designs in minutes using ready-made templates.</p>
+      <p>In Kenya, Canva is used at cybercafés daily — for CVs, church announcements, business flyers, school certificates, and social media graphics. Knowing Canva is a marketable skill that can earn you extra income.</p>
+
+      <div class="method-grid">
+        <div class="method-card" style="border-color:#b2ebf2;">
+          <div class="method-label" style="background:rgba(0,181,209,.1);color:#007b91;"><i class="fas fa-star"></i> What You Can Create in Canva</div>
+          <ul>
+            <li>📄 <strong>Professional CV / Resume</strong> — dozens of beautiful templates</li>
+            <li>📣 <strong>Business Flyers</strong> — advertise your shop or service</li>
+            <li>📱 <strong>Social Media Posts</strong> — Facebook, Instagram, WhatsApp Status</li>
+            <li>🎓 <strong>School Certificates</strong> — participation, achievement, completion</li>
+            <li>📊 <strong>Presentations</strong> — alternative to PowerPoint</li>
+            <li>🪧 <strong>Posters &amp; Banners</strong> — for events, church, community</li>
+            <li>💌 <strong>Invitations</strong> — wedding, birthday, graduation</li>
+            <li>🪪 <strong>ID / Business Cards</strong> — print-ready designs</li>
+          </ul>
+        </div>
+        <div class="method-card" style="border-color:#b2ebf2;">
+          <div class="method-label" style="background:rgba(0,181,209,.1);color:#007b91;"><i class="fas fa-money-bill"></i> Canva Free vs Pro</div>
+          <ul>
+            <li><strong>Free version</strong> — thousands of templates, unlimited designs, download as PNG or PDF</li>
+            <li><strong>Canva Pro</strong> — extra templates, remove backgrounds, brand kit (paid)</li>
+            <li>For 99% of Kenyan needs, the <strong>free version is more than enough</strong></li>
+            <li>Create an account with your Gmail — instant access, no credit card needed</li>
+          </ul>
+          <div class="callout tip" style="margin-top:.7rem;padding:.7rem;">
+            <div class="callout-icon" style="width:28px;height:28px;"><i class="fas fa-graduation-cap"></i></div>
+            <div class="callout-body"><strong style="font-size:.78rem;">Students get Canva Pro Free!</strong><p style="font-size:.74rem;">Apply with a .ac.ke or school email at canva.com/education</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3 style="color:#007b91;"><i class="fas fa-file-alt"></i> Creating a Professional CV in Canva — Step by Step</h3>
+      <p>The most requested Canva task at Kenyan cybercafés is a professional CV. Here is the complete process:</p>
+      <div class="steps-box">
+        <div class="steps-title"><i class="fas fa-list-ol"></i> Build a Stunning CV in Canva</div>
+        <ol class="steps-list">
+          <li><span class="step-num">1</span> Go to <strong>www.canva.com</strong> → sign up / log in with Gmail</li>
+          <li><span class="step-num">2</span> In the search bar at the top, type <strong>"CV"</strong> or <strong>"Resume"</strong> → press Enter</li>
+          <li><span class="step-num">3</span> Browse the template gallery → choose a professional, clean design (avoid overly colourful ones for formal job applications)</li>
+          <li><span class="step-num">4</span> Click the template → it opens in the Canva editor</li>
+          <li><span class="step-num">5</span> Click on any text on the template → it becomes editable → replace with your real information</li>
+          <li><span class="step-num">6</span> Replace placeholder text with: your name, contact details, education, work experience, skills</li>
+          <li><span class="step-num">7</span> Click on the profile photo placeholder → click <strong>"Upload media"</strong> → upload your passport photo</li>
+          <li><span class="step-num">8</span> Adjust colours if needed — click a coloured element → change to match your preference</li>
+          <li><span class="step-num">9</span> Click <strong>Share</strong> (top-right) → <strong>Download</strong> → choose <strong>PDF Standard</strong> for print or <strong>PDF Print</strong> for high-quality printing</li>
+          <li><span class="step-num">10</span> The CV downloads to your computer — print it or attach it to job application emails</li>
+        </ol>
+      </div>
+
+      <!-- Canva CV Mockup -->
+      <h4>Example: A Canva CV — What It Can Look Like</h4>
+      <div style="background:#fff;border:1px solid var(--border);border-radius:1.2rem;overflow:hidden;margin:1rem 0;box-shadow:0 6px 24px rgba(0,0,0,.08);display:grid;grid-template-columns:200px 1fr;max-height:320px;">
+        <!-- Left panel - dark accent -->
+        <div style="background:linear-gradient(180deg,#007b91,#00b5d1);padding:1.5rem 1rem;display:flex;flex-direction:column;align-items:center;">
+          <div style="width:70px;height:70px;border-radius:50%;background:rgba(255,255,255,.2);border:3px solid rgba(255,255,255,.6);display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin-bottom:.8rem;">👩🏾</div>
+          <div style="color:#fff;font-size:.85rem;font-weight:700;text-align:center;margin-bottom:.3rem;">Faith A. Otieno</div>
+          <div style="color:rgba(255,255,255,.8);font-size:.65rem;text-align:center;margin-bottom:1rem;">ICT Professional</div>
+          <div style="width:100%;border-top:1px solid rgba(255,255,255,.2);padding-top:.7rem;">
+            <div style="color:rgba(255,255,255,.7);font-size:.62rem;margin-bottom:.3rem;">📞 0712 345 678</div>
+            <div style="color:rgba(255,255,255,.7);font-size:.62rem;margin-bottom:.3rem;">✉ faith@gmail.com</div>
+            <div style="color:rgba(255,255,255,.7);font-size:.62rem;">📍 Kisumu, Kenya</div>
+          </div>
+          <div style="width:100%;border-top:1px solid rgba(255,255,255,.2);padding-top:.7rem;margin-top:.7rem;">
+            <div style="color:#fff;font-size:.65rem;font-weight:700;margin-bottom:.4rem;">SKILLS</div>
+            <div style="color:rgba(255,255,255,.8);font-size:.6rem;line-height:1.6;">• Microsoft Word<br>• Microsoft Excel<br>• Google Drive<br>• eCitizen / KRA<br>• English &amp; Kiswahili</div>
+          </div>
+        </div>
+        <!-- Right panel -->
+        <div style="padding:1.2rem;">
+          <div style="border-bottom:2px solid #00b5d1;padding-bottom:.4rem;margin-bottom:.6rem;">
+            <div style="font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:#00b5d1;font-weight:700;">Profile</div>
+            <div style="font-size:.68rem;color:#555;line-height:1.5;margin-top:.25rem;">Motivated ICT professional with hands-on experience in digital literacy instruction and Kenyan government portal navigation. Seeking to contribute to a dynamic organisation.</div>
+          </div>
+          <div style="border-bottom:1px solid #eee;padding-bottom:.5rem;margin-bottom:.5rem;">
+            <div style="font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:#00b5d1;font-weight:700;margin-bottom:.3rem;">Education</div>
+            <div style="font-size:.68rem;color:#333;font-weight:600;">KCSE — Grade B+</div>
+            <div style="font-size:.62rem;color:#888;">Kisumu Girls High School · 2022</div>
+          </div>
+          <div>
+            <div style="font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:#00b5d1;font-weight:700;margin-bottom:.3rem;">Experience</div>
+            <div style="font-size:.68rem;color:#333;font-weight:600;">Data Entry Volunteer</div>
+            <div style="font-size:.62rem;color:#888;">Kisumu County Government · Jan–Mar 2023</div>
+            <div style="font-size:.62rem;color:#555;margin-top:.2rem;">Entered patient records, maintained filing systems, assisted front office with digital tasks.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-card reveal">
+      <h3 style="color:#007b91;"><i class="fas fa-store"></i> Creating a Business Flyer in Canva</h3>
+      <p>Whether you run a small shop, offer services like plumbing or catering, or want to advertise a church event — Canva lets you create a professional flyer in under 10 minutes.</p>
+      <div class="steps-box">
+        <div class="steps-title"><i class="fas fa-list-ol"></i> Create a Business Flyer</div>
+        <ol class="steps-list">
+          <li><span class="step-num">1</span> Go to <strong>www.canva.com</strong> → search for <strong>"Flyer"</strong></li>
+          <li><span class="step-num">2</span> Choose <strong>"A4 Flyer"</strong> size (standard for printing in Kenya)</li>
+          <li><span class="step-num">3</span> Browse templates → pick one that matches your business style (food, services, events, etc.)</li>
+          <li><span class="step-num">4</span> Click to edit: replace the business name, services, phone number, and location</li>
+          <li><span class="step-num">5</span> Click any image on the template → click <strong>"Replace"</strong> → upload a photo of your business or products</li>
+          <li><span class="step-num">6</span> Adjust colours by clicking on coloured elements</li>
+          <li><span class="step-num">7</span> Download as <strong>PDF Print</strong> (best quality for printing) or <strong>PNG</strong> (for sharing on WhatsApp)</li>
+          <li><span class="step-num">8</span> Print at the cybercafé or share digitally</li>
+        </ol>
+      </div>
+
+      <h4>Other Popular Canva Uses in Kenya</h4>
+      <table class="data-table">
+        <thead><tr><th>Design Type</th><th>Search Term in Canva</th><th>Size to Choose</th><th>Download As</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Church Announcement</strong></td><td>"Church flyer" or "Sunday service"</td><td>A4 or Facebook Post</td><td>PDF or PNG</td></tr>
+          <tr><td><strong>WhatsApp Status / Story</strong></td><td>"Instagram story" (same ratio)</td><td>1080 × 1920px</td><td>PNG or JPG</td></tr>
+          <tr><td><strong>School Certificate</strong></td><td>"Certificate of participation"</td><td>A4 Landscape</td><td>PDF Print</td></tr>
+          <tr><td><strong>Wedding Invitation</strong></td><td>"Wedding invitation"</td><td>A5 or 5×7 inches</td><td>PDF Print</td></tr>
+          <tr><td><strong>Facebook Post / Ad</strong></td><td>"Facebook post"</td><td>1200 × 628px (default)</td><td>PNG or JPG</td></tr>
+          <tr><td><strong>Business Card</strong></td><td>"Business card"</td><td>Standard Business Card</td><td>PDF Print (both sides)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="content-card reveal">
+      <h3 style="color:#007b91;"><i class="fas fa-keyboard"></i> Canva Design Tips — Look Professional Every Time</h3>
+      <div class="method-grid">
+        <div class="method-card" style="border-color:#b2ebf2;">
+          <div class="method-label" style="background:rgba(0,181,209,.1);color:#007b91;"><i class="fas fa-check-circle"></i> Good Design Habits</div>
+          <ul>
+            <li>Stick to <strong>2 fonts maximum</strong> per design — one for headings, one for body text</li>
+            <li>Use <strong>2–3 colours</strong> that work together — Canva's colour palettes help</li>
+            <li>Leave <strong>white space</strong> — don't crowd everything together</li>
+            <li>Use <strong>high-quality photos</strong> — Canva has millions of free stock images built in</li>
+            <li>Make the most important information the <strong>largest text</strong></li>
+            <li>Always include <strong>contact information</strong> on business materials</li>
+          </ul>
+        </div>
+        <div class="method-card" style="border-color:#f5c0c0;">
+          <div class="method-label" style="background:rgba(192,57,43,.08);color:var(--red);"><i class="fas fa-times-circle"></i> Design Mistakes to Avoid</div>
+          <ul>
+            <li>Too many fonts — makes design look chaotic and unprofessional</li>
+            <li>Too many colours — pick a palette and stick with it</li>
+            <li>Tiny text — if printed, must be readable from arm's length</li>
+            <li>Stretching images — always resize from corners to maintain proportions</li>
+            <li>Forgetting to proofread — spelling errors on printed materials are embarrassing</li>
+            <li>Using a PNG for a design that needs printing — always use <strong>PDF Print</strong></li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout kenya" style="background:#fff8e1;border:1px solid #ffe082;margin-top:1rem;">
+        <div class="callout-icon" style="background:#fff3cd;color:#bb0000;"><i class="fas fa-coins"></i></div>
+        <div class="callout-body">
+          <strong style="color:var(--green);">💰 Turn Your Canva Skills into Income</strong>
+          <p>Once you master Canva, you can offer design services at your cybercafé — charge Ksh 100–500 to design a flyer, CV, or church announcement for customers. Many Kenyans are willing to pay because they don't know how to do it themselves. This is a genuine side income opportunity from a free skill.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="practice-box reveal">
+      <div class="practice-title"><span class="pnum">★</span> Practice — Design Your Own Flyer in Canva</div>
+      <ol class="practice-steps">
+        <li><i class="fas fa-sign-in-alt"></i> Go to <strong>www.canva.com</strong> → log in with Gmail</li>
+        <li><i class="fas fa-search"></i> Search for <strong>"A4 Flyer"</strong> → browse and choose a template you like</li>
+        <li><i class="fas fa-font"></i> Replace all text with your own: <br>&nbsp;&nbsp;— Business/organisation name<br>&nbsp;&nbsp;— Service or event description<br>&nbsp;&nbsp;— Your phone number and location</li>
+        <li><i class="fas fa-image"></i> Replace the template photo: click it → Replace → upload one from your computer, OR search Canva's free photos</li>
+        <li><i class="fas fa-palette"></i> Change the colour scheme to match your brand or preference</li>
+        <li><i class="fas fa-spell-check"></i> Proofread everything — check spelling of your name and phone number</li>
+        <li><i class="fas fa-download"></i> Download as <strong>PDF Standard</strong> → print at the cybercafé</li>
+      </ol>
+    </div>
+
+    <div class="skill-check reveal">
+      <h4>Google Drive, Forms &amp; Canva — Skills Checklist</h4>
+      <div class="skill-items">
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can upload and organise files in Google Drive</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can share Drive files by link</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can create Google Docs without Microsoft Office</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can build a Google Form with different question types</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can view and export form responses</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can create a professional CV in Canva</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I can design a business flyer in Canva</span>
+        <span class="skill-item-pill"><i class="fas fa-check-circle"></i> I download Canva designs as PDF Print for printing</span>
+      </div>
+    </div>
+
     <!-- TROUBLESHOOTING -->
     <div class="content-card reveal">
       <h3><i class="fas fa-wrench"></i> Common Problems and How to Fix Them</h3>
@@ -1162,7 +1780,12 @@
         <div class="summary-item"><i class="fas fa-check-circle"></i> Complete a HELB loan application with all documents</div>
         <div class="summary-item"><i class="fas fa-check-circle"></i> Renew a driving licence and do a vehicle search</div>
         <div class="summary-item"><i class="fas fa-check-circle"></i> Pay via M-Pesa PayBill for all major portals</div>
-        <div class="summary-item"><i class="fas fa-check-circle"></i> Compress images and PDFs for portal uploads</div>
+        <div class="summary-item"><i class="fas fa-check-circle"></i> Upload, organise and share files in Google Drive</div>
+        <div class="summary-item"><i class="fas fa-check-circle"></i> Create Google Docs without Microsoft Office</div>
+        <div class="summary-item"><i class="fas fa-check-circle"></i> Build and share Google Forms for data collection</div>
+        <div class="summary-item"><i class="fas fa-check-circle"></i> View form responses with charts in real-time</div>
+        <div class="summary-item"><i class="fas fa-check-circle"></i> Design a professional CV in Canva</div>
+        <div class="summary-item"><i class="fas fa-check-circle"></i> Create business flyers and social media graphics</div>
         <div class="summary-item"><i class="fas fa-check-circle"></i> Identify and warn against common Kenyan online scams</div>
         <div class="summary-item"><i class="fas fa-check-circle"></i> Apply cybercafé best practices for customer safety</div>
         <div class="summary-item"><i class="fas fa-check-circle"></i> Know official contacts for all government portals</div>
