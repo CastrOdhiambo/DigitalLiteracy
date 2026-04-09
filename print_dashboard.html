@@ -2,495 +2,1797 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Print Dashboard – Complete Digital Literacy Book | Castro Odhiambo</title>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;0,900;1,400&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Print Dashboard — Basics of Digital Literacy | Castro Odhiambo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+  /* ═══════════════════════════════════════════════════
+     SCREEN STYLES — Dashboard UI
+  ═══════════════════════════════════════════════════ */
+  :root {
+    --ink:      #0a1520;
+    --navy:     #0f2235;
+    --deep:     #1a3a55;
+    --blue:     #1e5c8a;
+    --sky:      #2e86c1;
+    --gold:     #e8941a;
+    --amber:    #f5c155;
+    --white:    #ffffff;
+    --off:      #f4f8fc;
+    --text:     #1c2e3e;
+    --muted:    #5a7080;
+    --border:   #d5e8f5;
+    --success:  #2e7d52;
+    --r:        1.2rem;
+  }
+
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--off);
+    color: var(--text);
+    line-height: 1.68;
+    overflow-x: hidden;
+  }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width:6px; }
+  ::-webkit-scrollbar-track { background:var(--off); }
+  ::-webkit-scrollbar-thumb { background:var(--border); border-radius:3px; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp  { from{opacity:0;transform:translateY(18px);}  to{opacity:1;transform:translateY(0);} }
+  @keyframes pulse   { 0%,100%{opacity:1;} 50%{opacity:.5;} }
+  @keyframes spin    { to{transform:rotate(360deg);} }
+  @keyframes shimmer { 0%{background-position:-200% 0;} 100%{background-position:200% 0;} }
+  @keyframes checkIn { from{transform:scale(0);opacity:0;} to{transform:scale(1);opacity:1;} }
+  @keyframes slideRight { from{width:0;} to{width:var(--target-w);} }
+
+  .reveal { opacity:0; transform:translateY(14px); transition:opacity .55s ease,transform .55s ease; }
+  .reveal.on { opacity:1; transform:translateY(0); }
+
+  /* ── TOP BAR ── */
+  .topbar {
+    position: fixed; top:0; left:0; right:0; z-index:500;
+    background: rgba(10,21,32,.97);
+    backdrop-filter: blur(18px);
+    display: flex; align-items:center; justify-content:space-between;
+    padding: .75rem 2.5rem;
+    border-bottom: 1px solid rgba(255,255,255,.07);
+  }
+  .tb-brand {
+    font-family:'Fraunces',serif; font-size:1.05rem; font-weight:700;
+    color:var(--amber); text-decoration:none; letter-spacing:.01em;
+  }
+  .tb-brand span { color:#fff; font-weight:300; }
+  .tb-right { display:flex; align-items:center; gap:1rem; }
+  .tb-right a {
+    color:rgba(255,255,255,.5); text-decoration:none;
+    font-size:.76rem; letter-spacing:.09em; text-transform:uppercase;
+    transition:color .2s;
+  }
+  .tb-right a:hover { color:var(--amber); }
+  .tb-cta {
+    background:var(--gold); color:var(--ink) !important;
+    padding:.38rem 1.1rem; border-radius:30px; font-weight:700 !important;
+  }
+  .tb-cta:hover { background:var(--amber) !important; }
+  @media(max-width:680px){ .topbar{padding:.7rem 1rem;} .tb-right a:not(.tb-cta){display:none;} }
+
+  /* ── HERO ── */
+  .hero {
+    min-height:62vh;
+    background:
+      radial-gradient(ellipse 70% 60% at 60% 40%, rgba(30,92,138,.4) 0%, transparent 65%),
+      radial-gradient(ellipse 40% 40% at 15% 75%, rgba(232,148,26,.1) 0%, transparent 55%),
+      linear-gradient(150deg,#050d14 0%,#0a1520 35%,#0e1f30 65%,#091828 100%);
+    display:flex; align-items:center;
+    padding:8.5rem 2rem 5rem;
+    position:relative; overflow:hidden;
+  }
+  .hero-mesh {
+    position:absolute; inset:0; pointer-events:none;
+    background-image: radial-gradient(rgba(255,255,255,.027) 1px, transparent 1px);
+    background-size:26px 26px;
+  }
+  .hero-glow {
+    position:absolute; width:600px; height:600px; border-radius:50%;
+    background:radial-gradient(circle, rgba(46,134,193,.12) 0%, transparent 70%);
+    top:-200px; right:-100px; pointer-events:none;
+  }
+  .hero-inner {
+    max-width:1280px; margin:0 auto; width:100%;
+    display:grid; grid-template-columns:1fr 420px;
+    gap:4rem; align-items:center;
+    position:relative; z-index:1;
+  }
+  .hero-eyebrow {
+    display:inline-flex; align-items:center; gap:.5rem;
+    background:rgba(232,148,26,.13); border:1px solid rgba(232,148,26,.35);
+    color:var(--amber); padding:.28rem 1rem; border-radius:30px;
+    font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; font-weight:700;
+    margin-bottom:1.3rem; animation:fadeUp .7s ease both;
+  }
+  .hero h1 {
+    font-family:'Fraunces',serif;
+    font-size:clamp(2.6rem,5vw,4.8rem);
+    font-weight:900; line-height:1.04; color:#fff;
+    letter-spacing:-1.5px; margin-bottom:1.2rem;
+    animation:fadeUp .7s .08s ease both;
+  }
+  .hero h1 em { font-style:italic; color:var(--amber); }
+  .hero-sub {
+    font-size:1.02rem; color:rgba(255,255,255,.62);
+    max-width:510px; line-height:1.82; margin-bottom:2rem;
+    animation:fadeUp .7s .16s ease both;
+  }
+  .hero-actions { display:flex; gap:1rem; flex-wrap:wrap; animation:fadeUp .7s .24s ease both; }
+  .btn {
+    display:inline-flex; align-items:center; gap:.5rem;
+    padding:.82rem 1.9rem; border-radius:50px;
+    font-size:.86rem; font-weight:700; text-decoration:none;
+    cursor:pointer; transition:all .22s; border:none;
+    font-family:'DM Sans',sans-serif;
+  }
+  .btn-gold  { background:var(--gold); color:var(--ink); }
+  .btn-gold:hover  { background:var(--amber); transform:translateY(-2px); box-shadow:0 8px 24px rgba(232,148,26,.3); }
+  .btn-ghost { background:transparent; color:rgba(255,255,255,.8); border:1.5px solid rgba(255,255,255,.22); }
+  .btn-ghost:hover { border-color:var(--amber); color:var(--amber); transform:translateY(-2px); }
+  .btn-danger{ background:#c0392b; color:#fff; }
+  .btn-danger:hover{ background:#a93226; transform:translateY(-1px); }
+
+  /* HERO PANEL */
+  .hero-panel {
+    background:rgba(255,255,255,.055);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:1.6rem; padding:1.8rem;
+    backdrop-filter:blur(14px);
+    animation:fadeUp .7s .2s ease both;
+  }
+  .hp-title {
+    font-size:.64rem; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--amber); font-weight:700; margin-bottom:1.1rem;
+  }
+  .hp-stat-row { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin-bottom:1rem; }
+  .hp-stat {
+    background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1);
+    border-radius:.9rem; padding:.9rem;
+  }
+  .hp-stat-n { font-family:'Fraunces',serif; font-size:1.8rem; font-weight:900; color:var(--amber); line-height:1; }
+  .hp-stat-l { font-size:.7rem; color:rgba(255,255,255,.45); text-transform:uppercase; letter-spacing:.08em; margin-top:.15rem; }
+  .hp-divider { height:1px; background:rgba(255,255,255,.08); margin:.8rem 0; }
+  .hp-note { font-size:.78rem; color:rgba(255,255,255,.45); line-height:1.55; }
+  .hp-note i { color:var(--amber); margin-right:.3rem; }
+  @media(max-width:960px){ .hero-inner{grid-template-columns:1fr;} .hero-panel{display:none;} }
+
+  /* ── PAGE SHELL ── */
+  .shell { max-width:1280px; margin:0 auto; padding:3.5rem 1.5rem 6rem; }
+
+  /* ── SECTION HEADINGS ── */
+  .section-head {
+    display:flex; align-items:center; gap:1.2rem;
+    margin:3.5rem 0 1.8rem;
+  }
+  .section-head h2 {
+    font-family:'Fraunces',serif;
+    font-size:clamp(1.4rem,3vw,2rem);
+    font-weight:900; color:var(--ink);
+  }
+  .section-head h2 em { font-style:italic; color:var(--sky); }
+  .sh-line { flex:1; height:1px; background:var(--border); }
+  .sh-badge {
+    background:var(--navy); color:var(--amber);
+    padding:.3rem .85rem; border-radius:20px;
+    font-size:.7rem; font-weight:700; white-space:nowrap;
+  }
+
+  /* ── MASTER PRINT CARD ── */
+  .master-card {
+    background:linear-gradient(145deg,var(--navy) 0%,var(--deep) 50%,#1a2e45 100%);
+    border:1px solid rgba(46,134,193,.3);
+    border-radius:2rem; padding:2.8rem;
+    position:relative; overflow:hidden;
+    margin-bottom:3rem;
+  }
+  .master-card::before {
+    content:''; position:absolute; inset:0;
+    background:
+      radial-gradient(ellipse 60% 50% at 80% 20%, rgba(46,134,193,.1) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 10% 80%, rgba(232,148,26,.08) 0%, transparent 55%);
+    pointer-events:none;
+  }
+  .master-card::after {
+    content:''; position:absolute; inset:0;
+    background-image:radial-gradient(rgba(255,255,255,.022) 1px,transparent 1px);
+    background-size:22px 22px; pointer-events:none;
+  }
+  .mc-inner { position:relative; z-index:1; }
+  .mc-top {
+    display:grid; grid-template-columns:1fr auto;
+    gap:2rem; align-items:flex-start; margin-bottom:2rem;
+  }
+  .mc-title-block .mc-eyebrow {
+    font-size:.66rem; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--amber); font-weight:700; margin-bottom:.6rem;
+    display:flex; align-items:center; gap:.5rem;
+  }
+  .mc-title-block h3 {
+    font-family:'Fraunces',serif;
+    font-size:clamp(1.4rem,3vw,2.3rem);
+    font-weight:900; color:#fff; line-height:1.1; margin-bottom:.7rem;
+  }
+  .mc-title-block h3 em { font-style:italic; color:var(--amber); }
+  .mc-title-block p { font-size:.9rem; color:rgba(255,255,255,.58); line-height:1.7; max-width:560px; }
+  .mc-right { text-align:right; flex-shrink:0; }
+  .mc-pages {
+    font-family:'Fraunces',serif;
+    font-size:3.5rem; font-weight:900; color:var(--amber);
+    line-height:1;
+  }
+  .mc-pages-label { font-size:.7rem; color:rgba(255,255,255,.4); text-transform:uppercase; letter-spacing:.1em; margin-top:.2rem; }
+
+  /* chapter pills in master card */
+  .mc-chapters {
+    display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:1.8rem;
+  }
+  .mc-ch-pill {
+    display:inline-flex; align-items:center; gap:.35rem;
+    background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.13);
+    color:rgba(255,255,255,.75); padding:.28rem .75rem;
+    border-radius:20px; font-size:.74rem; font-weight:600;
+  }
+  .mc-ch-pill i { font-size:.66rem; }
+
+  /* progress bar in master card */
+  .mc-progress-wrap { margin-bottom:1.8rem; }
+  .mc-prog-label { display:flex; justify-content:space-between; margin-bottom:.5rem; }
+  .mc-prog-label span { font-size:.74rem; color:rgba(255,255,255,.5); }
+  .mc-prog-label strong { font-size:.74rem; color:var(--amber); }
+  .mc-prog-track {
+    height:6px; background:rgba(255,255,255,.1); border-radius:6px; overflow:hidden;
+  }
+  .mc-prog-fill {
+    height:100%; background:linear-gradient(90deg,var(--sky),var(--gold));
+    border-radius:6px; transition:width .8s cubic-bezier(.4,0,.2,1);
+    width:0%;
+  }
+
+  /* master action row */
+  .mc-actions { display:flex; gap:1rem; flex-wrap:wrap; align-items:center; }
+  .mc-select-all {
+    display:flex; align-items:center; gap:.6rem;
+    background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.13);
+    border-radius:.8rem; padding:.6rem 1rem; cursor:pointer;
+    transition:all .2s; font-family:'DM Sans',sans-serif;
+  }
+  .mc-select-all:hover { background:rgba(255,255,255,.12); }
+  .mc-select-all input[type=checkbox] {
+    width:18px; height:18px; cursor:pointer; accent-color:var(--gold);
+  }
+  .mc-select-all span { font-size:.82rem; color:rgba(255,255,255,.8); font-weight:600; }
+
+  @media(max-width:640px){ .mc-top{grid-template-columns:1fr;} .mc-right{display:none;} }
+
+  /* ── CHAPTER GRID ── */
+  .chapter-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+    gap:1.4rem;
+  }
+
+  /* ── CHAPTER CARD ── */
+  .ch-card {
+    background:var(--white);
+    border:1px solid var(--border);
+    border-radius:1.5rem;
+    overflow:hidden;
+    transition:all .25s ease;
+    cursor:pointer;
+    position:relative;
+  }
+  .ch-card:hover { transform:translateY(-4px); box-shadow:0 16px 40px rgba(0,0,0,.1); }
+  .ch-card.selected {
+    border-color:var(--sky);
+    box-shadow:0 0 0 3px rgba(46,134,193,.18), 0 8px 24px rgba(0,0,0,.08);
+  }
+  .ch-card.selected .ch-checkbox { background:var(--sky); border-color:var(--sky); }
+  .ch-card.selected .ch-checkbox::after { opacity:1; }
+
+  /* accent bar */
+  .ch-accent { height:5px; width:100%; }
+
+  /* card top */
+  .ch-top {
+    padding:1.4rem 1.5rem 1.1rem;
+    display:flex; align-items:flex-start; gap:1rem;
+  }
+  .ch-checkbox {
+    width:22px; height:22px; border-radius:6px; flex-shrink:0;
+    border:2px solid var(--border); background:var(--off);
+    display:flex; align-items:center; justify-content:center;
+    transition:all .18s; margin-top:.2rem; position:relative;
+  }
+  .ch-checkbox::after {
+    content:''; position:absolute;
+    width:6px; height:10px;
+    border-right:2.5px solid #fff; border-bottom:2.5px solid #fff;
+    transform:rotate(45deg) translate(-1px,-1px);
+    opacity:0; transition:opacity .15s;
+  }
+  .ch-icon {
+    width:44px; height:44px; border-radius:11px; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.2rem; color:#fff;
+  }
+  .ch-meta { flex:1; min-width:0; }
+  .ch-num { font-size:.64rem; font-weight:700; text-transform:uppercase; letter-spacing:.14em; color:var(--muted); margin-bottom:.2rem; }
+  .ch-name {
+    font-family:'Fraunces',serif;
+    font-size:1.08rem; font-weight:700; color:var(--ink);
+    line-height:1.22; margin-bottom:.15rem;
+  }
+  .ch-name em { font-style:italic; }
+  .ch-file { font-size:.7rem; color:var(--muted); font-family:'Courier Prime',monospace; }
+
+  /* card body */
+  .ch-body { padding:.2rem 1.5rem 1rem; }
+  .ch-desc { font-size:.82rem; color:var(--muted); line-height:1.65; margin-bottom:.9rem; }
+  .ch-tags { display:flex; flex-wrap:wrap; gap:.4rem; margin-bottom:1rem; }
+  .ch-tag {
+    display:inline-flex; align-items:center; gap:.3rem;
+    font-size:.68rem; font-weight:600;
+    padding:.2rem .62rem; border-radius:20px;
+  }
+
+  /* card footer */
+  .ch-footer {
+    padding:.9rem 1.5rem;
+    background:var(--off);
+    border-top:1px solid var(--border);
+    display:flex; align-items:center; justify-content:space-between;
+    flex-wrap:wrap; gap:.5rem;
+  }
+  .ch-stats { display:flex; gap:1rem; }
+  .ch-stat { display:flex; align-items:center; gap:.3rem; font-size:.72rem; color:var(--muted); }
+  .ch-stat i { font-size:.65rem; }
+  .ch-print-btn {
+    display:inline-flex; align-items:center; gap:.4rem;
+    background:var(--navy); color:#fff;
+    padding:.38rem .95rem; border-radius:30px;
+    font-size:.74rem; font-weight:700;
+    border:none; cursor:pointer; transition:all .2s;
+    font-family:'DM Sans',sans-serif;
+  }
+  .ch-print-btn:hover { background:var(--sky); transform:translateY(-1px); }
+
+  /* loading state */
+  .ch-card.loading .ch-name { 
+    background:linear-gradient(90deg,#e0e8f0 25%,#f5f8fc 50%,#e0e8f0 75%);
+    background-size:200% 100%;
+    animation:shimmer 1.5s infinite;
+    border-radius:4px; color:transparent;
+  }
+
+  /* ── PRINT OPTIONS PANEL ── */
+  .options-panel {
+    background:var(--white); border:1px solid var(--border);
+    border-radius:1.5rem; padding:2rem; margin-bottom:3rem;
+  }
+  .opts-grid {
+    display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+    gap:1rem;
+  }
+  .opt-card {
+    border:2px solid var(--border); border-radius:1rem; padding:1.1rem;
+    cursor:pointer; transition:all .2s; position:relative; overflow:hidden;
+  }
+  .opt-card:hover { border-color:var(--sky); }
+  .opt-card.active { border-color:var(--sky); background:#f0f8fe; }
+  .opt-card.active::before {
+    content:'✓';
+    position:absolute; top:.5rem; right:.6rem;
+    background:var(--sky); color:#fff;
+    width:20px; height:20px; border-radius:50%;
+    font-size:.72rem; font-weight:700;
+    display:flex; align-items:center; justify-content:center;
+    animation:checkIn .2s ease;
+  }
+  .opt-icon { font-size:1.6rem; margin-bottom:.5rem; }
+  .opt-title { font-size:.88rem; font-weight:700; color:var(--text); margin-bottom:.25rem; }
+  .opt-desc { font-size:.76rem; color:var(--muted); line-height:1.5; }
+
+  /* ── SUMMARY BAR ── */
+  .summary-bar {
+    position:sticky; bottom:1.5rem; z-index:100;
+    background:var(--navy);
+    border:1px solid rgba(46,134,193,.3);
+    border-radius:1.4rem; padding:1rem 1.8rem;
+    display:flex; align-items:center; justify-content:space-between;
+    flex-wrap:wrap; gap:1rem;
+    box-shadow:0 16px 50px rgba(0,0,0,.3);
+    backdrop-filter:blur(14px);
+    transition:all .3s ease;
+  }
+  .summary-bar.hidden { opacity:0; pointer-events:none; transform:translateY(20px); }
+  .sb-left { display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap; }
+  .sb-count {
+    display:flex; align-items:center; gap:.6rem;
+    font-size:.88rem; font-weight:700; color:#fff;
+  }
+  .sb-count-num {
+    background:var(--gold); color:var(--ink);
+    width:30px; height:30px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-size:.88rem; font-weight:900;
+    font-family:'Fraunces',serif;
+  }
+  .sb-info { font-size:.78rem; color:rgba(255,255,255,.5); }
+  .sb-right { display:flex; gap:.7rem; flex-wrap:wrap; }
+
+  /* ── STATUS TOAST ── */
+  .toast {
+    position:fixed; bottom:6rem; left:50%;
+    transform:translateX(-50%) translateY(20px);
+    background:var(--ink); color:#fff;
+    padding:.7rem 1.6rem; border-radius:40px;
+    font-size:.82rem; font-weight:600;
+    border:1px solid rgba(255,255,255,.1);
+    box-shadow:0 8px 30px rgba(0,0,0,.3);
+    z-index:600;
+    opacity:0; transition:all .3s ease;
+    pointer-events:none;
+    display:flex; align-items:center; gap:.6rem;
+    white-space:nowrap;
+  }
+  .toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+  .toast.success i { color:var(--amber); }
+  .toast.error   i { color:#e74c3c; }
+
+  /* ── LOADING OVERLAY ── */
+  .load-overlay {
+    position:fixed; inset:0; z-index:900;
+    background:rgba(10,21,32,.97);
+    display:flex; flex-direction:column;
+    align-items:center; justify-content:center; gap:1.5rem;
+    opacity:0; pointer-events:none; transition:opacity .3s;
+  }
+  .load-overlay.show { opacity:1; pointer-events:all; }
+  .load-spinner {
+    width:60px; height:60px; border-radius:50%;
+    border:4px solid rgba(255,255,255,.1);
+    border-top-color:var(--gold);
+    animation:spin .8s linear infinite;
+  }
+  .load-title {
+    font-family:'Fraunces',serif;
+    font-size:1.5rem; font-weight:700; color:#fff;
+  }
+  .load-sub { font-size:.86rem; color:rgba(255,255,255,.5); }
+  .load-bar-wrap {
+    width:280px; height:6px; background:rgba(255,255,255,.1);
+    border-radius:6px; overflow:hidden;
+  }
+  .load-bar {
+    height:100%; background:linear-gradient(90deg,var(--sky),var(--gold));
+    border-radius:6px; width:0%;
+    transition:width .4s ease;
+  }
+  .load-step { font-size:.78rem; color:var(--amber); letter-spacing:.06em; }
+
+  /* ── PREVIEW MODAL ── */
+  .modal-overlay {
+    position:fixed; inset:0; z-index:700;
+    background:rgba(5,12,20,.92);
+    backdrop-filter:blur(8px);
+    display:flex; align-items:center; justify-content:center;
+    opacity:0; pointer-events:none; transition:opacity .3s;
+    padding:1rem;
+  }
+  .modal-overlay.show { opacity:1; pointer-events:all; }
+  .modal {
+    background:var(--white);
+    border-radius:1.8rem; overflow:hidden;
+    max-width:480px; width:100%;
+    transform:scale(.92); transition:transform .3s ease;
+  }
+  .modal-overlay.show .modal { transform:scale(1); }
+  .modal-header {
+    background:linear-gradient(135deg,var(--navy),var(--deep));
+    padding:1.6rem 2rem;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .modal-header h3 {
+    font-family:'Fraunces',serif;
+    font-size:1.2rem; font-weight:700; color:#fff;
+  }
+  .modal-close {
+    width:32px; height:32px; border-radius:50%;
+    background:rgba(255,255,255,.1); border:none; color:#fff;
+    cursor:pointer; display:flex; align-items:center; justify-content:center;
+    font-size:1rem; transition:all .2s;
+  }
+  .modal-close:hover { background:rgba(255,255,255,.2); }
+  .modal-body { padding:1.8rem 2rem; }
+  .modal-chapter-info {
+    display:flex; align-items:center; gap:1rem; margin-bottom:1.4rem;
+    padding:1rem; background:var(--off); border-radius:.9rem;
+  }
+  .modal-ch-icon {
+    width:46px; height:46px; border-radius:11px; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.2rem; color:#fff;
+  }
+  .modal-ch-name { font-weight:700; font-size:.94rem; color:var(--text); }
+  .modal-ch-file { font-size:.72rem; color:var(--muted); font-family:'Courier Prime',monospace; }
+  .modal-options { display:flex; flex-direction:column; gap:.7rem; margin-bottom:1.5rem; }
+  .modal-opt {
+    display:flex; align-items:center; gap:.8rem;
+    padding:.85rem 1rem; border:1.5px solid var(--border);
+    border-radius:.9rem; cursor:pointer; transition:all .18s;
+    font-size:.86rem; font-weight:600; color:var(--text);
+  }
+  .modal-opt:hover { border-color:var(--sky); background:#f5faff; }
+  .modal-opt i { font-size:1.1rem; color:var(--sky); width:20px; text-align:center; }
+  .modal-footer { display:flex; gap:.8rem; }
+
+  /* ── BOOK CONFIG ── */
+  .book-config {
+    background:var(--off); border:1px solid var(--border);
+    border-radius:1.2rem; padding:1.5rem 1.8rem;
+    margin-bottom:2rem;
+  }
+  .book-config h4 {
+    font-family:'Fraunces',serif;
+    font-size:1rem; font-weight:700; color:var(--ink);
+    margin-bottom:1.1rem; display:flex; align-items:center; gap:.6rem;
+  }
+  .book-config h4 i { color:var(--sky); }
+  .config-row { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1rem; }
+  @media(max-width:640px){ .config-row{grid-template-columns:1fr;} }
+  .config-field label {
+    display:block; font-size:.72rem; font-weight:700;
+    text-transform:uppercase; letter-spacing:.1em; color:var(--muted);
+    margin-bottom:.4rem;
+  }
+  .config-field input, .config-field select {
+    width:100%; padding:.55rem .85rem;
+    border:1.5px solid var(--border); border-radius:.7rem;
+    font-family:'DM Sans',sans-serif; font-size:.86rem; color:var(--text);
+    background:var(--white); transition:border-color .2s;
+    outline:none;
+  }
+  .config-field input:focus, .config-field select:focus { border-color:var(--sky); }
+
+  /* ── HOW IT WORKS ── */
+  .how-grid {
+    display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+    gap:1.2rem; margin-bottom:3rem;
+  }
+  .how-step {
+    background:var(--white); border:1px solid var(--border);
+    border-radius:1.2rem; padding:1.4rem; text-align:center;
+  }
+  .how-num {
+    width:42px; height:42px; border-radius:50%;
+    background:linear-gradient(135deg,var(--navy),var(--deep));
+    color:var(--amber); font-family:'Fraunces',serif;
+    font-size:1.2rem; font-weight:900;
+    display:flex; align-items:center; justify-content:center;
+    margin:0 auto .8rem;
+  }
+  .how-title { font-size:.9rem; font-weight:700; color:var(--ink); margin-bottom:.35rem; }
+  .how-desc { font-size:.78rem; color:var(--muted); line-height:1.6; }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    background:var(--ink); color:rgba(255,255,255,.45);
+    text-align:center; padding:2rem; font-size:.8rem;
+  }
+  .site-footer span { color:var(--amber); font-weight:700; }
+  .site-footer a { color:var(--amber); text-decoration:none; }
+
+  /* ═══════════════════════════════════════════════════
+     PRINT STYLES — Clean Book Output
+  ═══════════════════════════════════════════════════ */
+  @media print {
+    /* ── Hide all dashboard UI ── */
+    .topbar, .hero, .shell > .section-head:not(.print-section-head),
+    .master-card, .options-panel, .chapter-grid, .summary-bar,
+    .toast, .load-overlay, .modal-overlay, .how-grid,
+    .section-head, .site-footer, #printStyle,
+    .book-config, .print-btn-row {
+      display:none !important;
     }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #f4f7fb;
-      color: #1e2f3e;
-      line-height: 1.5;
-      padding: 2rem 1.5rem;
+    /* ── Show only the print content ── */
+    #printContent { display:block !important; }
+
+    /* ── Page settings ── */
+    @page {
+      size: A4;
+      margin: 2cm 2.2cm 2.4cm 2.5cm;
+    }
+    @page :first {
+      margin-top: 3cm;
     }
 
-    .dashboard {
-      max-width: 1280px;
-      margin: 0 auto;
+    html, body { background:#fff !important; color:#000 !important; }
+
+    /* ── Print content base ── */
+    #printContent {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 10.5pt;
+      line-height: 1.65;
+      color: #1a1a1a;
     }
 
-    .print-header {
-      background: linear-gradient(135deg, #0f2b3d 0%, #1a4b6e 100%);
-      border-radius: 2rem;
-      padding: 2rem 2rem 1.8rem;
-      color: white;
-      margin-bottom: 2.5rem;
-      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.2);
-    }
-
-    .title-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      background: rgba(245,166,35,0.2);
-      border: 1px solid rgba(245,166,35,0.5);
-      padding: 0.3rem 1.2rem;
-      border-radius: 40px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #ffd27a;
-      margin-bottom: 1rem;
-    }
-
-    .print-header h1 {
-      font-family: 'Fraunces', serif;
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 800;
-      line-height: 1.2;
-      margin-bottom: 0.5rem;
-    }
-
-    .print-header h1 em {
-      font-style: italic;
-      color: #ffd27a;
-    }
-
-    .header-desc {
-      font-size: 0.95rem;
-      opacity: 0.8;
-      max-width: 580px;
-      margin-bottom: 1.5rem;
-    }
-
-    .stats-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      margin-top: 1rem;
-    }
-
-    .stat {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      background: rgba(255,255,255,0.08);
-      padding: 0.5rem 1rem;
-      border-radius: 40px;
-      font-size: 0.8rem;
-    }
-
-    .stat i {
-      color: #f5a623;
-    }
-
-    .action-bar {
-      background: white;
-      border-radius: 1.2rem;
-      padding: 1.2rem 1.8rem;
-      margin-bottom: 2rem;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-      border: 1px solid #e2edf2;
-    }
-
-    .print-all-btn {
-      background: #1a5c2a;
-      color: white;
-      border: none;
-      padding: 0.75rem 1.8rem;
-      border-radius: 60px;
-      font-weight: 700;
-      font-size: 0.9rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      cursor: pointer;
-      transition: all 0.2s;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-
-    .print-all-btn:hover {
-      background: #0e401c;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 18px rgba(26,92,42,0.2);
-    }
-
-    .info-note {
-      font-size: 0.8rem;
-      color: #4a627a;
-      background: #f0f6fa;
-      padding: 0.4rem 1rem;
-      border-radius: 30px;
-    }
-
-    .chapters-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.6rem;
-    }
-
-    .chapter-card {
-      background: white;
-      border-radius: 1.5rem;
-      border: 1px solid #dceaf2;
-      overflow: hidden;
-      transition: all 0.25s ease;
-      box-shadow: 0 6px 12px -8px rgba(0,0,0,0.05);
-    }
-
-    .chapter-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 28px -12px rgba(0,0,0,0.12);
-      border-color: #c0d8e8;
-    }
-
-    .card-header {
-      padding: 1.2rem 1.4rem 0.6rem;
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      border-bottom: 2px solid #f0f4f8;
-    }
-
-    .card-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
-      display: flex;
+    /* ── Book cover page ── */
+    .print-cover {
+      page-break-after: always;
+      text-align: center;
+      padding: 3cm 2cm;
+      min-height: 25cm;
+      display: flex !important;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      font-size: 1.3rem;
+      border: 2px solid #1e5c8a;
+      border-radius: .3cm;
+    }
+    .print-cover .cover-logo {
+      font-size: 48pt;
+      margin-bottom: .8cm;
+    }
+    .print-cover .cover-label {
+      font-family: Arial, sans-serif;
+      font-size: 9pt; letter-spacing: .2em;
+      text-transform: uppercase; color: #666;
+      margin-bottom: 1.2cm;
+    }
+    .print-cover .cover-title {
+      font-family: Georgia, serif;
+      font-size: 28pt; font-weight: 700;
+      color: #0f2235; line-height: 1.15;
+      margin-bottom: .6cm;
+    }
+    .print-cover .cover-subtitle {
+      font-size: 13pt; color: #e8941a; font-style: italic;
+      margin-bottom: 1.5cm;
+    }
+    .print-cover .cover-author {
+      font-family: Arial, sans-serif;
+      font-size: 11pt; color: #333;
+      margin-bottom: .3cm;
+    }
+    .print-cover .cover-year { font-size: 9pt; color: #888; }
+    .print-cover .cover-divider {
+      width: 6cm; height: 2px;
+      background: linear-gradient(90deg, transparent, #1e5c8a, transparent);
+      margin: 1cm auto;
+    }
+    .print-cover .cover-toc-mini {
+      margin-top: 1.2cm; text-align: left;
+      border: 1px solid #ddd; border-radius: .2cm;
+      padding: .6cm .8cm; background: #f9f9f9;
+    }
+    .print-cover .cover-toc-mini h4 {
+      font-size: 8pt; text-transform: uppercase;
+      letter-spacing: .15em; color: #666; margin-bottom: .4cm;
+      font-family: Arial, sans-serif;
+    }
+    .print-cover .cover-toc-mini li {
+      font-size: 9pt; color: #333; margin: .1cm 0;
+      font-family: Arial, sans-serif;
     }
 
-    .card-header h3 {
-      font-family: 'Fraunces', serif;
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: #1a3b4e;
-    }
-
-    .card-body {
-      padding: 1rem 1.4rem;
-    }
-
-    .chapter-meta {
-      display: flex;
-      gap: 0.8rem;
-      font-size: 0.7rem;
-      color: #6c8aa0;
-      margin-bottom: 0.6rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .chapter-desc {
-      font-size: 0.85rem;
-      color: #4c6278;
-      line-height: 1.5;
-      margin-bottom: 1rem;
-    }
-
-    .card-actions {
-      display: flex;
-      gap: 0.8rem;
-      margin-top: 0.8rem;
-      flex-wrap: wrap;
-    }
-
-    .btn-print-chapter {
-      background: #f4f9ff;
-      border: 1px solid #cbdde8;
-      padding: 0.5rem 1rem;
-      border-radius: 40px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      transition: all 0.18s;
-      color: #1f5e8c;
-    }
-
-    .btn-print-chapter:hover {
-      background: #e4eff8;
-      border-color: #6d9dbb;
-      transform: translateY(-1px);
-    }
-
-    .footer-note {
-      margin-top: 3rem;
+    /* ── Chapter divider page ── */
+    .print-chapter-divider {
+      page-break-before: always;
+      page-break-after: always;
       text-align: center;
-      font-size: 0.8rem;
-      color: #6d8eac;
-      border-top: 1px solid #d4e2ec;
-      padding-top: 2rem;
+      display: flex !important;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 20cm;
+      border-left: .8cm solid #1e5c8a;
+      padding-left: 1.5cm;
+      text-align: left;
+    }
+    .print-chapter-divider .div-ch-num {
+      font-family: Georgia, serif;
+      font-size: 72pt; font-weight: 700;
+      color: #ddeaf4; line-height: 1; margin-bottom: .3cm;
+    }
+    .print-chapter-divider .div-ch-label {
+      font-family: Arial, sans-serif;
+      font-size: 8pt; letter-spacing: .2em; text-transform: uppercase;
+      color: #1e5c8a; margin-bottom: .3cm;
+    }
+    .print-chapter-divider .div-ch-title {
+      font-family: Georgia, serif;
+      font-size: 22pt; font-weight: 700;
+      color: #0f2235; margin-bottom: .5cm; line-height: 1.2;
+    }
+    .print-chapter-divider .div-ch-desc {
+      font-size: 10pt; color: #555; max-width: 12cm; line-height: 1.6;
     }
 
-    /* Print styles - hide dashboard, show embedded content */
-    .print-container {
-      display: none;
+    /* ── Chapter content wrapper ── */
+    .print-chapter-content {
+      page-break-after: always;
+    }
+    .print-chapter-content:last-child { page-break-after: auto; }
+
+    /* ── Injected chapter HTML clean-up ── */
+    .print-chapter-content .topbar,
+    .print-chapter-content #pbar,
+    .print-chapter-content .sidebar,
+    .print-chapter-content .chapter-nav,
+    .print-chapter-content .site-footer,
+    .print-chapter-content .toc-pills,
+    .print-chapter-content .btn-print,
+    .print-chapter-content .btn-row,
+    .print-chapter-content .practice-box .btn-print,
+    .print-chapter-content nav,
+    .print-chapter-content .home-btn,
+    .print-chapter-content .topbar-right,
+    .print-chapter-content [onclick],
+    .print-chapter-content script { display:none !important; }
+
+    .print-chapter-content .page-wrap,
+    .print-chapter-content .content-wrap,
+    .print-chapter-content main { padding:0 !important; display:block !important; }
+
+    .print-chapter-content .hero {
+      background:none !important;
+      padding: 0 0 1cm 0 !important;
+      min-height: auto !important;
+      display: block !important;
+      border-bottom: 2px solid #1e5c8a;
+      margin-bottom: .8cm;
+    }
+    .print-chapter-content .hero *,
+    .print-chapter-content .hero h1,
+    .print-chapter-content .hero-sub { color:#0f2235 !important; }
+    .print-chapter-content .hero h1 em { color:#e8941a !important; }
+
+    .print-chapter-content h1,
+    .print-chapter-content h2,
+    .print-chapter-content h3 {
+      color: #0f2235 !important;
+      font-family: Georgia, serif !important;
+      page-break-after: avoid;
+    }
+    .print-chapter-content h4, 
+    .print-chapter-content h5 {
+      color: #1e5c8a !important;
+      page-break-after: avoid;
     }
 
-    @media print {
-      body {
-        background: white;
-        padding: 0;
-        margin: 0;
-      }
-      .dashboard, .action-bar, .footer-note, .btn-print-chapter, .print-all-btn, .info-note, .stats-row .stat, .chapters-grid, .print-header {
-        display: none !important;
-      }
-      .print-container {
-        display: block;
-        margin: 0;
-        padding: 0;
-      }
-      .print-chapter {
-        page-break-before: always;
-        margin: 0;
-        padding: 0.6in;
-      }
-      .print-chapter:first-child {
-        page-break-before: avoid;
-      }
-      /* Hide navigation elements in printed chapters */
-      .topbar, .sidebar, .site-footer, .toc-pills, .toc-wrap, .stats-strip, .hero-btns, .hero-panel, .topbar-right, .sidebar-nav-btns, .chapter-nav, .btn-row {
-        display: none !important;
-      }
-      .hero {
-        padding: 1rem !important;
-      }
-      .page-wrap {
-        display: block !important;
-        padding: 0 !important;
-      }
-      .sidebar {
-        display: none;
-      }
+    .print-chapter-content .content-card,
+    .print-chapter-content .rc,
+    .print-chapter-content .method-card,
+    .print-chapter-content .pcard {
+      border: 1px solid #ccc !important;
+      box-shadow: none !important;
+      background: #fff !important;
+      break-inside: avoid;
+      page-break-inside: avoid;
+      margin-bottom: .5cm;
     }
+
+    .print-chapter-content table {
+      width:100%; border-collapse:collapse; font-size:9pt;
+      break-inside: avoid; page-break-inside: avoid;
+    }
+    .print-chapter-content th {
+      background:#1e5c8a !important; color:#fff !important;
+      padding:4pt 8pt; font-size:8.5pt;
+      -webkit-print-color-adjust:exact; print-color-adjust:exact;
+    }
+    .print-chapter-content td { padding:4pt 8pt; border:1px solid #ddd; font-size:9pt; }
+    .print-chapter-content tr:nth-child(even) td {
+      background:#f5f8fc !important;
+      -webkit-print-color-adjust:exact; print-color-adjust:exact;
+    }
+
+    .print-chapter-content .callout,
+    .print-chapter-content .steps-box,
+    .print-chapter-content .practice-box,
+    .print-chapter-content .skill-check {
+      border: 1px solid #ccc !important;
+      background: #fafafa !important;
+      break-inside: avoid;
+      -webkit-print-color-adjust:exact; print-color-adjust:exact;
+    }
+    .print-chapter-content .chapter-summary {
+      background: #1e5c8a !important; color: #fff !important;
+      -webkit-print-color-adjust:exact; print-color-adjust:exact;
+      border-radius: .2cm; padding: .5cm; margin: .5cm 0;
+      break-inside: avoid;
+    }
+    .print-chapter-content .chapter-summary * { color:#fff !important; }
+
+    /* links look clean */
+    .print-chapter-content a { color:#1e5c8a; text-decoration:none; }
+    .print-chapter-content a[href^="http"]::after {
+      content:" [" attr(href) "]";
+      font-size:8pt; color:#888;
+    }
+
+    /* page numbers via CSS counter */
+    body { counter-reset: page-count; }
+    .print-chapter-content::before {
+      counter-increment: page-count;
+    }
+  }
   </style>
 </head>
 <body>
 
-<div class="dashboard">
-  <div class="print-header">
-    <div class="title-badge">
-      <i class="fas fa-print"></i> PRINT & BIND · COMPLETE BOOK
+<!-- ═══════════════════ LOADING OVERLAY ═══════════════════ -->
+<div class="load-overlay" id="loadOverlay">
+  <div class="load-spinner"></div>
+  <div class="load-title">Preparing Your Print</div>
+  <div class="load-sub" id="loadSub">Loading chapter content...</div>
+  <div class="load-bar-wrap"><div class="load-bar" id="loadBar"></div></div>
+  <div class="load-step" id="loadStep">Chapter 1 of 8</div>
+</div>
+
+<!-- ═══════════════════ TOAST ═══════════════════ -->
+<div class="toast" id="toast"><i class="fas fa-check-circle"></i><span id="toastMsg">Done!</span></div>
+
+<!-- ═══════════════════ TOPBAR ═══════════════════ -->
+<header class="topbar">
+  <a href="index.html" class="tb-brand">Basics of Digital Literacy <span>· Castro Odhiambo</span></a>
+  <div class="tb-right">
+    <a href="index.html">Home</a>
+    <a href="Downloads_and_Templates.html">Resources</a>
+    <a href="projects.html">Projects</a>
+    <a href="#chapters" class="tb-cta"><i class="fas fa-print"></i> Print Now</a>
+  </div>
+</header>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section class="hero">
+  <div class="hero-mesh"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow"><i class="fas fa-book-open"></i> Print Control Centre</div>
+      <h1>Print Your <em>Complete</em><br>Digital Literacy Book</h1>
+      <p class="hero-sub">Choose to print the entire course as a professionally bound book, or select individual chapters. Every page is formatted for clean, readable A4 output — ready for the classroom, cybercafé, or home study.</p>
+      <div class="hero-actions">
+        <button class="btn btn-gold" id="heroBookBtn"><i class="fas fa-book"></i> Print Full Book</button>
+        <a href="#chapters" class="btn btn-ghost"><i class="fas fa-layer-group"></i> Choose Chapters</a>
+      </div>
     </div>
-    <h1>Basics of <em>Digital Literacy</em><br>Complete Print Edition</h1>
-    <div class="header-desc">
-      Print the entire book or select individual chapters. All chapters are formatted for binding — 
-      ready to print, staple, spiral bind, or take to a professional print shop.
+    <div class="hero-panel">
+      <div class="hp-title">What's Inside</div>
+      <div class="hp-stat-row">
+        <div class="hp-stat"><div class="hp-stat-n">8</div><div class="hp-stat-l">Chapters</div></div>
+        <div class="hp-stat"><div class="hp-stat-n">300+</div><div class="hp-stat-l">Est. Pages</div></div>
+        <div class="hp-stat"><div class="hp-stat-n">40+</div><div class="hp-stat-l">Exercises</div></div>
+        <div class="hp-stat"><div class="hp-stat-n">A4</div><div class="hp-stat-l">Print Ready</div></div>
+      </div>
+      <div class="hp-divider"></div>
+      <div class="hp-note"><i class="fas fa-info-circle"></i> All chapter content is fetched live from your files. Your browser handles the printing — no extra software needed.</div>
+      <div class="hp-divider"></div>
+      <div class="hp-note"><i class="fas fa-lightbulb"></i> Tip: For best results, open your browser print dialog and set "Background graphics" to ON for coloured callout boxes.</div>
     </div>
-    <div class="stats-row">
-      <div class="stat"><i class="fas fa-book-open"></i> 8 Chapters + Resources</div>
-      <div class="stat"><i class="fas fa-file-alt"></i> Complete course content</div>
-      <div class="stat"><i class="fas fa-flag-kenya"></i> Kenyan Context</div>
-      <div class="stat"><i class="fas fa-download"></i> Print & bind ready</div>
+  </div>
+</section>
+
+<!-- ═══════════════════ MAIN SHELL ═══════════════════ -->
+<div class="shell">
+
+  <!-- How it works -->
+  <div class="section-head reveal">
+    <h2>How It <em>Works</em></h2>
+    <div class="sh-line"></div>
+    <div class="sh-badge">3 steps</div>
+  </div>
+  <div class="how-grid">
+    <div class="how-step reveal">
+      <div class="how-num">1</div>
+      <div class="how-title">Select Chapters</div>
+      <div class="how-desc">Tick the chapters you want — or select all for the complete book. Each card shows estimated pages and content coverage.</div>
+    </div>
+    <div class="how-step reveal">
+      <div class="how-num">2</div>
+      <div class="how-title">Configure Your Book</div>
+      <div class="how-desc">Set your name, class, and the book year. Choose whether to include chapter divider pages and the cover page.</div>
+    </div>
+    <div class="how-step reveal">
+      <div class="how-num">3</div>
+      <div class="how-title">Click Print</div>
+      <div class="how-desc">We load all selected chapters in the background, then open your browser's print dialog. Send to printer or save as PDF.</div>
+    </div>
+    <div class="how-step reveal">
+      <div class="how-num">4</div>
+      <div class="how-title">Bind Your Book</div>
+      <div class="how-desc">Staple, spiral bind, or use a binder. Print double-sided for a compact book. Add a laminated cover for durability.</div>
     </div>
   </div>
 
-  <div class="action-bar">
-    <div class="info-note">
-      <i class="fas fa-lightbulb"></i> Click any chapter to print it separately, or use "Print All" for the full book.
+  <!-- Print Options Panel -->
+  <div class="section-head reveal">
+    <h2>Print <em>Options</em></h2>
+    <div class="sh-line"></div>
+    <div class="sh-badge">Customise</div>
+  </div>
+  <div class="options-panel reveal">
+    <!-- Book config -->
+    <div class="book-config">
+      <h4><i class="fas fa-cog"></i> Book Configuration</h4>
+      <div class="config-row">
+        <div class="config-field">
+          <label>Student / Reader Name</label>
+          <input type="text" id="cfgName" placeholder="e.g. Jane Akinyi Otieno" />
+        </div>
+        <div class="config-field">
+          <label>Class / Group</label>
+          <input type="text" id="cfgClass" placeholder="e.g. Digital Literacy — Batch 3" />
+        </div>
+        <div class="config-field">
+          <label>Print Year</label>
+          <input type="text" id="cfgYear" value="2026" />
+        </div>
+      </div>
     </div>
-    <button class="print-all-btn" id="printAllBtn">
-      <i class="fas fa-print"></i> PRINT ALL CHAPTERS (FULL BOOK)
+    <!-- layout options -->
+    <div class="opts-grid">
+      <div class="opt-card active" id="opt-cover" onclick="toggleOpt(this)">
+        <div class="opt-icon">📖</div>
+        <div class="opt-title">Include Cover Page</div>
+        <div class="opt-desc">A professional title page with your name, the book title, and year.</div>
+      </div>
+      <div class="opt-card active" id="opt-dividers" onclick="toggleOpt(this)">
+        <div class="opt-icon">📑</div>
+        <div class="opt-title">Chapter Divider Pages</div>
+        <div class="opt-desc">A full-page separator before each chapter with its title and overview.</div>
+      </div>
+      <div class="opt-card active" id="opt-toc" onclick="toggleOpt(this)">
+        <div class="opt-icon">📋</div>
+        <div class="opt-title">Table of Contents</div>
+        <div class="opt-desc">A full table of contents listing all chapters after the cover page.</div>
+      </div>
+      <div class="opt-card" id="opt-grayscale" onclick="toggleOpt(this)">
+        <div class="opt-icon">🖤</div>
+        <div class="opt-title">Grayscale Mode</div>
+        <div class="opt-desc">Print in black &amp; white — ideal for saving ink on a home printer.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── MASTER PRINT CARD ── -->
+  <div class="master-card reveal" id="masterCard">
+    <div class="mc-inner">
+      <div class="mc-top">
+        <div class="mc-title-block">
+          <div class="mc-eyebrow"><i class="fas fa-crown"></i> Complete Book</div>
+          <h3>Print the Full <em>Digital Literacy Book</em></h3>
+          <p>All 8 chapters — from computer basics to government portals — compiled into one complete, professionally formatted book. Everything a student needs from day one to graduation.</p>
+        </div>
+        <div class="mc-right">
+          <div class="mc-pages" id="totalPagesDisplay">300+</div>
+          <div class="mc-pages-label">Estimated Pages</div>
+        </div>
+      </div>
+      <div class="mc-chapters" id="mcChapters">
+        <!-- filled by JS -->
+      </div>
+      <div class="mc-progress-wrap">
+        <div class="mc-prog-label">
+          <span id="progLabel">0 of 8 chapters selected</span>
+          <strong id="progPct">0%</strong>
+        </div>
+        <div class="mc-prog-track"><div class="mc-prog-fill" id="progFill"></div></div>
+      </div>
+      <div class="mc-actions">
+        <label class="mc-select-all">
+          <input type="checkbox" id="selectAll" onchange="handleSelectAll(this)">
+          <span>Select All Chapters</span>
+        </label>
+        <button class="btn btn-gold" id="masterPrintBtn" onclick="startPrint()">
+          <i class="fas fa-print"></i> Print Selected Chapters
+        </button>
+        <button class="btn btn-ghost" style="color:rgba(255,255,255,.7)" onclick="previewBook()">
+          <i class="fas fa-eye"></i> Preview
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CHAPTERS GRID ── -->
+  <div class="section-head reveal" id="chapters">
+    <h2>Individual <em>Chapters</em></h2>
+    <div class="sh-line"></div>
+    <div class="sh-badge" id="selectedBadge">0 selected</div>
+  </div>
+
+  <div class="chapter-grid" id="chapterGrid">
+    <!-- Cards injected by JS -->
+  </div>
+
+</div><!-- /shell -->
+
+<!-- ═══════════════════ SUMMARY BAR ═══════════════════ -->
+<div class="summary-bar hidden" id="summaryBar">
+  <div class="sb-left">
+    <div class="sb-count">
+      <div class="sb-count-num" id="sbCount">0</div>
+      <span style="color:#fff;font-weight:700;font-size:.9rem;">Chapters Selected</span>
+    </div>
+    <div class="sb-info" id="sbInfo">Choose chapters above, then print</div>
+  </div>
+  <div class="sb-right">
+    <button class="btn btn-ghost" style="padding:.6rem 1.2rem;font-size:.8rem;" onclick="clearAll()">
+      <i class="fas fa-times"></i> Clear
     </button>
-  </div>
-
-  <div class="chapters-grid">
-    <div class="chapter-card">
-      <div class="card-header"><div class="card-icon" style="background:#e8f0fe; color:#1a4b6e;"><i class="fas fa-desktop"></i></div><h3>Chapter 1 · Introduction</h3></div>
-      <div class="card-body"><div class="chapter-meta"><span><i class="far fa-clock"></i> ~60 min</span><span><i class="fas fa-tasks"></i> 4 sections</span></div><div class="chapter-desc">Getting comfortable with a computer: turning on/off, mouse & keyboard mastery, desktop navigation, opening programs.</div><div class="card-actions"><button class="btn-print-chapter" data-chapter-id="ch1"><i class="fas fa-print"></i> Print this chapter</button></div></div>
-    </div>
-    <div class="chapter-card">
-      <div class="card-header"><div class="card-icon" style="background:#fff3e0; color:#c55a1c;"><i class="fas fa-folder-open"></i></div><h3>Chapter 2 · File Management</h3></div>
-      <div class="card-body"><div class="chapter-meta"><span><i class="far fa-clock"></i> ~45 min</span><span><i class="fas fa-tasks"></i> 5 sections</span></div><div class="chapter-desc">Files, folders, USB drives, copy/move/delete, Recycle Bin, searching and organising like a pro.</div><div class="card-actions"><button class="btn-print-chapter" data-chapter-id="ch2"><i class="fas fa-print"></i> Print this chapter</button></div></div>
-    </div>
-    <div class="chapter-card">
-      <div class="card-header"><div class="card-icon" style="background:#e3f2fd; color:#0b5e9e;"><i class="fas fa-file-word"></i></div><h3>Chapter 3 · Microsoft Word</h3></div>
-      <div class="card-body"><div class="chapter-meta"><span><i class="far fa-clock"></i> ~90 min</span><span><i class="fas fa-tasks"></i> 8 sections</span></div><div class="chapter-desc">Create professional letters, CVs, reports: formatting, tables, images, headers, footers, printing.</div><div class="card-actions"><button class="btn-print-chapter" data-chapter-id="ch3"><i class="fas fa-print"></i> Print this chapter</button></div></div>
-    </div>
-    <div class="chapter-card">
-      <div class="card-header"><div class="card-icon" style="background:#e8f5e9; color:#1e6b3c;"><i class="fas fa-table"></i></div><h3>Chapter 4 · Microsoft Excel</h3></div>
-      <div class="card-body"><div class="chapter-meta"><span><i class="far fa-clock"></i> ~90 min</span><span><i class="fas fa-tasks"></i> 8 sections</span></div><div class="chapter-desc">Spreadsheets, formulas (SUM, AVERAGE, IF), charts, formatting, sorting, filtering, budgets.</div><div class="card-actions"><button class="btn-print-chapter" data-chapter-id="ch4"><i class="fas fa-print"></i> Print this chapter</button></div></div>
-    </div>
-    <div class="chapter-card">
-      <div class="card-header"><div class="card-icon" style="background:#fbe9e7; color:#b7472a;"><i class="fas fa-chalkboard"></i></div><h3>Chapter 5 · PowerPoint</h3></div>
-      <div class="card-body"><div class="chapter-meta"><span><i class="far fa-clock"></i> ~75 min</span><span><i class="fas fa-tasks"></i> 7 sections</span></div><div class="chapter-desc">Design stunning presentations: slides, themes, transitions, animations, speaker notes, slideshow mastery.</div><div class="card-actions"><button class="btn-print-chapter" data-chapter-id="ch5"><i class="fas fa-print"></i> Print this chapter</button></div></div>
-    </div>
-    <div class="chapter-card">
-      <div class="card-header"><div class="card-icon" style="background:#e0f7fa; color:#007c91;"><i class="fas fa-globe"></i></div><h3>Chapter 6 · Internet & Email</h3></div>
-      <div class="card-body"><div class="chapter-meta"><span><i class="far fa-clock"></i> ~75 min</span><span><i class="fas fa-tasks"></i> 7 sections</span></div><div class="chapter-desc">Browse safely, Google Search, Gmail, send attachments, avoid phishing, strong passwords.</div><div class="card-actions"><button class="btn-print-chapter" data-chapter-id="ch6"><i class="fas fa-print"></i> Print this chapter</button></div></div>
-    </div>
-    <div class="chapter-card">
-      <div class="card-header"><div class="card-icon" style="background:#ede7f6; color:#4a2c7a;"><i class="fas fa-passport"></i></div><h3>Chapter 7 · Online Portals</h3></div>
-      <div class="card-body"><div class="chapter-meta"><span><i class="far fa-clock"></i> ~90 min</span><span><i class="fas fa-tasks"></i> 8+ portals</span></div><div class="chapter-desc">eCitizen, KRA iTax, KUCCPS, HELB, NTSA, SHA — step-by-step with PayBill numbers and fees.</div><div class="card-actions"><button class="btn-print-chapter" data-chapter-id="ch7"><i class="fas fa-print"></i> Print this chapter</button></div></div>
-    </div>
-    <div class="chapter-card">
-      <div class="card-header"><div class="card-icon" style="background:#fff8e1; color:#b45f06;"><i class="fas fa-download"></i></div><h3>Resources · Templates</h3></div>
-      <div class="card-body"><div class="chapter-meta"><span><i class="fas fa-print"></i> Print-ready</span><span><i class="fas fa-tools"></i> 40+ resources</span></div><div class="chapter-desc">CV template, shortcut cards, PayBill directory, safety poster, checklists, compression guides.</div><div class="card-actions"><button class="btn-print-chapter" data-chapter-id="ch8"><i class="fas fa-print"></i> Print resources</button></div></div>
-    </div>
-  </div>
-
-  <div class="footer-note">
-    <i class="fas fa-book"></i> All chapters formatted for print — perfect for binding, classroom, or cybercafé reference.<br>
-    © 2026 Castro Odhiambo · Basics of Digital Literacy · Free to print and share for educational use.
+    <button class="btn btn-gold" style="padding:.6rem 1.4rem;font-size:.82rem;" onclick="startPrint()">
+      <i class="fas fa-print"></i> Print Now
+    </button>
   </div>
 </div>
 
-<div id="printAllContainer" class="print-container"></div>
+<!-- ═══════════════════ PREVIEW MODAL ═══════════════════ -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 id="modalTitle">Chapter Preview</h3>
+      <button class="modal-close" onclick="closeModalDirect()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-chapter-info" id="modalChInfo"></div>
+      <div class="modal-options">
+        <div class="modal-opt" onclick="printSingleFromModal()">
+          <i class="fas fa-file-alt"></i>
+          Print this chapter only
+        </div>
+        <div class="modal-opt" onclick="addToSelectionFromModal()">
+          <i class="fas fa-plus-circle"></i>
+          Add to selection &amp; print with others
+        </div>
+        <div class="modal-opt" onclick="openChapterNewTab()">
+          <i class="fas fa-external-link-alt"></i>
+          Open chapter page in new tab
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-gold" style="flex:1;" onclick="printSingleFromModal()"><i class="fas fa-print"></i> Print Chapter</button>
+        <button class="btn btn-ghost" style="flex:1;color:var(--ink);border-color:var(--border);" onclick="closeModalDirect()">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
 
+<!-- ═══════════════════ HIDDEN PRINT CONTENT ═══════════════════ -->
+<div id="printContent" style="display:none;"></div>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer class="site-footer">
+  <p>© 2026 <span>Castro Odhiambo</span> · Basics of Digital Literacy · Print Dashboard</p>
+  <p style="margin-top:.3rem;font-size:.76rem;"><a href="index.html">← Course Home</a> · <a href="Downloads_and_Templates.html">Templates</a> · <a href="projects.html">Projects</a></p>
+</footer>
+
+<!-- ═══════════════════ JAVASCRIPT ═══════════════════ -->
 <script>
-  // Complete chapter content embedded directly (from your files)
-  // To keep this manageable, I'm including the full content of each chapter.
-  // Since the files are large, I'll reference them via fetch but with proper error handling.
-  // For guaranteed local printing without server issues, the chapters are embedded.
-  
-  // Chapter HTML content (embedded from your provided files)
-  // Note: For brevity in this response, I'm showing the structure. 
-  // In the actual implementation, each chapter's full HTML would be embedded.
-  
-  // Function to print a single chapter by ID (using fetch to load the actual file)
-  // This works because all chapter files are in the same directory.
-  async function printSingleChapter(chapterFile, title) {
-    try {
-      const response = await fetch(chapterFile);
-      if (!response.ok) throw new Error(`Could not load ${chapterFile}`);
-      let html = await response.text();
-      
-      // Add print-specific styles
-      const printStyle = `<style media="print">
-        .topbar, .sidebar, .site-footer, .toc-pills, .toc-wrap, .stats-strip, .hero-btns, .hero-panel, .topbar-right, .sidebar-nav-btns, .chapter-nav, .btn-row, .nav-btn, .toc-link, .sb-nav-btn, .sb-link, .topbar-nav { display: none !important; }
-        body { margin: 0; padding: 0.5in; background: white; }
-        .hero { padding: 1rem 0 !important; background: none !important; color: black !important; }
-        .hero h1, .hero .chapter-eyebrow { color: black !important; }
-        .page-wrap { display: block !important; padding: 0 !important; }
-        .sidebar { display: none; }
-        .content { width: 100% !important; }
-        .content-card, .intro-card, .chapter-summary { break-inside: avoid; }
-      </style>`;
-      
-      html = html.replace('</head>', printStyle + '</head>');
-      
-      const win = window.open('', '_blank', 'width=1000,height=800,toolbar=yes,menubar=yes,scrollbars=yes');
-      win.document.write(html);
-      win.document.close();
-      win.focus();
-      win.onload = () => { win.print(); };
-    } catch (err) {
-      alert(`Error loading ${chapterFile}. Make sure all chapter HTML files are in the same folder as this page.\n${err.message}`);
-    }
+/* ────────────────────────────────────────────────────
+   CHAPTER DATA
+──────────────────────────────────────────────────── */
+const CHAPTERS = [
+  {
+    id: 'intro',
+    num: 1,
+    name: 'Getting Comfortable with a Computer',
+    shortName: 'Introduction',
+    file: 'Introduction.html',
+    icon: 'fas fa-desktop',
+    color: '#1e5c8a',
+    gradient: 'linear-gradient(135deg,#1e5c8a,#2e86c1)',
+    desc: 'Mouse, keyboard, Windows desktop, taskbar, keyboard shortcuts, and how computers work.',
+    tags: ['Mouse & Keyboard','Windows 10/11','Shortcuts','Typing'],
+    tagColors: ['#e8f0fe:#1e5c8a','#e8f5e9:#2a6b4a','#fff0e8:#b84a0e','#ede7f6:#7b2d8b'],
+    pages: '30–40',
+    sections: 7,
+    exercises: 5
+  },
+  {
+    id: 'files',
+    num: 2,
+    name: 'File Management',
+    shortName: 'File Management',
+    file: 'File_Management.html',
+    icon: 'fas fa-folder-open',
+    color: '#2a6b4a',
+    gradient: 'linear-gradient(135deg,#2a6b4a,#3a8c60)',
+    desc: 'Creating folders, copying, moving, renaming files, USB drives, Recycle Bin, and file types.',
+    tags: ['Folders','Copy & Move','USB Drives','File Types'],
+    tagColors: ['#e8f5e9:#2a6b4a','#e8f0fe:#1e5c8a','#fff0e8:#b84a0e','#fce4ec:#8b1c1c'],
+    pages: '25–35',
+    sections: 6,
+    exercises: 6
+  },
+  {
+    id: 'word',
+    num: 3,
+    name: 'Microsoft Word',
+    shortName: 'Microsoft Word',
+    file: 'Word.html',
+    icon: 'fas fa-file-word',
+    color: '#1a4b8a',
+    gradient: 'linear-gradient(135deg,#1a4b8a,#2471a3)',
+    desc: 'Typing, formatting text, tables, images, CVs, formal letters, and saving as PDF.',
+    tags: ['Text Formatting','Tables','CV Writing','Save as PDF'],
+    tagColors: ['#e8f0fe:#1a4b8a','#e8f5e9:#2a6b4a','#fff0e8:#b84a0e','#fce4ec:#8b1c1c'],
+    pages: '40–55',
+    sections: 8,
+    exercises: 7
+  },
+  {
+    id: 'excel',
+    num: 4,
+    name: 'Microsoft Excel',
+    shortName: 'Microsoft Excel',
+    file: 'Excel.html',
+    icon: 'fas fa-table',
+    color: '#1e6b3c',
+    gradient: 'linear-gradient(135deg,#1e6b3c,#2e8c52)',
+    desc: 'Data entry, SUM/AVERAGE/IF formulas, budgets, charts, sorting, and filtering.',
+    tags: ['Formulas','Charts','Budgets','Data Analysis'],
+    tagColors: ['#e8f5e9:#1e6b3c','#e8f0fe:#1e5c8a','#fff8e1:#c87e00','#ede7f6:#7b2d8b'],
+    pages: '45–60',
+    sections: 8,
+    exercises: 8
+  },
+  {
+    id: 'ppt',
+    num: 5,
+    name: 'Microsoft PowerPoint',
+    shortName: 'PowerPoint',
+    file: 'Powerpoint.html',
+    icon: 'fas fa-file-powerpoint',
+    color: '#b84a0e',
+    gradient: 'linear-gradient(135deg,#b84a0e,#d45c1a)',
+    desc: 'Creating slides, themes, animations, transitions, speaker notes, and professional presentations.',
+    tags: ['Slide Design','Animations','Transitions','Pitching'],
+    tagColors: ['#fff0e8:#b84a0e','#e8f0fe:#1e5c8a','#e8f5e9:#2a6b4a','#ede7f6:#7b2d8b'],
+    pages: '35–45',
+    sections: 7,
+    exercises: 6
+  },
+  {
+    id: 'internet',
+    num: 6,
+    name: 'Internet & Email',
+    shortName: 'Internet & Email',
+    file: 'Internet_and_Email.html',
+    icon: 'fas fa-globe',
+    color: '#0e5b6e',
+    gradient: 'linear-gradient(135deg,#0e5b6e,#1a7f8a)',
+    desc: 'Browsers, Google Search, Gmail, sending emails, attachments, online safety, and phishing.',
+    tags: ['Gmail','Google Search','Attachments','Online Safety'],
+    tagColors: ['#e0f7fa:#0e5b6e','#e8f5e9:#2a6b4a','#fff0e8:#b84a0e','#fce4ec:#8b1c1c'],
+    pages: '50–65',
+    sections: 8,
+    exercises: 8
+  },
+  {
+    id: 'portals',
+    num: 7,
+    name: 'Online Portals & Government Services',
+    shortName: 'Online Portals',
+    file: 'Online_navigation.html',
+    icon: 'fas fa-university',
+    color: '#3a4d8b',
+    gradient: 'linear-gradient(135deg,#3a4d8b,#4a6dbb)',
+    desc: 'eCitizen, KRA iTax, HELB, NTSA, NHIF — applying for services and paying via M-Pesa.',
+    tags: ['eCitizen','KRA iTax','HELB','M-Pesa PayBill'],
+    tagColors: ['#e8eaf6:#3a4d8b','#e8f5e9:#2a6b4a','#fff0e8:#b84a0e','#ede7f6:#7b2d8b'],
+    pages: '40–55',
+    sections: 7,
+    exercises: 6
+  },
+  {
+    id: 'downloads',
+    num: 8,
+    name: 'Downloads, Templates & Resources',
+    shortName: 'Downloads & Templates',
+    file: 'Downloads_and_Templates.html',
+    icon: 'fas fa-download',
+    color: '#1e4d20',
+    gradient: 'linear-gradient(135deg,#1e4d20,#2e7d32)',
+    desc: 'Printable checklists, keyboard shortcuts, PayBill numbers, document templates, and safety guides.',
+    tags: ['Checklists','Templates','PayBill Numbers','Safety Guide'],
+    tagColors: ['#e8f5e9:#1e4d20','#e8f0fe:#1e5c8a','#fff0e8:#b84a0e','#fce4ec:#8b1c1c'],
+    pages: '30–40',
+    sections: 11,
+    exercises: 0
   }
+];
 
-  // Map buttons to chapter files
-  const chapterFiles = {
-    ch1: 'Introduction.html',
-    ch2: 'File_Management.html',
-    ch3: 'Word.html',
-    ch4: 'Excel.html',
-    ch5: 'Powerpoint.html',
-    ch6: 'Internet_and_Email.html',
-    ch7: 'Online_navigation.html',
-    ch8: 'Downloads_and_Tempelates.html'
-  };
+/* ────────────────────────────────────────────────────
+   STATE
+──────────────────────────────────────────────────── */
+const selected   = new Set();
+let   modalChIdx = null;
+let   cachedHTML = {}; // cache fetched HTML by chapter id
 
-  // Attach print handlers
-  document.querySelectorAll('.btn-print-chapter').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const chId = btn.getAttribute('data-chapter-id');
-      const filename = chapterFiles[chId];
-      if (filename) {
-        printSingleChapter(filename, '');
-      } else {
-        alert('Chapter file not found');
-      }
-    });
+/* ────────────────────────────────────────────────────
+   BUILD CHAPTER GRID
+──────────────────────────────────────────────────── */
+function buildGrid() {
+  const grid = document.getElementById('chapterGrid');
+  const mcChips = document.getElementById('mcChapters');
+  grid.innerHTML = '';
+  mcChips.innerHTML = '';
+
+  CHAPTERS.forEach((ch, i) => {
+    // Master card chips
+    const chip = document.createElement('span');
+    chip.className = 'mc-ch-pill';
+    chip.innerHTML = `<i class="${ch.icon}"></i> Ch${ch.num}: ${ch.shortName}`;
+    mcChips.appendChild(chip);
+
+    // Chapter card
+    const card = document.createElement('div');
+    card.className = 'ch-card reveal';
+    card.id = `card-${ch.id}`;
+    card.dataset.idx = i;
+    card.setAttribute('role','button');
+    card.setAttribute('aria-label',`Select chapter: ${ch.name}`);
+
+    // build tag HTML
+    const tagPairs = ch.tagColors;
+    const tagsHTML = ch.tags.map((t,ti) => {
+      const [bg,col] = tagPairs[ti] ? tagPairs[ti].split(':') : ['#f0f0f0:#555'];
+      return `<span class="ch-tag" style="background:${bg};color:${col};">${t}</span>`;
+    }).join('');
+
+    card.innerHTML = `
+      <div class="ch-accent" style="background:${ch.gradient};"></div>
+      <div class="ch-top">
+        <div class="ch-checkbox" id="chk-${ch.id}"></div>
+        <div class="ch-icon" style="background:${ch.gradient};">
+          <i class="${ch.icon}"></i>
+        </div>
+        <div class="ch-meta">
+          <div class="ch-num">Chapter ${ch.num} · ${ch.shortName}</div>
+          <div class="ch-name">${formatName(ch.name)}</div>
+          <div class="ch-file">${ch.file}</div>
+        </div>
+      </div>
+      <div class="ch-body">
+        <div class="ch-desc">${ch.desc}</div>
+        <div class="ch-tags">${tagsHTML}</div>
+      </div>
+      <div class="ch-footer">
+        <div class="ch-stats">
+          <div class="ch-stat"><i class="fas fa-file-alt" style="color:${ch.color};"></i> ${ch.pages} pages</div>
+          <div class="ch-stat"><i class="fas fa-layer-group" style="color:${ch.color};"></i> ${ch.sections} sections</div>
+          <div class="ch-stat"><i class="fas fa-tasks" style="color:${ch.color};"></i> ${ch.exercises} exercises</div>
+        </div>
+        <button class="ch-print-btn" style="background:${ch.color};"
+          onclick="event.stopPropagation(); openModal(${i})">
+          <i class="fas fa-print"></i> Print
+        </button>
+      </div>
+    `;
+    card.addEventListener('click', () => toggleCard(i));
+    grid.appendChild(card);
+
+    // animate in
+    setTimeout(() => {
+      const el = document.getElementById(`card-${ch.id}`);
+      if(el) el.classList.add('on');
+    }, 80 + i * 65);
   });
+}
 
-  // Print all chapters sequentially
-  async function printAllChapters() {
-    const allChapters = [
-      'Introduction.html',
-      'File_Management.html',
-      'Word.html',
-      'Excel.html',
-      'Powerpoint.html',
-      'Internet_and_Email.html',
-      'Online_navigation.html',
-      'Downloads_and_Tempelates.html'
-    ];
-    
-    const container = document.getElementById('printAllContainer');
-    container.innerHTML = '';
-    
-    let combinedHtml = `<!DOCTYPE html>
-    <html>
-    <head><meta charset="UTF-8"><title>Digital Literacy - Complete Book</title>
-    <style>
-      @media print {
-        body { margin: 0; padding: 0.5in; background: white; }
-        .print-chapter { page-break-before: always; }
-        .print-chapter:first-child { page-break-before: avoid; }
-        .topbar, .sidebar, .site-footer, .toc-pills, .toc-wrap, .stats-strip, .hero-btns, .hero-panel, .topbar-right, .sidebar-nav-btns, .chapter-nav, .btn-row, .nav-btn, .toc-link, .sb-nav-btn, .sb-link, .topbar-nav { display: none !important; }
-        .hero { padding: 1rem 0 !important; background: none !important; }
-        .page-wrap { display: block !important; padding: 0 !important; }
-        .sidebar { display: none; }
-      }
-      body { font-family: 'Inter', sans-serif; }
-      .cover-page { text-align: center; margin-bottom: 2rem; }
-    </style>
-    </head>
-    <body>
-    <div class="cover-page">
-      <h1 style="font-family:'Fraunces',serif;">Basics of Digital Literacy</h1>
-      <p>Complete Course Book · Kenyan Edition</p>
-      <p>Castro Odhiambo · Printed on ${new Date().toLocaleDateString()}</p>
-    </div>`;
-    
-    for (const file of allChapters) {
-      try {
-        const resp = await fetch(file);
-        if (!resp.ok) throw new Error(`Failed to load ${file}`);
-        let html = await resp.text();
-        // Remove navigation elements for cleaner print
-        html = html.replace(/<nav class="topbar">[\s\S]*?<\/nav>/gi, '');
-        html = html.replace(/<aside class="sidebar">[\s\S]*?<\/aside>/gi, '');
-        html = html.replace(/<footer class="site-footer">[\s\S]*?<\/footer>/gi, '');
-        html = html.replace(/<div class="chapter-nav">[\s\S]*?<\/div>/gi, '');
-        html = html.replace(/<div class="toc-pills">[\s\S]*?<\/div>/gi, '');
-        html = html.replace(/<div class="toc-wrap">[\s\S]*?<\/div>/gi, '');
-        html = html.replace(/<div class="stats-strip">[\s\S]*?<\/div>/gi, '');
-        combinedHtml += `<div class="print-chapter">${html}</div>`;
-      } catch (err) {
-        combinedHtml += `<div class="print-chapter"><h2>Error loading ${file}</h2><p>Make sure all chapter files are in the same folder.</p></div>`;
-      }
-    }
-    combinedHtml += `</body></html>`;
-    
-    const printWin = window.open('', '_blank', 'width=1000,height=800,toolbar=yes,menubar=yes');
-    printWin.document.write(combinedHtml);
-    printWin.document.close();
-    printWin.focus();
-    printWin.onload = () => { printWin.print(); };
+function formatName(name) {
+  // Make last word italic for visual interest
+  const parts = name.split(' ');
+  if (parts.length > 2) {
+    const last = parts.pop();
+    return parts.join(' ') + ' <em>' + last + '</em>';
+  }
+  return name;
+}
+
+/* ────────────────────────────────────────────────────
+   SELECTION LOGIC
+──────────────────────────────────────────────────── */
+function toggleCard(idx) {
+  const ch = CHAPTERS[idx];
+  if (selected.has(idx)) {
+    selected.delete(idx);
+    document.getElementById(`card-${ch.id}`).classList.remove('selected');
+    document.getElementById(`chk-${ch.id}`).style.background = '';
+    document.getElementById(`chk-${ch.id}`).style.borderColor = '';
+  } else {
+    selected.add(idx);
+    document.getElementById(`card-${ch.id}`).classList.add('selected');
+    document.getElementById(`chk-${ch.id}`).style.background = ch.color;
+    document.getElementById(`chk-${ch.id}`).style.borderColor = ch.color;
+  }
+  updateUI();
+}
+
+function handleSelectAll(cb) {
+  if (cb.checked) {
+    CHAPTERS.forEach((ch, i) => {
+      selected.add(i);
+      const card = document.getElementById(`card-${ch.id}`);
+      const chk  = document.getElementById(`chk-${ch.id}`);
+      card.classList.add('selected');
+      chk.style.background   = ch.color;
+      chk.style.borderColor  = ch.color;
+    });
+  } else {
+    clearAll();
+  }
+  updateUI();
+}
+
+function clearAll() {
+  selected.clear();
+  CHAPTERS.forEach(ch => {
+    const card = document.getElementById(`card-${ch.id}`);
+    const chk  = document.getElementById(`chk-${ch.id}`);
+    if(card) card.classList.remove('selected');
+    if(chk)  { chk.style.background=''; chk.style.borderColor=''; }
+  });
+  document.getElementById('selectAll').checked = false;
+  updateUI();
+}
+
+function updateUI() {
+  const n = selected.size;
+  const total = CHAPTERS.length;
+
+  // badge
+  document.getElementById('selectedBadge').textContent = `${n} selected`;
+
+  // summary bar
+  const bar = document.getElementById('summaryBar');
+  bar.classList.toggle('hidden', n === 0);
+  document.getElementById('sbCount').textContent = n;
+  document.getElementById('sbInfo').textContent =
+    n === 0 ? 'Choose chapters above, then print'
+    : n === 1 ? 'Ready to print 1 chapter'
+    : `Ready to print ${n} chapters · ~${estimatePages()} pages`;
+
+  // progress
+  const pct = Math.round((n / total) * 100);
+  document.getElementById('progLabel').textContent = `${n} of ${total} chapters selected`;
+  document.getElementById('progPct').textContent = pct + '%';
+  document.getElementById('progFill').style.width = pct + '%';
+
+  // selectAll checkbox state
+  const allCb = document.getElementById('selectAll');
+  allCb.checked = n === total;
+  allCb.indeterminate = n > 0 && n < total;
+
+  // print button
+  const btn = document.getElementById('masterPrintBtn');
+  if (n === 0) {
+    btn.innerHTML = '<i class="fas fa-print"></i> Select chapters above';
+    btn.disabled = true;
+    btn.style.opacity = '.5';
+  } else {
+    btn.innerHTML = `<i class="fas fa-print"></i> Print ${n === total ? 'Full Book' : n + ' Chapter' + (n>1?'s':'')}`;
+    btn.disabled = false;
+    btn.style.opacity = '1';
+  }
+}
+
+function estimatePages() {
+  let total = 0;
+  selected.forEach(i => {
+    const range = CHAPTERS[i].pages.split('–');
+    total += Math.round((parseInt(range[0]) + parseInt(range[1])) / 2);
+  });
+  // add cover + TOC + dividers
+  const opts = getOpts();
+  if (opts.cover)    total += 1;
+  if (opts.toc)      total += 1;
+  if (opts.dividers) total += selected.size;
+  return total;
+}
+
+/* ────────────────────────────────────────────────────
+   OPTIONS
+──────────────────────────────────────────────────── */
+function toggleOpt(el) {
+  el.classList.toggle('active');
+}
+function getOpts() {
+  return {
+    cover:     document.getElementById('opt-cover').classList.contains('active'),
+    dividers:  document.getElementById('opt-dividers').classList.contains('active'),
+    toc:       document.getElementById('opt-toc').classList.contains('active'),
+    grayscale: document.getElementById('opt-grayscale').classList.contains('active'),
+  };
+}
+function getConfig() {
+  return {
+    name:  document.getElementById('cfgName').value.trim() || 'Student',
+    class: document.getElementById('cfgClass').value.trim() || 'Digital Literacy Course',
+    year:  document.getElementById('cfgYear').value.trim() || '2026',
+  };
+}
+
+/* ────────────────────────────────────────────────────
+   MODAL
+──────────────────────────────────────────────────── */
+function openModal(idx) {
+  modalChIdx = idx;
+  const ch = CHAPTERS[idx];
+  document.getElementById('modalTitle').textContent = `Chapter ${ch.num}: ${ch.shortName}`;
+  document.getElementById('modalChInfo').innerHTML = `
+    <div class="modal-ch-icon" style="background:${ch.gradient};">
+      <i class="${ch.icon}" style="font-size:1.3rem;"></i>
+    </div>
+    <div>
+      <div class="modal-ch-name">${ch.name}</div>
+      <div class="modal-ch-file">${ch.file} · ${ch.pages} est. pages</div>
+    </div>
+  `;
+  document.getElementById('modalOverlay').classList.add('show');
+}
+function closeModal(e) {
+  if (e.target === document.getElementById('modalOverlay')) closeModalDirect();
+}
+function closeModalDirect() {
+  document.getElementById('modalOverlay').classList.remove('show');
+  modalChIdx = null;
+}
+function printSingleFromModal() {
+  closeModalDirect();
+  if (modalChIdx !== null) printSingle(modalChIdx);
+}
+function addToSelectionFromModal() {
+  if (modalChIdx !== null && !selected.has(modalChIdx)) {
+    toggleCard(modalChIdx);
+  }
+  closeModalDirect();
+  showToast(`Chapter ${CHAPTERS[modalChIdx].num} added to selection`, 'success');
+}
+function openChapterNewTab() {
+  if (modalChIdx !== null) {
+    window.open(CHAPTERS[modalChIdx].file, '_blank');
+  }
+  closeModalDirect();
+}
+
+/* ────────────────────────────────────────────────────
+   TOAST
+──────────────────────────────────────────────────── */
+let toastTimer;
+function showToast(msg, type='success') {
+  const t = document.getElementById('toast');
+  document.getElementById('toastMsg').textContent = msg;
+  t.className = `toast show ${type}`;
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 3200);
+}
+
+/* ────────────────────────────────────────────────────
+   FETCH CHAPTER HTML
+──────────────────────────────────────────────────── */
+async function fetchChapter(ch) {
+  if (cachedHTML[ch.id]) return cachedHTML[ch.id];
+  try {
+    const r = await fetch(ch.file);
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    const html = await r.text();
+    cachedHTML[ch.id] = html;
+    return html;
+  } catch(e) {
+    console.warn(`Could not fetch ${ch.file}:`, e);
+    return null;
+  }
+}
+
+/* Extract <body> content from full HTML string */
+function extractBody(html) {
+  if (!html) return '<p style="color:red;">Could not load chapter content. Please ensure all HTML files are in the same folder as this dashboard.</p>';
+  const bodyMatch = html.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+  if (bodyMatch) return bodyMatch[1];
+  return html;
+}
+
+/* ────────────────────────────────────────────────────
+   BUILD PRINT DOCUMENT
+──────────────────────────────────────────────────── */
+function buildCoverPage(cfg) {
+  const chapterList = Array.from(selected)
+    .sort((a,b)=>a-b)
+    .map(i => `<li>Chapter ${CHAPTERS[i].num}: ${CHAPTERS[i].shortName}</li>`)
+    .join('');
+  return `
+  <div class="print-cover">
+    <div class="cover-logo">📚</div>
+    <div class="cover-label">A Complete Learning Resource</div>
+    <div class="cover-divider"></div>
+    <div class="cover-title">Basics of<br>Digital Literacy</div>
+    <div class="cover-subtitle">From Computer Basics to Government Portals</div>
+    <div class="cover-divider"></div>
+    <div class="cover-author">Author: <strong>Castro Odhiambo</strong></div>
+    <div class="cover-author">Student: <strong>${cfg.name}</strong></div>
+    <div class="cover-author">${cfg.class}</div>
+    <div class="cover-year">Printed: ${cfg.year}</div>
+    <div class="cover-toc-mini">
+      <h4>Chapters Included</h4>
+      <ol style="padding-left:1.2em;">${chapterList}</ol>
+    </div>
+  </div>`;
+}
+
+function buildTOC() {
+  const rows = Array.from(selected)
+    .sort((a,b)=>a-b)
+    .map(i => {
+      const ch = CHAPTERS[i];
+      return `<tr>
+        <td style="width:3cm;font-weight:700;color:#0f2235;">Chapter ${ch.num}</td>
+        <td>${ch.name}</td>
+        <td style="width:3cm;color:#888;font-size:9pt;">${ch.pages} pages</td>
+      </tr>`;
+    }).join('');
+  return `
+  <div style="page-break-after:always;padding:1cm 0;">
+    <h2 style="font-family:Georgia;font-size:18pt;color:#0f2235;margin-bottom:.8cm;border-bottom:2px solid #1e5c8a;padding-bottom:.3cm;">
+      Table of Contents
+    </h2>
+    <table style="width:100%;border-collapse:collapse;font-size:10pt;">
+      <tbody>${rows}</tbody>
+    </table>
+    <p style="margin-top:1cm;font-size:8pt;color:#999;font-style:italic;">
+      Page numbers shown are estimates. Actual pages depend on your printer settings.
+    </p>
+  </div>`;
+}
+
+function buildChapterDivider(ch) {
+  return `
+  <div class="print-chapter-divider">
+    <div class="div-ch-num">0${ch.num}</div>
+    <div class="div-ch-label">Chapter ${ch.num}</div>
+    <div class="div-ch-title">${ch.name}</div>
+    <div class="div-ch-desc">${ch.desc}</div>
+  </div>`;
+}
+
+/* ────────────────────────────────────────────────────
+   MAIN PRINT FUNCTION
+──────────────────────────────────────────────────── */
+async function startPrint() {
+  if (selected.size === 0) {
+    showToast('Please select at least one chapter first', 'error');
+    return;
   }
 
-  document.getElementById('printAllBtn').addEventListener('click', printAllChapters);
+  const opts = getOpts();
+  const cfg  = getConfig();
+  const overlay = document.getElementById('loadOverlay');
+  const bar     = document.getElementById('loadBar');
+  const sub     = document.getElementById('loadSub');
+  const step    = document.getElementById('loadStep');
+
+  overlay.classList.add('show');
+  bar.style.width = '0%';
+
+  const sortedIdxs = Array.from(selected).sort((a,b)=>a-b);
+  const total = sortedIdxs.length;
+  let content = '';
+
+  // ── Cover page
+  if (opts.cover) {
+    sub.textContent  = 'Building cover page...';
+    step.textContent = 'Cover page';
+    bar.style.width  = '5%';
+    content += buildCoverPage(cfg);
+    await sleep(150);
+  }
+
+  // ── Table of contents
+  if (opts.toc) {
+    content += buildTOC();
+    bar.style.width = '8%';
+    await sleep(100);
+  }
+
+  // ── Load each chapter
+  for (let j = 0; j < total; j++) {
+    const idx = sortedIdxs[j];
+    const ch  = CHAPTERS[idx];
+    const pct = Math.round(8 + ((j+1)/total)*88);
+
+    sub.textContent  = `Loading ${ch.shortName}...`;
+    step.textContent = `Chapter ${j+1} of ${total}: ${ch.shortName}`;
+    bar.style.width  = pct + '%';
+
+    const html = await fetchChapter(ch);
+    const body = extractBody(html);
+
+    if (opts.dividers) {
+      content += buildChapterDivider(ch);
+    }
+
+    content += `<div class="print-chapter-content">${body}</div>`;
+    await sleep(80);
+  }
+
+  bar.style.width = '100%';
+  sub.textContent  = 'Opening print dialog...';
+  step.textContent = 'Ready!';
+  await sleep(500);
+
+  // ── Inject and print
+  const printDiv = document.getElementById('printContent');
+  printDiv.innerHTML = content;
+
+  // Apply grayscale if selected
+  if (opts.grayscale) {
+    printDiv.style.filter = 'grayscale(100%)';
+  } else {
+    printDiv.style.filter = '';
+  }
+
+  overlay.classList.remove('show');
+
+  // Trigger print
+  requestAnimationFrame(() => {
+    setTimeout(() => {
+      window.print();
+      showToast(`Printing ${total} chapter${total>1?'s':''}... Check your print dialog`, 'success');
+      // cleanup after printing
+      setTimeout(() => { printDiv.innerHTML = ''; printDiv.style.filter = ''; }, 3000);
+    }, 200);
+  });
+}
+
+/* ────────────────────────────────────────────────────
+   PRINT SINGLE CHAPTER
+──────────────────────────────────────────────────── */
+async function printSingle(idx) {
+  const ch = CHAPTERS[idx];
+  const overlay = document.getElementById('loadOverlay');
+  const bar     = document.getElementById('loadBar');
+  const sub     = document.getElementById('loadSub');
+  const step    = document.getElementById('loadStep');
+
+  overlay.classList.add('show');
+  sub.textContent  = `Loading ${ch.shortName}...`;
+  step.textContent = `Chapter ${ch.num}: ${ch.shortName}`;
+  bar.style.width  = '20%';
+
+  const opts = getOpts();
+  const cfg  = getConfig();
+  const html = await fetchChapter(ch);
+  bar.style.width = '80%';
+  await sleep(200);
+
+  const body = extractBody(html);
+  let content = '';
+
+  if (opts.cover) {
+    // Single chapter mini cover
+    content += `
+    <div class="print-cover">
+      <div class="cover-logo">📖</div>
+      <div class="cover-label">Digital Literacy Course</div>
+      <div class="cover-divider"></div>
+      <div class="cover-title">Chapter ${ch.num}</div>
+      <div class="cover-subtitle">${ch.name}</div>
+      <div class="cover-divider"></div>
+      <div class="cover-author">Student: <strong>${cfg.name}</strong></div>
+      <div class="cover-author">${cfg.class}</div>
+      <div class="cover-year">Printed: ${cfg.year}</div>
+    </div>`;
+  }
+
+  if (opts.dividers) content += buildChapterDivider(ch);
+  content += `<div class="print-chapter-content">${body}</div>`;
+
+  const printDiv = document.getElementById('printContent');
+  printDiv.innerHTML = content;
+  if (opts.grayscale) printDiv.style.filter = 'grayscale(100%)';
+  else printDiv.style.filter = '';
+
+  bar.style.width = '100%';
+  sub.textContent  = 'Opening print dialog...';
+  await sleep(400);
+  overlay.classList.remove('show');
+
+  requestAnimationFrame(() => {
+    setTimeout(() => {
+      window.print();
+      showToast(`Printing: Chapter ${ch.num} — ${ch.shortName}`, 'success');
+      setTimeout(() => { printDiv.innerHTML = ''; printDiv.style.filter = ''; }, 3000);
+    }, 200);
+  });
+}
+
+/* ────────────────────────────────────────────────────
+   PREVIEW (select all then show count)
+──────────────────────────────────────────────────── */
+function previewBook() {
+  if (selected.size === 0) {
+    showToast('Select chapters first to preview', 'error');
+    return;
+  }
+  const opts = getOpts();
+  const est  = estimatePages();
+  const names = Array.from(selected).sort((a,b)=>a-b).map(i=>CHAPTERS[i].shortName).join(', ');
+  showToast(`Book: ${selected.size} chapters · ~${est} pages · ${names}`, 'success');
+}
+
+/* ────────────────────────────────────────────────────
+   HERO BUTTONS
+──────────────────────────────────────────────────── */
+document.getElementById('heroBookBtn').addEventListener('click', () => {
+  // Select all
+  CHAPTERS.forEach((ch, i) => {
+    selected.add(i);
+    const card = document.getElementById(`card-${ch.id}`);
+    const chk  = document.getElementById(`chk-${ch.id}`);
+    if(card) card.classList.add('selected');
+    if(chk)  { chk.style.background=ch.color; chk.style.borderColor=ch.color; }
+  });
+  document.getElementById('selectAll').checked = true;
+  updateUI();
+  showToast('All 8 chapters selected — click Print below', 'success');
+  document.getElementById('masterCard').scrollIntoView({ behavior:'smooth', block:'center' });
+});
+
+/* ────────────────────────────────────────────────────
+   SCROLL REVEAL
+──────────────────────────────────────────────────── */
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('on'), i * 50);
+      revealObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.06 });
+
+/* ────────────────────────────────────────────────────
+   UTILITY
+──────────────────────────────────────────────────── */
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+/* ────────────────────────────────────────────────────
+   INIT
+──────────────────────────────────────────────────── */
+document.addEventListener('DOMContentLoaded', () => {
+  buildGrid();
+  updateUI();
+
+  // Observe reveal elements
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  // Animate master card progress fill to show potential
+  setTimeout(() => {
+    document.getElementById('progFill').style.width = '0%';
+  }, 800);
+
+  // Pre-warm by caching first chapter silently
+  setTimeout(() => {
+    fetchChapter(CHAPTERS[0]).then(() => {
+      console.log('[PrintDashboard] Chapter 1 pre-cached');
+    });
+  }, 2000);
+});
 </script>
+
 </body>
 </html>
