@@ -2,495 +2,731 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Print Dashboard – Complete Digital Literacy Book | Castro Odhiambo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Print Dashboard — Basics of Digital Literacy | Castro Odhiambo</title>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;0,900;1,400&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    /* Dashboard Styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Inter', sans-serif;
-      background: #f4f7fb;
-      color: #1e2f3e;
+      background: #f0f4f8;
+      color: #1a2c3e;
       line-height: 1.5;
-      padding: 2rem 1.5rem;
     }
-
-    .dashboard {
-      max-width: 1280px;
-      margin: 0 auto;
-    }
-
+    .dashboard { max-width: 1280px; margin: 0 auto; padding: 2rem 1.5rem; }
+    
+    /* Header */
     .print-header {
-      background: linear-gradient(135deg, #0f2b3d 0%, #1a4b6e 100%);
+      background: linear-gradient(135deg, #0a1a2a 0%, #1a4b6e 100%);
       border-radius: 2rem;
-      padding: 2rem 2rem 1.8rem;
+      padding: 2rem;
       color: white;
-      margin-bottom: 2.5rem;
-      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.2);
+      margin-bottom: 2rem;
     }
-
-    .title-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      background: rgba(245,166,35,0.2);
-      border: 1px solid rgba(245,166,35,0.5);
-      padding: 0.3rem 1.2rem;
-      border-radius: 40px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #ffd27a;
-      margin-bottom: 1rem;
-    }
-
     .print-header h1 {
       font-family: 'Fraunces', serif;
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-size: 2.5rem;
       font-weight: 800;
-      line-height: 1.2;
-      margin-bottom: 0.5rem;
     }
-
-    .print-header h1 em {
-      font-style: italic;
-      color: #ffd27a;
-    }
-
-    .header-desc {
-      font-size: 0.95rem;
-      opacity: 0.8;
-      max-width: 580px;
-      margin-bottom: 1.5rem;
-    }
-
-    .stats-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      margin-top: 1rem;
-    }
-
-    .stat {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      background: rgba(255,255,255,0.08);
-      padding: 0.5rem 1rem;
-      border-radius: 40px;
-      font-size: 0.8rem;
-    }
-
-    .stat i {
-      color: #f5a623;
-    }
-
+    .print-header h1 em { color: #f5a623; font-style: italic; }
+    .stats-row { display: flex; gap: 1.5rem; margin-top: 1rem; flex-wrap: wrap; }
+    .stat { display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.1); padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.8rem; }
+    
+    /* Action Bar */
     .action-bar {
       background: white;
-      border-radius: 1.2rem;
-      padding: 1.2rem 1.8rem;
+      border-radius: 1rem;
+      padding: 1rem 1.5rem;
       margin-bottom: 2rem;
       display: flex;
-      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
       gap: 1rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-      border: 1px solid #e2edf2;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
-
     .print-all-btn {
       background: #1a5c2a;
       color: white;
       border: none;
       padding: 0.75rem 1.8rem;
-      border-radius: 60px;
+      border-radius: 3rem;
       font-weight: 700;
-      font-size: 0.9rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
       cursor: pointer;
-      transition: all 0.2s;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-
-    .print-all-btn:hover {
-      background: #0e401c;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 18px rgba(26,92,42,0.2);
-    }
-
-    .info-note {
-      font-size: 0.8rem;
-      color: #4a627a;
-      background: #f0f6fa;
-      padding: 0.4rem 1rem;
-      border-radius: 30px;
-    }
-
-    .chapters-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.6rem;
-    }
-
-    .chapter-card {
-      background: white;
-      border-radius: 1.5rem;
-      border: 1px solid #dceaf2;
-      overflow: hidden;
-      transition: all 0.25s ease;
-      box-shadow: 0 6px 12px -8px rgba(0,0,0,0.05);
-    }
-
-    .chapter-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 28px -12px rgba(0,0,0,0.12);
-      border-color: #c0d8e8;
-    }
-
-    .card-header {
-      padding: 1.2rem 1.4rem 0.6rem;
       display: flex;
       align-items: center;
-      gap: 0.8rem;
-      border-bottom: 2px solid #f0f4f8;
+      gap: 0.6rem;
+      transition: all 0.2s;
     }
-
+    .print-all-btn:hover { background: #0e401c; transform: translateY(-2px); }
+    .preview-btn {
+      background: #2c5f8a;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.8rem;
+      border-radius: 3rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    
+    /* Chapter Grid */
+    .chapter-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .chapter-card {
+      background: white;
+      border-radius: 1.2rem;
+      border: 1px solid #dce5ec;
+      overflow: hidden;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .chapter-card.selected {
+      border-color: #2e86c1;
+      box-shadow: 0 0 0 2px rgba(46,134,193,0.2);
+    }
+    .card-header {
+      padding: 1rem 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      border-bottom: 1px solid #edf2f7;
+    }
     .card-icon {
       width: 48px;
       height: 48px;
-      border-radius: 14px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 1.3rem;
+      color: white;
     }
-
-    .card-header h3 {
-      font-family: 'Fraunces', serif;
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: #1a3b4e;
-    }
-
-    .card-body {
-      padding: 1rem 1.4rem;
-    }
-
-    .chapter-meta {
+    .card-header h3 { font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 700; }
+    .card-body { padding: 1rem 1.2rem; }
+    .chapter-desc { font-size: 0.85rem; color: #5a6e7c; line-height: 1.5; margin-bottom: 0.8rem; }
+    .chapter-meta { display: flex; gap: 1rem; font-size: 0.7rem; color: #7a8e9c; margin-bottom: 0.8rem; }
+    .card-footer {
+      padding: 0.8rem 1.2rem;
+      background: #f8fafc;
+      border-top: 1px solid #edf2f7;
       display: flex;
-      gap: 0.8rem;
-      font-size: 0.7rem;
-      color: #6c8aa0;
-      margin-bottom: 0.6rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
+      justify-content: space-between;
+      align-items: center;
     }
-
-    .chapter-desc {
-      font-size: 0.85rem;
-      color: #4c6278;
-      line-height: 1.5;
-      margin-bottom: 1rem;
-    }
-
-    .card-actions {
-      display: flex;
-      gap: 0.8rem;
-      margin-top: 0.8rem;
-      flex-wrap: wrap;
-    }
-
-    .btn-print-chapter {
-      background: #f4f9ff;
-      border: 1px solid #cbdde8;
-      padding: 0.5rem 1rem;
-      border-radius: 40px;
+    .print-chapter-btn {
+      background: #1e5c8a;
+      color: white;
+      border: none;
+      padding: 0.4rem 1rem;
+      border-radius: 2rem;
       font-size: 0.75rem;
       font-weight: 600;
       cursor: pointer;
-      display: inline-flex;
+      display: flex;
       align-items: center;
       gap: 0.4rem;
-      transition: all 0.18s;
-      color: #1f5e8c;
     }
-
-    .btn-print-chapter:hover {
-      background: #e4eff8;
-      border-color: #6d9dbb;
-      transform: translateY(-1px);
+    .checkbox {
+      width: 20px;
+      height: 20px;
+      border-radius: 5px;
+      border: 2px solid #cbd5e1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: white;
     }
-
-    .footer-note {
-      margin-top: 3rem;
-      text-align: center;
+    .checkbox.selected {
+      background: #1e5c8a;
+      border-color: #1e5c8a;
+    }
+    .checkbox.selected::after {
+      content: '✓';
+      color: white;
+      font-size: 12px;
+    }
+    
+    /* Summary Bar */
+    .summary-bar {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #0a1a2a;
+      border-radius: 3rem;
+      padding: 0.8rem 1.8rem;
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      z-index: 200;
+      transition: all 0.3s;
+    }
+    .summary-bar.hidden { display: none; }
+    .summary-bar .count {
+      background: #f5a623;
+      color: #0a1a2a;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      margin-right: 0.5rem;
+    }
+    .summary-bar button {
+      background: #f5a623;
+      border: none;
+      padding: 0.5rem 1.2rem;
+      border-radius: 2rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    
+    /* Modal */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 300;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.2s;
+    }
+    .modal.show { opacity: 1; visibility: visible; }
+    .modal-content {
+      background: white;
+      border-radius: 1.5rem;
+      max-width: 450px;
+      width: 90%;
+      overflow: hidden;
+    }
+    .modal-header {
+      background: linear-gradient(135deg, #0a1a2a, #1a4b6e);
+      padding: 1.2rem;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .modal-body { padding: 1.5rem; }
+    .modal-option {
+      padding: 0.8rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 0.8rem;
+      margin-bottom: 0.8rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      transition: all 0.2s;
+    }
+    .modal-option:hover { background: #f0f7ff; border-color: #2e86c1; }
+    
+    /* Loading */
+    .loading-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(10,26,42,0.95);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 1rem;
+      z-index: 400;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.2s;
+    }
+    .loading-overlay.show { opacity: 1; visibility: visible; }
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 4px solid rgba(255,255,255,0.2);
+      border-top-color: #f5a623;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .toast {
+      position: fixed;
+      bottom: 6rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1a2c3e;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 2rem;
       font-size: 0.8rem;
-      color: #6d8eac;
-      border-top: 1px solid #d4e2ec;
-      padding-top: 2rem;
+      z-index: 350;
+      opacity: 0;
+      transition: opacity 0.2s;
+      pointer-events: none;
     }
-
-    /* Print styles - hide dashboard, show embedded content */
-    .print-container {
-      display: none;
-    }
-
+    .toast.show { opacity: 1; }
+    
+    /* Print Styles */
     @media print {
-      body {
-        background: white;
-        padding: 0;
-        margin: 0;
-      }
-      .dashboard, .action-bar, .footer-note, .btn-print-chapter, .print-all-btn, .info-note, .stats-row .stat, .chapters-grid, .print-header {
-        display: none !important;
-      }
-      .print-container {
-        display: block;
-        margin: 0;
-        padding: 0;
-      }
-      .print-chapter {
-        page-break-before: always;
-        margin: 0;
-        padding: 0.6in;
-      }
-      .print-chapter:first-child {
-        page-break-before: avoid;
-      }
-      /* Hide navigation elements in printed chapters */
-      .topbar, .sidebar, .site-footer, .toc-pills, .toc-wrap, .stats-strip, .hero-btns, .hero-panel, .topbar-right, .sidebar-nav-btns, .chapter-nav, .btn-row {
-        display: none !important;
-      }
-      .hero {
-        padding: 1rem !important;
-      }
-      .page-wrap {
-        display: block !important;
-        padding: 0 !important;
-      }
-      .sidebar {
-        display: none;
-      }
+      body * { visibility: hidden; }
+      #printContainer, #printContainer * { visibility: visible; }
+      #printContainer { position: absolute; top: 0; left: 0; width: 100%; }
+      .no-print { display: none !important; }
+      @page { margin: 1.5cm; }
     }
+    
+    .footer-note { text-align: center; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #dce5ec; color: #7a8e9c; font-size: 0.8rem; }
   </style>
 </head>
 <body>
 
 <div class="dashboard">
   <div class="print-header">
-    <div class="title-badge">
-      <i class="fas fa-print"></i> PRINT & BIND · COMPLETE BOOK
-    </div>
-    <h1>Basics of <em>Digital Literacy</em><br>Complete Print Edition</h1>
-    <div class="header-desc">
-      Print the entire book or select individual chapters. All chapters are formatted for binding — 
-      ready to print, staple, spiral bind, or take to a professional print shop.
-    </div>
+    <h1>Print Your <em>Digital Literacy</em> Book</h1>
+    <p style="margin: 0.5rem 0 1rem; opacity: 0.8;">Select chapters, preview, and print a professionally formatted book with page numbers and chapter footers.</p>
     <div class="stats-row">
-      <div class="stat"><i class="fas fa-book-open"></i> 8 Chapters + Resources</div>
-      <div class="stat"><i class="fas fa-file-alt"></i> Complete course content</div>
+      <div class="stat"><i class="fas fa-book"></i> 8 Chapters</div>
+      <div class="stat"><i class="fas fa-file-alt"></i> 300+ Pages</div>
       <div class="stat"><i class="fas fa-flag-kenya"></i> Kenyan Context</div>
-      <div class="stat"><i class="fas fa-download"></i> Print & bind ready</div>
+      <div class="stat"><i class="fas fa-print"></i> Print-Ready</div>
     </div>
   </div>
 
   <div class="action-bar">
-    <div class="info-note">
-      <i class="fas fa-lightbulb"></i> Click any chapter to print it separately, or use "Print All" for the full book.
-    </div>
-    <button class="print-all-btn" id="printAllBtn">
-      <i class="fas fa-print"></i> PRINT ALL CHAPTERS (FULL BOOK)
-    </button>
-  </div>
-
-  <div class="chapters-grid">
-    <div class="chapter-card">
-      <div class="card-header"><div class="card-icon" style="background:#e8f0fe; color:#1a4b6e;"><i class="fas fa-desktop"></i></div><h3>Chapter 1 · Introduction</h3></div>
-      <div class="card-body"><div class="chapter-meta"><span><i class="far fa-clock"></i> ~60 min</span><span><i class="fas fa-tasks"></i> 4 sections</span></div><div class="chapter-desc">Getting comfortable with a computer: turning on/off, mouse & keyboard mastery, desktop navigation, opening programs.</div><div class="card-actions"><button class="btn-print-chapter" data-chapter-id="ch1"><i class="fas fa-print"></i> Print this chapter</button></div></div>
-    </div>
-    <div class="chapter-card">
-      <div class="card-header"><div class="card-icon" style="background:#fff3e0; color:#c55a1c;"><i class="fas fa-folder-open"></i></div><h3>Chapter 2 · File Management</h3></div>
-      <div class="card-body"><div class="chapter-meta"><span><i class="far fa-clock"></i> ~45 min</span><span><i class="fas fa-tasks"></i> 5 sections</span></div><div class="chapter-desc">Files, folders, USB drives, copy/move/delete, Recycle Bin, searching and organising like a pro.</div><div class="card-actions"><button class="btn-print-chapter" data-chapter-id="ch2"><i class="fas fa-print"></i> Print this chapter</button></div></div>
-    </div>
-    <div class="chapter-card">
-      <div class="card-header"><div class="card-icon" style="background:#e3f2fd; color:#0b5e9e;"><i class="fas fa-file-word"></i></div><h3>Chapter 3 · Microsoft Word</h3></div>
-      <div class="card-body"><div class="chapter-meta"><span><i class="far fa-clock"></i> ~90 min</span><span><i class="fas fa-tasks"></i> 8 sections</span></div><div class="chapter-desc">Create professional letters, CVs, reports: formatting, tables, images, headers, footers, printing.</div><div class="card-actions"><button class="btn-print-chapter" data-chapter-id="ch3"><i class="fas fa-print"></i> Print this chapter</button></div></div>
-    </div>
-    <div class="chapter-card">
-      <div class="card-header"><div class="card-icon" style="background:#e8f5e9; color:#1e6b3c;"><i class="fas fa-table"></i></div><h3>Chapter 4 · Microsoft Excel</h3></div>
-      <div class="card-body"><div class="chapter-meta"><span><i class="far fa-clock"></i> ~90 min</span><span><i class="fas fa-tasks"></i> 8 sections</span></div><div class="chapter-desc">Spreadsheets, formulas (SUM, AVERAGE, IF), charts, formatting, sorting, filtering, budgets.</div><div class="card-actions"><button class="btn-print-chapter" data-chapter-id="ch4"><i class="fas fa-print"></i> Print this chapter</button></div></div>
-    </div>
-    <div class="chapter-card">
-      <div class="card-header"><div class="card-icon" style="background:#fbe9e7; color:#b7472a;"><i class="fas fa-chalkboard"></i></div><h3>Chapter 5 · PowerPoint</h3></div>
-      <div class="card-body"><div class="chapter-meta"><span><i class="far fa-clock"></i> ~75 min</span><span><i class="fas fa-tasks"></i> 7 sections</span></div><div class="chapter-desc">Design stunning presentations: slides, themes, transitions, animations, speaker notes, slideshow mastery.</div><div class="card-actions"><button class="btn-print-chapter" data-chapter-id="ch5"><i class="fas fa-print"></i> Print this chapter</button></div></div>
-    </div>
-    <div class="chapter-card">
-      <div class="card-header"><div class="card-icon" style="background:#e0f7fa; color:#007c91;"><i class="fas fa-globe"></i></div><h3>Chapter 6 · Internet & Email</h3></div>
-      <div class="card-body"><div class="chapter-meta"><span><i class="far fa-clock"></i> ~75 min</span><span><i class="fas fa-tasks"></i> 7 sections</span></div><div class="chapter-desc">Browse safely, Google Search, Gmail, send attachments, avoid phishing, strong passwords.</div><div class="card-actions"><button class="btn-print-chapter" data-chapter-id="ch6"><i class="fas fa-print"></i> Print this chapter</button></div></div>
-    </div>
-    <div class="chapter-card">
-      <div class="card-header"><div class="card-icon" style="background:#ede7f6; color:#4a2c7a;"><i class="fas fa-passport"></i></div><h3>Chapter 7 · Online Portals</h3></div>
-      <div class="card-body"><div class="chapter-meta"><span><i class="far fa-clock"></i> ~90 min</span><span><i class="fas fa-tasks"></i> 8+ portals</span></div><div class="chapter-desc">eCitizen, KRA iTax, KUCCPS, HELB, NTSA, SHA — step-by-step with PayBill numbers and fees.</div><div class="card-actions"><button class="btn-print-chapter" data-chapter-id="ch7"><i class="fas fa-print"></i> Print this chapter</button></div></div>
-    </div>
-    <div class="chapter-card">
-      <div class="card-header"><div class="card-icon" style="background:#fff8e1; color:#b45f06;"><i class="fas fa-download"></i></div><h3>Resources · Templates</h3></div>
-      <div class="card-body"><div class="chapter-meta"><span><i class="fas fa-print"></i> Print-ready</span><span><i class="fas fa-tools"></i> 40+ resources</span></div><div class="chapter-desc">CV template, shortcut cards, PayBill directory, safety poster, checklists, compression guides.</div><div class="card-actions"><button class="btn-print-chapter" data-chapter-id="ch8"><i class="fas fa-print"></i> Print resources</button></div></div>
+    <div><i class="fas fa-info-circle"></i> Click any chapter to select/deselect. Use "Preview" to see the book layout before printing.</div>
+    <div style="display: flex; gap: 0.8rem;">
+      <button class="preview-btn" id="previewBtn"><i class="fas fa-eye"></i> Preview Book</button>
+      <button class="print-all-btn" id="printAllBtn"><i class="fas fa-print"></i> Print Selected</button>
     </div>
   </div>
 
+  <div id="chapterGrid" class="chapter-grid"></div>
   <div class="footer-note">
-    <i class="fas fa-book"></i> All chapters formatted for print — perfect for binding, classroom, or cybercafé reference.<br>
-    © 2026 Castro Odhiambo · Basics of Digital Literacy · Free to print and share for educational use.
+    <i class="fas fa-book"></i> Each chapter includes its own footer with title and page number. Perfect for binding and professional presentation.<br>
+    © 2026 Castro Odhiambo · Basics of Digital Literacy
   </div>
 </div>
 
-<div id="printAllContainer" class="print-container"></div>
+<div class="summary-bar" id="summaryBar">
+  <div><span class="count" id="selectedCount">0</span> chapters selected</div>
+  <div><i class="fas fa-file-alt"></i> <span id="pageEstimate">0</span> estimated pages</div>
+  <button id="summaryPrintBtn"><i class="fas fa-print"></i> Print</button>
+</div>
+
+<div class="modal" id="previewModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3><i class="fas fa-eye"></i> Print Preview</h3>
+      <button style="background: none; border: none; color: white; font-size: 1.2rem; cursor: pointer;" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div id="previewInfo"></div>
+      <div class="modal-option" onclick="startPrintFromPreview()">
+        <i class="fas fa-print" style="color: #1e5c8a;"></i>
+        <span><strong>Print Selected Chapters</strong><br>Generate the full book and send to printer</span>
+      </div>
+      <div class="modal-option" onclick="closeModal()">
+        <i class="fas fa-chevron-left"></i>
+        <span>Back to selection</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="spinner"></div>
+  <div style="color: white; font-size: 1rem;">Preparing your book...</div>
+  <div style="color: #f5a623; font-size: 0.8rem;" id="loadStatus">Loading chapters</div>
+</div>
+
+<div class="toast" id="toast">Ready to print!</div>
+<div id="printContainer" style="display: none;"></div>
 
 <script>
-  // Complete chapter content embedded directly (from your files)
-  // To keep this manageable, I'm including the full content of each chapter.
-  // Since the files are large, I'll reference them via fetch but with proper error handling.
-  // For guaranteed local printing without server issues, the chapters are embedded.
-  
-  // Chapter HTML content (embedded from your provided files)
-  // Note: For brevity in this response, I'm showing the structure. 
-  // In the actual implementation, each chapter's full HTML would be embedded.
-  
-  // Function to print a single chapter by ID (using fetch to load the actual file)
-  // This works because all chapter files are in the same directory.
-  async function printSingleChapter(chapterFile, title) {
-    try {
-      const response = await fetch(chapterFile);
-      if (!response.ok) throw new Error(`Could not load ${chapterFile}`);
-      let html = await response.text();
-      
-      // Add print-specific styles
-      const printStyle = `<style media="print">
-        .topbar, .sidebar, .site-footer, .toc-pills, .toc-wrap, .stats-strip, .hero-btns, .hero-panel, .topbar-right, .sidebar-nav-btns, .chapter-nav, .btn-row, .nav-btn, .toc-link, .sb-nav-btn, .sb-link, .topbar-nav { display: none !important; }
-        body { margin: 0; padding: 0.5in; background: white; }
-        .hero { padding: 1rem 0 !important; background: none !important; color: black !important; }
-        .hero h1, .hero .chapter-eyebrow { color: black !important; }
-        .page-wrap { display: block !important; padding: 0 !important; }
-        .sidebar { display: none; }
-        .content { width: 100% !important; }
-        .content-card, .intro-card, .chapter-summary { break-inside: avoid; }
-      </style>`;
-      
-      html = html.replace('</head>', printStyle + '</head>');
-      
-      const win = window.open('', '_blank', 'width=1000,height=800,toolbar=yes,menubar=yes,scrollbars=yes');
-      win.document.write(html);
-      win.document.close();
-      win.focus();
-      win.onload = () => { win.print(); };
-    } catch (err) {
-      alert(`Error loading ${chapterFile}. Make sure all chapter HTML files are in the same folder as this page.\n${err.message}`);
-    }
-  }
+  // ============================================
+  // CHAPTER DATA
+  // ============================================
+  const CHAPTERS = [
+    { id: 1, file: "Introduction.html", title: "Getting Comfortable with a Computer", shortTitle: "Introduction", icon: "fa-desktop", color: "#1e5c8a", pages: 35 },
+    { id: 2, file: "File_Management.html", title: "File & Folder Management", shortTitle: "File Management", icon: "fa-folder-open", color: "#2a6b4a", pages: 30 },
+    { id: 3, file: "Word.html", title: "Microsoft Word", shortTitle: "Microsoft Word", icon: "fa-file-word", color: "#1a4b8a", pages: 50 },
+    { id: 4, file: "Excel.html", title: "Microsoft Excel", shortTitle: "Microsoft Excel", icon: "fa-table", color: "#1e6b3c", pages: 55 },
+    { id: 5, file: "Powerpoint.html", title: "Microsoft PowerPoint", shortTitle: "PowerPoint", icon: "fa-chalkboard", color: "#b84a0e", pages: 45 },
+    { id: 6, file: "Internet_and_Email.html", title: "Internet & Email", shortTitle: "Internet & Email", icon: "fa-globe", color: "#0e5b6e", pages: 60 },
+    { id: 7, file: "Online_navigation.html", title: "Online Portals & Government Services", shortTitle: "Online Portals", icon: "fa-university", color: "#3a4d8b", pages: 55 },
+    { id: 8, file: "Downloads_and_Templates.html", title: "Downloads, Templates & Resources", shortTitle: "Downloads & Templates", icon: "fa-download", color: "#1e4d20", pages: 40 }
+  ];
 
-  // Map buttons to chapter files
-  const chapterFiles = {
-    ch1: 'Introduction.html',
-    ch2: 'File_Management.html',
-    ch3: 'Word.html',
-    ch4: 'Excel.html',
-    ch5: 'Powerpoint.html',
-    ch6: 'Internet_and_Email.html',
-    ch7: 'Online_navigation.html',
-    ch8: 'Downloads_and_Tempelates.html'
-  };
+  let selectedChapters = new Set(); // store indices
+  let chapterCache = {};
 
-  // Attach print handlers
-  document.querySelectorAll('.btn-print-chapter').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const chId = btn.getAttribute('data-chapter-id');
-      const filename = chapterFiles[chId];
-      if (filename) {
-        printSingleChapter(filename, '');
-      } else {
-        alert('Chapter file not found');
-      }
+  // ============================================
+  // RENDER CHAPTER GRID
+  // ============================================
+  function renderGrid() {
+    const grid = document.getElementById('chapterGrid');
+    grid.innerHTML = '';
+    CHAPTERS.forEach((ch, idx) => {
+      const isSelected = selectedChapters.has(idx);
+      const card = document.createElement('div');
+      card.className = `chapter-card ${isSelected ? 'selected' : ''}`;
+      card.onclick = (e) => {
+        if (e.target.closest('.print-chapter-btn')) return;
+        toggleChapter(idx);
+      };
+      card.innerHTML = `
+        <div class="card-header">
+          <div class="card-icon" style="background: ${ch.color};"><i class="fas ${ch.icon}"></i></div>
+          <div style="flex:1">
+            <div style="font-size:0.7rem; color:#7a8e9c;">Chapter ${ch.id}</div>
+            <h3>${ch.title}</h3>
+          </div>
+          <div class="checkbox ${isSelected ? 'selected' : ''}"></div>
+        </div>
+        <div class="card-body">
+          <div class="chapter-desc">Complete coverage of ${ch.shortTitle} with practical exercises, examples, and Kenyan context.</div>
+          <div class="chapter-meta">
+            <span><i class="fas fa-file-alt"></i> ~${ch.pages} pages</span>
+            <span><i class="fas fa-tasks"></i> Hands-on exercises</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span style="font-size:0.7rem; color:#7a8e9c;">${ch.file}</span>
+          <button class="print-chapter-btn" data-idx="${idx}"><i class="fas fa-print"></i> Print Only</button>
+        </div>
+      `;
+      const printBtn = card.querySelector('.print-chapter-btn');
+      printBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        printSingleChapter(idx);
+      });
+      grid.appendChild(card);
     });
-  });
-
-  // Print all chapters sequentially
-  async function printAllChapters() {
-    const allChapters = [
-      'Introduction.html',
-      'File_Management.html',
-      'Word.html',
-      'Excel.html',
-      'Powerpoint.html',
-      'Internet_and_Email.html',
-      'Online_navigation.html',
-      'Downloads_and_Tempelates.html'
-    ];
-    
-    const container = document.getElementById('printAllContainer');
-    container.innerHTML = '';
-    
-    let combinedHtml = `<!DOCTYPE html>
-    <html>
-    <head><meta charset="UTF-8"><title>Digital Literacy - Complete Book</title>
-    <style>
-      @media print {
-        body { margin: 0; padding: 0.5in; background: white; }
-        .print-chapter { page-break-before: always; }
-        .print-chapter:first-child { page-break-before: avoid; }
-        .topbar, .sidebar, .site-footer, .toc-pills, .toc-wrap, .stats-strip, .hero-btns, .hero-panel, .topbar-right, .sidebar-nav-btns, .chapter-nav, .btn-row, .nav-btn, .toc-link, .sb-nav-btn, .sb-link, .topbar-nav { display: none !important; }
-        .hero { padding: 1rem 0 !important; background: none !important; }
-        .page-wrap { display: block !important; padding: 0 !important; }
-        .sidebar { display: none; }
-      }
-      body { font-family: 'Inter', sans-serif; }
-      .cover-page { text-align: center; margin-bottom: 2rem; }
-    </style>
-    </head>
-    <body>
-    <div class="cover-page">
-      <h1 style="font-family:'Fraunces',serif;">Basics of Digital Literacy</h1>
-      <p>Complete Course Book · Kenyan Edition</p>
-      <p>Castro Odhiambo · Printed on ${new Date().toLocaleDateString()}</p>
-    </div>`;
-    
-    for (const file of allChapters) {
-      try {
-        const resp = await fetch(file);
-        if (!resp.ok) throw new Error(`Failed to load ${file}`);
-        let html = await resp.text();
-        // Remove navigation elements for cleaner print
-        html = html.replace(/<nav class="topbar">[\s\S]*?<\/nav>/gi, '');
-        html = html.replace(/<aside class="sidebar">[\s\S]*?<\/aside>/gi, '');
-        html = html.replace(/<footer class="site-footer">[\s\S]*?<\/footer>/gi, '');
-        html = html.replace(/<div class="chapter-nav">[\s\S]*?<\/div>/gi, '');
-        html = html.replace(/<div class="toc-pills">[\s\S]*?<\/div>/gi, '');
-        html = html.replace(/<div class="toc-wrap">[\s\S]*?<\/div>/gi, '');
-        html = html.replace(/<div class="stats-strip">[\s\S]*?<\/div>/gi, '');
-        combinedHtml += `<div class="print-chapter">${html}</div>`;
-      } catch (err) {
-        combinedHtml += `<div class="print-chapter"><h2>Error loading ${file}</h2><p>Make sure all chapter files are in the same folder.</p></div>`;
-      }
-    }
-    combinedHtml += `</body></html>`;
-    
-    const printWin = window.open('', '_blank', 'width=1000,height=800,toolbar=yes,menubar=yes');
-    printWin.document.write(combinedHtml);
-    printWin.document.close();
-    printWin.focus();
-    printWin.onload = () => { printWin.print(); };
+    updateSummaryBar();
   }
 
-  document.getElementById('printAllBtn').addEventListener('click', printAllChapters);
+  function toggleChapter(idx) {
+    if (selectedChapters.has(idx)) selectedChapters.delete(idx);
+    else selectedChapters.add(idx);
+    renderGrid();
+  }
+
+  function selectAll() {
+    for (let i = 0; i < CHAPTERS.length; i++) selectedChapters.add(i);
+    renderGrid();
+  }
+
+  function updateSummaryBar() {
+    const count = selectedChapters.size;
+    const bar = document.getElementById('summaryBar');
+    const selectedCountSpan = document.getElementById('selectedCount');
+    const pageEstimateSpan = document.getElementById('pageEstimate');
+    
+    selectedCountSpan.textContent = count;
+    let totalPages = 0;
+    for (let idx of selectedChapters) totalPages += CHAPTERS[idx].pages;
+    // Add cover and TOC pages
+    if (count > 0) totalPages += 2;
+    pageEstimateSpan.textContent = totalPages;
+    
+    bar.classList.toggle('hidden', count === 0);
+  }
+
+  // ============================================
+  // FETCH CHAPTER CONTENT
+  // ============================================
+  async function fetchChapterContent(idx) {
+    if (chapterCache[idx]) return chapterCache[idx];
+    const ch = CHAPTERS[idx];
+    try {
+      const response = await fetch(ch.file);
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      let html = await response.text();
+      // Extract body content
+      const bodyMatch = html.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+      const bodyContent = bodyMatch ? bodyMatch[1] : html;
+      chapterCache[idx] = bodyContent;
+      return bodyContent;
+    } catch (err) {
+      console.error(`Failed to load ${ch.file}:`, err);
+      return `<div style="padding:1rem; color:red; border:1px solid red;">Error: Could not load "${ch.file}". Make sure all chapter HTML files are in the same folder as this dashboard.</div>`;
+    }
+  }
+
+  // ============================================
+  // BUILD COMPLETE PRINT DOCUMENT
+  // ============================================
+  async function buildPrintDocument(selectedIndices) {
+    const sorted = Array.from(selectedIndices).sort((a,b) => a - b);
+    let fullHtml = '';
+    
+    // COVER PAGE
+    const today = new Date().toLocaleDateString('en-KE');
+    fullHtml += `
+      <div style="text-align: center; padding: 3cm 2cm; page-break-after: always; border-bottom: 2px solid #1e5c8a;">
+        <div style="font-size: 48pt; margin-bottom: 0.5cm;">📚</div>
+        <div style="font-size: 10pt; letter-spacing: 0.2em; text-transform: uppercase; color: #1e5c8a;">Basics of Digital Literacy</div>
+        <h1 style="font-family: 'Georgia', serif; font-size: 32pt; margin: 0.8cm 0 0.3cm; color: #0a1a2a;">Complete Course Book</h1>
+        <div style="font-size: 14pt; color: #f5a623; font-style: italic; margin-bottom: 0.5cm;">From Computer Basics to Government Portals</div>
+        <div style="margin: 1.5cm 0; border-top: 1px solid #ccc; width: 5cm; margin-left: auto; margin-right: auto;"></div>
+        <div style="font-size: 11pt;"><strong>Author:</strong> Castro Odhiambo</div>
+        <div style="font-size: 11pt;"><strong>Student:</strong> _________________________</div>
+        <div style="font-size: 10pt; margin-top: 0.5cm;">Printed: ${today}</div>
+        <div style="margin-top: 1.5cm; font-size: 9pt; color: #666;">
+          <strong>Chapters included:</strong><br>
+          ${sorted.map(i => `Chapter ${CHAPTERS[i].id}: ${CHAPTERS[i].title}`).join('<br>')}
+        </div>
+      </div>
+    `;
+    
+    // TABLE OF CONTENTS
+    fullHtml += `
+      <div style="page-break-after: always; padding: 1.5cm;">
+        <h2 style="font-family: 'Georgia', serif; font-size: 20pt; color: #0a1a2a; border-bottom: 2px solid #1e5c8a; padding-bottom: 0.3cm;">Table of Contents</h2>
+        <table style="width: 100%; margin-top: 1cm; border-collapse: collapse;">
+          ${sorted.map(i => `<tr><td style="padding: 0.3cm 0;"><strong>Chapter ${CHAPTERS[i].id}</strong></td><td>${CHAPTERS[i].title}</td><td style="text-align: right;">~${CHAPTERS[i].pages} pages</td></tr>`).join('')}
+        </table>
+        <p style="margin-top: 1cm; font-size: 9pt; color: #888;">Page numbers are generated by your browser during printing.</p>
+      </div>
+    `;
+    
+    // LOAD AND ADD EACH CHAPTER
+    const loadStatus = document.getElementById('loadStatus');
+    for (let i = 0; i < sorted.length; i++) {
+      const idx = sorted[i];
+      const ch = CHAPTERS[idx];
+      if (loadStatus) loadStatus.textContent = `Loading Chapter ${ch.id}: ${ch.shortTitle}...`;
+      const content = await fetchChapterContent(idx);
+      
+      // Add chapter divider page
+      fullHtml += `
+        <div style="page-break-before: always; page-break-after: avoid; text-align: center; padding: 2.5cm 1cm;">
+          <div style="font-size: 48pt; color: #dce5ec; font-weight: bold;">${ch.id}</div>
+          <div style="font-size: 10pt; letter-spacing: 0.2em; color: #1e5c8a;">CHAPTER ${ch.id}</div>
+          <h2 style="font-family: 'Georgia', serif; font-size: 24pt; margin: 0.5cm 0; color: #0a1a2a;">${ch.title}</h2>
+          <div style="width: 3cm; height: 2px; background: #f5a623; margin: 0.5cm auto;"></div>
+          <p style="color: #5a6e7c;">A complete guide to mastering ${ch.shortTitle} with practical exercises and real-world examples.</p>
+        </div>
+      `;
+      
+      // Add chapter content with wrapper that includes footer
+      fullHtml += `
+        <div class="print-chapter" style="page-break-after: always; position: relative;">
+          ${content}
+          <div style="margin-top: 1.5cm; padding-top: 0.3cm; border-top: 1px solid #ddd; font-size: 9pt; color: #888; text-align: center;">
+            Chapter ${ch.id}: ${ch.title} &nbsp;|&nbsp; <span class="page-number"></span>
+          </div>
+        </div>
+      `;
+    }
+    
+    // Add CSS for print
+    const printStyles = `
+      <style>
+        @media print {
+          body { margin: 0; padding: 0; }
+          .page-number { content: counter(page); }
+          @page { margin: 1.5cm; }
+          @page :first { margin-top: 2.5cm; }
+          h1, h2, h3, h4 { page-break-after: avoid; }
+          table, .content-card, .practice-box, .callout { page-break-inside: avoid; }
+          /* Hide navigation elements from original chapters */
+          .topbar, .sidebar, .site-footer, .chapter-nav, .toc-pills, .hero-btns, .btn-row, nav, .topbar-right { display: none !important; }
+          .hero { background: none !important; color: #0a1a2a !important; padding: 0.5cm 0 !important; }
+          .hero h1, .hero p { color: #0a1a2a !important; }
+          .page-wrap { display: block !important; padding: 0 !important; }
+          .sidebar { display: none; }
+          .content { width: 100% !important; }
+        }
+        body { font-family: 'Georgia', 'Times New Roman', serif; line-height: 1.6; }
+        table { border-collapse: collapse; width: 100%; margin: 0.5cm 0; }
+        th, td { border: 1px solid #ccc; padding: 0.3cm; }
+        th { background: #1e5c8a; color: white; }
+        .content-card, .intro-card, .chapter-summary { margin: 0.5cm 0; padding: 0.5cm; border: 1px solid #ddd; border-radius: 0.3cm; }
+        .callout { border-left: 4px solid #f5a623; background: #f9f9f9; padding: 0.3cm 0.5cm; margin: 0.4cm 0; }
+        code, .key { font-family: monospace; background: #f0f0f0; padding: 0.1cm 0.2cm; border-radius: 0.2cm; }
+      </style>
+    `;
+    
+    return `<!DOCTYPE html>
+    <html>
+    <head><meta charset="UTF-8"><title>Basics of Digital Literacy - Complete Book</title>${printStyles}</head>
+    <body>${fullHtml}</body>
+    </html>`;
+  }
+
+  // ============================================
+  // PRINT FUNCTIONS
+  // ============================================
+  let isLoading = false;
+  
+  async function startPrint() {
+    if (selectedChapters.size === 0) {
+      showToast('Please select at least one chapter to print', 'error');
+      return;
+    }
+    if (isLoading) return;
+    isLoading = true;
+    
+    const overlay = document.getElementById('loadingOverlay');
+    overlay.classList.add('show');
+    
+    try {
+      const printHtml = await buildPrintDocument(selectedChapters);
+      const printWindow = window.open('', '_blank', 'width=1000,height=800,toolbar=yes,menubar=yes');
+      printWindow.document.write(printHtml);
+      printWindow.document.close();
+      printWindow.focus();
+      printWindow.onload = () => {
+        setTimeout(() => {
+          printWindow.print();
+          showToast(`Printing ${selectedChapters.size} chapter(s)...`, 'success');
+        }, 500);
+      };
+    } catch (err) {
+      console.error(err);
+      showToast('Error preparing print. Check that all chapter files exist.', 'error');
+    } finally {
+      overlay.classList.remove('show');
+      isLoading = false;
+    }
+  }
+  
+  async function printSingleChapter(idx) {
+    if (isLoading) return;
+    isLoading = true;
+    const overlay = document.getElementById('loadingOverlay');
+    overlay.classList.add('show');
+    const loadStatus = document.getElementById('loadStatus');
+    
+    try {
+      const ch = CHAPTERS[idx];
+      if (loadStatus) loadStatus.textContent = `Loading ${ch.title}...`;
+      const content = await fetchChapterContent(idx);
+      
+      const singleHtml = `
+        <!DOCTYPE html>
+        <html>
+        <head><meta charset="UTF-8"><title>Chapter ${ch.id}: ${ch.title}</title>
+        <style>
+          @media print {
+            body { margin: 1.5cm; }
+            .topbar, .sidebar, .site-footer, .chapter-nav, .toc-pills, .hero-btns, .btn-row, nav { display: none !important; }
+            .hero { background: none !important; color: #0a1a2a !important; padding: 0.5cm 0 !important; }
+            .page-wrap { display: block !important; padding: 0 !important; }
+            .sidebar { display: none; }
+          }
+          body { font-family: 'Georgia', serif; line-height: 1.6; }
+          table { border-collapse: collapse; width: 100%; }
+          th, td { border: 1px solid #ccc; padding: 0.3cm; }
+          th { background: #1e5c8a; color: white; }
+          .content-card, .intro-card { margin: 0.5cm 0; padding: 0.5cm; border: 1px solid #ddd; }
+        </style>
+        </head>
+        <body>
+          <div style="text-align: center; margin-bottom: 0.8cm; border-bottom: 2px solid #1e5c8a; padding-bottom: 0.3cm;">
+            <div style="font-size: 9pt; color: #1e5c8a;">BASICS OF DIGITAL LITERACY</div>
+            <h1 style="margin: 0.2cm 0;">Chapter ${ch.id}: ${ch.title}</h1>
+            <div style="font-size: 9pt;">Castro Odhiambo</div>
+          </div>
+          ${content}
+          <div style="margin-top: 1cm; padding-top: 0.3cm; border-top: 1px solid #ccc; font-size: 8pt; text-align: center; color: #666;">
+            Chapter ${ch.id}: ${ch.title} · Page <span class="page-number"></span> · Basics of Digital Literacy © 2026
+          </div>
+        </body>
+        </html>
+      `;
+      
+      const printWindow = window.open('', '_blank', 'width=1000,height=800');
+      printWindow.document.write(singleHtml);
+      printWindow.document.close();
+      printWindow.focus();
+      printWindow.onload = () => {
+        setTimeout(() => printWindow.print(), 300);
+        showToast(`Printing Chapter ${ch.id}: ${ch.shortTitle}`, 'success');
+      };
+    } catch (err) {
+      console.error(err);
+      showToast('Error loading chapter for printing', 'error');
+    } finally {
+      overlay.classList.remove('show');
+      isLoading = false;
+    }
+  }
+  
+  function showToast(msg, type = 'success') {
+    const toast = document.getElementById('toast');
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 3000);
+  }
+  
+  function previewBook() {
+    if (selectedChapters.size === 0) {
+      showToast('Select chapters first to preview', 'error');
+      return;
+    }
+    const modal = document.getElementById('previewModal');
+    const previewInfo = document.getElementById('previewInfo');
+    const totalPages = Array.from(selectedChapters).reduce((sum, idx) => sum + CHAPTERS[idx].pages, 0) + 2;
+    const chaptersList = Array.from(selectedChapters).sort((a,b)=>a-b).map(i => `Chapter ${CHAPTERS[i].id}: ${CHAPTERS[i].shortTitle}`).join('<br>');
+    previewInfo.innerHTML = `
+      <div style="margin-bottom: 1rem;">
+        <strong>${selectedChapters.size} chapters selected</strong><br>
+        ~${totalPages} estimated pages<br><br>
+        <div style="font-size: 0.85rem; background: #f0f4f8; padding: 0.8rem; border-radius: 0.8rem;">
+          ${chaptersList}
+        </div>
+        <div style="margin-top: 0.8rem; font-size: 0.8rem; color: #5a6e7c;">
+          <i class="fas fa-check-circle"></i> Each chapter includes a footer with title and page number<br>
+          <i class="fas fa-check-circle"></i> Cover page and table of contents will be included<br>
+          <i class="fas fa-check-circle"></i> Perfect for binding or stapling
+        </div>
+      </div>
+    `;
+    modal.classList.add('show');
+  }
+  
+  function closeModal() {
+    document.getElementById('previewModal').classList.remove('show');
+  }
+  
+  function startPrintFromPreview() {
+    closeModal();
+    startPrint();
+  }
+  
+  // ============================================
+  // INITIALIZE
+  // ============================================
+  document.getElementById('printAllBtn').addEventListener('click', startPrint);
+  document.getElementById('summaryPrintBtn').addEventListener('click', startPrint);
+  document.getElementById('previewBtn').addEventListener('click', previewBook);
+  
+  // Auto-select all chapters on load for convenience
+  for (let i = 0; i < CHAPTERS.length; i++) selectedChapters.add(i);
+  renderGrid();
+  
+  // Pre-cache first chapter
+  setTimeout(() => fetchChapterContent(0), 1000);
 </script>
 </body>
 </html>
